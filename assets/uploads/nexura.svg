@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <pattern id="g" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M60 0H0V60" fill="none" stroke="#fff" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1200" height="800" fill="#3f3a37"/>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <g transform="translate(600 300)">
+    <path d="M0-110 95-55V0L48-27 0-55-22-68Z" fill="#fff"/>
+    <path d="M0-110 95-55V0L48-27 0-55-22-68Z" fill="#e4e4e4" transform="rotate(120)"/>
+    <path d="M0-110 95-55V0L48-27 0-55-22-68Z" fill="#bfbfbf" transform="rotate(240)"/>
+  </g>
+  <text x="600" y="560" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-weight="600" font-size="120" letter-spacing="8" fill="#fff">NEXURA</text>
+  <text x="600" y="625" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="30" letter-spacing="2" fill="#fff" fill-opacity=".7">Creating Intelligent Solutions</text>
+</svg>

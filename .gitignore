@@ -1,0 +1,10 @@
+.claude/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# Design explorations — kept on this computer only, never uploaded
+samples/
+versions/

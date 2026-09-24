@@ -1,0 +1,263 @@
+{
+  "roles": [
+    "Product designer",
+    "UI/UX designer",
+    "Logo designer",
+    "Motion designer"
+  ],
+  "filters": [
+    {
+      "id": "uiux",
+      "label": "UI/UX"
+    },
+    {
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "id": "brand",
+      "label": "Branding"
+    }
+  ],
+  "projects": [
+    {
+      "id": "milton",
+      "name": "Milton",
+      "type": "E-commerce website",
+      "category": "UI/UX",
+      "tags": [
+        "E-commerce",
+        "UI/UX"
+      ],
+      "filters": [
+        "uiux",
+        "product"
+      ],
+      "image": "/assets/uploads/milton.svg",
+      "alt": "Milton e-commerce website design with product listing and campaign hero",
+      "description": "An e-commerce experience for Milton's bottles and flasks — clear category navigation, a bold campaign hero and product cards that put price and key details up front.",
+      "status": "live",
+      "featured": true,
+      "link": "contact.html?service=UI%2FUX%20design"
+    },
+    {
+      "id": "nexura",
+      "name": "Nexura",
+      "type": "Logo & identity",
+      "category": "Branding",
+      "tags": [
+        "Brand identity",
+        "Logo"
+      ],
+      "filters": [
+        "brand"
+      ],
+      "image": "/assets/uploads/nexura.svg",
+      "alt": "Nexura logo — a folded hexagonal mark with the tagline Creating Intelligent Solutions",
+      "description": "A logo and identity for Nexura — “Creating Intelligent Solutions”. A folded, hexagonal mark that reads as both structure and motion.",
+      "status": "live",
+      "featured": true,
+      "link": "contact.html?service=Logo%20design"
+    },
+    {
+      "id": "ierp",
+      "name": "IERP",
+      "type": "Product",
+      "category": "Product design",
+      "tags": [
+        "Product",
+        "Coming soon"
+      ],
+      "filters": [
+        "product",
+        "uiux"
+      ],
+      "image": "",
+      "alt": "",
+      "description": "Full case study coming soon.",
+      "status": "ongoing",
+      "featured": true,
+      "link": "contact.html"
+    }
+  ],
+  "services": [
+    {
+      "id": "product",
+      "name": "Product design",
+      "letter": "P",
+      "subtitle": "From problem to shipped feature",
+      "summary": "Shaping a product from the problem up — understanding users, mapping flows and turning ideas into something that ships.",
+      "skills": [
+        "User research",
+        "User flows",
+        "Wireframing",
+        "Prototyping"
+      ],
+      "description": "Understanding users, mapping flows and turning ideas into something that ships.",
+      "deliverables": [
+        "User research & audits",
+        "User flows & IA",
+        "Wireframes & prototypes"
+      ]
+    },
+    {
+      "id": "uiux",
+      "name": "UI/UX design",
+      "letter": "U",
+      "subtitle": "Web · Mobile · Design systems",
+      "summary": "Clean, accessible interfaces for web and mobile, built on reusable components so the product stays consistent as it grows.",
+      "skills": [
+        "Web & mobile UI",
+        "Design systems",
+        "Accessibility",
+        "Dev handoff"
+      ],
+      "description": "Clean, accessible interfaces built on reusable components so the product stays consistent as it grows.",
+      "deliverables": [
+        "Web & mobile UI",
+        "Design systems",
+        "Developer handoff"
+      ]
+    },
+    {
+      "id": "logo",
+      "name": "Logo design",
+      "letter": "L",
+      "subtitle": "Marks · Identity · Guidelines",
+      "summary": "Distinctive marks and identity systems that make a brand instantly recognisable — like the Nexura identity.",
+      "skills": [
+        "Logo & mark",
+        "Colour & type",
+        "Brand guidelines"
+      ],
+      "description": "Distinctive marks and identity systems that make a brand instantly recognisable — like the Nexura identity.",
+      "deliverables": [
+        "Logo & mark",
+        "Colour & typography",
+        "Brand guidelines"
+      ]
+    },
+    {
+      "id": "motion",
+      "name": "Motion design",
+      "letter": "M",
+      "subtitle": "UI · Logos · Social",
+      "summary": "Animation that gives products and brands personality, from small UI details to animated logos.",
+      "skills": [
+        "Micro-interactions",
+        "Logo animation",
+        "Motion for social"
+      ],
+      "description": "Animation that gives products and brands personality, from micro-interactions to animated logos.",
+      "deliverables": [
+        "Micro-interactions",
+        "Logo animation",
+        "Motion for web & social"
+      ]
+    }
+  ],
+  "process": [
+    {
+      "name": "Discover",
+      "text": "We talk about your goals, your users and what success looks like.",
+      "items": [
+        "Kick-off call",
+        "Stakeholder goals",
+        "User research",
+        "Competitor audit"
+      ]
+    },
+    {
+      "name": "Define",
+      "text": "Flows, structure and wireframes to agree on direction early — before any pixels are polished.",
+      "items": [
+        "User flows",
+        "Information architecture",
+        "Wireframes"
+      ]
+    },
+    {
+      "name": "Design",
+      "text": "Visual design, prototypes and the components behind them, tested and refined with you.",
+      "items": [
+        "UI design",
+        "Prototypes",
+        "Design system",
+        "Motion"
+      ]
+    },
+    {
+      "name": "Deliver",
+      "text": "Final files, developer handoff and support while it goes live.",
+      "items": [
+        "Dev handoff",
+        "Assets & specs",
+        "QA support"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "Figma",
+      "logo": {
+        "style": "figma"
+      },
+      "proficiency": 90,
+      "level": "Expert",
+      "frequency": "Daily",
+      "use": "Interfaces, prototypes and design systems"
+    },
+    {
+      "name": "Illustrator",
+      "logo": {
+        "style": "tile",
+        "letters": "Ai",
+        "tile": "#330000",
+        "color": "#ff9a00"
+      },
+      "proficiency": 85,
+      "level": "Advanced",
+      "frequency": "Very often",
+      "use": "Logos, icons and vector brand assets"
+    },
+    {
+      "name": "After Effects",
+      "logo": {
+        "style": "tile",
+        "letters": "Ae",
+        "tile": "#00005b",
+        "color": "#9999ff"
+      },
+      "proficiency": 75,
+      "level": "Advanced",
+      "frequency": "Often",
+      "use": "Logo animation and UI motion"
+    },
+    {
+      "name": "Premiere Pro",
+      "logo": {
+        "style": "tile",
+        "letters": "Pr",
+        "tile": "#00005b",
+        "color": "#9999ff"
+      },
+      "proficiency": 70,
+      "level": "Intermediate",
+      "frequency": "Regularly",
+      "use": "Editing showreels and social videos"
+    },
+    {
+      "name": "Photoshop",
+      "logo": {
+        "style": "tile",
+        "letters": "Ps",
+        "tile": "#001e36",
+        "color": "#31a8ff"
+      },
+      "proficiency": 60,
+      "level": "Intermediate",
+      "frequency": "Sometimes",
+      "use": "Image editing, mockups and retouching"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+# gk — content dashboard for the portfolio (Decap CMS)
+# Opens at /gk. Every change is saved to content.json in the GitHub repo and goes live after Netlify rebuilds (~1 min).
+
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/portfolio   # ← replace with your GitHub username/repository after creating it
+  branch: main
+  base_url: https://api.netlify.com      # Netlify handles the "Log in with GitHub" step
+
+# Lets you use /gk on your own computer without GitHub: run `npx decap-server` next to `python serve.py`
+local_backend: true
+
+site_url: https://kartikeyan.netlify.app   # ← change to your domain once it's connected
+display_url: https://kartikeyan.netlify.app
+logo_url: /assets/favicon.svg
+
+media_folder: assets/uploads      # uploaded images are stored here
+public_folder: /assets/uploads
+
+collections:
+  - name: site
+    label: Website content
+    editor:
+      preview: false
+    files:
+      - name: content
+        label: Projects, services & tools
+        file: content.json
+        format: json
+        fields:
+          # ---------------- Projects ----------------
+          - label: Projects
+            name: projects
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}} · {{fields.status}}"
+            hint: "Drag to reorder. Featured projects show on the Home page; all projects show on the Projects page."
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: ID, name: id, widget: string, hint: "Short, lowercase, no spaces — used in links (e.g. valam)" }
+              - { label: Project type, name: type, widget: string, hint: "e.g. E-commerce website, Logo & identity" }
+              - { label: Category, name: category, widget: string, hint: "Small label on the Home card, e.g. UI/UX" }
+              - { label: Tags, name: tags, widget: list, hint: "Comma separated, e.g. E-commerce, UI/UX" }
+              - { label: Filters, name: filters, widget: list, hint: "Filter IDs from the Filters list, comma separated: uiux, product, brand" }
+              - { label: Image, name: image, widget: image, required: false, hint: "Leave empty for ongoing projects without visuals" }
+              - { label: Image description (alt text), name: alt, widget: string, required: false }
+              - { label: Description, name: description, widget: text }
+              - label: Status
+                name: status
+                widget: select
+                default: live
+                options:
+                  - { label: "Live — shows “View project”", value: live }
+                  - { label: "Ongoing — shows “Coming soon” and an Ongoing badge", value: ongoing }
+              - { label: Show on Home page, name: featured, widget: boolean, default: true }
+              - { label: Link, name: link, widget: string, default: contact.html, hint: "Where the card goes when clicked on the Projects page" }
+
+          # ---------------- Services ----------------
+          - label: Services
+            name: services
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            hint: "Used on the Home expertise panels, the Services page and the contact form."
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: ID, name: id, widget: string, hint: "Short, lowercase, no spaces" }
+              - { label: Tile letter, name: letter, widget: string, hint: "One letter shown on the Services page" }
+              - { label: Subtitle, name: subtitle, widget: string, hint: "Services page, e.g. Web · Mobile · Design systems" }
+              - { label: Home summary, name: summary, widget: text, hint: "Text on the Home expertise panel" }
+              - { label: Home skills, name: skills, widget: list, hint: "Comma separated tags on the Home panel" }
+              - { label: Services page description, name: description, widget: text }
+              - { label: Deliverables, name: deliverables, widget: list, hint: "Comma separated tags on the Services page" }
+
+          # ---------------- Tools ----------------
+          - label: Tools
+            name: tools
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}} · {{fields.proficiency}}%"
+            hint: "Order = most used first. Shown in the glass folder on Home, About and Services."
+            fields:
+              - { label: Name, name: name, widget: string }
+              - label: Logo
+                name: logo
+                widget: object
+                fields:
+                  - label: Style
+                    name: style
+                    widget: select
+                    default: tile
+                    options:
+                      - { label: Figma mark, value: figma }
+                      - { label: Letter tile (like Adobe apps), value: tile }
+                      - { label: Uploaded image, value: image }
+                  - { label: Tile letters, name: letters, widget: string, required: false, hint: "For letter tiles, e.g. Ai" }
+                  - { label: Tile colour, name: tile, widget: color, required: false }
+                  - { label: Letter colour, name: color, widget: color, required: false }
+                  - { label: Logo image, name: image, widget: image, required: false, hint: "For uploaded image style (square PNG or SVG)" }
+              - { label: Proficiency (%), name: proficiency, widget: number, value_type: int, min: 0, max: 100 }
+              - label: Level
+                name: level
+                widget: select
+                options: [Expert, Advanced, Intermediate, Beginner]
+              - { label: How often you use it, name: frequency, widget: string, hint: "e.g. Daily, Often" }
+              - { label: What you use it for, name: use, widget: string }
+
+          # ---------------- Process ----------------
+          - label: Process steps
+            name: process
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Step name, name: name, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Items, name: items, widget: list, hint: "Comma separated" }
+
+          # ---------------- Hero + filters ----------------
+          - { label: Hero typing words, name: roles, widget: list, hint: "Comma separated words typed in the Home hero" }
+          - label: Project filters
+            name: filters
+            widget: list
+            summary: "{{fields.label}} ({{fields.id}})"
+            hint: "Buttons on the Projects page. Use the ID in a project's Filters field."
+            fields:
+              - { label: Button text, name: label, widget: string }
+              - { label: ID, name: id, widget: string }
