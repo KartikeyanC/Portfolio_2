@@ -1,4 +1,8 @@
 {
+  "theme": {
+    "accent": "blue",
+    "custom": "#1e9bff"
+  },
   "roles": [
     "Product designer",
     "UI/UX designer",

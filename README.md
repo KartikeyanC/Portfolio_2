@@ -5,6 +5,7 @@ A static portfolio site (Home, About, Projects, Services, Contact) with a conten
 - Projects, services, process steps, tools and the hero words live in **`content.json`**.
 - The **gk** dashboard at `/gk` edits `content.json` with forms (Decap CMS). Uploaded images go to `assets/uploads/`.
 - Design and layout live in `css/style.css`, `js/main.js` and the HTML pages.
+- **Site colour** is chosen in `/gk` → *Site colour*: Electric blue (default), Acid lime, Signal orange, Soft violet, or a Custom colour. Button and text shades are worked out automatically so text stays readable.
 
 ## Run it on your computer
 

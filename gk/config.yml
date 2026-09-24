@@ -28,6 +28,26 @@ collections:
         file: content.json
         format: json
         fields:
+          # ---------------- Site colour ----------------
+          - label: Site colour
+            name: theme
+            widget: object
+            collapsed: true
+            summary: "{{fields.accent}}"
+            hint: "Accent colour for the whole site — glow, K mark, buttons, panels, tools folder and footer. Goes live after Publish (about 1 minute)."
+            fields:
+              - label: Accent
+                name: accent
+                widget: select
+                default: blue
+                options:
+                  - { label: "Electric blue (default)", value: blue }
+                  - { label: "Acid lime", value: lime }
+                  - { label: "Signal orange", value: orange }
+                  - { label: "Soft violet", value: violet }
+                  - { label: "Custom — use the colour below", value: custom }
+              - { label: Custom colour, name: custom, widget: color, allowInput: true, default: "#1e9bff", required: false, hint: "Only used when Accent is Custom. Button and text shades are worked out automatically so text stays readable." }
+
           # ---------------- Projects ----------------
           - label: Projects
             name: projects

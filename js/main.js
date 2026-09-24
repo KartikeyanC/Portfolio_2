@@ -128,6 +128,44 @@
     console.error("Could not load content.json — run the site through a local server (python serve.py).", err);
   }
 
+  // Site colour (set in /gk → content.json "theme"). Presets live in css/style.css;
+  // a custom colour gets its button, text and folder shades worked out here.
+  const applyTheme = (theme = {}) => {
+    const root = document.documentElement, presets = ["lime", "orange", "violet"];
+    const VARS = ["--acc", "--acc-rgb", "--acc-deep", "--acc-btn", "--on-acc", "--on-acc-2", "--on-btn", "--on-fold", "--acc-text-dark", "--acc-text-light"];
+    VARS.forEach((v) => root.style.removeProperty(v));
+    let cache = { accent: "", vars: {} };
+    const hex = String(theme.custom || "").trim();
+    if (theme.accent === "custom" && /^#?[0-9a-f]{6}$/i.test(hex)) {
+      const rgb = hex.replace("#", "").match(/../g).map((h) => parseInt(h, 16));
+      const lum = (c) => { const [r, g, b] = c.map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+      const contrast = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x + 0.05) / (y + 0.05); };
+      const mix = (c, to, t) => c.map((v, i) => Math.round(v + (to[i] - v) * t));
+      const css = (c) => `rgb(${c.join(" ")})`;
+      const shift = (c, to, bg, min) => { let t = 0, out = c; while (contrast(out, bg) < min && t < 1) { t += 0.05; out = mix(c, to, t); } return out; };
+      const W = [255, 255, 255], K = [0, 0, 0];
+      const whiteText = contrast(rgb, W) >= contrast(rgb, [17, 17, 17]);
+      const onAcc = whiteText ? W : mix(rgb, K, 0.85);
+      const btn = whiteText ? shift(rgb, K, W, 4.5) : rgb;
+      cache = {
+        accent: "custom",
+        vars: {
+          "--acc": css(rgb), "--acc-rgb": rgb.join(" "), "--acc-deep": css(mix(rgb, K, 0.4)),
+          "--on-acc": css(onAcc), "--on-acc-2": whiteText ? "rgba(255,255,255,.86)" : css(mix(rgb, K, 0.7)),
+          "--acc-btn": css(btn), "--on-btn": css(onAcc), "--on-fold": css(whiteText ? W : onAcc),
+          "--acc-text-dark": css(shift(rgb, W, [0, 0, 0], 4.5)), "--acc-text-light": css(shift(rgb, K, [244, 244, 240], 4.5)),
+        },
+      };
+    } else if (presets.includes(theme.accent)) {
+      cache.accent = theme.accent;
+    }
+    if (cache.accent) root.dataset.accent = cache.accent; else delete root.dataset.accent;
+    Object.entries(cache.vars).forEach(([k, v]) => root.style.setProperty(k, v));
+    // Remember it so the next page load paints in the right colour straight away (see the <head> script)
+    try { localStorage.setItem("site-theme", JSON.stringify(cache)); } catch (e) {}
+  };
+  if (C.theme) applyTheme(C.theme);
+
   const live = C.projects.filter((p) => p.status !== "ongoing");
   const ongoing = C.projects.filter((p) => p.status === "ongoing");
 
