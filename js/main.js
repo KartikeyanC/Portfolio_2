@@ -642,12 +642,13 @@
       // finishing by the time the frame has mostly scrolled away. Skipped for reduced motion.
       coverSlide($(".cs-shot", caseBox));
 
-      // No gallery set in /gk → pick up assets/images/projects/<id>/gallery/1.jpg, 2.jpg … (stops at the first missing one)
+      // No gallery set in /gk → pick up assets/images/projects/<id>/gallery/1.jpg, 2.jpg … (stops at the first missing one).
+      // Not lazy: the section stays hidden (display: none) until a picture loads, and lazy pictures never load while hidden.
       const galBox = $("#csGallery");
       if (galBox && !gal.length) {
         const add = (n) => {
           const probe = document.createElement("div");
-          probe.innerHTML = autoImg(`${IMG}/projects/${p.id}/gallery/${n}`, "", ' loading="lazy"', "remove");
+          probe.innerHTML = autoImg(`${IMG}/projects/${p.id}/gallery/${n}`, "", "", "remove");
           const im = probe.firstElementChild;
           im.addEventListener("load", () => { galBox.hidden = false; if (n < 40) add(n + 1); }, { once: true });
           galBox.appendChild(im);
