@@ -959,7 +959,7 @@
   // About — bento: quick facts, disciplines and a sliding strip of work (project covers + one tile per craft)
   const factsBox = $('[data-render="facts"]');
   if (factsBox) {
-    const facts = [["Based in", S.location || "Chennai, India"], ["Crafts", pad(C.services.length)], ["Apps", pad((C.tools || []).length)], ["Remote", "Open to it"]];
+    const facts = [["Based in", S.location || "Chennai, India"], ["Crafts", pad(C.services.length)], ["Apps", pad((C.tools || []).filter((t) => t.group !== "ai").length)], ["Remote", "Open to it"]];
     factsBox.innerHTML = facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
   }
   const doesBox = $('[data-render="disciplines"]');
@@ -1457,20 +1457,26 @@
     ? '<svg viewBox="0 0 38 57" aria-hidden="true"><path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/><path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z"/><path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z"/><path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z"/><path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z"/></svg>'
     : `<svg viewBox="0 0 240 234" aria-hidden="true"><rect width="240" height="234" rx="42.5" fill="${esc(l.tile)}"/><text x="120" y="160" text-anchor="middle" fill="${esc(l.color)}" font-family="Inter Tight, Arial, sans-serif" font-weight="600" font-size="118" letter-spacing="-2">${esc(l.letters)}</text></svg>`;
 
-  const TOOLS = C.tools;
+  // tools with group "ai" form a separate "AI tools" list below the apps when the folder is open
+  const ALL = C.tools || [];
+  const TOOLS = ALL.filter((t) => t.group !== "ai"), AI = ALL.filter((t) => t.group === "ai");
   const stage = $("#toolsFolder");
-  if (stage && TOOLS.length) {
+  if (stage && ALL.length) {
+    const dense = ALL.length > 10; // icon beside text (wide screens) so everything fits the open folder
+    const proList = (list, from) => `<ul class="pro${dense ? " pro--dense" : ""}" style="--cols:${Math.min(5, list.length > 5 ? Math.ceil(list.length / 2) : list.length)}">${list.map((t, k) => `<li style="--o:${from + k}"><span class="ic"><span class="logo">${logoSvg(t.logo)}</span></span><b>${esc(t.name)}</b><p>${esc(t.use)}</p></li>`).join("")}</ul>`;
+    const counts = [TOOLS.length && `${TOOLS.length} apps`, AI.length && `${AI.length} AI tools`].filter(Boolean).join(" · ");
     if (!hover) $(".tfold__hint", stage).textContent = "Tap the folder, then tap the glass";
     const fan = (k) => (k % 2 ? -1 : 1) * Math.ceil(k / 2); // 0, -1, 1, -2, 2 … most used in the middle
     stage.insertAdjacentHTML("beforeend", `
       <div class="folder">
         <div class="folder__back"></div>
-        <div class="folder__items" aria-hidden="true">${TOOLS.slice(0, 5).map((t, k) => `<div class="fi" style="--i:${fan(k)};--o:${k};z-index:${5 - k}"><span class="logo">${logoSvg(t.logo)}</span><b>${esc(t.name)}</b></div>`).join("")}</div>
-        <button class="folder__front" type="button" aria-expanded="false" aria-controls="toolsZoom" aria-label="Open my tools"><span>My toolkit <i>Open</i></span><span style="display:block"><b>Tools</b><br><span>${TOOLS.length} apps · tap to see details</span></span></button>
+        <div class="folder__items" aria-hidden="true">${(TOOLS.length ? TOOLS : AI).slice(0, 5).map((t, k) => `<div class="fi" style="--i:${fan(k)};--o:${k};z-index:${5 - k}"><span class="logo">${logoSvg(t.logo)}</span><b>${esc(t.name)}</b></div>`).join("")}</div>
+        <button class="folder__front" type="button" aria-expanded="false" aria-controls="toolsZoom" aria-label="Open my tools"><span>My toolkit <i>Open</i></span><span style="display:block"><b>Tools</b><br><span>${counts} · tap to see details</span></span></button>
       </div>
       <div class="zoom" id="toolsZoom" role="region" aria-label="Tools I use"><div class="zoom__in" data-lenis-prevent>
         <div class="zoom__top"><div><small>Toolkit</small><h3>Tools I use</h3></div><button class="zoom__close" type="button">Close ✕</button></div>
-        <ul class="pro">${TOOLS.map((t, k) => `<li style="--o:${k}"><span class="ic"><span class="logo">${logoSvg(t.logo)}</span></span><b>${esc(t.name)}</b><p>${esc(t.use)}</p></li>`).join("")}</ul>
+        ${TOOLS.length ? proList(TOOLS, 0) : ""}
+        ${AI.length ? `<p class="pro__group">AI tools</p>${proList(AI, TOOLS.length)}` : ""}
       </div></div>`);
 
     const folder = $(".folder", stage), front = $(".folder__front", stage), back = $(".folder__back", stage);

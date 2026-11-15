@@ -362,10 +362,19 @@ collections:
             name: tools
             widget: list
             collapsed: true
-            summary: "{{fields.name}}"
-            hint: "Order = most used first. Shown in the glass folder on Home, About and Services."
+            summary: "{{fields.name}} · {{fields.group}}"
+            hint: "Order = most used first. Shown in the glass Tools folder on About: apps first, then a separate AI tools list below them."
             fields:
               - { label: Name, name: name, widget: string }
+              - label: List
+                name: group
+                widget: select
+                default: apps
+                required: false
+                hint: "Apps = main list. AI tools = the separate list shown below the apps."
+                options:
+                  - { label: Apps, value: apps }
+                  - { label: AI tools, value: ai }
               - label: Logo
                 name: logo
                 widget: object

@@ -1082,7 +1082,8 @@
       "proficiency": 90,
       "level": "Expert",
       "frequency": "Daily",
-      "use": "Interfaces, prototypes and design systems"
+      "use": "Interfaces, prototypes and design systems",
+      "group": "apps"
     },
     {
       "name": "Illustrator",
@@ -1095,7 +1096,8 @@
       "proficiency": 85,
       "level": "Advanced",
       "frequency": "Very often",
-      "use": "Logos, icons and vector brand assets"
+      "use": "Logos, icons and vector brand assets",
+      "group": "apps"
     },
     {
       "name": "After Effects",
@@ -1108,7 +1110,8 @@
       "proficiency": 75,
       "level": "Advanced",
       "frequency": "Often",
-      "use": "Logo animation and UI motion"
+      "use": "Logo animation and UI motion",
+      "group": "apps"
     },
     {
       "name": "Premiere Pro",
@@ -1121,7 +1124,8 @@
       "proficiency": 70,
       "level": "Intermediate",
       "frequency": "Regularly",
-      "use": "Editing showreels and social videos"
+      "use": "Editing showreels and social videos",
+      "group": "apps"
     },
     {
       "name": "Photoshop",
@@ -1134,7 +1138,80 @@
       "proficiency": 60,
       "level": "Intermediate",
       "frequency": "Sometimes",
-      "use": "Image editing, mockups and retouching"
+      "use": "Image editing, mockups and retouching",
+      "group": "apps"
+    },
+    {
+      "name": "Claude Design & Code",
+      "logo": {
+        "style": "image",
+        "image": "/assets/images/tools/claude.svg"
+      },
+      "use": "Design exploration and front-end code",
+      "group": "ai"
+    },
+    {
+      "name": "Stitch",
+      "logo": {
+        "style": "image",
+        "image": "/assets/images/tools/stitch.png"
+      },
+      "use": "First-draft UI screens from a prompt",
+      "group": "ai"
+    },
+    {
+      "name": "Lovable",
+      "logo": {
+        "style": "image",
+        "image": "/assets/images/tools/lovable.svg"
+      },
+      "use": "Turning designs into live web apps",
+      "group": "ai"
+    },
+    {
+      "name": "Figma Make",
+      "logo": {
+        "style": "image",
+        "image": "/assets/images/tools/figma-make.svg"
+      },
+      "use": "Working prototypes and apps from a prompt",
+      "group": "ai"
+    },
+    {
+      "name": "UX Pilot",
+      "logo": {
+        "style": "image",
+        "image": "/assets/images/tools/uxpilot.png"
+      },
+      "use": "Wireframes, user flows and quick UX reviews",
+      "group": "ai"
+    },
+    {
+      "name": "Kimi",
+      "logo": {
+        "style": "image",
+        "image": "/assets/images/tools/kimi.svg"
+      },
+      "use": "Research, writing and long documents",
+      "group": "ai"
+    },
+    {
+      "name": "Google AI Studio",
+      "logo": {
+        "style": "image",
+        "image": "/assets/images/tools/google-ai-studio.svg"
+      },
+      "use": "Prototyping ideas with Gemini",
+      "group": "ai"
+    },
+    {
+      "name": "Higgsfield AI",
+      "logo": {
+        "style": "image",
+        "image": "/assets/images/tools/higgsfield.png"
+      },
+      "use": "AI video and motion for social content",
+      "group": "ai"
     }
   ],
   "filters": [
