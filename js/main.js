@@ -881,8 +881,8 @@
   // Home — showreel (like kraftbase.com): a giant SHOWREEL word that shrinks back while the video card rises
   // and grows over it as the section scrolls past. The YouTube video loads only when someone presses play.
   const reelBox = $("#showreel"), SR = V.showreel || {};
-  // shown once there is a real reel (a YouTube link or a poster); until then the section stays hidden instead of an empty card
-  if (reelBox && vOn && SR.show !== false && (ytId(SR.youtube) || SR.poster)) {
+  // without a YouTube link the card is a plain blue card with a (disabled) play button, as the gk hint says
+  if (reelBox && vOn && SR.show !== false) {
     const card = $("#showreelCard"), id = ytId(SR.youtube), poster = SR.poster || (id ? `https://i.ytimg.com/vi/${id}/maxresdefault.jpg` : "");
     card.innerHTML = `${poster ? `<img src="${esc(poster)}" alt="" loading="lazy" />` : autoImg(`${IMG}/video/showreel/poster`, "", ' loading="lazy"')}<button class="kreel__play" type="button" aria-label="${id ? "Play showreel" : "Showreel coming soon"}"${id ? "" : " disabled"}>▶</button>`;
     if (id) $(".kreel__play", card).addEventListener("click", () => { card.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="Showreel" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`; card.classList.add("is-playing"); });

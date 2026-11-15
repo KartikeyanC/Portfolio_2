@@ -990,11 +990,15 @@ html:active-view-transition-type(project)::view-transition-new(root) { animation
 .kreel__pin { position: sticky; top: 0; height: 100svh; display: grid; place-items: center; overflow: hidden; }
 .kreel__word { position: absolute; top: 14vh; left: 0; right: 0; text-align: center; font: 700 clamp(40px, 15.5vw, 300px)/.8 var(--clash); /* the word is ~5.8em wide, so 15.5vw ≈ 90% of the screen — 19vw overflowed and cut the L */ text-transform: uppercase; letter-spacing: -.02em;
   transform: perspective(1200px) scale(calc(1 - var(--p, 0) * .3)); transform-origin: 50% 0; will-change: transform; }
-.kreel__card { position: relative; z-index: 2; width: calc(42% + var(--p, 0) * 50%); aspect-ratio: 16 / 9; max-height: 84vh; margin-top: calc(38vh - var(--p, 0) * 36vh); border-radius: 22px; overflow: hidden;
+/* The card's box is always its full size (92%); it grows on screen by transform only (42% → 92% wide, rising 36vh), so the
+   growth moves nothing else and counts as no layout shift. --s is the scale; radius and play button are scaled back by 1/--s. */
+.kreel__card { --s: calc((42 + var(--p, 0) * 50) / 92); position: relative; z-index: 2; width: 92%; aspect-ratio: 16 / 9; max-height: 84vh; margin-top: 2vh; border-radius: calc(22px / var(--s)); overflow: hidden;
+  transform-origin: 50% 0; transform: translateY(calc((1 - var(--s)) * 50% + (1 - var(--p, 0)) * 18vh)) scale(var(--s)); will-change: transform;
   border: 1px solid rgba(255,255,255,.15); background: linear-gradient(135deg, var(--acc), #08203f 60%, #000); box-shadow: 0 30px 80px rgba(0,0,0,.5); display: grid; place-items: center; color: #fff; }
 .kreel__card > img, .kreel__card > iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
 .kreel__play { position: relative; z-index: 2; width: clamp(64px, 7vw, 92px); height: clamp(64px, 7vw, 92px); border-radius: 50%; background: rgba(255,255,255,.92); color: #000; display: grid; place-items: center; font-size: clamp(20px, 2vw, 28px); box-shadow: 0 10px 30px rgba(0,0,0,.4); transition: transform .25s; }
 @media (hover: hover) and (pointer: fine) { .kreel__play:not(:disabled):hover { transform: scale(1.08); } }
+.kreel__card .kreel__play { scale: calc(1 / var(--s)); } /* keeps its own size while the card scales */
 .kreel__play:disabled { cursor: default; opacity: .85; }
 /* Phones: no pinned full-screen scroll effect (it left big empty gaps around a small card) —
    just the word with the full-width video card right under it */
@@ -1002,7 +1006,8 @@ html:active-view-transition-type(project)::view-transition-new(root) { animation
   .kreel { height: auto; padding-inline: var(--pad); }
   .kreel__pin { position: static; height: auto; display: flex; flex-direction: column; align-items: center; overflow: visible; }
   .kreel__word { position: static; transform: none; }
-  .kreel__card { width: 100%; margin-top: 16px; }
+  .kreel__card { width: 100%; margin-top: 16px; transform: none; border-radius: 22px; }
+  .kreel__card .kreel__play { scale: none; }
 }
 
 /* Process dial (Home + Services) — pinned while you scroll; the dial turns with the scroll */
