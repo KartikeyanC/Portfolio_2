@@ -20,7 +20,6 @@
     .mx-b { position: relative; container-type: inline-size; width: calc(100% - 2 * var(--pad)); max-width: 1680px; margin: 0 auto clamp(10px, 1.1vw, 16px); background: #000; border-radius: 26px; overflow: clip; }   /* the site's side gap on both sides; each board a rounded card with a small gap below */
     .mx-b::after { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); pointer-events: none; }   /* hairline edge, so the curve shows on the black boards */
     .mx-b__img { display: block; width: 100%; height: auto; }
-    #cover .mx-b__img { border-radius: 26px; }   /* rounded on all four sides, like the other case-study headers */
     .mx-bar { container-type: inline-size; width: calc(100% - 2 * var(--pad)); max-width: 1680px; margin: 0 auto; padding-bottom: clamp(12px, 1.2vw, 20px); }
     .mx-bar .mx-top { position: static; }   /* a row of its own above the cover (on phones too) */
     .mx-t { position: absolute; margin: 0; }
@@ -100,7 +99,6 @@
 
     @media (max-width: 760px) {
       .mx-b { container-type: normal; border-radius: 18px; }
-      #cover .mx-b__img { border-radius: 18px; }
       .mx-t { position: static; width: auto !important; padding: 0 16px; }
       .mx-b > .mx-t:first-of-type, .mx-b .mx-t + .mx-t { margin-top: 0; }
       .mx-b:has(> .mx-t) { padding-bottom: 28px; }
@@ -181,9 +179,10 @@
     </div>
 
     <!-- 00 COVER: the same picture as the project card (assets/images/projects/vstar/cover.jpg), shown first;
-         the card's picture flies straight into it when the project opens -->
-    <section class="mx-b" id="cover" aria-label="Cover">
-      <img class="mx-b__img" src="assets/images/projects/vstar/cover.jpg" width="3840" height="2880" alt="The VSTAR website on a desktop screen standing on a pedestal of navy cubes, with the mobile site on a phone beside it and labels reading Clear structure, Adaptive layout, Easy to enquire and WhatsApp in one tap" style="view-transition-name:shot-vstar;view-transition-class:shot" fetchpriority="high" decoding="sync" />
+         the card's picture flies straight into it when the project opens. data-slide = the wide frame the picture
+         slides up inside as you scroll, the same as the other case-study covers (css [data-slide], main.js coverSlide) -->
+    <section class="mx-b" id="cover" aria-label="Cover" data-slide style="view-transition-name:shot-vstar;view-transition-class:shot">
+      <img class="mx-b__img" src="assets/images/projects/vstar/cover.jpg" width="3840" height="2880" alt="The VSTAR website on a desktop screen standing on a pedestal of navy cubes, with the mobile site on a phone beside it and labels reading Clear structure, Adaptive layout, Easy to enquire and WhatsApp in one tap" fetchpriority="high" decoding="sync" />
     </section>
 
     <!-- 01 PROJECT OVERVIEW -->
