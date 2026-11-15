@@ -286,10 +286,31 @@ VIEWER = """const startSite = (B) => {
     else {
       const back = headerIn(od);
       if (!back) return false;
-      to = cardIn(d, shotOf(back));
+      // "All work" opens Projects at the top, where the cards are still below the screen: scroll the page to that
+      // card first (centred) so the picture is seen landing in it, as on the live site (main.js pagereveal)
+      const id = shotOf(back), card = [...d.querySelectorAll("img[data-shot]")].find((i) => i.getAttribute("data-shot").replace(/[^A-Za-z0-9_-]/g, "") === id && d.defaultView.getComputedStyle(i).visibility !== "hidden" && i.getBoundingClientRect().width > 0);
+      if (card) {
+        const w = d.defaultView, r = card.getBoundingClientRect();
+        if (r.top < 70 || r.bottom > innerHeight) {
+          const top = Math.max(0, w.scrollY + r.top - (innerHeight - r.height) / 2);
+          w.scrollTo({ top, behavior: "instant" });
+          if (w.lenis) { w.lenis.resize(); w.lenis.scrollTo(top, { immediate: true, force: true }); }
+        }
+      }
+      to = cardIn(d, id);
       if (!to) return false;
       from = back;
+      // cards further down load lazily: fetch this one's picture now and start once it is ready (at most 600 ms;
+      // the old page stays on screen meanwhile), or there would be nothing for the picture to land in
+      if (!card.naturalWidth) {
+        card.loading = "eager";
+        Promise.race([card.decode(), new Promise((ok) => setTimeout(ok, 600))]).catch(() => {}).then(() => run(from, to));
+        return true;
+      }
     }
+    run(from, to);
+    return true;
+    function run(from, to) {
     const bg = d.defaultView.getComputedStyle(d.body).backgroundColor;
     document.documentElement.style.background = bg && bg !== "rgba(0, 0, 0, 0)" ? bg : "";   // no dark flash on light pages
     const runs = [];
@@ -319,7 +340,7 @@ VIEWER = """const startSite = (B) => {
     }
     const end = () => { if (fly) fly.remove(); to.style.visibility = ""; document.documentElement.style.background = ""; done(); };
     Promise.all(runs).then(end, end);
-    return true;
+    }
   };
 
   // Moving between pages = the site's page transition (css/style.css "Page transitions"): the next page loads in a

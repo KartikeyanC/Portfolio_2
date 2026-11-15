@@ -564,6 +564,17 @@
     if (!e.viewTransition || !window.navigation || !navigation.activation || !navigation.activation.from) return;
     const img = nameShot(caseIdOf(navigation.activation.from.url));
     if (!img) return;
+    // "All work" opens Projects at the top, where every card is still below the screen, so the picture would fly
+    // off the bottom edge. Open the page already scrolled to that card (centred) so you see it land.
+    // The browser's Back button restores your own scroll position, so leave that alone.
+    if (navigation.activation.navigationType !== "traverse") {
+      const r = img.getBoundingClientRect();
+      if (r.top < 70 || r.bottom > innerHeight) {
+        const top = Math.max(0, scrollY + r.top - (innerHeight - r.height) / 2);
+        scrollTo({ top, behavior: "instant" });
+        if (window.lenis) { window.lenis.resize(); window.lenis.scrollTo(top, { immediate: true, force: true }); }
+      }
+    }
     // e.g. "All work" on a case study: the picture flies back into its card with the same fade + lift as opening it
     if (e.viewTransition.types) e.viewTransition.types.add("project");
     e.viewTransition.finished.finally(() => { img.style.viewTransitionName = ""; });
