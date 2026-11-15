@@ -3066,7 +3066,7 @@ body:has(.pvc) .nav:not(.is-pill) .nav__links a, body:has(.pvc) .nav:not(.is-pil
 .rx-preview__head { display: flex; align-items: center; gap: 14px; }
 .rx-preview__head b { font: 700 22px var(--pop); color: var(--ink); }
 .rx-preview__head span { font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
-.rx-preview__track { display: grid; gap: 16px; max-width: 1040px; margin: 14px auto 0; } /* capped so the tall boards don't get huge */
+.rx-preview__track { display: grid; gap: 16px; margin-top: 14px; } /* full width, same as the wireframe and style boards (user, 15 Nov: the old 1040px cap left big gaps left and right) */
 .rx-preview__track .board { margin-top: 0; }
 
 /* end: App Store style row */
