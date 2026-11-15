@@ -43,6 +43,11 @@
     QUIET_SELECTOR: 'nav, a, button, input, textarea, select, label, summary, [role="button"], [role="tab"], dialog',
     TEXT_SELECTOR: 'p, h1, h2, h3, h4, h5, h6, li, blockquote, pre, dt, dd, figcaption, time, [class*="headline"]',
     TEXT_STRENGTH: 0.15,       // ink strength over text (0-1)
+    // Boost zones: sections where the smoke is the point (the dark home hero). Inside them the ink is
+    // stronger, and text only dims it a little (the hero's headline rows are full-width boxes).
+    BOOST_SELECTOR: ".kp",
+    BOOST_STRENGTH: 1.8,       // ink strength in a boost zone's open areas (1 = normal)
+    BOOST_TEXT_STRENGTH: 0.9,  // ink strength over text inside a boost zone
     STRENGTH_EASE: 0.2,        // how quickly the strength eases toward its target, per splat
 
     // Fitting into the page
@@ -586,9 +591,16 @@
     function zoneOf(el) {
       if (!el || !el.closest) return "open";
       if (el.closest(config.QUIET_SELECTOR)) return "quiet";
-      if (el.closest(config.TEXT_SELECTOR)) return "text";
-      return "open";
+      const boost = !!(config.BOOST_SELECTOR && el.closest(config.BOOST_SELECTOR));
+      if (el.closest(config.TEXT_SELECTOR)) return boost ? "boost-text" : "text";
+      return boost ? "boost" : "open";
     }
+    const STRENGTH_OF = {
+      open: () => 1,
+      text: () => config.TEXT_STRENGTH,
+      boost: () => config.BOOST_STRENGTH,
+      "boost-text": () => config.BOOST_TEXT_STRENGTH,
+    };
     // client (CSS) pixels -> device pixels -> 0-1 texture coordinates
     const toTexX = (clientX) => (clientX * dpr) / canvas.width;
     const toTexY = (clientY) => 1 - (clientY * dpr) / canvas.height;
@@ -605,7 +617,7 @@
         pointer.fresh = false;
         return;
       }
-      pointer.target = zone === "text" ? config.TEXT_STRENGTH : 1;
+      pointer.target = STRENGTH_OF[zone]();
       pointer.dx += correctDeltaX(x - pointer.x);
       pointer.dy += correctDeltaY(y - pointer.y);
       pointer.x = x;
@@ -615,7 +627,8 @@
     }
 
     function burstAt(clientX, clientY, el) {
-      if (zoneOf(el) !== "open") return; // no bursts over controls or text
+      const zone = zoneOf(el);
+      if (zone !== "open" && zone !== "boost") return; // no bursts over controls or text
       bursts.push({ x: toTexX(clientX), y: toTexY(clientY) });
       wake();
     }
