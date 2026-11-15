@@ -6,10 +6,10 @@
   --acc-rgb: 30 155 255;        /* same colour as r g b, for see-through glows */
   --acc-deep: #0b5fb3;          /* darker end of the folder gradient */
   --acc-text: var(--acc);       /* accent used as text (darker in light mode when needed) */
-  --on-acc: #001b33;            /* text on accent fills: deep navy, 6:1 on #1e9bff (white was 2.9:1) */
-  --on-acc-2: #06294a;          /* softer text on accent fills, 5:1 */
+  --on-acc: #fff;               /* text on accent fills: white, the owner's choice (2.9:1 on #1e9bff; navy was tried and rejected) */
+  --on-acc-2: rgba(255,255,255,.86);
   --on-fold: #fff;              /* text inside the tools folder */
-  --acc-btn: var(--acc);        /* button fill: same electric blue as the accent (navy text) */
+  --acc-btn: var(--acc);        /* button fill: same electric blue as the accent (white text) */
   --on-btn: var(--on-acc);
   --glow-k: 1.7;                 /* strength of see-through blue areas (dark theme); 1 in light theme */
   --acc-soft: rgb(var(--acc-rgb) / .75);
