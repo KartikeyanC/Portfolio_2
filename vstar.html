@@ -21,7 +21,8 @@
     .mx-b::after { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); pointer-events: none; }   /* hairline edge, so the curve shows on the black boards */
     .mx-b__img { display: block; width: 100%; height: auto; }
     .mx-bar { container-type: inline-size; width: calc(100% - 2 * var(--pad)); max-width: 1680px; margin: 0 auto; padding-bottom: clamp(12px, 1.2vw, 20px); }
-    .mx-bar .mx-top { position: static; }   /* a row of its own above the cover (on phones too) */
+    .mx-bar .mx-top { position: static; }
+    #vs > .cs-back { margin-left: max(var(--pad), calc((100% - 1680px) / 2)); } /* lines up with the bar below */   /* a row of its own above the cover (on phones too) */
     .mx-t { position: absolute; margin: 0; }
     .mx-lbl { font: 500 max(11px, .8cqw)/1.3 var(--int); letter-spacing: .01em; color: #fff; }
     .mx-lbl::before { content: "+"; margin-right: .5em; }
@@ -171,9 +172,10 @@
     <div class="vs vx mx-wrap" id="vs">
 
     <!-- top row: back to all work, the case study name, the live site — above the cover -->
+    <a class="cs-back" href="projects.html">← All work</a>
     <div class="mx-bar">
       <div class="mx-top">
-        <div class="mx-top__l"><a href="projects.html"><span aria-hidden="true">←</span> All work</a><span>VSTAR — Logo &amp; website case study</span></div>
+        <div class="mx-top__l"><span>VSTAR — Logo &amp; website case study</span></div>
         <div class="mx-top__r"><span>Kartikeyan × VSTAR</span><a href="https://vstar.sg/" target="_blank" rel="noopener">vstar.sg <span aria-hidden="true">↗</span></a></div>
       </div>
     </div>

@@ -859,8 +859,11 @@ html:active-view-transition-type(project)::view-transition-new(root) { animation
 
 /* ---------- Case study page (case.html?p=<project id>) ---------- */
 .cs-head { padding: clamp(150px, 16vw, 210px) var(--pad) 30px; }
-.cs-back { display: inline-flex; gap: 8px; font-size: 14px; color: var(--grey); margin-bottom: 26px; transition: color .2s; }
-@media (hover: hover) and (pointer: fine) { .cs-back:hover { color: var(--acc-text); } }
+/* "← All work" on every case study (Milton's style), and on case studies still to come: <a class="cs-back" href="projects.html">← All work</a>.
+   Font set in full so a project page's own type (Poppins, VSTAR's Inter...) never leaks in. */
+:root { --cs-back-ink: var(--grey); } /* the site grey, fixed at the root: project sections redefine --grey */
+:root a.cs-back { display: inline-flex; gap: 8px; font: 400 14px/normal var(--body); letter-spacing: normal; text-transform: none; color: var(--cs-back-ink); margin-bottom: 26px; padding: 0; border: 0; background: none; transition: color .2s; }
+@media (hover: hover) and (pointer: fine) { :root a.cs-back:hover { color: var(--acc-text); } } /* :root: beats project rules like .rp a { color: inherit } */
 .cs-title { font-family: var(--clash); font-weight: 600; font-size: clamp(38px, 5.4vw, 86px); line-height: 1; letter-spacing: -.01em; max-width: 18ch; }
 .cs-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 .cs-meta span { padding: 7px 13px; border: 1px solid var(--line); border-radius: 99px; font-family: var(--clash); font-weight: 500; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--grey); }
@@ -2132,8 +2135,6 @@ body:has(.pvc) .nav:not(.is-pill) .nav__links a, body:has(.pvc) .nav:not(.is-pil
 
 /* hero */
 .vs-hero { padding-top: clamp(130px, 15vw, 180px); }
-.vs-back { display: inline-block; margin-bottom: 26px; color: var(--grey); font-weight: 500; font-size: 15px; }
-@media (hover: hover) and (pointer: fine) { .vs-back:hover { color: var(--green-ink); } }
 .vs-eyebrow { font: 600 13px var(--jak); letter-spacing: .2em; text-transform: uppercase; color: var(--green-ink); }
 .vs-title { margin-top: 10px; font-weight: 800; font-size: clamp(72px, 13vw, 190px); line-height: .85; letter-spacing: -.04em; }
 .vs-lead { max-width: 680px; margin-top: 24px; font-size: clamp(18px, 1.7vw, 22px); line-height: 1.5; color: var(--grey); }
@@ -2736,10 +2737,6 @@ body:has(.pvc) .nav:not(.is-pill) .nav__links a, body:has(.pvc) .nav:not(.is-pil
 .nx-eye::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 2px; transform: rotate(45deg); background: var(--nblue); }
 
 .nx-hero { padding-top: clamp(120px, 14vw, 170px); }
-.nx-back { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px 8px 12px; border-radius: 99px; background: var(--card); border: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--ink); transition: border-color .25s, background .25s; }
-.nx-back span { transition: transform .35s cubic-bezier(.16,1,.3,1); }
-@media (hover: hover) and (pointer: fine) { .nx-back:hover { border-color: var(--nblue); } }
-@media (hover: hover) and (pointer: fine) { .nx-back:hover span { transform: translateX(-3px); } }
 .nx-hero__grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(24px, 5vw, 80px); align-items: end; margin-top: clamp(28px, 4vw, 48px); }
 .nx-hero__title { margin-top: 16px; font: 600 clamp(46px, 6.6vw, 104px)/1.02 var(--jak); letter-spacing: -.035em; color: var(--ink); }
 .nx-hero__title em { display: block; font-style: normal; color: var(--hl); }
@@ -3057,8 +3054,6 @@ body:has(.pvc) .nav:not(.is-pill) .nav__links a, body:has(.pvc) .nav:not(.is-pil
 
 /* hero: the listing */
 .rx-hero { padding-top: clamp(110px, 13vw, 160px) !important; }
-.rx-back { display: inline-flex; align-items: center; gap: 6px; color: var(--navy-2) !important; font: 500 16px var(--pop); }
-.rx-back span { font-size: 26px; line-height: 0; translate: 0 -1px; }
 .rx-app { display: grid; grid-template-columns: auto 1fr auto; gap: clamp(16px, 2.4vw, 32px); align-items: center; margin-top: clamp(22px, 3vw, 36px); }
 .rx-app__icon { width: clamp(88px, 10vw, 138px); height: auto; border-radius: 24%; box-shadow: 0 1px 0 rgba(255,255,255,.4) inset, 0 18px 40px -14px rgb(var(--navy-rgb) / .55); }
 .rx-app__name h1 { font: 700 clamp(44px, 6vw, 84px)/.95 var(--clash) !important; letter-spacing: -.03em; color: var(--ink) !important; }
@@ -3142,8 +3137,6 @@ body:has(.pvc) .nav:not(.is-pill) .nav__links a, body:has(.pvc) .nav:not(.is-pil
 
 /* hero */
 .px-hero { padding-top: clamp(112px, 12vw, 150px); }
-.px-back { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border: 1px solid var(--line); border-radius: 99px; font-size: 14px; color: var(--grey); transition: color .25s, border-color .25s; }
-@media (hover: hover) and (pointer: fine) { .px-back:hover { color: var(--ink); border-color: var(--ink); } }
 .px-hero__grid { margin-top: clamp(28px, 4vw, 52px); }
 .px-hero__side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 72px); align-items: end; margin-top: clamp(26px, 3.4vw, 46px); }
 .px-eye { display: flex; align-items: center; gap: 10px; font-family: var(--clash); font-weight: 500; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
@@ -3432,11 +3425,6 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 
 /* hero: big gradient name, lead, buttons + the route slip */
 .ifx-hero { padding-top: clamp(120px, 14vw, 170px); }
-.ifx-back { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px 8px 12px; border-radius: 99px; background: var(--card); border: 1px dashed rgba(10,64,154,.35); font-size: 14px; font-weight: 600; color: var(--ink); transition: border-color .25s; }
-:root:not([data-theme="light"]) .ifx-back { border-color: rgba(157,184,255,.35); }
-.ifx-back span { transition: transform .35s cubic-bezier(.16,1,.3,1); }
-@media (hover: hover) and (pointer: fine) { .ifx-back:hover { border-style: solid; } }
-@media (hover: hover) and (pointer: fine) { .ifx-back:hover span { transform: translateX(-3px); } }
 .ifx-hero__grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr); gap: clamp(26px, 5vw, 90px); align-items: end; margin-top: clamp(26px, 4vw, 48px); }
 .ifx-hero__title { margin-top: 12px; font: 800 clamp(64px, 10vw, 156px)/.92 var(--jak); letter-spacing: -.055em; background: var(--ig-text); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .04em; }
 .ifx-hero__title em { display: block; margin-top: 18px; font: 600 clamp(22px, 2.5vw, 36px)/1.15 var(--jak); letter-spacing: -.02em; font-style: normal; color: var(--ink); -webkit-text-fill-color: var(--ink); }
@@ -3747,10 +3735,6 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 
 /* hero: gradient name, lead, buttons + the shelf of tags */
 .msx-hero { padding-top: clamp(120px, 14vw, 170px); }
-.msx-back { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px 8px 12px; border-radius: 99px; background: var(--card); border: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--ink); transition: border-color .25s; }
-.msx-back span { transition: transform .35s cubic-bezier(.16,1,.3,1); }
-@media (hover: hover) and (pointer: fine) { .msx-back:hover { border-color: var(--mc); } }
-@media (hover: hover) and (pointer: fine) { .msx-back:hover span { transform: translateX(-3px); } }
 .msx-hero__grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(300px, .7fr); gap: clamp(26px, 5vw, 80px); align-items: end; margin-top: clamp(26px, 4vw, 48px); }
 .msx-hero__title { margin-top: 12px; font: 700 clamp(56px, 9vw, 142px)/.92 var(--jak); letter-spacing: -.05em; padding-bottom: .05em; }
 .msx-hero__title em { display: block; margin-top: 18px; font: 600 clamp(22px, 2.5vw, 34px)/1.15 var(--jak); letter-spacing: -.02em; font-style: normal; color: var(--ink); -webkit-text-fill-color: var(--ink); }
