@@ -1151,6 +1151,29 @@
     if (!reduce) (function blink() { setTimeout(() => { eyeSets.forEach((s) => { s.classList.remove("is-blink"); void s.offsetWidth; s.classList.add("is-blink"); }); blink(); }, 2600 + Math.random() * 2600); })();
   }
 
+  // Googly eyes (Home hero, and any other .eyes-scene): pupils look at the cursor anywhere on the page, blink every 3s
+  const googly = $$(".eyes-scene .eye").map((eye) => ({ eye, pupil: $(".pupil", eye) }));
+  if (googly.length) {
+    const EYE_MAX = 28;    // px of pupil travel: (100 - 2*2 border)/2 - 36/2 = 30 of room, 28 keeps a white rim
+    const EYE_DIV = 8;     // travel = distance / 8: bigger = lazier near the cursor
+    const BLINK_EVERY = 3000, BLINK_HOLD = 150; // ms between blinks / ms shut
+    let mx = 0, my = 0, queued = false;
+    const look = () => {
+      queued = false;
+      googly.forEach(({ eye, pupil }) => {
+        const r = eye.getBoundingClientRect(), dx = mx - (r.left + r.width / 2), dy = my - (r.top + r.height / 2);
+        const a = Math.atan2(dy, dx), d = Math.min(EYE_MAX, Math.hypot(dx, dy) / EYE_DIV);
+        pupil.style.transform = `translate(calc(-50% + ${(Math.cos(a) * d).toFixed(1)}px), calc(-50% + ${(Math.sin(a) * d).toFixed(1)}px))`;
+      });
+    };
+    // pointermove = mousemove plus touch drags; one update per frame
+    addEventListener("pointermove", (e) => { mx = e.clientX; my = e.clientY; if (!queued) { queued = true; requestAnimationFrame(look); } }, { passive: true });
+    if (!reduce) setInterval(() => {
+      googly.forEach(({ eye }) => eye.classList.add("blink"));
+      setTimeout(() => googly.forEach(({ eye }) => eye.classList.remove("blink")), BLINK_HOLD);
+    }, BLINK_EVERY);
+  }
+
   // Home hero — paint to reveal: the cursor (or a finger dragging sideways) drops blue blobs into an SVG
   // clip-path, which shows the blue copy of the hero (.kp__ink) on top of the faint one (.kp__base)
   const kp = $("#kp");

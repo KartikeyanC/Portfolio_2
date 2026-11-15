@@ -1429,7 +1429,24 @@ html .hero .glow.glow--live { background: var(--bg); }
 .kp__title { font: 700 clamp(48px, 11.5vw, 190px)/.86 var(--clash); text-transform: uppercase; letter-spacing: -.02em; }
 .kp__title > span { display: flex; align-items: center; gap: .14em; white-space: nowrap; }
 .kp__title > span + span { padding-left: clamp(0px, 9vw, 170px); }
-.kp__spot { display: inline-block; width: 1.68em; height: .78em; } /* the gap the eyes sit in */
+/* Googly eyes (Home hero). Base pair is 2 x 100px eyes + 24px gap = 224 x 100px, scaled by --eye-scale:
+   1 desktop, .75 tablet, .42 phone. Scoped under .eyes-scene so the Contact page's .eyes pair is untouched. */
+.kp { --eye-scale: 1; }
+@media (max-width: 1024px) { .kp { --eye-scale: .75; } }
+@media (max-width: 600px) { .kp { --eye-scale: .42; } }
+.kp__spot { display: inline-block; flex-shrink: 0; width: calc(224px * var(--eye-scale)); height: calc(100px * var(--eye-scale)); } /* the gap in the title the eyes sit in, same size as the scaled pair */
+.eyes-scene {
+  --eye-size: 100px; --eye-gap: 24px;
+  display: flex; gap: var(--eye-gap); flex-shrink: 0;
+  transform: scale(var(--eye-scale, 1)); transform-origin: center;
+  /* transform doesn't shrink the layout box, so negative margins pull it in to the scaled size (half per side) */
+  margin-inline: calc((2 * var(--eye-size) + var(--eye-gap)) * (var(--eye-scale, 1) - 1) / 2);
+  margin-block: calc(var(--eye-size) * (var(--eye-scale, 1) - 1) / 2);
+}
+.eyes-scene .eye { display: block; position: relative; width: var(--eye-size); height: var(--eye-size); box-sizing: border-box; background: #fff; border: 2px solid #111; border-radius: 50%; overflow: visible; transition: transform .12s ease; } /* .12s = blink speed */
+.eyes-scene .eye::after { content: none; } /* drop the Contact pair's lid */
+.eyes-scene .eye.blink { transform: scaleY(.05); } /* the whole blink; 0 shuts it fully */
+.eyes-scene .pupil { display: block; position: absolute; width: 36px; height: 36px; background: #000; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); will-change: transform; } /* 36px: if changed, recheck EYE_MAX in main.js */
 .kp__eyes { position: absolute; z-index: 3; font-size: clamp(48px, 11.5vw, 190px); line-height: 1; visibility: hidden; }
 .kp__eyes.is-placed { visibility: visible; } /* shown once main.js has set them in the title's gap (no jump on load) */
 .kp__hint { position: absolute; left: 50%; top: calc(100% + 10px); translate: -50% 0; white-space: nowrap; padding: 7px 13px; border-radius: 99px; background: #fff; color: #000; font: 500 12px var(--body); box-shadow: 0 8px 20px rgba(0,0,0,.3); transition: opacity .4s; pointer-events: none; }
