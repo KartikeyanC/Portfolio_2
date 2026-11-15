@@ -571,7 +571,7 @@
     projLink.setAttribute("aria-haspopup", "true"); projLink.setAttribute("aria-expanded", "false");
     wrap.appendChild(projLink);
     wrap.insertAdjacentHTML("beforeend", `<div class="mega" role="menu" aria-label="Projects">
-        <div class="mega__cards" style="--n:${cards.length}">${cards.map((p) => `<a href="${href(p)}" role="menuitem"><span class="mega__pic">${coverImg({ ...p, alt: "" }, ' loading="lazy"', `<span class="mega__soon">${esc(p.name)}</span>`, "200px")}${p.status === "ongoing" ? '<em class="mega__badge"><i></i>Coming soon</em>' : ""}</span><b>${esc(p.name)}</b><span class="mega__type">${esc(p.type)}</span></a>`).join("")}</div>
+        <div class="mega__cards" style="--n:${cards.length}">${cards.map((p) => `<a href="${href(p)}" role="menuitem"><span class="mega__pic">${coverImg({ ...p, alt: "" }, ' loading="lazy"', `<span class="mega__soon">${esc(p.name)}</span>`, "260px")}${p.status === "ongoing" ? '<em class="mega__badge"><i></i>Coming soon</em>' : ""}</span><b>${esc(p.name)}</b><span class="mega__type">${esc(p.type)}</span></a>`).join("")}</div>
         <div class="mega__list"><small>Explore more</small>${rest.map((p) => `<a href="${href(p)}" role="menuitem">${esc(p.name)}${p.status === "ongoing" ? " · coming soon" : ""} <i aria-hidden="true">›</i></a>`).join("")}${C.video && C.video.show !== false ? `<a href="${root}projects.html#video" role="menuitem">Video work <i aria-hidden="true">›</i></a>` : ""}<a class="mega__all" href="${root}projects.html" role="menuitem">See all projects</a></div>
       </div>`);
     let t; // the panel spans the whole nav bar (CSS), so it never needs nudging back on screen
