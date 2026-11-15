@@ -520,15 +520,24 @@
   const nameShot = (id) => { const img = id && $(`img[data-shot="${CSS.escape(id)}"]`); if (img) { img.style.viewTransitionName = shotName(id); img.style.viewTransitionClass = "shot"; } return img; };
   // Case study header picture (Milton's case.html and the own pages: respay / nexura / vstar [data-slide]): as the page
   // scrolls, the picture slides upward inside its wide frame (image top → bottom), finishing by the time the frame
-  // has mostly scrolled away. Skipped for reduced motion.
+  // has mostly scrolled away. The picture keeps its own height and is moved with transform (.is-slide in style.css),
+  // at most once per frame, so the GPU only shifts it; changing object-position repainted the big cover every frame.
+  // Skipped for reduced motion.
   function coverSlide(hero) {
-    if (!hero || reduce) return;
+    const img = hero && $("img", hero);
+    if (!img || reduce) return;
+    hero.classList.add("is-slide");
+    let queued = false;
     const slide = () => {
+      queued = false;
       const r = hero.getBoundingClientRect(), start = r.top + scrollY; // frame's place on the page
       const p = Math.min(1, Math.max(0, scrollY / Math.max(1, start + r.height * 0.6)));
-      hero.style.setProperty("--py", (p * 100).toFixed(1) + "%");
+      const room = Math.max(0, img.getBoundingClientRect().height - r.height); // the part of the picture hidden below the frame (exact, not rounded)
+      img.style.transform = `translate3d(0, ${(-p * room).toFixed(1)}px, 0)`;
     };
-    addEventListener("scroll", slide, { passive: true }); addEventListener("resize", slide); slide();
+    const queue = () => { if (!queued) { queued = true; requestAnimationFrame(slide); } };
+    addEventListener("scroll", queue, { passive: true }); addEventListener("resize", queue); img.addEventListener("load", queue);
+    slide();
   }
   $$("[data-slide]").forEach(coverSlide);
   // Leaving a Home / Projects page for a case study → name that project's picture only

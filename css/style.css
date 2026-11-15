@@ -865,7 +865,7 @@ html:active-view-transition-type(project)::view-transition-new(root) { animation
 .cs-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 .cs-meta span { padding: 7px 13px; border: 1px solid var(--line); border-radius: 99px; font-family: var(--clash); font-weight: 500; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--grey); }
 /* Case study header picture: wide frame; as you scroll, the picture slides upward inside it (top → bottom
-   of the image), so the whole design is seen. --py (0% → 100%) is set by main.js. */
+   of the image), so the whole design is seen. main.js coverSlide moves it (see .is-slide below [data-slide]). */
 .cs-shot { margin: 0 var(--pad); aspect-ratio: 16 / 8.5; border-radius: 26px; overflow: hidden; background: var(--surface); }
 .cs-shot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% var(--py, 0%); }
 .cs-sec { padding: clamp(60px, 8vw, 110px) var(--pad); display: grid; grid-template-columns: 1fr 2fr; gap: clamp(20px, 4vw, 60px); border-bottom: 1px solid var(--line); }
@@ -2488,6 +2488,11 @@ body:has(.pvc) .nav:not(.is-pill) .nav__links a, body:has(.pvc) .nav:not(.is-pil
 /* RESPAY / VSTAR / Nexura covers: same wide frame + upward slide on scroll as the Milton case header (main.js coverSlide) */
 [data-slide] { aspect-ratio: 16 / 8.5; }
 [data-slide] img { width: 100%; height: 100%; object-fit: cover; object-position: 50% var(--py, 0%); }
+/* While a cover slides (main.js coverSlide adds .is-slide; not with reduced motion), the picture keeps its own height
+   and is moved up with transform, so the graphics chip just shifts it. Changing object-position instead repainted the
+   whole big cover on every frame of the scroll, which made the slide stutter. */
+.is-slide { position: relative; }
+.is-slide > img { position: absolute; left: 0; top: 0; width: 100%; height: auto; min-height: 100%; object-fit: cover; object-position: 50% 0; will-change: transform; }
 @media (max-width: 700px) { [data-slide] { aspect-ratio: 4 / 3; } }
 /* Nexura site structure: a storyboard of the home page (VSTAR keeps the timeline list) */
 .nx-story { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px; counter-reset: none; }
