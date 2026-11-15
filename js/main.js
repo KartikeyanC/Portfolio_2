@@ -84,6 +84,10 @@
       const light = root.dataset.theme === "light";
       themeBtn.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
       themeBtn.setAttribute("aria-pressed", String(light));
+      // browser chrome (phone address bar) matches the page background in either theme
+      let tc = $('meta[name="theme-color"]');
+      if (!tc) { tc = document.createElement("meta"); tc.name = "theme-color"; document.head.append(tc); }
+      tc.content = getComputedStyle(root).getPropertyValue("--bg").trim() || (light ? "#fff" : "#000");
     };
     themeBtn.addEventListener("click", () => {
       const next = root.dataset.theme === "light" ? "dark" : "light";
