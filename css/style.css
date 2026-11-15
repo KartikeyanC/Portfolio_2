@@ -1436,12 +1436,9 @@ html .hero .glow.glow--live { background: var(--bg); }
 .kp__ink .kp__strip { border-color: currentColor; }
 #kpClip circle { transition: r .55s cubic-bezier(.2,.8,.2,1); }
 @media (max-width: 520px) { .kp { height: auto; min-height: 600px; } .kp__layer { padding-top: 100px; } .kp__title, .kp__eyes { font-size: 10.5vw; } } /* PRODUCT + eyes fit a 320px phone */
-/* The nav over the paint (user, 15 Nov: painting near the top turned the bar blue and the blue HOME link vanished in it).
-   While the nav sits on the hero, every item stands on a pill of the page colour: on the unpainted hero it can't be
-   seen (same colour), over the paint each item reads as a cut-out, so HOME (and a blue hovered link) stays readable.
-   Padding + the same negative margin, so nothing moves. */
-body:has(.kp) .nav:not(.is-pill) :is(.nav__links > a, .mega-wrap > a, .nav__brand) { padding: 7px 13px; margin: -7px -13px; border-radius: 99px; background: var(--bg); }
-body:has(.kp) .nav:not(.is-pill) :is(.theme-btn, .nav__cta, .nav__menu) { background: var(--bg); }
+/* The nav over the home paint: items stay plain text (user, 15 Nov: no button-style pills on Home, Projects, Services ...).
+   White reads on both the black hero and the blue paint; a hovered link stays white and underlines, since blue would vanish on the paint. */
+@media (hover: hover) and (pointer: fine) { body:has(.kp) .nav:not(.is-pill) .nav__links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; } }
 
 /* K6 Home about — dot grid canvas behind the text (drawn by main.js on hover screens only) */
 .about--grid { position: relative; isolation: isolate; }
