@@ -17,8 +17,11 @@
   <style>
     .mx-body .nav.is-pill { top: calc(var(--nav-top, 0px) + 12px); }   /* the pill sits under the announcement bar until it scrolls away */
     #vs.mx-wrap { padding-top: calc(var(--abar-h, 0px) + 92px); background: #000 !important; color: #fff; overflow: clip; }
-    .mx-b { position: relative; container-type: inline-size; width: 100%; max-width: 1680px; margin: 0 auto; background: #000; }
+    .mx-b { position: relative; container-type: inline-size; width: calc(100% - 2 * var(--pad)); max-width: 1680px; margin: 0 auto; background: #000; }   /* the site's side gap on both sides, as on the other case studies */
     .mx-b__img { display: block; width: 100%; height: auto; }
+    #cover .mx-b__img { border-radius: 26px; }   /* rounded on all four sides, like the other case-study headers */
+    .mx-bar { container-type: inline-size; width: calc(100% - 2 * var(--pad)); max-width: 1680px; margin: 0 auto; padding-bottom: clamp(12px, 1.2vw, 20px); }
+    .mx-bar .mx-top { position: static; }   /* a row of its own above the cover (on phones too) */
     .mx-t { position: absolute; margin: 0; }
     .mx-lbl { font: 500 max(11px, .8cqw)/1.3 var(--int); letter-spacing: .01em; color: #fff; }
     .mx-lbl::before { content: "+"; margin-right: .5em; }
@@ -96,6 +99,7 @@
 
     @media (max-width: 760px) {
       .mx-b { container-type: normal; }
+      #cover .mx-b__img { border-radius: 18px; }
       .mx-t { position: static; width: auto !important; padding: 0 16px; }
       .mx-b > .mx-t:first-of-type, .mx-b .mx-t + .mx-t { margin-top: 0; }
       .mx-b:has(> .mx-t) { padding-bottom: 28px; }
@@ -167,6 +171,14 @@
     <!-- #vs: VSTAR tokens (fonts, colours) + the project brand colours from content.json -->
     <div class="vs vx mx-wrap" id="vs">
 
+    <!-- top row: back to all work, the case study name, the live site — above the cover -->
+    <div class="mx-bar">
+      <div class="mx-top">
+        <div class="mx-top__l"><a href="projects.html"><span aria-hidden="true">←</span> All work</a><span>VSTAR — Logo &amp; website case study</span></div>
+        <div class="mx-top__r"><span>Kartikeyan × VSTAR</span><a href="https://vstar.sg/" target="_blank" rel="noopener">vstar.sg <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </div>
+
     <!-- 00 COVER: the same picture as the project card (assets/images/projects/vstar/cover.jpg), shown first;
          the card's picture flies straight into it when the project opens -->
     <section class="mx-b" id="cover" aria-label="Cover">
@@ -177,10 +189,6 @@
     <section class="mx-b" id="overview" aria-label="Project overview">
       <img class="mx-b__img" src="assets/images/projects/vstar/pres/b01-overview.jpg" width="3840" height="3304" alt="A display on a dark desk showing the VSTAR website, with a small desktop computer beside it" decoding="async" />
       <img class="mx-scr" src="assets/images/projects/vstar/site-hero.jpg" alt="The VSTAR home page hero: 'Our Service That Keeps You Moving', four guarantees and a card for Grills" decoding="async" />
-      <div class="mx-t mx-top">
-        <div class="mx-top__l"><a href="projects.html"><span aria-hidden="true">←</span> All work</a><span>VSTAR — Logo &amp; website case study</span></div>
-        <div class="mx-top__r"><span>Kartikeyan × VSTAR</span><a href="https://vstar.sg/" target="_blank" rel="noopener">vstar.sg <span aria-hidden="true">↗</span></a></div>
-      </div>
       <p class="mx-t mx-lbl" style="left:5.07%;top:85.1%" data-r>Project Overview</p>
       <h1 class="mx-t mx-p mx-p--lg" style="left:40.4%;top:83.4%;width:52%" data-r><b>VSTAR is a logo and website for a Singapore door and shutter service company,</b> designed to turn a broken door into a service request in two short steps.</h1>
     </section>
