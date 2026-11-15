@@ -141,17 +141,21 @@
   // Mobile menu panel
   const panel = $("#panel"), open = $("#menuOpen"), close = $("#menuClose");
   const setPanel = (on) => {
+    const was = panel.classList.contains("is-open");
     panel.classList.toggle("is-open", on);
     panel.setAttribute("aria-hidden", String(!on));
     open.setAttribute("aria-expanded", String(on));
     document.documentElement.style.overflow = on ? "hidden" : "";
     if (window.lenis) window.lenis[on ? "stop" : "start"]();
+    // keep Tab inside the open menu: everything else on the page goes inert
+    for (const el of document.body.children) if (el !== panel && el.tagName !== "SCRIPT") el.inert = on;
     if (on) close.focus();
+    else if (was) open.focus();
   };
   open.addEventListener("click", () => setPanel(true));
   close.addEventListener("click", () => setPanel(false));
   panel.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setPanel(false)));
-  addEventListener("keydown", (e) => { if (e.key === "Escape") setPanel(false); });
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && panel.classList.contains("is-open")) setPanel(false); });
 
   // Contact form → opens the visitor's email app with everything filled in
   const form = $("#contactForm");
