@@ -2699,7 +2699,7 @@ body:has(.pvc) .nav:not(.is-pill) .nav__links a, body:has(.pvc) .nav:not(.is-pil
 .nx-btn--soft { background: var(--card); color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
 .nx-btn--soft:hover { background: var(--card); border-color: var(--nblue); }
 .nx-btn--soft i { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: rgba(29,79,245,.12); color: var(--hl); font: 700 12px var(--int); font-style: normal; }
-.nx .vs-cover { margin-top: clamp(36px, 5vw, 60px); border-radius: 24px; }
+.nx .vs-cover { margin-top: clamp(36px, 5vw, 60px); }   /* corners come from .vs-cover: 26px, 18px on phones, as on Milton */
 
 .nx-sec { padding-top: clamp(90px, 11vw, 150px); }
 .nx-part + .nx-brandpart > .nx-sec:first-child, .nx-part + .nx-webpart > .nx-sec:first-child { padding-top: clamp(60px, 7vw, 100px); }
