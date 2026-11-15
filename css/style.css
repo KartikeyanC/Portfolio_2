@@ -1425,10 +1425,14 @@ html .hero .glow.glow--live { background: var(--bg); }
 .kp__ink a:focus-visible, .abar :focus-visible { outline-color: var(--on-acc); } /* a navy ring: the blue one vanished on the blue layer and bar */
 .kp__ink .btn { background: #fff; color: #000; }
 .kp__ink .btn.btn--ghost { background: transparent; color: var(--on-acc); border: 1px solid currentColor; box-shadow: none; }
+/* Title laid out like kokiltamta.in (user's screenshot, 16 Nov) but in the portfolio's own Clash Display:
+   PRODUCT + eyes on the left of the block, DESIGNER stepped right and sticking out past the eyes, and the whole
+   block centred on the page. The block shrinks to the title's width, so "Hi, I'm Kartikeyan — a" starts at the P */
+.kp__layer > div:first-child { align-self: center; }
 .kp__hello { font-size: clamp(17px, 1.7vw, 24px); font-weight: 500; }
-.kp__title { font: 700 clamp(48px, 11.5vw, 190px)/.86 var(--clash); text-transform: uppercase; letter-spacing: -.02em; }
+.kp__title { font: 700 clamp(48px, 11.5vw, 190px)/.9 var(--clash); text-transform: uppercase; letter-spacing: -.02em; }
 .kp__title > span { display: flex; align-items: center; gap: .14em; white-space: nowrap; }
-.kp__title > span + span { padding-left: clamp(0px, 9vw, 170px); }
+.kp__title > span + span { padding-left: 2em; }
 /* Googly eyes (Home hero). Base pair is 2 x 100px eyes + 24px gap = 224 x 100px, scaled by --eye-scale:
    1 desktop, .75 tablet, .42 phone. Scoped under .eyes-scene so the Contact page's .eyes pair is untouched. */
 .kp { --eye-scale: 1; }
@@ -1453,6 +1457,9 @@ html .hero .glow.glow--live { background: var(--bg); }
 .kp.is-painted .kp__hint { opacity: 0; }
 .kp__bottom { display: flex; justify-content: space-between; align-items: end; gap: 20px 40px; flex-wrap: wrap; }
 .kp__desc { max-width: 440px; font-size: clamp(15px, 1.25vw, 18px); }
+/* Tagline: only this line, big and bold, centred right under PRODUCT DESIGNER (user, 16 Nov).
+   contain keeps it from widening the title block, so the title stays centred on phones */
+.kp__tag { margin: clamp(22px, 3vw, 40px) auto 0; text-align: center; contain: inline-size; font: 600 clamp(20px, 2.4vw, 36px)/1.2 var(--clash); letter-spacing: -.01em; text-wrap: balance; }
 .kp__btns { display: flex; gap: 10px; flex-wrap: wrap; }
 .kp__strip { display: flex; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; border-top: 1px solid currentColor; padding-top: 14px; margin-top: 20px; font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .kp__ink .kp__strip { border-color: currentColor; }
