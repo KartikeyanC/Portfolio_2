@@ -40,8 +40,7 @@
     COLOR_UPDATE_SPEED: 10,    // colour changes per second, so the trail blends through the palette
 
     // Staying out of the way
-    // .kp = the home hero, which has its own paint-to-reveal effect
-    QUIET_SELECTOR: 'nav, a, button, input, textarea, select, label, summary, [role="button"], [role="tab"], dialog, .kp',
+    QUIET_SELECTOR: 'nav, a, button, input, textarea, select, label, summary, [role="button"], [role="tab"], dialog',
     TEXT_SELECTOR: 'p, h1, h2, h3, h4, h5, h6, li, blockquote, pre, dt, dd, figcaption, time, [class*="headline"]',
     TEXT_STRENGTH: 0.15,       // ink strength over text (0-1)
     STRENGTH_EASE: 0.2,        // how quickly the strength eases toward its target, per splat
