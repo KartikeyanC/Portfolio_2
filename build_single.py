@@ -165,6 +165,7 @@ def page_doc(html: str) -> str:
     html = re.sub(r'<link rel="stylesheet" href="/?css/style\.css" />', "<!--@CSS-->", html)
     html = re.sub(r'<script src="/?js/main\.js"></script>', "<!--@JS-->", html)
     html = re.sub(r'<script src="https://cdn\.jsdelivr\.net/npm/lenis[^"]*"[^>]*></script>', "<!--@LENIS-->", html)
+    html = re.sub(r'<script src="/?js/fluid-cursor\.js"[^>]*></script>', "<!--@FLUID-->", html)
     html = re.sub(r'\s*<link rel="icon" href="/?favicon\.ico"[^>]*>', "", html)
     html = re.sub(r'\s*<link rel="apple-touch-icon"[^>]*>', "", html)
     html = re.sub(r'<link rel="icon" href="/?assets/favicon\.svg"', '<link rel="icon" href="<!--@ICON-->"', html)
@@ -186,6 +187,7 @@ def main(lock=None):
     content = embed_content(json.loads((ROOT / "content.json").read_text(encoding="utf-8")))
     css = (ROOT / "css" / "style.css").read_text(encoding="utf-8")
     js = patch_js((ROOT / "js" / "main.js").read_text(encoding="utf-8"))
+    fluid = (ROOT / "js" / "fluid-cursor.js").read_text(encoding="utf-8")
     global _lenis
     if not _lenis:  # downloaded once per run (watch mode rebuilds reuse it)
         try:
@@ -197,7 +199,7 @@ def main(lock=None):
     pages = {p: page_doc((ROOT / p).read_text(encoding="utf-8")) for p in PAGES}
     title = re.search(r"<title>(.*?)</title>", pages["index.html"]).group(1)
 
-    bundle = {"content": json.dumps(content, ensure_ascii=False), "css": css, "js": js, "lenis": lenis, "icon": icon, "pages": pages}
+    bundle = {"content": json.dumps(content, ensure_ascii=False), "css": css, "js": js, "fluid": fluid, "lenis": lenis, "icon": icon, "pages": pages}
     if lock:
         return build_locked(bundle, title, icon, **lock)
     payload = json.dumps(bundle, ensure_ascii=False).replace("</", "<\\/")  # safe inside <script>
@@ -260,6 +262,7 @@ VIEWER = """const startSite = (B) => {
       .replace("<!--@CSS-->", () => "<style>" + B.css + "</style>")
       .replace("<!--@ICON-->", () => B.icon)
       .replace("<!--@LENIS-->", () => (B.lenis ? '<script id="lenisLib">' + esc(B.lenis) + END : ""))
+      .replace("<!--@FLUID-->", () => (B.fluid ? "<script>" + esc(B.fluid) + END : ""))
       .replace("<!--@JS-->", () => "<script>window.__LOC=" + JSON.stringify(loc) + ";window.__SITE_CONTENT__=parent.__SITE_CONTENT__;" + nav + END + "<script>" + esc(B.js) + END);
   };
 
@@ -476,7 +479,7 @@ __VIEWER__
 
 def sources():
     """Every file that ends up inside the single file."""
-    files = [ROOT / p for p in PAGES] + [ROOT / "css" / "style.css", ROOT / "js" / "main.js", ROOT / "content.json", ROOT / "assets" / "favicon.svg"]
+    files = [ROOT / p for p in PAGES] + [ROOT / "css" / "style.css", ROOT / "js" / "main.js", ROOT / "js" / "fluid-cursor.js", ROOT / "content.json", ROOT / "assets" / "favicon.svg"]
     files += [f for f in IMG.rglob("*") if f.is_file()] if IMG.exists() else []
     return files
 
