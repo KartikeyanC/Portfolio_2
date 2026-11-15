@@ -4,20 +4,136 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VSTAR — Logo &amp; website — Kartikeyan</title>
-  <meta name="description" content="VSTAR, a logo and website designed and built by Kartikeyan C for a Singapore door and shutter service company: brief, users, logo, page structure, enquiry flow and build." />
+  <meta name="description" content="VSTAR, a logo and website designed and built by Kartikeyan C for a Singapore door and shutter service company: the problem, the solution, the process, the brand and the screens." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
   <link rel="stylesheet" href="css/style.css" />
+  <!-- VSTAR presentation (this page only), composed after the Behance case study "Movexa" (behance.net/gallery/258195523):
+       full-width black boards, one idea each. The device scenes are pictures rendered from HTML (assets/images/projects/vstar/pres/);
+       labels and paragraphs are live text laid over them, sized with the board (cqw) so they stay where the design puts them. -->
+  <style>
+    .mx-body .nav.is-pill { top: calc(var(--nav-top, 0px) + 12px); }   /* the pill sits under the announcement bar until it scrolls away */
+    #vs.mx-wrap { padding-top: calc(var(--abar-h, 0px) + 92px); background: #000 !important; color: #fff; overflow: clip; }
+    .mx-b { position: relative; container-type: inline-size; width: 100%; max-width: 1680px; margin: 0 auto; background: #000; }
+    .mx-b__img { display: block; width: 100%; height: auto; }
+    .mx-t { position: absolute; margin: 0; }
+    .mx-lbl { font: 500 max(11px, .8cqw)/1.3 var(--int); letter-spacing: .01em; color: #fff; }
+    .mx-lbl::before { content: "+"; margin-right: .5em; }
+    .mx-lbl--pain { color: #ff6b5e; } .mx-lbl--sol { color: #8fcb69; }
+    .mx-p { font: 400 1.42cqw/1.42 var(--int); color: rgba(255,255,255,.52); letter-spacing: -.005em; }
+    .mx-p b { font-weight: 400; color: #fff; }
+    .mx-p--lg { font-size: 1.8cqw; line-height: 1.36; }
+    .mx-cap { font: 400 1.12cqw/1.5 var(--int); color: rgba(255,255,255,.55); }
+    .mx-cap b { display: block; margin-bottom: .45em; font: 500 max(11px, .8cqw)/1.3 var(--int); color: #fff; }
+    .mx-cap b::before { content: "+"; margin-right: .5em; }
+
+    /* 01 overview: top row, the live screen (the project card grows into it on the page transition), the overview line */
+    .mx-top { left: 3.7%; right: 3.7%; top: 4.2%; display: flex; justify-content: space-between; align-items: center; gap: 2cqw; font: 500 max(11px, .82cqw)/1.3 var(--int); }
+    .mx-top a { color: #fff; }
+    .mx-top__l { display: flex; align-items: center; gap: 1.4cqw; text-transform: uppercase; letter-spacing: .04em; }
+    .mx-top__l a { display: inline-flex; align-items: center; gap: .5em; padding: .5em .9em; border-radius: 99px; border: 1px solid rgba(255,255,255,.22); text-transform: none; letter-spacing: 0; }
+    .mx-top__l a:hover { background: rgba(255,255,255,.1); }
+    .mx-top__r { display: flex; align-items: center; gap: 1.4cqw; color: rgba(255,255,255,.75); }
+    .mx-top__r a { display: inline-flex; align-items: center; gap: .4em; padding: .5em .9em; border-radius: 99px; background: #519041; }
+    .mx-top__r a:hover { background: #46802f; }
+    .mx-scr { position: absolute; left: 24.167%; top: 13.075%; width: 53.889%; height: 37.772%; object-fit: cover; object-position: 50% 0; border-radius: .28cqw; background: #050608; }
+
+    /* 04 design process: steps rising to the right, each on a pill at the base line */
+    .mx-proc { aspect-ratio: 1440 / 817; }
+    .mx-proc__base { position: absolute; left: 0; right: 0; top: 84.3%; height: 1px; background: rgba(255,255,255,.4); }
+    .mx-proc ol { list-style: none; margin: 0; padding: 0; }
+    .mx-step { position: absolute; left: var(--x); top: var(--y); bottom: 15.7%; width: 0; }
+    .mx-step::before { content: ""; position: absolute; left: -.5px; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,.55); }
+    .mx-step__dot { position: absolute; left: 0; top: 0; width: .8cqw; height: .8cqw; border: 1.5px solid #fff; border-radius: 50%; background: #000; transform: translate(-50%, -50%); }
+    .mx-step__txt { position: absolute; left: 0; bottom: calc(100% + 1.3cqw); transform: translateX(-50%); text-align: center; white-space: nowrap; }
+    .mx-step__txt b { display: block; font: 500 1.62cqw/1.2 var(--jak); color: #fff; letter-spacing: -.01em; }
+    .mx-step__txt small { display: block; margin-top: .55cqw; font: 400 .88cqw/1.2 var(--int); color: rgba(255,255,255,.55); }
+    .mx-step.is-key .mx-step__txt small { color: #8fcb69; }
+    .mx-step__pill { position: absolute; left: 0; bottom: 0; transform: translate(-50%, 50%); display: flex; align-items: center; justify-content: space-between; gap: .7cqw;
+      width: 12cqw; height: 3.1cqw; padding: 0 .32cqw 0 1.05cqw; border: 1px solid rgba(255,255,255,.55); border-radius: 99px; background: #000; font: 400 .88cqw var(--int); color: #fff; white-space: nowrap; }
+    .mx-step__pill i { flex: none; display: grid; place-items: center; width: 2.3cqw; height: 2.3cqw; border-radius: 50%; background: #fff; color: #000; }
+    .mx-step__pill svg { width: 1.2cqw; height: 1.2cqw; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* 06 typography: the specimen is live text */
+    .mx-spec { left: 4.1%; top: 7.4%; margin: 0; font: 600 6.6cqw/1 var(--jak); letter-spacing: -.035em; color: #fff; white-space: nowrap; }
+    .mx-spec span { color: rgba(255,255,255,.45); }
+    .mx-spec2 { left: 4.1%; top: 13.6%; margin: 0; font: 400 1.4cqw/1.4 var(--int); color: rgba(255,255,255,.55); }
+    .mx-spec2 b { font-weight: 500; color: #fff; }
+
+    /* 08 the whole page: green band with a tablet, then the full home page with phones beside it */
+    .mx-full { padding: 4.2cqw 0 7cqw; background: linear-gradient(180deg, #519041 0, #3b6d2e 14cqw, #0c1609 40cqw, #000 52cqw); }
+    .mx-full .mx-lbl { position: absolute; left: 4.1%; top: 2.2cqw; }
+    .mx-tab { width: 46cqw; margin: 0 auto; padding: 1.3cqw; border-radius: 2.6cqw; background: #0b0b0c; box-shadow: inset 0 0 0 2px #2f3033, 0 3cqw 6cqw -2cqw rgba(0,0,0,.6); }
+    .mx-tab img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 0; border-radius: 1.2cqw; }
+    .mx-pagew { position: relative; width: 46cqw; margin: 5cqw auto 0; }
+    .mx-page { border-radius: 1.4cqw 1.4cqw 0 0; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px rgba(255,255,255,.08); }
+    .mx-page img { display: block; width: 100%; height: auto; }
+    .mx-fp { position: absolute; top: var(--t); margin: 0; }
+    .mx-fp--l { right: calc(100% - 4cqw); } .mx-fp--r { left: calc(100% - 4cqw); }
+    .mx-fp .iph, .mx-sec__ph .iph { --vh: 25cqw; --sb: #4f8f25; --sb-ink: #fff; --iph-shadow: 0 2.4cqw 4cqw -1.4cqw rgba(0,0,0,.8); }
+
+    /* 10 sections up close: two columns like the reference's inner pages */
+    .mx-sec { display: grid; grid-template-columns: 36fr 60fr; gap: 2.6cqw; align-items: start; padding: 5cqw 3cqw 6cqw; }
+    .mx-shot { margin: 0; border-radius: 1.2cqw; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px rgba(255,255,255,.08), 0 2cqw 4cqw -1.5cqw rgba(0,0,0,.7); }
+    .mx-shot img { display: block; width: 100%; height: auto; }
+    .mx-shot__bar { display: flex; align-items: center; gap: .45cqw; padding: .75cqw 1cqw; background: #eef1f5; font: 500 .8cqw var(--int); color: #55606f; }
+    .mx-shot__bar i { width: .65cqw; height: .65cqw; border-radius: 50%; background: #c9ced6; }
+    .mx-shot__bar span { margin-left: .8cqw; padding: .25cqw 1.2cqw; border-radius: 99px; background: #fff; }
+    .mx-photo { margin: 0 0 2.6cqw; border-radius: 1.2cqw; overflow: hidden; }
+    .mx-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1670 / 830; object-fit: cover; }
+    .mx-sec__ph { position: relative; display: grid; place-items: center; padding: 6cqw 0 2cqw; }
+    .mx-sec__ph::before { content: ""; position: absolute; left: -10%; right: -10%; top: 10%; bottom: -6%; border-radius: 50%; background: radial-gradient(ellipse, rgba(130,195,95,.45), rgba(81,144,65,.12) 45%, transparent 68%); }
+    .mx-sec__ph .iph { --vh: 34cqw; transform: rotate(-8deg); }
+
+    /* gentle reveal (no clip, no blank areas): blocks rise in as they reach the screen */
+    .mx [data-r] { opacity: 0; translate: 0 22px; transition: opacity .8s ease, translate .9s cubic-bezier(.2,.8,.2,1); }
+    .mx [data-r].is-in { opacity: 1; translate: 0 0; }
+    .mx-end { padding: 4cqw 0 0; background: #000; }
+    .mx-end .cs-next { padding-top: 0; }
+
+    @media (max-width: 760px) {
+      .mx-b { container-type: normal; }
+      .mx-t { position: static; width: auto !important; padding: 0 16px; }
+      .mx-b > .mx-t:first-of-type, .mx-b .mx-t + .mx-t { margin-top: 0; }
+      .mx-b:has(> .mx-t) { padding-bottom: 28px; }
+      .mx-lbl { margin: 18px 0 8px; font-size: 12px; }
+      .mx-p, .mx-p--lg { font-size: 16.5px; line-height: 1.5; }
+      .mx-cap { margin-top: 18px; font-size: 15px; }
+      .mx-cap b { font-size: 12px; }
+      .mx-top { position: absolute; left: 12px; right: 12px; top: 10px; font-size: 11px; }
+      .mx-top__l > span { display: none; }
+      .mx-spec { margin-top: 6px; font-size: 10vw; white-space: normal; }
+      .mx-spec2 { margin-top: 10px; font-size: 15px; }
+      .mx-proc { aspect-ratio: auto; padding: 8px 16px 28px; }
+      .mx-proc .mx-lbl { position: static; }
+      .mx-proc__base { display: none; }
+      .mx-proc ol { display: grid; gap: 10px; }
+      .mx-step { position: static; width: auto; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid rgba(255,255,255,.18); border-radius: 14px; }
+      .mx-step::before, .mx-step__dot { display: none; }
+      .mx-step__txt { position: static; transform: none; text-align: left; }
+      .mx-step__txt b { font-size: 17px; } .mx-step__txt small { margin-top: 4px; font-size: 12.5px; }
+      .mx-step__pill { position: static; transform: none; width: auto; height: 34px; padding: 0 4px 0 12px; font-size: 12.5px; gap: 8px; }
+      .mx-step__pill i { width: 26px; height: 26px; } .mx-step__pill svg { width: 14px; height: 14px; }
+      .mx-full { padding: 40px 0 60px; }
+      .mx-full .mx-lbl { position: static; padding: 0 16px; margin-top: 0; }
+      .mx-tab, .mx-pagew { width: 72vw; }
+      .mx-fp .iph { --vh: 34vw; }
+      .mx-fp--l { right: calc(100% - 9vw); } .mx-fp--r { left: calc(100% - 9vw); }
+      .mx-sec { grid-template-columns: 1fr; padding: 40px 16px 50px; gap: 20px; }
+      .mx-sec__ph .iph { --vh: 70vw; }
+    }
+    @media (prefers-reduced-motion: reduce) { .mx [data-r] { opacity: 1; translate: none; transition: none; } }
+  </style>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
   <link rel="expect" href="#page-ready" blocking="render" />
 </head>
-<body id="top">
+<body id="top" class="mx-body">
 
   <!-- Announcement bar — text/link from content.json "announcement" (edit in /gk); dismissed bars stay hidden for the visit -->
   <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="/contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
@@ -47,274 +163,163 @@
     <small data-bind="contact-line" hidden></small>
   </div>
 
-  <main>
-    <!-- VSTAR case study (logo + website, design & development). Own layout ("roller shutter" look): the ".vx" block at the end of
-         css/style.css. The ".vs" class only supplies base tokens (colours, fonts); #vs is the hook for the project brand colours. -->
-    <div class="vs vx" id="vs">
+  <main class="mx">
+    <!-- #vs: VSTAR tokens (fonts, colours) + the project brand colours from content.json -->
+    <div class="vs vx mx-wrap" id="vs">
 
-    <!-- HERO: navy band with shutter slats, the cover rises out of it -->
-    <header class="vx-hero vs-wrap">
-      <div class="vx-hero__band">
-        <a class="vx-back" href="projects.html"><span aria-hidden="true">←</span> All work</a>
-        <div class="vx-hero__grid">
-          <div>
-            <p class="vx-eye">Logo · Website · Design &amp; development</p>
-            <h1 class="vx-hero__title">VSTAR<em>Doors that open again.</em></h1>
-          </div>
-          <div>
-            <p class="vx-hero__lead">A brand and a website for a Singapore door and shutter service company. Designed for one moment: something has broken, the business has stopped, and someone needs help <b>now</b>.</p>
-            <div class="vx-hero__btns">
-              <a class="vx-btn" href="https://vstar.sg/" target="_blank" rel="noopener">Visit vstar.sg <span aria-hidden="true">↗</span></a>
-              <a class="vx-btn vx-btn--line" href="#vs-flow">The enquiry flow <span aria-hidden="true">↓</span></a>
-            </div>
-          </div>
+    <!-- 01 PROJECT OVERVIEW -->
+    <section class="mx-b" id="overview" aria-label="Project overview">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/b01-overview.jpg" width="3840" height="3304" alt="A display on a dark desk showing the VSTAR website, with a small desktop computer beside it" fetchpriority="high" decoding="sync" />
+      <img class="mx-scr" src="assets/images/projects/vstar/site-hero.jpg" alt="The VSTAR home page hero: 'Our Service That Keeps You Moving', four guarantees and a card for Grills" style="view-transition-name:shot-vstar;view-transition-class:shot" decoding="sync" />
+      <div class="mx-t mx-top">
+        <div class="mx-top__l"><a href="projects.html"><span aria-hidden="true">←</span> All work</a><span>VSTAR — Logo &amp; website case study</span></div>
+        <div class="mx-top__r"><span>Kartikeyan × VSTAR</span><a href="https://vstar.sg/" target="_blank" rel="noopener">vstar.sg <span aria-hidden="true">↗</span></a></div>
+      </div>
+      <p class="mx-t mx-lbl" style="left:5.07%;top:85.1%" data-r>Project Overview</p>
+      <h1 class="mx-t mx-p mx-p--lg" style="left:40.4%;top:83.4%;width:52%" data-r><b>VSTAR is a logo and website for a Singapore door and shutter service company,</b> designed to turn a broken door into a service request in two short steps.</h1>
+    </section>
+
+    <!-- 02 PAIN -->
+    <section class="mx-b" id="pain" aria-label="The problem">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/b02-pain.jpg" width="3840" height="3160" alt="A closed steel roller shutter on a glossy black floor" loading="lazy" decoding="async" />
+      <p class="mx-t mx-lbl mx-lbl--pain" style="left:39.3%;top:77.6%" data-r>Pain</p>
+      <p class="mx-t mx-p" style="left:39.8%;top:80.4%;width:41%" data-r><b>When a door or shutter jams, the business stops with it.</b> The person on the page is standing in front of it, phone in hand, unsure who to call and what it will cost.</p>
+    </section>
+
+    <!-- 03 SOLUTION -->
+    <section class="mx-b" id="solution" aria-label="The solution">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/b03-solution.jpg" width="3840" height="2179" alt="An open foldable phone showing the two enquiry steps: pick the job, then name, site location and requirement with a green Continue to WhatsApp button" loading="lazy" decoding="async" />
+      <p class="mx-t mx-lbl mx-lbl--sol" style="left:5.3%;top:41%" data-r>Solution</p>
+      <p class="mx-t mx-p" style="left:5.5%;top:45.6%;width:38%" data-r><b>One page answers those worries first, then asks for the job:</b> pick the service, add four details, and WhatsApp opens with the message already written.</p>
+    </section>
+
+    <!-- 04 DESIGN PROCESS -->
+    <section class="mx-b mx-proc" id="process" aria-label="Design process">
+      <p class="mx-t mx-lbl" style="left:4.1%;top:16%" data-r>Design Process</p>
+      <div class="mx-proc__base" aria-hidden="true"></div>
+      <ol>
+        <li class="mx-step" style="--x:16.3%;--y:66.6%" data-r><span class="mx-step__dot" aria-hidden="true"></span><span class="mx-step__txt"><b>Research</b><small>Discovery</small></span><span class="mx-step__pill">Brief &amp; users<i aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/></svg></i></span></li>
+        <li class="mx-step" style="--x:33.3%;--y:57.8%" data-r><span class="mx-step__dot" aria-hidden="true"></span><span class="mx-step__txt"><b>Logo</b><small>Identity</small></span><span class="mx-step__pill">Logo set<i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h3v14H5zM10.5 5h3v14h-3zM16 5h3v14h-3z"/></svg></i></span></li>
+        <li class="mx-step" style="--x:50.1%;--y:48.7%" data-r><span class="mx-step__dot" aria-hidden="true"></span><span class="mx-step__txt"><b>Structure</b><small>Plan</small></span><span class="mx-step__pill">Page outline<i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></i></span></li>
+        <li class="mx-step is-key" style="--x:67.1%;--y:39.9%" data-r><span class="mx-step__dot" aria-hidden="true"></span><span class="mx-step__txt"><b>UI/UX Design</b><small>Design</small></span><span class="mx-step__pill">Mobile-first UI<i aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 17.5h2"/></svg></i></span></li>
+        <li class="mx-step" style="--x:83.9%;--y:31%" data-r><span class="mx-step__dot" aria-hidden="true"></span><span class="mx-step__txt"><b>Development</b><small>Deliver</small></span><span class="mx-step__pill">Tailwind build<i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"/></svg></i></span></li>
+      </ol>
+    </section>
+
+    <!-- ===== BRAND IDENTITY (boards after Behance "Arcon Engineering", 194683225: black, one green accent) ===== -->
+    <!-- B1 the mark in 3D -->
+    <section class="mx-b" id="brand" aria-label="Brand identity: the mark">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/br1-brand-mark.jpg" width="3840" height="2160" alt="The VSTAR mark in 3D: six grey slats forming a V, with the four-point star glowing green in the gap" loading="lazy" decoding="async" />
+      <p class="mx-t mx-cap" style="left:3.6%;top:84%;width:40%" data-r><b>Brand identity</b>A V built from shutter slats, the thing VSTAR works on every day, with a star in the gap.</p>
+    </section>
+
+    <!-- B2 construction -->
+    <section class="mx-b" id="construction" aria-label="Construction of the mark">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/br2-brand-construction.jpg" width="3840" height="2160" alt="Construction drawing of the mark: six slats cut at 45 degrees, three a side, and the star centred in the gap inside a circle" loading="lazy" decoding="async" />
+    </section>
+
+    <!-- B3 on dark, on light -->
+    <section class="mx-b" id="logo-dark-light" aria-label="The logo on dark and on light">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/br3-brand-dark-light.jpg" width="3840" height="2160" alt="The VSTAR logo in white and green on black, and in navy and green on Mist" loading="lazy" decoding="async" />
+    </section>
+
+    <!-- B3b typography & colour (the Movexa-style board) -->
+    <!-- 06 TYPOGRAPHY & COLOUR -->
+    <section class="mx-b" id="type-colour" aria-label="Typography and colour">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/b06-type-colour.jpg" width="3840" height="4392" alt="The VSTAR palette as a ring: Navy #0E2344, Mist #EEF1F5 and Green #519041, and a laptop showing the site in green light" loading="lazy" decoding="async" />
+      <p class="mx-t mx-lbl" style="left:4.1%;top:5.2%" data-r>Typography &amp; Color</p>
+      <p class="mx-t mx-spec" data-r>Plus Jakarta <span>Sans</span></p>
+      <p class="mx-t mx-spec2" data-r><b>Headings</b> in Plus Jakarta Sans, <b>body</b> in Inter. Navy carries trust, green is the "it's working again" colour on every action.</p>
+    </section>
+
+    <!-- B4 the logo set -->
+    <section class="mx-b" id="logo-set" aria-label="The logo set">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/br4-brand-logo-set.jpg" width="3840" height="2160" alt="Four cards: the horizontal logo on white, the stacked logo on Mist, the reversed mark on navy and the app icon on green" loading="lazy" decoding="async" />
+    </section>
+
+    <!-- B5 printed on dark cards (mockup) -->
+    <section class="mx-b" id="brand-cards" aria-label="The logo printed on dark cards, mockup">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/br5-brand-cards.jpg" width="3840" height="2253" alt="Mockup: the VSTAR logo printed large in white and green across a stack of dark textured cards" loading="lazy" decoding="async" />
+      <p class="mx-t mx-cap" style="left:3.6%;top:6%;width:40%" data-r><b>In use</b>Mockups: the logo printed large on dark card, and on stationery.</p>
+    </section>
+
+    <!-- B6 stationery (mockup) -->
+    <section class="mx-b" id="stationery" aria-label="Stationery, mockup">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/br6-brand-stationery.jpg" width="3840" height="1867" alt="Mockup: two letterheads with the VSTAR logo and two dark envelopes, one with a green flap" loading="lazy" decoding="async" />
+    </section>
+
+    <!-- B7 the logo on a roller shutter (mockup) -->
+    <section class="mx-b" id="logo" aria-label="The logo on a roller shutter, mockup">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/b09-logo-shutter.jpg" width="3840" height="2581" alt="Mockup: the VSTAR logo, green slat V with a white star and the white wordmark, painted on a navy roller shutter in a concrete wall" loading="lazy" decoding="async" />
+      <p class="mx-t mx-cap" style="left:4%;top:86.6%;width:60%;color:rgba(255,255,255,.78)" data-r><b>On a shutter</b>Mockup: the logo where VSTAR's customers will see it most, on the shutters the team keeps running.</p>
+    </section>
+
+    <!-- ===== WEBSITE ===== -->
+    <!-- W1 the first screen, its four guarantees called out -->
+    <section class="mx-b" id="first-screen" aria-label="The first screen">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/c2-closeup-c2.jpg" width="3840" height="3256" alt="The VSTAR first screen in a browser window, with green labels pointing at its four guarantees: 60-minute emergency response, free site inspection, no after-hours surcharges, no weekend surcharges" loading="lazy" decoding="async" />
+      <p class="mx-t mx-lbl" style="left:4.1%;top:5%" data-r>Website</p>
+      <p class="mx-t mx-cap" style="left:4.2%;top:80%;width:46%" data-r><b>First screen</b>Four plain guarantees sit right under the promise, so the cost and speed worries are answered before anyone has to call.</p>
+    </section>
+
+    <!-- 07 LAYOUT GRID -->
+    <section class="mx-b" id="grid" aria-label="Layout grid">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/b07-grid.jpg" width="3840" height="2384" alt="The products section in a white frame with its three columns marked: screen 1440, columns 3, margin 112, gutter 16" loading="lazy" decoding="async" />
+    </section>
+
+    <!-- 08 THE WHOLE PAGE -->
+    <section class="mx-b mx-full" id="whole-page" aria-label="The whole home page">
+      <p class="mx-lbl" data-r>The whole page</p>
+      <div class="mx-tab" data-r><img src="assets/images/projects/vstar/site-hero.jpg" alt="The VSTAR hero on a tablet" loading="lazy" decoding="async" /></div>
+      <div class="mx-pagew">
+        <div class="mx-page">
+          <img src="assets/images/projects/vstar/pres/full-1.jpg" width="1920" height="2675" alt="The full VSTAR home page, part 1 of 4: hero, why it matters and the start of the products" loading="lazy" decoding="async" />
+          <img src="assets/images/projects/vstar/pres/full-2.jpg" width="1920" height="2675" alt="Part 2 of 4: the products grid and the services section" loading="lazy" decoding="async" />
+          <img src="assets/images/projects/vstar/pres/full-3.jpg" width="1920" height="2675" alt="Part 3 of 4: why VSTAR, how we work and the local numbers" loading="lazy" decoding="async" />
+          <img src="assets/images/projects/vstar/pres/full-4.jpg" width="1920" height="2676" alt="Part 4 of 4: the contact section and the footer" loading="lazy" decoding="async" />
         </div>
-        <img class="vx-hero__mark" src="assets/images/projects/vstar/mark-reverse.png" alt="" aria-hidden="true" />
-      </div>
-      <div class="vs-cover vx-cover" data-slide style="view-transition-name:shot-vstar;view-transition-class:shot"><img src="assets/images/projects/vstar/cover.jpg" alt="The VSTAR website on a desktop screen standing on a pedestal of navy cubes, with the mobile site on a phone beside it and labels reading Clear structure, Adaptive layout, Easy to enquire and WhatsApp in one tap" fetchpriority="high" decoding="sync" /></div>
-      <dl class="vx-order vs-r">
-        <div><dt>Client</dt><dd>VSTAR Construction &amp; Engineering Pte Ltd</dd></div>
-        <div><dt>Location</dt><dd>Singapore</dd></div>
-        <div><dt>My role</dt><dd>Logo, UX/UI design, front-end development</dd></div>
-        <div><dt>Built with</dt><dd>Tailwind CSS</dd></div>
-        <div><dt>Status</dt><dd><a href="https://vstar.sg/" target="_blank" rel="noopener"><i></i>Live at vstar.sg</a></dd></div>
-      </dl>
-    </header>
-
-    <!-- 01 BRIEF -->
-    <section class="vx-sec vs-wrap" id="vx-s1" data-ch="The brief">
-      <header class="vx-head vs-r"><b class="vx-head__no">01</b><div><p class="vx-eye">The brief</p><h2>Built for the moment <u>something breaks.</u></h2></div></header>
-      <div class="vx-body">
-        <p class="vs-big vs-r">VSTAR repairs, services and maintains doors, roller shutters, high-speed doors, grills and windows for businesses across Singapore.</p>
-        <p class="vs-r">They needed two things: a logo, and a website that turns visitors into service requests. I designed both, then built the site myself.</p>
-        <blockquote class="vx-quote vs-r">
-          <p>A faulty door is not just a maintenance issue. It can slow operations, affect security and bring a business to a standstill.</p>
-          <cite>From the VSTAR site copy, and the problem I designed around</cite>
-        </blockquote>
-        <p class="vs-r">That line changed how I saw the project. Nobody browses a shutter repair website for fun. The person on this page is usually standing in front of a door that won't open, on their phone, wondering who to call and what it will cost. Every decision below comes back to that person.</p>
+        <figure class="mx-fp mx-fp--l" style="--t:9.6%" data-r><div class="iph"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/vstar/pres/m-why.jpg" alt="On a phone: 'When your business depends on it, reliability matters.'" loading="lazy" decoding="async" /></div></div></figure>
+        <figure class="mx-fp mx-fp--r" style="--t:17%" data-r><div class="iph"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/vstar/pres/m-products.jpg" alt="On a phone: the products section with filter chips" loading="lazy" decoding="async" /></div></div></figure>
+        <figure class="mx-fp mx-fp--l" style="--t:38.6%" data-r><div class="iph"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/vstar/pres/m-services.jpg" alt="On a phone: the services section on navy" loading="lazy" decoding="async" /></div></div></figure>
+        <figure class="mx-fp mx-fp--r" style="--t:64.6%" data-r><div class="iph"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/vstar/pres/m-how.jpg" alt="On a phone: 'Simple process. Professional service.' and the first steps" loading="lazy" decoding="async" /></div></div></figure>
+        <figure class="mx-fp mx-fp--l" style="--t:73.6%" data-r><div class="iph"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/vstar/pres/m-local.jpg" alt="On a phone: 'Practical solutions.' with the sectors VSTAR serves" loading="lazy" decoding="async" /></div></div></figure>
+        <figure class="mx-fp mx-fp--r" style="--t:82.6%" data-r><div class="iph"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/vstar/pres/m-contact.jpg" alt="On a phone: 'Reliable Service. Minimal Downtime.' with Request a Service and Chat on WhatsApp" loading="lazy" decoding="async" /></div></div></figure>
       </div>
     </section>
 
-    <!-- 02 USERS -->
-    <section class="vx-sec vs-wrap" id="vx-s2" data-ch="Who it's for">
-      <header class="vx-head vs-r"><b class="vx-head__no">02</b><div><p class="vx-eye">Who it's for</p><h2>Three people, <u>one stuck door.</u></h2></div></header>
-      <div class="vx-body">
-        <p class="vs-r">The site serves three kinds of people, across homes, offices, factories and public buildings. They want different things from the same page.</p>
-        <div class="vx-calls">
-          <article class="vx-call vs-r"><span class="vx-call__av"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v3H9zM7 4.5H5V21h14V4.5h-2M9 11h6M9 15h4"/></svg></span><div><b>Facility manager</b><p>"The loading bay shutter is stuck and trucks are waiting."</p><small>Needs a fast reply, today</small></div></article>
-          <article class="vx-call vs-r"><span class="vx-call__av"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3v19M12 21V9l8 3v9M2 21h20M7 8h2M7 12h2M7 16h2M15 14h2M15 17h2"/></svg></span><div><b>Building owner</b><p>"I want it serviced before it breaks, at a price I can plan for."</p><small>Needs maintenance, clear costs</small></div></article>
-          <article class="vx-call vs-r"><span class="vx-call__av"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18M5 18v-3a7 7 0 0 1 14 0v3M10 8.5V5h4v3.5"/></svg></span><div><b>Contractor</b><p>"I need someone reliable for the door work on my project."</p><small>Needs range, proof, a contact</small></div></article>
-        </div>
-        <ul class="vx-sectors vs-r">
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7v9H3zM9 20v-6h6v6"/></svg><b>Residential</b><small>HDB, condo, landed</small></li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5l8-3v19M12 21V9l8 3v9M2 21h20M7 8h2M7 12h2M7 16h2"/></svg><b>Commercial</b><small>Offices, retail, shopfronts</small></li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V11l5 3v-3l5 3V6h4v15zM2 21h20"/></svg><b>Industrial</b><small>Factories, warehouses</small></li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9 12 4l9 5-9 5zM6 11v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg><b>Institutions</b><small>Schools, healthcare, government</small></li>
-        </ul>
+    <!-- 10 SECTIONS, up close -->
+    <section class="mx-b mx-sec" id="sections" aria-label="Sections up close">
+      <div>
+        <figure class="mx-shot" data-r><img src="assets/images/projects/vstar/pres/sec-why-how.jpg" width="1600" height="1558" alt="Why VSTAR, five reason cards, and How we work, four steps" loading="lazy" decoding="async" /></figure>
+        <div class="mx-sec__ph" data-r><div class="iph"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/vstar/pres/m-local.jpg" alt="On a phone: 'Practical solutions.' with the sectors VSTAR serves" loading="lazy" decoding="async" /></div></div></div>
+      </div>
+      <div>
+        <figure class="mx-photo" data-r><img src="assets/images/projects/vstar/pres/photo-grills.jpg" width="1670" height="830" alt="A shopfront security grille, the photo from the VSTAR hero" loading="lazy" decoding="async" /></figure>
+        <figure class="mx-shot" data-r><div class="mx-shot__bar" aria-hidden="true"><i></i><i></i><i></i><span>vstar.sg/#products</span></div><img src="assets/images/projects/vstar/pres/sec-products.jpg" width="1920" height="2360" alt="The products section: filter chips above twelve photo cards and a request bar" loading="lazy" decoding="async" /></figure>
       </div>
     </section>
 
-    <!-- 03 GOALS -->
-    <section class="vx-sec vs-wrap" id="vx-s3" data-ch="Design goals">
-      <header class="vx-head vs-r"><b class="vx-head__no">03</b><div><p class="vx-eye">Design goals</p><h2>Three goals, <u>one thumb away.</u></h2></div></header>
-      <div class="vx-body">
-        <ol class="vx-slats">
-          <li class="vs-r"><span>01</span><b>One tap to ask for help</b><p>From any part of the page, on any screen, the way to reach VSTAR is never more than a thumb away.</p></li>
-          <li class="vs-r"><span>02</span><b>"Do they handle my door?"</b><p>Answer it with pictures. People recognise their shutter by how it looks, not by its trade name.</p></li>
-          <li class="vs-r"><span>03</span><b>Earn trust before the call</b><p>Answer the cost and reliability worries up front, so the enquiry starts with confidence, not doubt.</p></li>
-        </ol>
-      </div>
+    <!-- 11 THE LAPTOP -->
+    <section class="mx-b" id="services-screen" aria-label="The services section on a laptop">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/b11-laptop.jpg" width="3840" height="3531" alt="A laptop hanging on white cords, showing the VSTAR services section on navy" loading="lazy" decoding="async" />
     </section>
 
-    <!-- 04 LOGO -->
-    <section class="vx-sec vs-wrap" id="vx-s4" data-ch="The logo">
-      <header class="vx-head vs-r"><b class="vx-head__no">04</b><div><p class="vx-eye">The logo</p><h2>A V made of <u>shutter slats.</u></h2></div></header>
-      <div class="vx-body">
-        <div class="vs-logo vs-r">
-          <div class="vs-logo__main"><small class="vs-logo__lbl">Horizontal</small><img src="assets/images/projects/vstar/logo.png" alt="VSTAR logo: a green V made of shutter slats with a navy star in the middle, next to the VSTAR wordmark and 'Construction &amp; Engineering Pte Ltd'" /></div>
-          <div class="vs-logo__stack"><small class="vs-logo__lbl">Stacked</small><img src="assets/images/projects/vstar/logo-stacked.png" alt="VSTAR stacked logo: the green slat V with the navy star above the VSTAR wordmark and 'Construction &amp; Engineering Pte Ltd'" /></div>
-          <div class="vs-logo__mark"><small class="vs-logo__lbl">Reversed mark</small><img src="assets/images/projects/vstar/mark-reverse.png" alt="The VSTAR mark reversed for dark backgrounds: green slats with a white star, on navy" /></div>
-          <div class="vs-logo__icon"><small class="vs-logo__lbl">App icon</small><img src="assets/images/projects/vstar/mark.png" alt="The VSTAR mark as a small app icon" /></div>
-        </div>
-        <ol class="vx-concept vs-r">
-          <li><span>V</span><p><b>Shutter slats</b>The mark is a V built from vertical slats, the thing VSTAR works on every day.</p></li>
-          <li><span>✦</span><p><b>A star in the gap</b>The space between the two sides holds a four-point star. Read together: V + star.</p></li>
-          <li><span>A</span><p><b>Echoed in the name</b>The star returns inside the A, and the T is cut to a point to repeat the V.</p></li>
-        </ol>
-        <div class="vx-brand vs-r">
-          <div class="vx-swatch" style="--c:#0e2344"><b>Navy</b><small>#0E2344</small><p>Trust and weight</p></div>
-          <div class="vx-swatch" style="--c:#519041"><b>Green</b><small>#519041</small><p>Every action and every tick</p></div>
-          <div class="vx-swatch" style="--c:#eef1f5;--t:#0e2344"><b>Mist</b><small>#EEF1F5</small><p>Calm backgrounds</p></div>
-          <div class="vx-type"><small>Headings</small><b class="vs-f1">Plus Jakarta Sans</b><small>Body</small><b class="vs-f2">Inter</b></div>
-        </div>
-        <p class="vs-note vs-r">Navy carries trust and weight. Green is the "it's working again" colour, so it goes on every action button and every tick.</p>
-      </div>
+    <!-- 12 THREE PHONES -->
+    <section class="mx-b" id="mobile" aria-label="Mobile">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/b12-phones.jpg" width="3840" height="3192" alt="Three phones showing the VSTAR mobile site: the hero, the services section and the four steps" loading="lazy" decoding="async" />
+      <p class="mx-t mx-cap" style="left:5.1%;top:86%;width:46%" data-r><b>Mobile first</b>Designed for the phone in the hand at the broken door. One green WhatsApp Enquiry bar stays at the bottom of the screen, wherever you scroll.</p>
     </section>
 
-    <!-- 05 STRUCTURE: interactive page outline -->
-    <section class="vx-sec vs-wrap" id="vx-s5" data-ch="Page structure">
-      <header class="vx-head vs-r"><b class="vx-head__no">05</b><div><p class="vx-eye">Page structure</p><h2>One page, <u>in the order people worry.</u></h2></div></header>
-      <div class="vx-body">
-        <p class="vs-r">One page, ordered by the questions a worried visitor asks. Point at a question to see where it sits on the page.</p>
-        <div class="vx-outline vs-r">
-          <div class="vx-outline__page" aria-hidden="true">
-            <span class="vx-ob" style="--h:22"><i>Hero</i></span><span class="vx-ob" style="--h:9"><i>Why it matters</i></span><span class="vx-ob" style="--h:26"><i>Products</i></span><span class="vx-ob vx-ob--navy" style="--h:15"><i>Services</i></span><span class="vx-ob" style="--h:9"><i>Why VSTAR</i></span><span class="vx-ob" style="--h:8"><i>How we work</i></span><span class="vx-ob" style="--h:8"><i>About + numbers</i></span><span class="vx-ob vx-ob--goal" style="--h:10"><i>Contact</i></span>
-          </div>
-          <ol class="vx-outline__qs">
-            <li><button type="button" class="is-on"><q>Can you help me?</q><b>Hero</b><small>Promise + four guarantees</small></button></li>
-            <li><button type="button"><q>Why does this matter?</q><b>Why it matters</b><small>Downtime costs money</small></button></li>
-            <li><button type="button"><q>Do you do my door?</q><b>Products</b><small>12 systems, with filters</small></button></li>
-            <li><button type="button"><q>What exactly do you do?</q><b>Services</b><small>Repair · Servicing · Maintenance</small></button></li>
-            <li><button type="button"><q>Why you?</q><b>Why VSTAR</b><small>Five reasons</small></button></li>
-            <li><button type="button"><q>What happens next?</q><b>How we work</b><small>Four steps</small></button></li>
-            <li><button type="button"><q>Are you real and local?</q><b>About + numbers</b><small>Sectors, experience, reply time</small></button></li>
-            <li><button type="button"><q>OK, how do I reach you?</q><b>Contact</b><small>Request a service · WhatsApp</small></button></li>
-          </ol>
-        </div>
-      </div>
+    <!-- 13 THANK YOU -->
+    <section class="mx-b" id="thanks" aria-label="Thank you">
+      <img class="mx-b__img" src="assets/images/projects/vstar/pres/b13-thanks.jpg" width="3840" height="3192" alt="Thank You, with a phone showing 'Reliable Service. Minimal Downtime.' resting on a dark glossy wave" loading="lazy" decoding="async" />
+      <p class="mx-t mx-p" style="left:4.4%;top:86.2%;width:48%" data-r><b>Have a project in mind?</b><br />Let's create something that works as hard as you do.</p>
+      <p class="mx-t mx-lbl" style="right:4%;top:88.4%" data-r>Kartikeyan × VSTAR</p>
     </section>
-
-    <!-- 06 DECISIONS: annotated screenshots -->
-    <section class="vx-sec vs-wrap" id="vx-s6" data-ch="Key design decisions">
-      <header class="vx-head vs-r"><b class="vx-head__no">06</b><div><p class="vx-eye">Key design decisions</p><h2>Three screens, <u>read up close.</u></h2></div></header>
-      <div class="vx-body">
-        <p class="vs-r">Each screen carries numbered notes. Point at a note, or a pin on the screen, to link the two.</p>
-
-        <article class="vx-anno vs-r">
-          <div class="vx-anno__txt"><small>Hero</small><h3>Answer the cost worry before it's asked</h3><p>Beside the promise sit four plain guarantees: a 60-minute emergency response, a free site inspection, and no after-hours or weekend surcharges. These are the questions people hesitate over before they call, so the first screen answers them.</p>
-            <ol class="vx-notes"><li data-pin="1">Four guarantees with green ticks, right under the promise.</li><li data-pin="2">A carousel card for each system VSTAR services, with its own link.</li><li data-pin="3">Phone and WhatsApp in the header, on every screen.</li></ol></div>
-          <figure class="vx-pinned"><img src="assets/images/projects/vstar/site-hero.jpg" alt="The VSTAR hero: 'Our Service That Keeps You Moving', four guarantees with green ticks, and a carousel card for Grills" loading="lazy" />
-            <button type="button" class="vx-pin" data-pin="1" style="--x:31%;--y:70%" aria-label="Note 1">1</button><button type="button" class="vx-pin" data-pin="2" style="--x:87%;--y:66%" aria-label="Note 2">2</button><button type="button" class="vx-pin" data-pin="3" style="--x:83%;--y:7%" aria-label="Note 3">3</button></figure>
-        </article>
-
-        <article class="vx-anno vx-anno--flip vs-r">
-          <div class="vx-anno__txt"><small>Products</small><h3>Show the door, not the trade name</h3><p>Twelve systems as photo cards, with filter chips for Doors, Shutters &amp; Grills, Fire &amp; Smoke Safety and Windows. A visitor who doesn't know what a "perforated shutter" is can still find theirs by looking.</p>
-            <ol class="vx-notes"><li data-pin="1">Filter chips narrow the twelve systems instantly.</li><li data-pin="2">Photo cards: people recognise their door by how it looks.</li><li data-pin="3">A request bar closes the section, so help is right there.</li></ol></div>
-          <figure class="vx-pinned vx-pinned--tall"><img src="assets/images/projects/vstar/site-products.jpg" alt="The products section: filter chips above a grid of twelve photo cards, from Doors and High-Speed Door to Fire and Smoke Curtains and Windows" loading="lazy" />
-            <button type="button" class="vx-pin" data-pin="1" style="--x:53%;--y:17%" aria-label="Note 1">1</button><button type="button" class="vx-pin" data-pin="2" style="--x:33%;--y:33%" aria-label="Note 2">2</button><button type="button" class="vx-pin" data-pin="3" style="--x:91%;--y:89%" aria-label="Note 3">3</button></figure>
-        </article>
-
-        <article class="vx-anno vs-r">
-          <div class="vx-anno__txt"><small>Services</small><h3>Every service has its own button</h3><p>Repair, General Servicing and Annual Maintenance each get a card, a one-line promise and their own request button. When an enquiry arrives, VSTAR already knows what kind of job it is.</p>
-            <ol class="vx-notes"><li data-pin="1">Four short promises set the tone before the details.</li><li data-pin="2">Each service gets a one-line promise in green.</li><li data-pin="3">Its own request button, so every enquiry arrives labelled.</li></ol></div>
-          <figure class="vx-pinned"><img src="assets/images/projects/vstar/site-services.jpg" alt="The services section on navy: three cards for Repair, General Servicing and Annual Maintenance, each with a checklist and a green request button" loading="lazy" />
-            <button type="button" class="vx-pin" data-pin="1" style="--x:63%;--y:26%" aria-label="Note 1">1</button><button type="button" class="vx-pin" data-pin="2" style="--x:31%;--y:56%" aria-label="Note 2">2</button><button type="button" class="vx-pin" data-pin="3" style="--x:33%;--y:85%" aria-label="Note 3">3</button></figure>
-        </article>
-      </div>
-    </section>
-
-    <!-- 07 ENQUIRY FLOW -->
-    <section class="vx-sec vs-wrap vs-flowsec" id="vs-flow" data-ch="The enquiry flow">
-      <header class="vx-head vs-r"><b class="vx-head__no">07</b><div><p class="vx-eye">The enquiry flow</p><h2>From "I need help" <u>to WhatsApp.</u></h2></div></header>
-      <div class="vx-body">
-        <p class="vs-big vs-r">The most important screen on the site isn't a page. It's the two steps between "I need help" and a message in VSTAR's WhatsApp.</p>
-        <p class="vs-r vs-narrow">The team already answers customers on WhatsApp, so I didn't replace it with a form that disappears into an inbox. The form only prepares the message. Two short steps collect what the team needs to quote, then WhatsApp opens with everything written out. The customer reads it, edits if they want, and sends.</p>
-        <div class="vs-steps vx-steps">
-          <figure class="vs-r"><div class="vs-phone"><img src="assets/images/projects/vstar/enquiry-1.jpg" alt="Step 1 of 2: 'Let's understand what you need', with Repair selected among Repair, General Servicing, Annual Maintenance and 'Not sure, I'll describe my need'" loading="lazy" /></div><figcaption><b>1 · Pick the job</b>Repair, servicing, maintenance, or "not sure". Nobody gets stuck on the first question.</figcaption></figure>
-          <figure class="vs-r"><div class="vs-phone"><img src="assets/images/projects/vstar/enquiry-2.jpg" alt="Step 2 of 2: 'Tell us a little more', with name, optional company, site location and requirement fields, and a green 'Continue to WhatsApp' button" loading="lazy" /></div><figcaption><b>2 · Four fields</b>Name, site location and the problem. Company is optional, and every placeholder is a local example.</figcaption></figure>
-          <figure class="vs-r vs-steps__end"><div class="vs-wa"><span class="vs-wa__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg></span><b>WhatsApp opens</b><p>The enquiry is already written: service, name, site and requirement. Review, edit, send.</p></div><figcaption><b>3 · Send</b>No accounts, no waiting for an email reply. The conversation starts where the team already works.</figcaption></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- 08 MOBILE: fanned phones -->
-    <section class="vx-sec vs-wrap" id="vx-s8" data-ch="On the phone">
-      <header class="vx-head vs-r"><b class="vx-head__no">08</b><div><p class="vx-eye">On the phone</p><h2>Mobile first, <u>because that's where the door is.</u></h2></div></header>
-      <div class="vx-body">
-        <p class="vs-r">I designed mobile first, because the person who needs a repair is usually standing next to the broken door with a phone in hand. The mobile layout keeps one green "WhatsApp Enquiry" bar fixed at the bottom of the screen, wherever you scroll.</p>
-        <div class="vx-fan vs-r">
-          <figure><div class="vx-fan__ph"><img src="assets/images/projects/vstar/mobile-2.jpg" alt="Mobile products section with filter chips wrapping onto two lines" loading="lazy" /></div><figcaption>Products</figcaption></figure>
-          <figure><div class="vx-fan__ph"><img src="assets/images/projects/vstar/mobile-1.jpg" alt="Mobile hero with the green WhatsApp Enquiry bar fixed at the bottom" loading="lazy" /></div><figcaption>Hero + WhatsApp bar</figcaption></figure>
-          <figure><div class="vx-fan__ph"><img src="assets/images/projects/vstar/mobile-3.jpg" alt="Mobile services section on navy with the four promises in a two-column grid" loading="lazy" /></div><figcaption>Services</figcaption></figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- 09 BUILD: a build report -->
-    <section class="vx-sec vs-wrap" id="vx-s9" data-ch="Building it">
-      <header class="vx-head vs-r"><b class="vx-head__no">09</b><div><p class="vx-eye">Building it</p><h2>Designed and built, <u>nothing lost in handoff.</u></h2></div></header>
-      <div class="vx-body">
-        <p class="vs-r">Because I designed and developed it, what was in the design is what shipped.</p>
-        <div class="vx-report vs-r">
-          <div class="vx-report__head"><b>Build report</b><span>vstar.sg</span><em>All shipped</em></div>
-          <ul>
-            <li><b>Responsive, mobile first</b><p>Built with Tailwind CSS, from a 390px phone up to wide desktop.</p><i>Shipped</i></li>
-            <li><b>Product filter</b><p>Chips filter the twelve cards instantly, without reloading the page.</p><i>Shipped</i></li>
-            <li><b>Hero carousel</b><p>Rotates through the systems VSTAR services, each with its own card.</p><i>Shipped</i></li>
-            <li><b>WhatsApp hand-off</b><p>The two-step form writes the message and opens WhatsApp with it.</p><i>Shipped</i></li>
-            <li><b>Tap to call</b><p>Both phone numbers and the email are live links.</p><i>Shipped</i></li>
-            <li><b>Findable and accessible</b><p>A clear page title and description for search, and written alt text on every product photo.</p><i>Shipped</i></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10 FULL PAGE: auto-scrolling window -->
-    <section class="vx-sec vs-wrap" id="vx-s10" data-ch="The whole page">
-      <header class="vx-head vs-r"><b class="vx-head__no">10</b><div><p class="vx-eye">The whole page</p><h2>Top to bottom, <u>in one go.</u></h2></div></header>
-      <div class="vx-body">
-        <p class="vs-r">Press play to roll through the full home page, or scroll inside the window yourself.</p>
-        <figure class="vx-play vs-r">
-          <div class="vx-play__bar"><button type="button" class="vx-play__btn" aria-pressed="false"><span class="vx-play__ic" aria-hidden="true"></span><span class="vx-play__lbl">Play</span></button><b>vstar.sg</b><span class="vx-play__prog" aria-hidden="true"><i></i></span></div>
-          <div class="vx-play__in" tabindex="0" aria-label="The full VSTAR home page, scrollable"><img src="assets/images/projects/vstar/site-full-1.jpg" alt="The full VSTAR home page from the hero to the footer, part 1 of 4: hero, why it matters and the start of the products" loading="lazy" /><img src="assets/images/projects/vstar/site-full-2.jpg" alt="Part 2 of 4: the products grid and the services section" loading="lazy" /><img src="assets/images/projects/vstar/site-full-3.jpg" alt="Part 3 of 4: why VSTAR, how we work and the local numbers" loading="lazy" /><img src="assets/images/projects/vstar/site-full-4.jpg" alt="Part 4 of 4: the contact section and the footer" loading="lazy" /></div>
-        </figure>
-      </div>
-    </section>
-
-    <!-- 11 MOBILE: the whole page on a phone (phone viewer = window.phoneView in main.js) -->
-    <section class="vx-sec vs-wrap" id="vx-phone" data-ch="On a phone">
-      <header class="vx-head vs-r"><b class="vx-head__no">11</b><div><p class="vx-eye">The whole page, on a phone</p><h2>The same page, <u>in one hand.</u></h2></div></header>
-      <div class="vx-body">
-        <p class="vs-r">The real mobile home page at 390px wide. Press play to roll through it, scroll inside the phone yourself, or tap the menu. The header and the green WhatsApp bar stay where they are, just like on the live site.</p>
-        <div class="vx-mp vs-r" data-pv data-w="390" data-hdr="93" data-top="24">
-          <div class="vx-mp__ctl">
-            <p class="vx-mp__tag">Mobile · 390px</p>
-            <button type="button" class="vx-play__btn vx-mp__play" aria-pressed="false"><span class="vx-play__ic" aria-hidden="true"></span><span class="vx-mp__lbl">Play</span></button>
-            <p class="vx-mp__pct"><b data-pv-pct>0%</b> of the page</p>
-            <p class="vx-mp__hint">Tap <i aria-hidden="true"></i> in the phone for the menu.</p>
-          </div>
-          <div class="vx-mp__dev">
-            <div class="vx-mp__status" aria-hidden="true"><b>9:41</b><i><svg viewBox="0 0 20 12"><path d="M1 11h2V8H1zM6 11h2V6H6zM11 11h2V3h-2zM16 11h2V1h-2z"/></svg><svg viewBox="0 0 25 12"><rect x="1" y="1" width="20" height="10" rx="3"/><rect class="f" x="3" y="3" width="14" height="6" rx="1.5"/><path d="M23 4.5v3"/></svg></i></div>
-            <div class="vx-mp__scr">
-              <div class="vx-mp__in" data-pv-in tabindex="0" aria-label="The full VSTAR mobile home page, scrollable"><img src="assets/images/projects/vstar/mobile-full-1.jpg" width="2145" height="8800" alt="The full VSTAR mobile home page, part 1 of 10: the hero with its checklist and system card, and 'When your business depends on it, reliability matters.'" loading="lazy" decoding="async" /><img src="assets/images/projects/vstar/mobile-full-2.jpg" width="2145" height="8800" alt="Part 2 of 10: the products section with filter chips wrapping onto two lines and the first product cards" loading="lazy" decoding="async" /><img src="assets/images/projects/vstar/mobile-full-3.jpg" width="2145" height="8800" alt="Part 3 of 10: product cards, one per column" loading="lazy" decoding="async" /><img src="assets/images/projects/vstar/mobile-full-4.jpg" width="2145" height="8800" alt="Part 4 of 10: the last product cards and the 'Something not working?' enquiry card" loading="lazy" decoding="async" /><img src="assets/images/projects/vstar/mobile-full-5.jpg" width="2145" height="8800" alt="Part 5 of 10: the services section on navy: repair and general servicing" loading="lazy" decoding="async" /><img src="assets/images/projects/vstar/mobile-full-6.jpg" width="2145" height="8800" alt="Part 6 of 10: annual maintenance and 'A service partner you can rely on.'" loading="lazy" decoding="async" /><img src="assets/images/projects/vstar/mobile-full-7.jpg" width="2145" height="8800" alt="Part 7 of 10: the four promises and 'Simple process. Professional service.'" loading="lazy" decoding="async" /><img src="assets/images/projects/vstar/mobile-full-8.jpg" width="2145" height="8800" alt="Part 8 of 10: the four steps and 'Local knowledge. Practical solutions.' with the numbers" loading="lazy" decoding="async" /><img src="assets/images/projects/vstar/mobile-full-9.jpg" width="2145" height="8800" alt="Part 9 of 10: the quote, 'Reliable Service. Minimal Downtime.' with its buttons, and the start of the footer" loading="lazy" decoding="async" /><img src="assets/images/projects/vstar/mobile-full-10.jpg" width="2145" height="3647" alt="Part 10 of 10: the end of the footer" loading="lazy" decoding="async" /></div>
-              <div class="vx-mp__hdr" data-pv-hdr aria-hidden="true"><img src="assets/images/projects/vstar/mobile-full-hdr-top.png" alt="" /><img src="assets/images/projects/vstar/mobile-full-hdr-scrolled.png" alt="" /></div>
-              <img class="vx-mp__bar" src="assets/images/projects/vstar/mobile-full-bar.png" alt="The green WhatsApp Enquiry bar, fixed to the bottom of the screen" />
-              <img class="vx-mp__menu" data-pv-menu src="assets/images/projects/vstar/mobile-full-menu.png" alt="The open mobile menu: Home, Products, Services, How We Work and Contact, the phone number, and WhatsApp, Facebook and Instagram" loading="lazy" hidden />
-              <button type="button" class="vx-mp__btn" data-pv-btn aria-label="Open the site's menu" aria-expanded="false"></button>
-            </div>
-            <div class="vx-mp__url" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3M6 11h12v9H6z"/></svg>vstar.sg</div>
-          </div>
-          <ol class="vx-mp__rail" style="--p:0" aria-label="Jump to a section of the mobile page"><li style="--y:0.0000"><button type="button" data-y="0"><i aria-hidden="true"></i>Hero</button></li><li style="--y:0.0669"><button type="button" data-y="1044"><i aria-hidden="true"></i>Why it matters</button></li><li style="--y:0.1214"><button type="button" data-y="1819"><i aria-hidden="true"></i>Products</button></li><li style="--y:0.4471"><button type="button" data-y="6451"><i aria-hidden="true"></i>Services</button></li><li style="--y:0.6241"><button type="button" data-y="8967"><i aria-hidden="true"></i>Why VSTAR</button></li><li style="--y:0.7214"><button type="button" data-y="10351"><i aria-hidden="true"></i>How we work</button></li><li style="--y:0.8053"><button type="button" data-y="11543"><i aria-hidden="true"></i>Local knowledge</button></li><li style="--y:0.9039"><button type="button" data-y="12945"><i aria-hidden="true"></i>Contact</button></li><li style="--y:0.9575"><button type="button" data-y="13707"><i aria-hidden="true"></i>Footer</button></li></ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- 12 NEXT: roadmap -->
-    <section class="vx-sec vs-wrap" id="vx-s11" data-ch="What I'd do next">
-      <header class="vx-head vs-r"><b class="vx-head__no">12</b><div><p class="vx-eye">What I'd do next</p><h2>The next <u>three jobs.</u></h2></div></header>
-      <div class="vx-body">
-        <ol class="vx-road">
-          <li class="vs-r"><span>Next</span><b>Measure the enquiries</b><p>Every request arrives labelled by service, so the next step is counting them and seeing which part of the page sends the most.</p></li>
-          <li class="vs-r"><span>Then</span><b>Add real job photos</b><p>Before-and-after shots from VSTAR's own work would be stronger proof than any line of copy.</p></li>
-          <li class="vs-r"><span>Later</span><b>A page per product</b><p>Someone searching "roller shutter repair Singapore" should land on a roller shutter page, not the top of the home page.</p></li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- END -->
-    <section class="vx-sec vx-end vs-wrap">
-      <a class="vx-live vs-r" href="https://vstar.sg/" target="_blank" rel="noopener"><span class="vx-live__ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><span><small>See it working</small><b>vstar.sg</b></span><em>Open the site <span aria-hidden="true">↗</span></em></a>
-      <div data-next-project></div>
-    </section>
-
-    <!-- floating chapter pill: current section + jump list -->
-    <div class="vx-ch" id="vxCh" hidden>
-      <button type="button" class="vx-ch__btn" aria-expanded="false" aria-controls="vxChList"><span class="vx-ch__ring" aria-hidden="true"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15"/><circle class="p" cx="18" cy="18" r="15"/></svg><b>01</b></span><span class="vx-ch__name">The brief</span></button>
-      <ol class="vx-ch__list" id="vxChList" hidden></ol>
-    </div>
 
     </div>
 
+    <div class="mx-end"><div data-next-project></div></div>
 
     <section class="cta-block">
       <h2 class="reveal" data-render="cta">Let's build<br /><span>something amazing</span></h2>
@@ -362,104 +367,17 @@
   <script src="js/main.js"></script>
   <script>
 (() => {
-  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // the nav stays the floating pill here: a see-through full-width bar would sit on black boards (unreadable in the light theme).
+  // main.js sets it from the scroll position, so put it back whenever it changes (before the next paint, no flicker)
+  const nav = document.querySelector(".nav");
+  const pill = () => { if (nav && !nav.classList.contains("is-pill")) nav.classList.add("is-pill"); };
+  if (nav) { new MutationObserver(pill).observe(nav, { attributes: true, attributeFilter: ["class"] }); pill(); }
 
-  // reveal: each block "rolls up" like a shutter as it enters the view.
-  // Not an IntersectionObserver: Chrome measures a target through its own clip-path, and a closed shutter
-  // (inset 100%) is only a thin strip under the block, so an observer fires late or never. The box position doesn't care.
-  if (reduce) $$("#vs .vs-r").forEach((el) => el.classList.add("in"));
-  else {
-    const pend = $$("#vs .vs-r");
-    const reveal = () => {
-      const line = innerHeight * .9;
-      for (let i = pend.length - 1; i >= 0; i--) if (pend[i].getBoundingClientRect().top < line) { pend[i].classList.add("in"); pend.splice(i, 1); }
-      if (!pend.length) { removeEventListener("scroll", reveal); removeEventListener("resize", reveal); }
-    };
-    addEventListener("scroll", reveal, { passive: true }); addEventListener("resize", reveal); reveal();
-  }
-
-  // page structure: point at a question → its block lights up in the page outline
-  const qs = $$(".vx-outline__qs button"), blocks = $$(".vx-ob");
-  const pickQ = (i) => { qs.forEach((b, k) => b.classList.toggle("is-on", k === i)); blocks.forEach((b, k) => b.classList.toggle("is-on", k === i)); };
-  qs.forEach((b, i) => ["mouseenter", "focus", "click"].forEach((ev) => b.addEventListener(ev, () => pickQ(i))));
-  pickQ(0);
-
-  // annotated screens: a note and its pin light up together
-  $$(".vx-anno").forEach((a) => {
-    const all = $$("[data-pin]", a);
-    const on = (n) => all.forEach((el) => el.classList.toggle("is-on", el.dataset.pin === n));
-    all.forEach((el) => { ["mouseenter", "focus", "click"].forEach((ev) => el.addEventListener(ev, () => on(el.dataset.pin))); });
-    a.addEventListener("mouseleave", () => on(null));
-    $$("li[data-pin]", a).forEach((li) => { li.tabIndex = 0; });
-  });
-
-  // the whole page: play rolls the window from top to bottom; scrolling yourself still works
-  const win = $(".vx-play__in"), btn = $(".vx-play__btn"), prog = $(".vx-play__prog i");
-  if (win) {
-    win.setAttribute("data-lenis-prevent", "");
-    let raf = 0, last = 0;
-    const show = () => { const max = win.scrollHeight - win.clientHeight; prog.style.width = (max > 0 ? win.scrollTop / max * 100 : 0) + "%"; };
-    const stop = () => { cancelAnimationFrame(raf); raf = 0; btn.setAttribute("aria-pressed", "false"); $(".vx-play__lbl", btn).textContent = "Play"; };
-    const imgs = $$("img", win), loaded = () => imgs.every((i) => i.complete && i.naturalHeight);
-    const step = (t) => { const dt = last ? t - last : 16; last = t; win.scrollTop += dt * .35; show(); if (win.scrollTop >= win.scrollHeight - win.clientHeight - 1 && loaded()) return stop(); raf = requestAnimationFrame(step); };
-    btn.addEventListener("click", () => {
-      if (raf) return stop();
-      imgs.forEach((i) => { i.loading = "eager"; });   // load the rest of the page now, so the roll doesn't stop early
-      if (loaded() && win.scrollTop >= win.scrollHeight - win.clientHeight - 1) win.scrollTop = 0;
-      btn.setAttribute("aria-pressed", "true"); $(".vx-play__lbl", btn).textContent = "Pause"; last = 0;
-      if (reduce) { win.scrollTop = win.scrollHeight; show(); return stop(); }
-      raf = requestAnimationFrame(step);
-    });
-    win.addEventListener("scroll", show, { passive: true });
-    win.addEventListener("wheel", () => raf && stop(), { passive: true }); win.addEventListener("touchstart", () => raf && stop(), { passive: true });
-    show();
-  }
-
-  // the whole page on a phone: play rolls it like the web window; the rail shows where you are and jumps
-  const mp = $(".vx-mp"), phone = window.phoneView && window.phoneView(mp);
-  if (phone) {
-    const play = $(".vx-mp__play", mp), lbl = $(".vx-mp__lbl", mp), pct = $("[data-pv-pct]", mp), rail = $(".vx-mp__rail", mp), stops = $$(".vx-mp__rail button", mp), ys = stops.map((b) => +b.dataset.y);
-    let raf = 0, last = 0;
-    const stop = () => { cancelAnimationFrame(raf); raf = 0; play.setAttribute("aria-pressed", "false"); lbl.textContent = "Play"; };
-    const step = (t) => { const dt = last ? Math.min(t - last, 50) : 16; last = t; phone.sc.scrollTop += dt * .42 * phone.k(); if (phone.progress() >= .999) return stop(); raf = requestAnimationFrame(step); };
-    play.addEventListener("click", () => {
-      if (raf) return stop();
-      phone.menu(false); phone.eager();
-      if (phone.progress() >= .999) phone.sc.scrollTop = 0;
-      play.setAttribute("aria-pressed", "true"); lbl.textContent = "Pause"; last = 0;
-      if (phone.reduce) { phone.sc.scrollTop = phone.sc.scrollHeight; return stop(); }
-      raf = requestAnimationFrame(step);
-    });
-    ["wheel", "touchstart", "keydown"].forEach((ev) => phone.sc.addEventListener(ev, () => raf && stop(), { passive: true }));
-    stops.forEach((b) => b.addEventListener("click", () => { stop(); phone.jump(+b.dataset.y); }));
-    phone.on(() => { const p = phone.progress(), c = phone.current(ys); rail.style.setProperty("--p", p.toFixed(4)); pct.textContent = Math.round(p * 100) + "%"; stops.forEach((b, i) => { b.classList.toggle("is-on", i === c); b.classList.toggle("is-past", i < c); }); });
-  }
-
-  // floating chapter pill: shows the section you're in; opens a list to jump between sections
-  const ch = $("#vxCh"), secs = $$(".vx-sec[data-ch]");
-  if (ch && secs.length) {
-    const list = $("#vxChList"), cbtn = $(".vx-ch__btn", ch), ring = $(".vx-ch__ring .p", ch);
-    list.innerHTML = secs.map((s, i) => `<li><a href="#${s.id}"><b>${String(i + 1).padStart(2, "0")}</b>${s.dataset.ch}</a></li>`).join("");
-    const close = () => { list.hidden = true; cbtn.setAttribute("aria-expanded", "false"); };
-    cbtn.addEventListener("click", () => { const open = list.hidden; list.hidden = !open; cbtn.setAttribute("aria-expanded", String(open)); });
-    list.addEventListener("click", (e) => { const a = e.target.closest("a"); if (!a) return; e.preventDefault(); close(); const t = document.querySelector(a.getAttribute("href")); const y = t.getBoundingClientRect().top + scrollY - 90; window.lenis ? window.lenis.scrollTo(y) : scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" }); });
-    document.addEventListener("click", (e) => { if (!ch.contains(e.target)) close(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
-    const first = secs[0], endEl = $(".vx-end");
-    const upd = () => {
-      const mid = innerHeight * .35; let cur = 0;
-      secs.forEach((s, i) => { if (s.getBoundingClientRect().top < mid) cur = i; });
-      const show = first.getBoundingClientRect().top < innerHeight * .6 && endEl.getBoundingClientRect().top > innerHeight * .5;
-      if (!show) close();
-      ch.hidden = !show;
-      $("b", cbtn).textContent = String(cur + 1).padStart(2, "0"); $(".vx-ch__name", ch).textContent = secs[cur].dataset.ch;
-      $$("a", list).forEach((a, i) => a.classList.toggle("is-on", i === cur));
-      const top = first.getBoundingClientRect().top + scrollY, bot = endEl.getBoundingClientRect().top + scrollY - innerHeight;
-      ring.style.strokeDashoffset = String(94.25 * (1 - Math.min(1, Math.max(0, (scrollY - top) / Math.max(1, bot - top)))));
-    };
-    addEventListener("scroll", upd, { passive: true }); addEventListener("resize", upd); upd();
-  }
+  // text and blocks rise in as they reach the screen (starts before they arrive, so nothing is ever blank)
+  const items = [...document.querySelectorAll(".mx [data-r]")];
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) { items.forEach((el) => el.classList.add("is-in")); return; }
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px 8% 0px" });
+  items.forEach((el) => io.observe(el));
 })();
   </script>
   <span id="page-ready" hidden></span>
