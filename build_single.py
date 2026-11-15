@@ -145,6 +145,8 @@ def patch_js(js: str) -> str:
     those come from window.__SITE_CONTENT__ and window.__LOC (set per page by the shell)."""
     swaps = [
         ('try { cached = sessionStorage.getItem(CACHE); } catch (e) {}', ""),
+        # nothing is read back from the visit cache here, and the embedded content is far too big for it anyway
+        ('const remember = (txt) => { try { sessionStorage.setItem(CACHE, txt); } catch (e) {} };', "const remember = () => {};"),
         ('fetch("/content.json", { cache: "no-cache" }).then((res) => { if (!res.ok) throw new Error(res.status); return res.text(); })',
          "Promise.resolve(window.__SITE_CONTENT__)"),
         ("location.pathname", "__LOC.pathname"),
@@ -236,6 +238,10 @@ VIEWER = """const startSite = (B) => {
   const known = Object.keys(B.pages);
   const END = "<" + "/script>"; // written in two parts so this script block doesn't end early
   const esc = (s) => s.replace(/<\\/script/gi, "<\\\\/script");
+  // The content (every project picture embedded, ~55 MB) is kept here once. Each page reads it from its parent
+  // (window.__SITE_CONTENT__=parent.__SITE_CONTENT__) instead of getting its own copy written into its HTML,
+  // which made every page change re-parse all of it (5-10 s even for a small page like Services).
+  window.__SITE_CONTENT__ = B.content;
 
   // Which page an address points to: "about.html", "/case.html?p=milton", "projects.html#video", "/" …
   const parse = (href) => {
@@ -254,12 +260,58 @@ VIEWER = """const startSite = (B) => {
       .replace("<!--@CSS-->", () => "<style>" + B.css + "</style>")
       .replace("<!--@ICON-->", () => B.icon)
       .replace("<!--@LENIS-->", () => (B.lenis ? '<script id="lenisLib">' + esc(B.lenis) + END : ""))
-      .replace("<!--@JS-->", () => "<script>window.__LOC=" + JSON.stringify(loc) + ";window.__SITE_CONTENT__=" + JSON.stringify(B.content).replace(/<\\//g, "<\\\\/") + ";" + nav + END + "<script>" + esc(B.js) + END);
+      .replace("<!--@JS-->", () => "<script>window.__LOC=" + JSON.stringify(loc) + ";window.__SITE_CONTENT__=parent.__SITE_CONTENT__;" + nav + END + "<script>" + esc(B.js) + END);
+  };
+
+  // Opening a project = the OLD transition (as css/style.css does for the "project" view-transition type): the old
+  // page fades out, the case study fades in with a small lift, and the picture of the card you clicked flies into
+  // the case study header (cropped, never stretched, in a rounded frame that morphs between the two shapes).
+  const openProject = (old, f, d, done) => {
+    // the case study header picture (its style text may read "name: shot-x" once the page has touched it)
+    const to = d.querySelector('[style*="view-transition-name"][style*="shot-"]');
+    if (!to) return false;
+    const id = to.getAttribute("style").split("shot-")[1].split(";")[0].trim();
+    const od = old.contentDocument, vh = innerHeight;
+    const from = od && [...od.querySelectorAll("img[data-shot]")].find((i) => {   // the card's picture, if it is on screen
+      if (i.getAttribute("data-shot").replace(/[^A-Za-z0-9_-]/g, "") !== id) return false;
+      const b = i.getBoundingClientRect(); return b.width > 0 && b.bottom > 0 && b.top < vh;
+    });
+    const bg = d.defaultView.getComputedStyle(d.body).backgroundColor;
+    document.documentElement.style.background = bg && bg !== "rgba(0, 0, 0, 0)" ? bg : "";   // no dark flash on light pages
+    const runs = [];
+    old.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 280, easing: "cubic-bezier(.4,0,1,1)", fill: "forwards" });
+    runs.push(f.animate([{ opacity: 0, transform: "translateY(14px)" }, { opacity: 1, transform: "none" }], { duration: 500, delay: 80, easing: "cubic-bezier(.2,.8,.2,1)", fill: "both" }).finished);
+    f.style.clipPath = "";
+    const pic = (el) => (el.tagName === "IMG" ? el : el.querySelector("img"));
+    const copy = (img) => {   // the picture as its page already shows it, so the flight starts at once
+      if (!img || !img.naturalWidth) return null;
+      const c = document.createElement("canvas"), k = Math.min(1, 1800 / Math.max(img.naturalWidth, img.naturalHeight));
+      c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+      try { c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); } catch (e) { return null; }
+      c.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:" + img.ownerDocument.defaultView.getComputedStyle(img).objectPosition;
+      return c;
+    };
+    const a = from && copy(from), z = from && copy(pic(to));
+    let fly = null;
+    if (a && z) {
+      const A = from.getBoundingClientRect(), Z = to.getBoundingClientRect();
+      const box = (b) => ({ transform: "translate(" + b.left + "px," + b.top + "px)", width: b.width + "px", height: b.height + "px" });
+      const t = { duration: 700, easing: "cubic-bezier(.65,0,.15,1)", fill: "both" };
+      fly = document.createElement("div");
+      fly.style.cssText = "position:fixed;left:0;top:0;z-index:5;overflow:hidden;border-radius:22px;pointer-events:none";
+      fly.append(a, z); document.body.append(fly);
+      from.style.visibility = "hidden"; to.style.visibility = "hidden";
+      runs.push(fly.animate([box(A), box(Z)], t).finished, z.animate([{ opacity: 0 }, { opacity: 1 }], t).finished);
+    }
+    const end = () => { if (fly) fly.remove(); to.style.visibility = ""; document.documentElement.style.background = ""; done(); };
+    Promise.all(runs).then(end, end);
+    return true;
   };
 
   // Moving between pages = the site's page transition (css/style.css "Page transitions"): the next page loads in a
   // second frame on top, hidden; then the old page darkens and sinks while the new one wipes down from the top,
-  // washed out at first, and comes up to full strength. The first page and reduced motion just appear.
+  // washed out at first, and comes up to full strength. Opening a project uses openProject above instead.
+  // The first page and reduced motion just appear.
   const show = () => {
     const r = route();
     if (pending) pending.remove();
@@ -280,6 +332,7 @@ VIEWER = """const startSite = (B) => {
       pending = null; live = f;
       const done = () => { old.remove(); f.style.clipPath = ""; f.getAnimations().forEach((a) => a.cancel()); };
       if (calm || !f.animate) return done();
+      if (d && openProject(old, f, d, done)) return;
       const light = d && d.documentElement.dataset.theme === "light";
       old.animate([{ transform: "none", filter: "none" }, { transform: "translateY(5vh)", filter: "brightness(.12)" }], { duration: 500, easing: "cubic-bezier(.45,0,.8,.4)", fill: "forwards" });
       f.animate([{ clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0 0)" }], { duration: 380, delay: 100, easing: "cubic-bezier(.7,0,.25,1)", fill: "both" });

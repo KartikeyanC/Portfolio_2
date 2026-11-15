@@ -216,8 +216,8 @@
     <div class="show__steps" id="steps"></div>
   </div>
   <div class="rx-preview rp-r">
-    <div class="rx-preview__head"><b>Preview</b><span>Onboarding · Login · Account</span><div class="rx-preview__nav"><button type="button" data-dir="-1" aria-label="Previous board">‹</button><button type="button" data-dir="1" aria-label="Next board">›</button></div></div>
-    <div class="rx-preview__track" tabindex="0" aria-label="Screen boards, scroll sideways">
+    <div class="rx-preview__head"><b>Preview</b><span>Onboarding · Login · Account</span></div>
+    <div class="rx-preview__track">
       <figure class="card board"><img src="assets/images/projects/respay/slides/22.jpg" alt="Onboarding screens" loading="lazy" /><figcaption><b>Onboarding.</b> Three screens that introduce the app and its features.</figcaption></figure>
       <figure class="card board"><img src="assets/images/projects/respay/slides/23.jpg" alt="Login, sign up and forgot password screens" loading="lazy" /><figcaption><b>Login, sign up &amp; forgot password.</b> A few safe, easy steps.</figcaption></figure>
       <figure class="card board"><img src="assets/images/projects/respay/slides/29.jpg" alt="Add bank account flow" loading="lazy" /><figcaption><b>Account added.</b> Users securely enter and submit their bank account details.</figcaption></figure>
@@ -367,10 +367,6 @@
     const pick = (t, focus) => { tabs.forEach((b, i) => { const on = b === t; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; document.getElementById(b.getAttribute("aria-controls")).hidden = !on; if (on) seg.style.setProperty("--i", i); }); if (focus) t.focus(); };
     tabs.forEach((t, i) => { t.addEventListener("click", () => pick(t)); t.addEventListener("keydown", (e) => { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); pick(tabs[(i + (e.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length], true); } }); });
   }
-  // screen boards: preview row arrows
-  const tr = $(".rx-preview__track");
-  if (tr) $$(".rx-preview__nav button").forEach((b) => b.addEventListener("click", () => { const f = tr.querySelector("figure"); tr.scrollBy({ left: +b.dataset.dir * (f ? f.getBoundingClientRect().width + 16 : tr.clientWidth), behavior: reduce ? "auto" : "smooth" }); }));
-
   // reveal on scroll
   if (reduce) $$("#rp .rp-r").forEach((el) => el.classList.add("in"));
   else { const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 }); $$("#rp .rp-r").forEach((el) => io.observe(el)); }

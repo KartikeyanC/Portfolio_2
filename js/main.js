@@ -525,6 +525,9 @@
   $$("[data-slide]").forEach(coverSlide);
   // Leaving a Home / Projects page for a case study → name that project's picture only
   addEventListener("pageswap", (e) => { if (e.viewTransition && e.activation) nameShot(caseIdOf(e.activation.entry.url)); });
+  // Arriving on a case study (opening a project) → the old transition: the page fades + lifts while the picture
+  // flies in (css "project" type); every other page change keeps the wipe
+  addEventListener("pagereveal", (e) => { if (e.viewTransition && e.viewTransition.types && hasCase(curProject)) e.viewTransition.types.add("project"); });
   // Arriving back from a case study → name the matching picture so it flies back into its card
   addEventListener("pagereveal", (e) => {
     if (!e.viewTransition || !window.navigation || !navigation.activation || !navigation.activation.from) return;
