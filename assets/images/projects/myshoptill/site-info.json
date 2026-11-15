@@ -1,0 +1,125 @@
+{
+ "total": 16908,
+ "w": 1440,
+ "hdr": 65,
+ "secs": [
+  {
+   "id": "top",
+   "top": 0,
+   "h": 1204,
+   "t": "One Smart POS Built for Six Powerful Businesses"
+  },
+  {
+   "id": "industries",
+   "top": 1204,
+   "h": 1500,
+   "t": "Purpose-built for the businesses that matter most"
+  },
+  {
+   "id": "products",
+   "top": 2704,
+   "h": 610,
+   "t": "Beyond POS. A complete retail operating system"
+  },
+  {
+   "id": "dashboard",
+   "top": 3314,
+   "h": 1129,
+   "t": "See your whole business in one glance"
+  },
+  {
+   "id": "features",
+   "top": 4443,
+   "h": 1127,
+   "t": "Every capability your operation needs"
+  },
+  {
+   "id": "",
+   "top": 5571,
+   "h": 936,
+   "t": "One brain across your entire operation"
+  },
+  {
+   "id": "enterprise",
+   "top": 6506,
+   "h": 768,
+   "t": "Built for chains that run serious operations"
+  },
+  {
+   "id": "universal-erp",
+   "top": 7274,
+   "h": 1145,
+   "t": "Plug into any ERP. Keep every system in sync"
+  },
+  {
+   "id": "tax-payments",
+   "top": 8418,
+   "h": 1170,
+   "t": "Charge correctly. Get paid, anywhere"
+  },
+  {
+   "id": "ai-bi",
+   "top": 9588,
+   "h": 1383,
+   "t": "An executive dashboard that thinks with you"
+  },
+  {
+   "id": "",
+   "top": 10971,
+   "h": 639,
+   "t": "Built cloud-native, ready wherever you sell"
+  },
+  {
+   "id": "",
+   "top": 11610,
+   "h": 696,
+   "t": "The next generation of retail is intelligent and always on"
+  },
+  {
+   "id": "",
+   "top": 12306,
+   "h": 745,
+   "t": "Built for UAE VAT, ready for the FTA"
+  },
+  {
+   "id": "tax-docs",
+   "top": 13052,
+   "h": 1011,
+   "t": "Every document your auditor will ever ask for"
+  },
+  {
+   "id": "resources",
+   "top": 14062,
+   "h": 781,
+   "t": "Plugs into your entire stack"
+  },
+  {
+   "id": "",
+   "top": 14843,
+   "h": 571,
+   "t": "The teams behind great retail run on iPOS"
+  },
+  {
+   "id": "",
+   "top": 15414,
+   "h": 663,
+   "t": "Common questions, answered"
+  },
+  {
+   "id": "contact",
+   "top": 16076,
+   "h": 458,
+   "t": "Ready to run smarter?"
+  },
+  {
+   "id": "",
+   "top": 16534,
+   "h": 374,
+   "t": ""
+  }
+ ],
+ "fixed": [
+  "DIV.pointer-events-none fixed inset-0 -z-10 h=900",
+  "HEADER.fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl transition-colors h=65"
+ ]
+}

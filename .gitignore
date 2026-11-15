@@ -8,3 +8,6 @@ Thumbs.db
 # Design explorations — kept on this computer only, never uploaded
 samples/
 versions/
+
+# Generated single-file copy of the site (build_single.py), ~180 MB, rebuilt on every change
+dist/

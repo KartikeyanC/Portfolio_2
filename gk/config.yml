@@ -48,6 +48,130 @@ collections:
                   - { label: "Custom — use the colour below", value: custom }
               - { label: Custom colour, name: custom, widget: color, allowInput: true, default: "#1e9bff", required: false, hint: "Only used when Accent is Custom. Button and text shades are worked out automatically so text stays readable." }
 
+          # ---------------- Contact details + social links ----------------
+          - label: Contact and social links
+            name: site
+            widget: object
+            collapsed: true
+            summary: "{{fields.email}}"
+            hint: "Used in the footer, menu, Contact page and contact form."
+            fields:
+              - { label: Email, name: email, widget: string }
+              - { label: Show email on the website, name: showEmail, widget: boolean, default: false, hint: "Off = hidden in the footer, menu and Contact page. The contact form still sends to this email." }
+              - { label: Phone, name: phone, widget: string, hint: "Shown as written, e.g. +91 9488584561" }
+              - { label: Show phone on the website, name: showPhone, widget: boolean, default: false }
+              - { label: Location, name: location, widget: string }
+              - label: Social links
+                name: socials
+                widget: list
+                summary: "{{fields.name}} · show: {{fields.show}}"
+                hint: "Each link has its own Show switch. Links with an empty URL are always hidden. Drag to reorder."
+                fields:
+                  - { label: Show on the website, name: show, widget: boolean, default: false }
+                  - { label: Name, name: name, widget: string, hint: "e.g. Behance, Medium, Instagram" }
+                  - { label: URL, name: url, widget: string, required: false, hint: "Full link, e.g. https://www.behance.net/yourname" }
+                  - { label: Line under the name (Contact page), name: note, widget: string, required: false, hint: "What people find there, e.g. Case studies & visuals" }
+                  - { label: Small handle on Contact page, name: label, widget: string, required: false, hint: "Optional. Leave empty to show @username from the URL" }
+              - label: Open to opportunities card
+                name: openToWork
+                widget: object
+                collapsed: true
+                hint: "The small card that appears near the footer."
+                fields:
+                  - { label: Show the card, name: show, widget: boolean, default: true }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Roles, name: roles, widget: string, required: false }
+                  - { label: Freelance, name: freelance, widget: string, required: false }
+                  - { label: Based in, name: basedIn, widget: string, required: false }
+                  - { label: Button text, name: buttonLabel, widget: string, required: false }
+                  - { label: Button link, name: buttonUrl, widget: string, required: false, hint: "Leave empty to hide the button" }
+
+          # ---------------- Announcement bar ----------------
+          - label: Announcement bar
+            name: announcement
+            widget: object
+            collapsed: true
+            summary: "{{fields.text}}"
+            hint: "The blue bar at the very top of every page. Visitors can close it for their visit."
+            fields:
+              - { label: Show the bar, name: show, widget: boolean, default: true }
+              - { label: Text, name: text, widget: string }
+              - { label: Button text, name: linkLabel, widget: string, required: false, hint: "Leave empty to hide the button" }
+              - { label: Button link, name: link, widget: string, required: false, hint: "e.g. /contact.html or a full https:// link" }
+
+          # ---------------- Page text ----------------
+          - label: Page text
+            name: pages
+            widget: object
+            collapsed: true
+            hint: "In text boxes, **word** makes it blue and bold, *words* makes them soft grey."
+            fields:
+              - label: Home
+                name: home
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: About paragraph, name: about, widget: text }
+                  - { label: White ribbon words, name: disciplines, widget: list, hint: "Comma separated" }
+                  - { label: Blue ribbon words, name: skills, widget: list, hint: "Comma separated" }
+              - label: About page
+                name: about
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: Subtitle under the title, name: lead, widget: text }
+                  - label: Intro tabs
+                    name: intros
+                    widget: list
+                    summary: "{{fields.label}}"
+                    fields:
+                      - { label: Tab name, name: label, widget: string }
+                      - { label: Text, name: text, widget: text }
+                  - { label: Story paragraphs, name: story, widget: list, field: { label: Paragraph, name: paragraph, widget: text } }
+                  - label: Principles
+                    name: principles
+                    widget: list
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { label: Title, name: title, widget: string }
+                      - { label: Text, name: text, widget: text }
+                  - { label: Toolkit tags, name: toolkit, widget: list, hint: "Comma separated" }
+              - label: Projects page
+                name: projects
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: Subtitle under the title, name: lead, widget: text }
+              - label: Services page
+                name: services
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: Subtitle under the title, name: lead, widget: text }
+              - label: Contact page
+                name: contact
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: Subtitle under the title, name: lead, widget: text }
+                  - label: FAQ
+                    name: faq
+                    widget: list
+                    summary: "{{fields.q}}"
+                    fields:
+                      - { label: Question, name: q, widget: string }
+                      - { label: Answer, name: a, widget: text }
+
+          # ---------------- Closing call to action ----------------
+          - label: Closing call to action
+            name: cta
+            widget: object
+            collapsed: true
+            hint: "The big “Let's build something amazing” block near the bottom of the pages."
+            fields:
+              - { label: First line, name: line1, widget: string }
+              - { label: Second line (grey), name: line2, widget: string }
+
           # ---------------- Projects ----------------
           - label: Projects
             name: projects
@@ -61,8 +185,8 @@ collections:
               - { label: Project type, name: type, widget: string, hint: "e.g. E-commerce website, Logo & identity" }
               - { label: Category, name: category, widget: string, hint: "Small label on the Home card, e.g. UI/UX" }
               - { label: Tags, name: tags, widget: list, hint: "Comma separated, e.g. E-commerce, UI/UX" }
-              - { label: Filters, name: filters, widget: list, hint: "Filter IDs from the Filters list, comma separated: uiux, product, brand" }
-              - { label: Image, name: image, widget: image, required: false, hint: "Leave empty for ongoing projects without visuals" }
+              - { label: Filters, name: filters, widget: list, hint: "Filter IDs from the Filters list, comma separated: uiux, product, brand, graphic" }
+              - { label: Image, name: image, widget: image, required: false, hint: "Optional. Leave empty to use the picture in assets/images/projects/<ID>/cover.jpg (just drop the file into that folder)" }
               - { label: Image description (alt text), name: alt, widget: string, required: false }
               - { label: Description, name: description, widget: text }
               - label: Status
@@ -70,10 +194,150 @@ collections:
                 widget: select
                 default: live
                 options:
-                  - { label: "Live — shows “View project”", value: live }
-                  - { label: "Ongoing — shows “Coming soon” and an Ongoing badge", value: ongoing }
+                  - { label: "Live — shows the OPEN cursor", value: live }
+                  - { label: "Ongoing — shows the IN PROGRESS cursor and an Ongoing badge", value: ongoing }
               - { label: Show on Home page, name: featured, widget: boolean, default: true }
-              - { label: Link, name: link, widget: string, default: contact.html, hint: "Where the card goes when clicked on the Projects page" }
+              - { label: Sample (placeholder), name: sample, widget: boolean, default: false, required: false, hint: "On = a placeholder: gets a drawn cover when there is no image, never shown on Home, in the menu or in the counters. Turn off (or delete) when you add the real project." }
+              - { label: Link, name: link, widget: string, default: contact.html, hint: "Where the card goes when the project has no case study" }
+              - label: Case study
+                name: caseStudy
+                widget: object
+                collapsed: true
+                required: false
+                hint: "Turn on to give this project its own page (case.html?p=ID). Empty fields are simply hidden. **word** = bold."
+                fields:
+                  - { label: Show case study page, name: show, widget: boolean, default: false }
+                  - { label: Title, name: title, widget: string, required: false, hint: "e.g. Designing an e-commerce store for Milton" }
+                  - { label: Year, name: year, widget: string, required: false, hint: "e.g. 2025" }
+                  - { label: Tags, name: tags, widget: list, required: false, hint: "Comma separated pills under the title" }
+                  - { label: Client, name: client, widget: string, required: false, hint: "e.g. Nexura Infotech, or Self-initiated redesign" }
+                  - { label: Website, name: website, widget: string, required: false, hint: "Full link starting with https:// — shows a Visit website button. Empty = hidden" }
+                  - { label: Website button text, name: websiteLabel, widget: string, required: false, hint: "e.g. View on Behance — empty = Visit website" }
+                  - { label: Tools, name: tools, widget: list, required: false, hint: "Comma separated, e.g. Figma, Illustrator" }
+                  - { label: Overview (background), name: background, widget: text, required: false }
+                  - { label: My role, name: role, widget: text, required: false }
+                  - { label: The challenge, name: challenge, widget: text, required: false, hint: "The problem the design had to solve" }
+                  - { label: Goals, name: goals, widget: list, required: false, field: { label: Goal, name: goal, widget: string } }
+                  - label: Numbers
+                    name: stats
+                    widget: list
+                    required: false
+                    summary: "({{fields.value}}) {{fields.label}}"
+                    hint: "Only real numbers, e.g. (24) screens, (06) weeks"
+                    fields:
+                      - { label: Number, name: value, widget: string }
+                      - { label: Label, name: label, widget: string }
+                  - label: Process steps
+                    name: process
+                    widget: list
+                    required: false
+                    summary: "{{fields.title}}"
+                    hint: "Step 01, 02… with a picture each (wireframe, grid, sketches…)"
+                    fields:
+                      - { label: Title, name: title, widget: string }
+                      - { label: Text, name: text, widget: text }
+                      - { label: Picture, name: image, widget: image, required: false }
+                  - label: Key design decisions
+                    name: features
+                    widget: list
+                    required: false
+                    summary: "{{fields.label}}"
+                    hint: "With a picture on every item they show as text + picture rows; without pictures, next to a sticky zooming cover"
+                    fields:
+                      - { label: Small label, name: label, widget: string }
+                      - { label: Title, name: title, widget: string }
+                      - { label: Text, name: text, widget: text }
+                      - { label: Picture, name: image, widget: image, required: false, hint: "Leave empty to zoom into the main project picture" }
+                  - label: Full screens
+                    name: screens
+                    widget: list
+                    required: false
+                    summary: "{{fields.label}}"
+                    hint: "Long full-page screenshots, shown in browser frames you can scroll inside"
+                    fields:
+                      - { label: Label, name: label, widget: string }
+                      - { label: Picture, name: image, widget: image }
+                  - { label: Slides (presentation), name: slides, widget: list, required: false, hint: "Full-size slides shown one after another like Behance. When filled, they replace the challenge, goals, process, decisions and screens sections", field: { label: Slide, name: slide, widget: image } }
+                  - { label: Slides title, name: slidesTitle, widget: string, required: false, hint: "e.g. The case study" }
+                  - { label: Gallery title, name: galleryTitle, widget: string, required: false, hint: "e.g. The brand in use — empty = no title" }
+                  - { label: Gallery pictures, name: gallery, widget: list, required: false, field: { label: Picture, name: image, widget: image } }
+                  - { label: Deliverables, name: deliverables, widget: list, required: false, field: { label: Deliverable, name: item, widget: string } }
+                  - { label: Outcome, name: outcome, widget: text, required: false, hint: "Result, feedback or what you learned" }
+
+          # ---------------- Video work ----------------
+          - label: Video work
+            name: video
+            widget: object
+            collapsed: true
+            hint: "Thumbnails, reels and podcasts on the Projects page, plus the three format cards on the Services page. Anything without a picture / video / YouTube link yet shows a placeholder picture."
+            fields:
+              - { label: Show video work, name: show, widget: boolean, default: true, hint: "Turn off to hide the whole Video section and the format cards" }
+              - { label: Text under the Video work heading, name: lead, widget: text }
+              - label: Showreel (Home page)
+                name: showreel
+                widget: object
+                collapsed: true
+                hint: "The big SHOWREEL block on the Home page. Without a YouTube link it shows a plain blue card with a play button."
+                fields:
+                  - { label: Show the showreel block, name: show, widget: boolean, default: true }
+                  - { label: YouTube link, name: youtube, widget: string, required: false, hint: "The video loads only when someone presses play" }
+                  - { label: Cover image, name: poster, widget: image, required: false, hint: "Optional — YouTube's own thumbnail is used if empty" }
+              - label: Services page cards
+                name: cards
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - label: Format
+                    name: id
+                    widget: select
+                    options:
+                      - { label: "Thumbnails (shows your first thumbnail)", value: thumbnails }
+                      - { label: "Reels (shows your first reel)", value: reels }
+                      - { label: "Podcasts (shows your first episode)", value: podcasts }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Text, name: text, widget: text }
+                  - { label: Tools, name: tools, widget: string, hint: "e.g. Photoshop · Illustrator" }
+              - label: Thumbnails
+                name: thumbnails
+                widget: list
+                summary: "{{fields.title}}"
+                hint: "16:9 images (1280×720). Drag to reorder."
+                fields:
+                  - { label: Video title, name: title, widget: string }
+                  - { label: Channel / client, name: channel, widget: string, required: false }
+                  - { label: Views, name: views, widget: string, required: false, hint: "Only real numbers, e.g. 120K. Leave empty to hide" }
+                  - { label: Thumbnail image, name: image, widget: image, required: false, hint: "Leave empty to show a placeholder" }
+                  - { label: Video link, name: link, widget: string, required: false, hint: "YouTube link, shown as a Watch button" }
+                  - { label: Sample (placeholder), name: sample, widget: boolean, default: false, hint: "Shows a Sample badge. Turn off once this is your real work" }
+              - label: Reels
+                name: reels
+                widget: list
+                summary: "{{fields.title}}"
+                hint: "9:16. Upload a short MP4 (10–15 seconds, under 3 MB) so it plays in the carousel, or just a poster image + link."
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Account / client, name: handle, widget: string, required: false, hint: "e.g. @clientname" }
+                  - { label: What you did, name: did, widget: string, required: false, hint: "e.g. Jump cuts, captions, zooms" }
+                  - { label: Video (MP4), name: video, widget: file, required: false, hint: "Short MP4, under 3 MB" }
+                  - { label: Poster image, name: poster, widget: image, required: false, hint: "First frame shown before it plays (or instead of a video)" }
+                  - { label: Link, name: link, widget: string, required: false, hint: "Instagram / YouTube Shorts link, shown as a Watch button" }
+                  - { label: Views, name: views, widget: string, required: false }
+                  - { label: Sample (placeholder), name: sample, widget: boolean, default: false }
+              - label: Podcasts
+                name: podcasts
+                widget: list
+                summary: "{{fields.show}} · {{fields.episode}}"
+                fields:
+                  - { label: Show name, name: show, widget: string }
+                  - { label: Episode, name: episode, widget: string, required: false, hint: "e.g. Episode 12" }
+                  - { label: Episode title, name: title, widget: string }
+                  - { label: YouTube link, name: youtube, widget: string, required: false, hint: "The video loads only when someone presses play, so the page stays fast" }
+                  - { label: Cover image, name: poster, widget: image, required: false, hint: "Optional — YouTube's own thumbnail is used if empty" }
+                  - { label: Length, name: length, widget: string, required: false, hint: "e.g. 58 min" }
+                  - { label: Camera setup, name: cams, widget: string, required: false, hint: "e.g. 2 cams" }
+                  - { label: Edited in, name: tool, widget: string, required: false }
+                  - { label: What you did, name: did, widget: list, required: false, hint: "Comma separated, e.g. Multi-cam edit, Colour grade, Captions" }
+                  - { label: Sample (placeholder), name: sample, widget: boolean, default: false }
 
           # ---------------- Services ----------------
           - label: Services
@@ -87,7 +351,8 @@ collections:
               - { label: ID, name: id, widget: string, hint: "Short, lowercase, no spaces" }
               - { label: Tile letter, name: letter, widget: string, hint: "One letter shown on the Services page" }
               - { label: Subtitle, name: subtitle, widget: string, hint: "Services page, e.g. Web · Mobile · Design systems" }
-              - { label: Home summary, name: summary, widget: text, hint: "Text on the Home expertise panel" }
+              - { label: Home summary, name: summary, widget: text, hint: "Short text (used where a card has little room)" }
+              - { label: Home "What I do best" detail, name: detail, widget: text, required: false, hint: "Longer, more detailed text on the Home service card — about 2 lines on a wide screen (≈200 characters)" }
               - { label: Home skills, name: skills, widget: list, hint: "Comma separated tags on the Home panel" }
               - { label: Services page description, name: description, widget: text }
               - { label: Deliverables, name: deliverables, widget: list, hint: "Comma separated tags on the Services page" }
@@ -97,7 +362,7 @@ collections:
             name: tools
             widget: list
             collapsed: true
-            summary: "{{fields.name}} · {{fields.proficiency}}%"
+            summary: "{{fields.name}}"
             hint: "Order = most used first. Shown in the glass folder on Home, About and Services."
             fields:
               - { label: Name, name: name, widget: string }
@@ -117,12 +382,14 @@ collections:
                   - { label: Tile colour, name: tile, widget: color, required: false }
                   - { label: Letter colour, name: color, widget: color, required: false }
                   - { label: Logo image, name: image, widget: image, required: false, hint: "For uploaded image style (square PNG or SVG)" }
-              - { label: Proficiency (%), name: proficiency, widget: number, value_type: int, min: 0, max: 100 }
+              - { label: Proficiency (%), name: proficiency, widget: number, value_type: int, min: 0, max: 100, required: false, hint: "Not shown on the site at the moment" }
               - label: Level
                 name: level
                 widget: select
+                required: false
+                hint: "Not shown on the site at the moment"
                 options: [Expert, Advanced, Intermediate, Beginner]
-              - { label: How often you use it, name: frequency, widget: string, hint: "e.g. Daily, Often" }
+              - { label: How often you use it, name: frequency, widget: string, required: false, hint: "Not shown on the site at the moment" }
               - { label: What you use it for, name: use, widget: string }
 
           # ---------------- Process ----------------

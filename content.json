@@ -1,165 +1,162 @@
 {
+  "pages": {
+    "home": {
+      "about": "I'm **Kartikeyan C**, a product & UI/UX designer *who blends clear thinking with visual craft* — from interfaces and brand identities to motion. I measure my work by what it helps people achieve.",
+      "disciplines": [
+        "Product design",
+        "UI/UX design",
+        "Graphic design",
+        "Motion design",
+        "Video editing",
+        "Design systems",
+        "Prototyping"
+      ],
+      "skills": [
+        "User research",
+        "Wireframes",
+        "Interaction design",
+        "Branding",
+        "Animation",
+        "Thumbnails",
+        "Usability testing"
+      ]
+    },
+    "about": {
+      "lead": "A product & UI/UX designer from Chennai who turns complex ideas into simple, useful experiences.",
+      "intros": [
+        {
+          "label": "For anyone",
+          "text": "I'm **Kartikeyan** — a Chennai-based product & UI/UX designer who blends clear thinking with visual craft, from interfaces and brand identities to motion."
+        },
+        {
+          "label": "Recruiters",
+          "text": "I'm a **product & UI/UX designer** who can take work from research and flows to polished UI — plus logo and motion design. Based in Chennai and happy to talk about roles, on-site or remote."
+        },
+        {
+          "label": "Product teams",
+          "text": "I design in **flows, components and prototypes**, so work is easy to test, build and scale. Expect clear handoff, reusable patterns and a design-system mindset."
+        },
+        {
+          "label": "Founders & clients",
+          "text": "Need a product, a brand, or both? I can design **the website or app and the identity around it** — like the Milton store and the Nexura logo — so everything feels like one brand."
+        }
+      ],
+      "story": [
+        "I work across **product design, UI/UX, logo design and motion** — *so I think about a product end to end: how it works, how it looks and how it feels to use.*",
+        "My work ranges from e-commerce experiences like **Milton** to brand identities like **Nexura**. *Whatever the brief, I start with the people using it.*"
+      ],
+      "principles": [
+        {
+          "title": "People first",
+          "text": "Every decision starts with who is using the product and what they need to do."
+        },
+        {
+          "title": "Clarity",
+          "text": "Simple layouts, clear hierarchy and no unnecessary steps."
+        },
+        {
+          "title": "Consistency",
+          "text": "Reusable components and brand rules that keep everything coherent."
+        },
+        {
+          "title": "Purposeful motion",
+          "text": "Animation that explains and delights — never just decoration."
+        }
+      ],
+      "toolkit": [
+        "Prototyping",
+        "Design systems",
+        "User research",
+        "Wireframing"
+      ]
+    },
+    "projects": {
+      "lead": "Selected projects across UI/UX, product, brand identity and video."
+    },
+    "services": {
+      "lead": "Five crafts, one goal — products, brands and content that are clear, consistent and a joy to use."
+    },
+    "contact": {
+      "lead": "Have a product, brand or idea? Tell me a little about it and I'll get back to you.",
+      "faq": [
+        {
+          "q": "What kind of projects do you take on?",
+          "a": "Product design, UI/UX for websites and apps, graphic design (logos, posters, brochures and company decks), motion design and video editing — end to end or just one part."
+        },
+        {
+          "q": "What should I include in my message?",
+          "a": "A short description of the project, who it's for, your timeline and any existing material like brand files or wireframes."
+        },
+        {
+          "q": "Do you work with clients outside Chennai?",
+          "a": "Yes — I'm happy to work remotely."
+        }
+      ]
+    }
+  },
+  "announcement": {
+    "show": true,
+    "text": "Open to Product / UI/UX roles & freelance projects",
+    "linkLabel": "Let's talk",
+    "link": "/contact.html"
+  },
+  "site": {
+    "location": "Chennai, India",
+    "email": "kartikeyan4878@gmail.com",
+    "showEmail": true,
+    "phone": "+91 9488584561",
+    "showPhone": false,
+    "socials": [
+      {
+        "show": true,
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/kartikeyanc/",
+        "note": "Career & experience",
+        "label": ""
+      },
+      {
+        "show": true,
+        "name": "Behance",
+        "url": "https://www.behance.net/kartikeyanc",
+        "note": "Case studies & visuals",
+        "label": ""
+      },
+      {
+        "show": false,
+        "name": "Medium",
+        "url": "",
+        "note": "Articles & thoughts",
+        "label": ""
+      },
+      {
+        "show": false,
+        "name": "Dribbble",
+        "url": "",
+        "note": "Shots & UI explorations",
+        "label": ""
+      },
+      {
+        "show": false,
+        "name": "Instagram",
+        "url": "",
+        "note": "Behind the scenes",
+        "label": ""
+      }
+    ],
+    "openToWork": {
+      "show": false,
+      "title": "Let's work together",
+      "roles": "Product / UI/UX Designer",
+      "freelance": "UI/UX, logo & motion projects",
+      "basedIn": "Chennai, India · open to remote",
+      "buttonLabel": "Connect on LinkedIn",
+      "buttonUrl": "https://www.linkedin.com/in/kartikeyanc/"
+    }
+  },
   "theme": {
     "accent": "blue",
     "custom": "#1e9bff"
   },
-  "roles": [
-    "Product designer",
-    "UI/UX designer",
-    "Logo designer",
-    "Motion designer"
-  ],
-  "filters": [
-    {
-      "id": "uiux",
-      "label": "UI/UX"
-    },
-    {
-      "id": "product",
-      "label": "Product"
-    },
-    {
-      "id": "brand",
-      "label": "Branding"
-    }
-  ],
-  "projects": [
-    {
-      "id": "milton",
-      "name": "Milton",
-      "type": "E-commerce website",
-      "category": "UI/UX",
-      "tags": [
-        "E-commerce",
-        "UI/UX"
-      ],
-      "filters": [
-        "uiux",
-        "product"
-      ],
-      "image": "/assets/uploads/milton.svg",
-      "alt": "Milton e-commerce website design with product listing and campaign hero",
-      "description": "An e-commerce experience for Milton's bottles and flasks — clear category navigation, a bold campaign hero and product cards that put price and key details up front.",
-      "status": "live",
-      "featured": true,
-      "link": "contact.html?service=UI%2FUX%20design"
-    },
-    {
-      "id": "nexura",
-      "name": "Nexura",
-      "type": "Logo & identity",
-      "category": "Branding",
-      "tags": [
-        "Brand identity",
-        "Logo"
-      ],
-      "filters": [
-        "brand"
-      ],
-      "image": "/assets/uploads/nexura.svg",
-      "alt": "Nexura logo — a folded hexagonal mark with the tagline Creating Intelligent Solutions",
-      "description": "A logo and identity for Nexura — “Creating Intelligent Solutions”. A folded, hexagonal mark that reads as both structure and motion.",
-      "status": "live",
-      "featured": true,
-      "link": "contact.html?service=Logo%20design"
-    },
-    {
-      "id": "ierp",
-      "name": "IERP",
-      "type": "Product",
-      "category": "Product design",
-      "tags": [
-        "Product",
-        "Coming soon"
-      ],
-      "filters": [
-        "product",
-        "uiux"
-      ],
-      "image": "",
-      "alt": "",
-      "description": "Full case study coming soon.",
-      "status": "ongoing",
-      "featured": true,
-      "link": "contact.html"
-    }
-  ],
-  "services": [
-    {
-      "id": "product",
-      "name": "Product design",
-      "letter": "P",
-      "subtitle": "From problem to shipped feature",
-      "summary": "Shaping a product from the problem up — understanding users, mapping flows and turning ideas into something that ships.",
-      "skills": [
-        "User research",
-        "User flows",
-        "Wireframing",
-        "Prototyping"
-      ],
-      "description": "Understanding users, mapping flows and turning ideas into something that ships.",
-      "deliverables": [
-        "User research & audits",
-        "User flows & IA",
-        "Wireframes & prototypes"
-      ]
-    },
-    {
-      "id": "uiux",
-      "name": "UI/UX design",
-      "letter": "U",
-      "subtitle": "Web · Mobile · Design systems",
-      "summary": "Clean, accessible interfaces for web and mobile, built on reusable components so the product stays consistent as it grows.",
-      "skills": [
-        "Web & mobile UI",
-        "Design systems",
-        "Accessibility",
-        "Dev handoff"
-      ],
-      "description": "Clean, accessible interfaces built on reusable components so the product stays consistent as it grows.",
-      "deliverables": [
-        "Web & mobile UI",
-        "Design systems",
-        "Developer handoff"
-      ]
-    },
-    {
-      "id": "logo",
-      "name": "Logo design",
-      "letter": "L",
-      "subtitle": "Marks · Identity · Guidelines",
-      "summary": "Distinctive marks and identity systems that make a brand instantly recognisable — like the Nexura identity.",
-      "skills": [
-        "Logo & mark",
-        "Colour & type",
-        "Brand guidelines"
-      ],
-      "description": "Distinctive marks and identity systems that make a brand instantly recognisable — like the Nexura identity.",
-      "deliverables": [
-        "Logo & mark",
-        "Colour & typography",
-        "Brand guidelines"
-      ]
-    },
-    {
-      "id": "motion",
-      "name": "Motion design",
-      "letter": "M",
-      "subtitle": "UI · Logos · Social",
-      "summary": "Animation that gives products and brands personality, from small UI details to animated logos.",
-      "skills": [
-        "Micro-interactions",
-        "Logo animation",
-        "Motion for social"
-      ],
-      "description": "Animation that gives products and brands personality, from micro-interactions to animated logos.",
-      "deliverables": [
-        "Micro-interactions",
-        "Logo animation",
-        "Motion for web & social"
-      ]
-    }
-  ],
   "process": [
     {
       "name": "Discover",
@@ -200,6 +197,882 @@
       ]
     }
   ],
+  "cta": {
+    "line1": "Let's build",
+    "line2": "something amazing"
+  },
+  "projects": [
+    {
+      "alt": "Milton e-commerce website design: home page with product category icons, search, a “Keep It Hot” campaign hero, the Fame Thermosteel bottle offer and sub-brand logos",
+      "name": "Milton",
+      "featured": true,
+      "status": "live",
+      "tags": [
+        "E-commerce",
+        "UI/UX"
+      ],
+      "caseStudy": {
+        "show": true,
+        "title": "Redesigning Milton's online store",
+        "client": "Self-initiated redesign",
+        "year": "",
+        "role": "UI/UX design: wireframe, layout grid and high-fidelity UI",
+        "tools": [],
+        "tags": [
+          "UI/UX design",
+          "E-commerce",
+          "Website"
+        ],
+        "background": "**Milton** sells bottles, flasks, lunch boxes, cookware, storage and kitchen appliances, alongside its sister brands **Treo, Spotzero and Milton ProCook**. This is a *self-initiated redesign* of its online store: I designed the home page and a product page, from a low-fidelity wireframe to high-fidelity UI.",
+        "challenge": "A catalogue this wide is hard to shop. Someone looking for a lunch box has to get past bottles, cookware and appliances, and offers get lost in the noise. The challenge I set myself: put every category **one tap from the home page**, let shoppers see the **price, the saving and the next step** on every card, and keep Milton's bold red brand.",
+        "goals": [
+          "Every product category one tap away from the home page",
+          "Price, MRP and saving readable at a glance on every card",
+          "New launches, deals and best sellers easy to tell apart",
+          "A product page that answers colour, size and delivery before checkout",
+          "Keep Milton's confident red brand look"
+        ],
+        "stats": [
+          {
+            "value": "13",
+            "label": "product categories, one tap away"
+          },
+          {
+            "value": "2",
+            "label": "page types designed: home and product"
+          },
+          {
+            "value": "3",
+            "label": "stages: wireframe, grid, high-fidelity UI"
+          }
+        ],
+        "process": [
+          {
+            "title": "Low-fidelity wireframe",
+            "image": "/assets/images/projects/milton/process-wireframe.jpg",
+            "text": "I blocked out the home page first: search and account links on top, a row of category tiles, then the campaign hero next to a featured product. The angled section dividers that run through the final design were already part of this stage."
+          },
+          {
+            "title": "Layout grid",
+            "image": "/assets/images/projects/milton/process-grid.jpg",
+            "text": "Every section sits on one column grid, so category tiles, product cards and banners line up from the header down to the footer."
+          },
+          {
+            "title": "High-fidelity UI",
+            "image": "/assets/images/projects/milton/process-ui.jpg",
+            "text": "Real products, prices and Milton's red turned the wireframe into a long, shoppable home page: campaign, new launches, deals and category shelves, then reviews and a full footer."
+          }
+        ],
+        "features": [
+          {
+            "label": "Navigation",
+            "title": "Every category, one tap away",
+            "image": "/assets/images/projects/milton/decision-nav.jpg",
+            "text": "A row of 13 line-icon category tiles, from Hot & Cold Bottles and Office Lunch Boxes to Cleaning Products, plus All Products, right under the search bar. Login, Cart and Wishlist stay in the top corner."
+          },
+          {
+            "label": "Campaign hero",
+            "title": "The story and the offer, side by side",
+            "image": "/assets/images/projects/milton/decision-hero.jpg",
+            "text": "“Keep It Hot: keep your drink hot or cold for hours” sits next to a featured product, the Fame Thermosteel Bottle at ₹1,082 with the ₹1,280 MRP struck through, so the hero sells as well as it tells."
+          },
+          {
+            "label": "Product cards",
+            "title": "Price and saving first",
+            "image": "/assets/images/projects/milton/decision-cards.jpg",
+            "text": "Each card leads with the selling price in red, the MRP struck through and a yellow “% off” badge, plus the size and a “New Launch” tag where it helps."
+          },
+          {
+            "label": "Shelves",
+            "title": "A long catalogue in small groups",
+            "image": "/assets/images/projects/milton/decision-shelves.jpg",
+            "text": "Top Deals, Trending Bottles, Top Selling Lunchboxes, Cookware and Electrical shelves, broken up by bold category banners, so the page reads as small, scannable groups instead of one endless grid."
+          },
+          {
+            "label": "Product page",
+            "title": "Answers before checkout",
+            "image": "/assets/images/projects/milton/decision-product.jpg",
+            "text": "Colour swatches, size chips from 350 ml to 1000 ml, quantity, Add to Cart and Shop Now, plus a PIN-code check that shows the expected delivery day."
+          },
+          {
+            "label": "Trust",
+            "title": "Reasons to buy",
+            "image": "/assets/images/projects/milton/decision-reviews.jpg",
+            "text": "A short “Why choose us” list and reviews from verified buyers, with star ratings, close the page before the footer."
+          }
+        ],
+        "screens": [
+          {
+            "label": "Home page",
+            "image": "/assets/images/projects/milton/screen-home.jpg"
+          },
+          {
+            "label": "Product page",
+            "image": "/assets/images/projects/milton/screen-product.jpg"
+          }
+        ],
+        "gallery": [],
+        "galleryTitle": "",
+        "deliverables": [
+          "Low-fidelity wireframe",
+          "Layout grid",
+          "Home page (desktop)",
+          "Product page (desktop)"
+        ],
+        "outcome": ""
+      },
+      "type": "E-commerce website",
+      "link": "contact.html?service=UI%2FUX%20design",
+      "id": "milton",
+      "image": "",
+      "filters": [
+        "uiux",
+        "product"
+      ],
+      "description": "A self-initiated redesign of Milton's online store: every category one tap away, prices and savings up front, and a product page that answers colour, size and delivery before checkout.",
+      "category": "UI/UX",
+      "brand": {
+        "accent": "#D11F25",
+        "inkLight": "#C21C22",
+        "inkDark": "#FF6B6F",
+        "onAccent": "#FFFFFF",
+        "bgLight": "#FBF4F3",
+        "bgDark": "#0D0606",
+        "card": "#D11F25",
+        "cardInk": "#FFFFFF",
+        "cardBtn": "#FFFFFF",
+        "cardBtnInk": "#C21C22"
+      }
+    },
+    {
+      "alt": "Nexura logo: a hexagonal 'N' mark above the NEXURA wordmark and the tagline 'Creating Intelligent Solutions', white on dark brown",
+      "name": "Nexura",
+      "featured": true,
+      "status": "live",
+      "tags": [
+        "Brand identity",
+        "Website",
+        "Design & development"
+      ],
+      "caseStudy": {
+        "show": true,
+        "page": "nexura.html",
+        "title": "Nexura: a brand identity and website for an AI integration firm",
+        "client": "Nexura Infotech",
+        "website": "https://nexurainfotech.com/",
+        "year": "",
+        "role": "Logo, identity, UX/UI design and front-end development",
+        "tools": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "tags": [
+          "Brand identity",
+          "Website",
+          "Design & development"
+        ],
+        "background": "**Nexura Infotech** builds AI into the systems of banks, insurers, payment firms and pharmaceutical manufacturers. I designed its logo and identity, then designed and built its **25-page website**.",
+        "challenge": "Tech logos often end up as a generic letter in a box. The aim was a mark that could only belong to **Nexura**, built from the name itself, that still works in **one colour, at small sizes** and on everything from an ID card to an exhibition stand.",
+        "goals": [
+          "A mark built from the name, not a generic symbol",
+          "Works in full colour, in a single colour and in black and white",
+          "Clear on a business card and on an exhibition stand",
+          "A simple colour and type system the team can reuse"
+        ],
+        "stats": [
+          {
+            "value": "6",
+            "label": "letters hidden in one mark"
+          },
+          {
+            "value": "4",
+            "label": "brand colours"
+          },
+          {
+            "value": "2",
+            "label": "brand typefaces"
+          },
+          {
+            "value": "5",
+            "label": "real-world mockups"
+          }
+        ],
+        "process": [
+          {
+            "title": "The mark",
+            "image": "/assets/images/projects/nexura/board-logo.jpg",
+            "text": "A hexagon made of folded strips: solid and dependable, with a sense of movement in the folds. The NEXURA wordmark and the tagline sit underneath as one lock-up."
+          },
+          {
+            "title": "Six letters, one shape",
+            "image": "/assets/images/projects/nexura/board-letters.jpg",
+            "text": "Each fold traces a letter. N, E, X, U, R and A can all be found inside the one hexagon, so the mark literally spells the name."
+          },
+          {
+            "title": "Colour",
+            "image": "/assets/images/projects/nexura/board-colours.jpg",
+            "text": "Four colours, blue, green, red and orange, make up the full-colour mark. Each one also works as a solid background with the logo reversed in white."
+          },
+          {
+            "title": "Monochrome and pattern",
+            "image": "/assets/images/projects/nexura/board-mono.jpg",
+            "text": "A black-and-white version for single-colour printing, and a repeat pattern cut from the mark for backgrounds and merchandise."
+          },
+          {
+            "title": "Typography",
+            "image": "/assets/images/projects/nexura/board-type.jpg",
+            "text": "Sora and Satoshi Variable as the brand typefaces, both clean geometric sans-serifs that sit comfortably next to the mark."
+          }
+        ],
+        "features": [],
+        "screens": [],
+        "gallery": [
+          "/assets/images/projects/nexura/board-mockups-1.jpg",
+          "/assets/images/projects/nexura/board-mockups-2.jpg"
+        ],
+        "galleryTitle": "The brand in use",
+        "deliverables": [
+          "Logo: full colour, single colour, black and white",
+          "Colour palette",
+          "Typography",
+          "Brand pattern",
+          "Mockups: ID card, office glass, bottle, exhibition stand, business cards",
+          "Website: 25 pages, designed and built (HTML, CSS, JavaScript)"
+        ],
+        "outcome": "",
+        "websiteLabel": "Visit nexurainfotech.com"
+      },
+      "type": "Brand identity & website",
+      "link": "contact.html?service=UI%2FUX%20design",
+      "id": "nexura",
+      "image": "",
+      "filters": [
+        "brand",
+        "graphic",
+        "uiux"
+      ],
+      "description": "A brand identity and a 25-page website for Nexura Infotech, an AI integration firm for banks and pharma: a hexagonal mark that hides all six letters of the name, and a calm, colour-coded site I designed and built.",
+      "category": "Branding",
+      "brand": {
+        "accent": "#2472FC",
+        "inkLight": "#1D5FD6",
+        "inkDark": "#7AACFF",
+        "onAccent": "#FFFFFF",
+        "bgLight": "#F4F6FB",
+        "bgDark": "#050B1C",
+        "card": "#12120C",
+        "cardInk": "#FFFFFF",
+        "cardBtn": "#2472FC",
+        "cardBtnInk": "#FFFFFF"
+      }
+    },
+    {
+      "id": "respay",
+      "name": "RESPAY",
+      "type": "Money saving app",
+      "category": "UI/UX",
+      "tags": [
+        "Mobile app",
+        "UI/UX",
+        "Fintech"
+      ],
+      "filters": [
+        "uiux",
+        "product"
+      ],
+      "featured": true,
+      "status": "live",
+      "image": "",
+      "alt": "RESPAY money saving app: the RESPAY logo and 'Money saving app' title beside a phone showing the transactions screen",
+      "link": "contact.html?service=UI%2FUX%20design",
+      "description": "A money saving app for young people and families: it spots unwanted spending, and brings budgets, goals, savings, investment and insurance together in one place.",
+      "caseStudy": {
+        "show": true,
+        "page": "respay.html",
+        "title": "RESPAY: a money saving app for young earners",
+        "client": "",
+        "website": "https://www.behance.net/gallery/166668603/RESPAY-Money-Saving-App-UXUI-Case-Study",
+        "websiteLabel": "View on Behance",
+        "year": "2023",
+        "role": "UX research and UI design: research to high-fidelity screens and prototype",
+        "tools": [
+          "Figma",
+          "Prott"
+        ],
+        "tags": [
+          "UX/UI design",
+          "Mobile app",
+          "Fintech"
+        ],
+        "background": "**RESPAY** is a money saving app for youngsters and families. It identifies **unwanted spending** and points it out, and it's built for people who struggle with saving, investing and insurance. The goal: an interface that's easy to use every day.",
+        "challenge": "Some young people don't save money and don't know how to start, and many spend without noticing. The users I interviewed said it plainly: *\"I'm trying to save but can't\"*, *\"I pay 50% of my salary to EMIs\"*, *\"I can only buy things through EMI\"*. The app had to make unnecessary expenses visible and help people plan **savings, investment and insurance from their salary**, so they can buy what they need **without borrowing**.",
+        "goals": [
+          "Make unnecessary expenses visible, day by day",
+          "Help users put part of every salary aside, including for retirement",
+          "Plan ahead for big festival-season spending",
+          "Set budgets and goals instead of paying through EMIs",
+          "Let users download their daily, monthly and yearly expenses"
+        ],
+        "stats": [
+          {
+            "value": "14",
+            "label": "weeks, research to prototype"
+          },
+          {
+            "value": "90+",
+            "label": "screens designed"
+          },
+          {
+            "value": "4",
+            "label": "competitor apps analysed"
+          },
+          {
+            "value": "5",
+            "label": "design thinking phases"
+          }
+        ],
+        "process": [
+          {
+            "title": "User research",
+            "image": "/assets/images/projects/respay/process-research.jpg",
+            "text": "I interviewed potential users with a set of questions about saving, retirement and festival spending, keeping their identity anonymous, and studied behaviour through observation, task analysis and Play Store reviews. The users were 20 to 25, living in Dubai and Chennai, working as junior engineers and developers."
+          },
+          {
+            "title": "Competitor analysis",
+            "image": "/assets/images/projects/respay/process-competitors.jpg",
+            "text": "I compared Wizely, Monefy, Wallet and Mvelopes on mobile app, customer support, offers, price, investment options and ease of use. Only one offered investment, and only one was rated user friendly: the gap RESPAY aims at."
+          },
+          {
+            "title": "Persona: Vishnu",
+            "image": "/assets/images/projects/respay/process-persona.jpg",
+            "text": "Vishnu, 23, an electrical service engineer working in Dubai, wants to cut unwanted spending, save 25% of his salary and start a retirement plan. His frustrations: no savings, festival-time costs and high bike maintenance."
+          },
+          {
+            "title": "Empathy map and user journey",
+            "image": "/assets/images/projects/respay/process-journey.jpg",
+            "text": "An empathy map (says, thinks, does, feels) and a user journey map showed where saving breaks down and which moments the app should support."
+          },
+          {
+            "title": "Ideation workshop",
+            "image": "/assets/images/projects/respay/process-ideation.jpg",
+            "text": "In a workshop with fellow designers I turned the users' goals and frustrations into user stories, then compared two designers' solutions for each need: retirement saving, saving part of the salary, festival spending and downloadable expense reports."
+          },
+          {
+            "title": "Information architecture and user flow",
+            "image": "/assets/images/projects/respay/process-flow.jpg",
+            "text": "Five main areas: Transactions, Budget & goal, Payment, Profile and More. The user flow runs from splash and onboarding through login to each area."
+          },
+          {
+            "title": "Design system",
+            "image": "/assets/images/projects/respay/process-colours.jpg",
+            "text": "Poppins for all type, a deep blue brand colour with a set of category colours, plus documented iconography, navigation bars and buttons."
+          },
+          {
+            "title": "Wireframes",
+            "image": "/assets/images/projects/respay/process-wireframes.jpg",
+            "text": "Paper low-fidelity sketches first, then mid-fidelity frames in grey to settle the layout before the 90+ high-fidelity screens."
+          }
+        ],
+        "features": [
+          {
+            "label": "Home",
+            "title": "Every transaction, sliced your way",
+            "image": "/assets/images/projects/respay/screen-home.jpg",
+            "text": "After login you land on Transactions: income, expenses and total at the top, then every entry by date and amount, switchable between Daily, Weekly, Monthly, Total and Calendar views. Pay sits in the middle of the tab bar."
+          },
+          {
+            "label": "Budget & goal",
+            "title": "Save first, instead of paying EMIs",
+            "image": "/assets/images/projects/respay/screen-budget.jpg",
+            "text": "The second main page: create a budget to set spending limits, and a goal to save towards with an overview of progress. A simple way to save rather than pay in instalments."
+          },
+          {
+            "label": "Status",
+            "title": "See your spending, compared",
+            "image": "/assets/images/projects/respay/screen-status.jpg",
+            "text": "Statement data as charts: monthly balance, and spending compared month by month, so users can see their spend and how it changes."
+          },
+          {
+            "label": "Accounts",
+            "title": "Your records at a glance",
+            "image": "/assets/images/projects/respay/screen-profile.jpg",
+            "text": "Available cash and used margin, plus an overview of the last records, with quick buttons to view records or add a new one."
+          },
+          {
+            "label": "Bank account",
+            "title": "Add an account safely",
+            "image": "/assets/images/projects/respay/screen-account.jpg",
+            "text": "A step-by-step flow to securely enter and submit bank account details."
+          }
+        ],
+        "screens": [],
+        "gallery": [
+          "/assets/images/projects/respay/ui-overview.jpg",
+          "/assets/images/projects/respay/mockups.jpg"
+        ],
+        "galleryTitle": "Final screens",
+        "deliverables": [
+          "User research: interviews, pain points and demographics",
+          "Competitor analysis",
+          "Persona, empathy map and user journey",
+          "Ideation workshop and user stories",
+          "Information architecture and user flow",
+          "Design system: type, colour, icons, navigation, buttons",
+          "Low and mid-fidelity wireframes",
+          "90+ high-fidelity screens and a prototype"
+        ],
+        "outcome": "",
+        "slides": [
+          "/assets/images/projects/respay/slides/02.jpg",
+          "/assets/images/projects/respay/slides/03.jpg",
+          "/assets/images/projects/respay/slides/04.jpg",
+          "/assets/images/projects/respay/slides/05.jpg",
+          "/assets/images/projects/respay/slides/06.jpg",
+          "/assets/images/projects/respay/slides/07.jpg",
+          "/assets/images/projects/respay/slides/08.jpg",
+          "/assets/images/projects/respay/slides/09.jpg",
+          "/assets/images/projects/respay/slides/10.jpg",
+          "/assets/images/projects/respay/slides/11.jpg",
+          "/assets/images/projects/respay/slides/12.jpg",
+          "/assets/images/projects/respay/slides/13.jpg",
+          "/assets/images/projects/respay/slides/14.jpg",
+          "/assets/images/projects/respay/slides/15.jpg",
+          "/assets/images/projects/respay/slides/16.jpg",
+          "/assets/images/projects/respay/slides/17.jpg",
+          "/assets/images/projects/respay/slides/18.jpg",
+          "/assets/images/projects/respay/slides/19.jpg",
+          "/assets/images/projects/respay/slides/20.jpg",
+          "/assets/images/projects/respay/slides/21.jpg",
+          "/assets/images/projects/respay/slides/22.jpg",
+          "/assets/images/projects/respay/slides/23.jpg",
+          "/assets/images/projects/respay/slides/24.jpg",
+          "/assets/images/projects/respay/slides/25.jpg",
+          "/assets/images/projects/respay/slides/26.jpg",
+          "/assets/images/projects/respay/slides/27.jpg",
+          "/assets/images/projects/respay/slides/28.jpg",
+          "/assets/images/projects/respay/slides/29.jpg",
+          "/assets/images/projects/respay/slides/30.jpg"
+        ],
+        "slidesTitle": "The case study"
+      },
+      "brand": {
+        "accent": "#232F93",
+        "inkLight": "#232F93",
+        "inkDark": "#8D97FF",
+        "onAccent": "#FFFFFF",
+        "bgLight": "#F5F4F3",
+        "bgDark": "#04051A",
+        "card": "#232F93",
+        "cardInk": "#FFFFFF",
+        "cardBtn": "#FFFFFF",
+        "cardBtnInk": "#232F93"
+      }
+    },
+    {
+      "id": "vstar",
+      "name": "VSTAR",
+      "type": "Logo & website",
+      "category": "UI/UX",
+      "tags": [
+        "Logo",
+        "Website",
+        "Design & development"
+      ],
+      "filters": [
+        "uiux",
+        "product"
+      ],
+      "featured": true,
+      "status": "live",
+      "image": "",
+      "alt": "The VSTAR website on a desktop screen standing on a pedestal of navy cubes, with the mobile site on a phone beside it and labels reading Clear structure, Adaptive layout, Easy to enquire and WhatsApp in one tap",
+      "link": "contact.html?service=UI%2FUX%20design",
+      "description": "A logo and website for a Singapore door and shutter service company, designed and built so anyone with a broken shutter can ask for help in a few taps.",
+      "caseStudy": {
+        "show": true,
+        "page": "vstar.html",
+        "title": "VSTAR: a logo and website for a door and shutter service company",
+        "client": "VSTAR Construction & Engineering Pte Ltd",
+        "website": "https://vstar.sg/",
+        "websiteLabel": "Visit vstar.sg",
+        "year": "",
+        "role": "Logo, UX/UI design and front-end development",
+        "tools": [
+          "Tailwind CSS"
+        ],
+        "tags": [
+          "Logo",
+          "Website",
+          "Design & development"
+        ]
+      },
+      "brand": {
+        "accent": "#519041",
+        "inkLight": "#3D6F1D",
+        "inkDark": "#8FCB69",
+        "onAccent": "#FFFFFF",
+        "bgLight": "#F6F7F9",
+        "bgDark": "#030A14",
+        "card": "#0E2344",
+        "cardInk": "#FFFFFF",
+        "cardBtn": "#519041",
+        "cardBtnInk": "#FFFFFF"
+      }
+    },
+    {
+      "id": "ifortigo",
+      "name": "iFortigo",
+      "type": "Logo & website",
+      "category": "UI/UX",
+      "tags": [
+        "Logo",
+        "Website",
+        "Design & development"
+      ],
+      "filters": [
+        "uiux",
+        "brand"
+      ],
+      "featured": false,
+      "status": "live",
+      "image": "",
+      "alt": "The iFortigo logo, large and white on a blue-to-purple background, behind a desktop display and a phone showing the iFortigo website",
+      "link": "contact.html?service=UI%2FUX%20design",
+      "description": "A logo and a one-page website for a field sales app, designed and built so a sales manager can see what it does in one scroll and book a demo from anywhere on the page.",
+      "brand": {
+        "accent": "#0A409A",
+        "inkLight": "#0A409A",
+        "inkDark": "#9DB8FF",
+        "onAccent": "#FFFFFF",
+        "bgLight": "#F3F6FD",
+        "bgDark": "#050A1C",
+        "card": "#0E3574",
+        "cardInk": "#FFFFFF",
+        "cardBtn": "#7F13B7",
+        "cardBtnInk": "#FFFFFF"
+      },
+      "caseStudy": {
+        "show": true,
+        "page": "ifortigo.html",
+        "title": "iFortigo: a logo and website for a field sales app",
+        "client": "iFortigo",
+        "website": "https://ifortigo.com/",
+        "websiteLabel": "Visit ifortigo.com",
+        "year": "",
+        "role": "Logo, UX/UI design and front-end development",
+        "tools": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "tags": [
+          "Logo",
+          "Website",
+          "Design & development"
+        ]
+      }
+    },
+    {
+      "id": "posters",
+      "name": "Posters",
+      "type": "Social media posters",
+      "category": "Graphic",
+      "tags": [
+        "Posters",
+        "Social media",
+        "16 designs"
+      ],
+      "filters": [
+        "graphic"
+      ],
+      "image": "",
+      "alt": "A tilted wall of square posters: product launch posts, tech service posts, Tamil festival greetings and days that matter",
+      "description": "Sixteen square social media posters: launch posts for a zero-client PC product, tech service posts, Tamil festival greetings and days that matter.",
+      "status": "live",
+      "featured": false,
+      "link": "contact.html?service=Graphic%20design",
+      "caseStudy": {
+        "show": true,
+        "page": "posters.html",
+        "title": "Posters: sixteen square social media posts",
+        "role": "Poster design",
+        "tags": [
+          "Posters",
+          "Social media"
+        ]
+      }
+    },
+    {
+      "id": "myshoptill",
+      "name": "Myshoptill",
+      "type": "Logo & website",
+      "category": "UI/UX",
+      "tags": [
+        "Logo",
+        "Website",
+        "Design & development"
+      ],
+      "filters": [
+        "uiux",
+        "brand"
+      ],
+      "featured": false,
+      "status": "live",
+      "image": "",
+      "alt": "The iPOS website on a laptop between two phones showing its mobile pages, on a blue-to-cyan gradient",
+      "link": "contact.html?service=UI%2FUX%20design",
+      "description": "A logo and a marketing website for a cloud POS and mini ERP used by supermarkets, restaurants, pharmacies and more, designed and built so each kind of shop finds its own counter in one scroll.",
+      "brand": {
+        "accent": "#1E64EF",
+        "inkLight": "#1E64EF",
+        "inkDark": "#8FB4FF",
+        "onAccent": "#FFFFFF",
+        "bgLight": "#F4F8FD",
+        "bgDark": "#040A18",
+        "card": "#0F182B",
+        "cardInk": "#FFFFFF",
+        "cardBtn": "#00C5DF",
+        "cardBtnInk": "#0F182B"
+      },
+      "caseStudy": {
+        "show": true,
+        "page": "myshoptill.html",
+        "title": "Myshoptill: a logo and website for a cloud POS",
+        "client": "Myshoptill",
+        "website": "https://fabiloom.com/",
+        "websiteLabel": "Visit fabiloom.com",
+        "year": "",
+        "role": "Logo, UX/UI design and front-end development",
+        "tools": [
+          "React",
+          "Tailwind CSS",
+          "Framer Motion"
+        ],
+        "tags": [
+          "Logo",
+          "Website",
+          "Design & development"
+        ]
+      }
+    },
+    {
+      "id": "sample-brochure",
+      "name": "Sample brochure",
+      "type": "Brochure design",
+      "category": "Graphic",
+      "tags": [
+        "Brochure",
+        "Print",
+        "Sample"
+      ],
+      "filters": [
+        "graphic",
+        "brand"
+      ],
+      "image": "",
+      "alt": "",
+      "description": "A placeholder for a brochure project — swap in your real brochure from /gk.",
+      "status": "live",
+      "featured": false,
+      "sample": true,
+      "link": "contact.html?service=Graphic%20design"
+    },
+    {
+      "id": "sample-deck",
+      "name": "Sample company deck",
+      "type": "Company deck",
+      "category": "Graphic",
+      "tags": [
+        "Company deck",
+        "Sample"
+      ],
+      "filters": [
+        "graphic",
+        "brand"
+      ],
+      "image": "",
+      "alt": "",
+      "description": "A placeholder for a company deck — swap in your real deck from /gk.",
+      "status": "live",
+      "featured": false,
+      "sample": true,
+      "link": "contact.html?service=Graphic%20design"
+    },
+    {
+      "id": "sample-web",
+      "name": "Sample landing page",
+      "type": "Website design",
+      "category": "UI/UX",
+      "tags": [
+        "Website",
+        "UI/UX",
+        "Sample"
+      ],
+      "filters": [
+        "uiux"
+      ],
+      "image": "",
+      "alt": "",
+      "description": "A placeholder for a website project — swap in your real screens from /gk.",
+      "status": "live",
+      "featured": false,
+      "sample": true,
+      "link": "contact.html?service=UI%2FUX%20design"
+    }
+  ],
+  "video": {
+    "show": true,
+    "lead": "Thumbnails, reels and podcast edits for creators and brands.",
+    "showreel": {
+      "show": true,
+      "youtube": "",
+      "poster": ""
+    },
+    "cards": [
+      {
+        "id": "thumbnails",
+        "title": "Thumbnail design",
+        "text": "Bold, readable thumbnails for YouTube, podcasts and courses, designed to get clicked.",
+        "tools": "Photoshop · Illustrator"
+      },
+      {
+        "id": "reels",
+        "title": "Reels & shorts",
+        "text": "Fast, captioned vertical edits for Instagram, YouTube Shorts and LinkedIn.",
+        "tools": "Premiere Pro · After Effects"
+      },
+      {
+        "id": "podcasts",
+        "title": "Podcast editing",
+        "text": "Multi-camera edits, clean audio, captions and short clips from every episode.",
+        "tools": "Premiere Pro"
+      }
+    ],
+    "thumbnails": [
+      {
+        "title": "Sample thumbnail 1 — replace with your video title",
+        "channel": "Client channel",
+        "views": "",
+        "image": "",
+        "link": "",
+        "sample": true
+      },
+      {
+        "title": "Sample thumbnail 2 — replace with your video title",
+        "channel": "Client channel",
+        "views": "",
+        "image": "",
+        "link": "",
+        "sample": true
+      },
+      {
+        "title": "Sample thumbnail 3 — replace with your video title",
+        "channel": "Client channel",
+        "views": "",
+        "image": "",
+        "link": "",
+        "sample": true
+      },
+      {
+        "title": "Sample thumbnail 4 — replace with your video title",
+        "channel": "Client channel",
+        "views": "",
+        "image": "",
+        "link": "",
+        "sample": true
+      },
+      {
+        "title": "Sample thumbnail 5 — replace with your video title",
+        "channel": "Client channel",
+        "views": "",
+        "image": "",
+        "link": "",
+        "sample": true
+      },
+      {
+        "title": "Sample thumbnail 6 — replace with your video title",
+        "channel": "Client channel",
+        "views": "",
+        "image": "",
+        "link": "",
+        "sample": true
+      }
+    ],
+    "reels": [
+      {
+        "title": "Sample reel · talking head",
+        "handle": "@client",
+        "did": "Jump cuts, captions, zooms",
+        "video": "",
+        "poster": "",
+        "link": "",
+        "views": "",
+        "sample": true
+      },
+      {
+        "title": "Sample reel · podcast clip",
+        "handle": "@client",
+        "did": "Clip from an episode, captions",
+        "video": "",
+        "poster": "",
+        "link": "",
+        "views": "",
+        "sample": true
+      },
+      {
+        "title": "Sample reel · product promo",
+        "handle": "@client",
+        "did": "Motion text, music sync",
+        "video": "",
+        "poster": "",
+        "link": "",
+        "views": "",
+        "sample": true
+      },
+      {
+        "title": "Sample reel · vlog",
+        "handle": "@client",
+        "did": "B-roll edit, colour",
+        "video": "",
+        "poster": "",
+        "link": "",
+        "views": "",
+        "sample": true
+      },
+      {
+        "title": "Sample reel · hook edit",
+        "handle": "@client",
+        "did": "Hook, sound design",
+        "video": "",
+        "poster": "",
+        "link": "",
+        "views": "",
+        "sample": true
+      }
+    ],
+    "podcasts": [
+      {
+        "youtube": "",
+        "cams": "",
+        "length": "",
+        "sample": true,
+        "poster": "",
+        "tool": "Premiere Pro",
+        "title": "Sample episode — replace with your podcast",
+        "episode": "Episode 1",
+        "show": "Sample podcast",
+        "did": [
+          "Multi-cam edit",
+          "Colour grade",
+          "Audio clean-up",
+          "Captions",
+          "Lower thirds",
+          "Short clips"
+        ]
+      }
+    ]
+  },
   "tools": [
     {
       "name": "Figma",
@@ -262,6 +1135,131 @@
       "level": "Intermediate",
       "frequency": "Sometimes",
       "use": "Image editing, mockups and retouching"
+    }
+  ],
+  "filters": [
+    {
+      "id": "uiux",
+      "label": "UI/UX"
+    },
+    {
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "id": "brand",
+      "label": "Branding"
+    },
+    {
+      "id": "graphic",
+      "label": "Graphic"
+    }
+  ],
+  "roles": [
+    "Product designer",
+    "UI/UX designer",
+    "Graphic designer",
+    "Motion designer",
+    "Video editor"
+  ],
+  "services": [
+    {
+      "id": "product",
+      "name": "Product design",
+      "letter": "P",
+      "subtitle": "From problem to shipped feature",
+      "summary": "Shaping a product from the problem up — understanding users, mapping flows and turning ideas into something that ships.",
+      "detail": "From user research and interviews to journey maps, user flows, wireframes and clickable prototypes — I turn a fuzzy problem into a clear, tested product direction that designers, developers and stakeholders can build on with confidence.",
+      "skills": [
+        "User research",
+        "User flows",
+        "Wireframing",
+        "Prototyping"
+      ],
+      "description": "Understanding users, mapping flows and turning ideas into something that ships.",
+      "deliverables": [
+        "User research & audits",
+        "User flows & IA",
+        "Wireframes & prototypes"
+      ]
+    },
+    {
+      "id": "uiux",
+      "name": "UI/UX design",
+      "letter": "U",
+      "subtitle": "Web · Mobile · Design systems",
+      "summary": "Clean, accessible interfaces for web and mobile, built on reusable components so the product stays consistent as it grows.",
+      "detail": "Pixel-accurate web and mobile interfaces built on a reusable component library and design system — responsive layouts, accessible colour and type, every interaction state covered, and a clean, organised Figma handoff for developers.",
+      "skills": [
+        "Web & mobile UI",
+        "Design systems",
+        "Accessibility",
+        "Dev handoff"
+      ],
+      "description": "Clean, accessible interfaces built on reusable components so the product stays consistent as it grows.",
+      "deliverables": [
+        "Web & mobile UI",
+        "Design systems",
+        "Developer handoff"
+      ]
+    },
+    {
+      "id": "logo",
+      "name": "Graphic design",
+      "letter": "G",
+      "subtitle": "Logos · Posters · Brochures",
+      "summary": "Logos, posters and brochures that make a brand instantly recognisable — like the Nexura identity.",
+      "detail": "Brand marks and identity systems, eye-catching posters, and brochures and company decks that present a business clearly — the same colour, typography and layout across every piece, so the brand looks consistent everywhere, like the Nexura identity.",
+      "skills": [
+        "Logo & mark",
+        "Posters",
+        "Brochures & decks",
+        "Brand guidelines"
+      ],
+      "description": "Logos, posters and brochures that make a brand instantly recognisable — like the Nexura identity.",
+      "deliverables": [
+        "Logo & brand identity",
+        "Posters",
+        "Brochures & company decks"
+      ]
+    },
+    {
+      "id": "motion",
+      "name": "Motion design",
+      "letter": "M",
+      "subtitle": "UI · Logos · Social",
+      "summary": "Animation that gives products and brands personality, from small UI details to animated logos.",
+      "detail": "Motion that explains and delights — micro-interactions and UI transitions, animated logos and short social pieces made in After Effects, with timing and easing tuned so every movement feels natural and on-brand.",
+      "skills": [
+        "Micro-interactions",
+        "Logo animation",
+        "Motion for social"
+      ],
+      "description": "Animation that gives products and brands personality, from micro-interactions to animated logos.",
+      "deliverables": [
+        "Micro-interactions",
+        "Logo animation",
+        "Motion for web & social"
+      ]
+    },
+    {
+      "id": "video",
+      "name": "Video editing",
+      "letter": "V",
+      "subtitle": "Thumbnails · Reels · Podcasts",
+      "summary": "Thumbnails that get clicked, reels that stop the scroll and podcast edits that keep people watching.",
+      "detail": "Scroll-stopping YouTube thumbnails, fast captioned reels and shorts, and clean multi-camera podcast edits with colour, sound clean-up and short clips cut from every episode — edited in Premiere Pro and designed in Photoshop.",
+      "skills": [
+        "Thumbnail design",
+        "Reels & shorts",
+        "Podcast editing"
+      ],
+      "description": "Bold thumbnails, fast captioned reels and clean multi-camera podcast edits, plus short clips cut from every episode.",
+      "deliverables": [
+        "YouTube thumbnails",
+        "Reels & shorts",
+        "Podcast episodes & clips"
+      ]
     }
   ]
 }

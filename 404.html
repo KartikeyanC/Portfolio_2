@@ -9,13 +9,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
+  <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
+  <link rel="expect" href="#page-ready" blocking="render" />
 </head>
 <body id="top">
+
+  <!-- Announcement bar — text/link from content.json "announcement" (edit in /gk); dismissed bars stay hidden for the visit -->
+  <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="/contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
 
   <header class="nav">
     <a class="nav__brand" href="/" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
@@ -39,12 +44,13 @@
   <div class="panel" id="panel" aria-hidden="true">
     <button class="panel__close" id="menuClose">Close</button>
     <a href="/">Home</a><a href="/about.html">About</a><a href="/projects.html">Projects</a><a href="/services.html">Services</a><a href="/contact.html">Contact</a>
-    <small>kartikeyan4878@gmail.com · +91 9488584561</small>
+    <small data-bind="contact-line" hidden></small>
   </div>
 
   <main>
     <section class="hero hero--page nf">
-      <div class="glow" aria-hidden="true"></div>
+      <!-- Moving blue light behind the hero, like a SaaS video background (css: .glow--live) -->
+      <div class="glow glow--live" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <p class="nf__eyebrow reveal"><span class="nf__dot"></span>Error 404 · <code id="nfPath">this page</code></p>
       <h1 class="hero__title">
         <span class="rise"><span class="hero__line nf__code" aria-hidden="true"><span class="first">4</span><span class="mark mark--spin"></span><span>4</span></span></span>
@@ -67,18 +73,32 @@
 
   <footer class="footer">
     <p class="footer__big">Let's connect</p>
-    <div class="footer__cols">
-      <div class="footer__col"><small>(EMAIL)</small><a class="hl" href="mailto:kartikeyan4878@gmail.com">kartikeyan4878@gmail.com</a></div>
-      <div class="footer__col"><small>(PHONE)</small><a class="hl" href="tel:+919488584561">+91 9488584561</a></div>
-      <div class="footer__col"><small>(LINKS)</small><a href="/">Home</a><a href="/about.html">About</a><a href="/projects.html">Projects</a><a href="/services.html">Services</a><a href="/contact.html">Contact</a></div>
-      <div class="footer__col"><small>(SOCIALS)</small><a href="https://www.linkedin.com/in/kartikeyanc/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://contra.com/kartikeyan_9z096t3z" target="_blank" rel="noopener">Contra ↗</a></div>
+    <!-- Bento footer (kraftbase tray): write-to-me card | pages | elsewhere. Email, socials and location are filled from content.json by main.js -->
+    <div class="ftray">
+      <div class="fcard fcard--mail">
+        <h4 data-ft="mail-title">Start a project</h4>
+        <a class="fmail" data-ft="mail" href="/contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
+          <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
+      </div>
+      <div class="fcard">
+        <h4>Pages</h4>
+        <nav class="fnav" aria-label="Footer"><a href="/">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="/about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="/projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="/services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="/contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+      </div>
+      <div class="fcard" data-ft="elsewhere" hidden>
+        <h4>Elsewhere</h4>
+        <div class="fsoc" data-ft="soc"></div>
+      </div>
     </div>
-    <div class="footer__bottom"><span>© 2026 Kartikeyan. All rights reserved</span><span>Chennai, India</span><a class="to-top" href="#top">Back to top ↑</a></div>
+    <div class="footer__bottom"><span>© 2026 Kartikeyan. All rights reserved</span><a class="to-top ftop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></div>
   </footer>
   <div class="wordmark" aria-hidden="true"><b>KARTIKEYAN<sup>™</sup></b><span>Product<br />&amp; UI/UX<br />Designer</span></div>
 
 
   <script>document.getElementById("nfPath").textContent = decodeURIComponent(location.pathname);</script>
+  <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" id="lenisLib" async></script>
   <script src="/js/main.js"></script>
+  <span id="page-ready" hidden></span>
 </body>
 </html>

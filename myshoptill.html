@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Myshoptill — Logo &amp; website — Kartikeyan</title>
+  <meta name="description" content="Myshoptill, a logo and a website designed and built by Kartikeyan C for a cloud POS and mini ERP used by supermarkets, restaurants, pharmacies and more: brief, audience, colour, type, page structure, key decisions and the build." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
+  <link rel="expect" href="#page-ready" blocking="render" />
+</head>
+<body id="top">
+
+  <!-- Announcement bar — text/link from content.json "announcement" (edit in /gk); dismissed bars stay hidden for the visit -->
+  <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="/contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
+
+  <header class="nav">
+    <a class="nav__brand" href="index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="nav__cta" href="contact.html">Let's talk</a>
+      <button class="nav__menu" id="menuOpen" aria-expanded="false" aria-controls="panel">Menu</button>
+    </div>
+  </header>
+
+  <div class="panel" id="panel" aria-hidden="true">
+    <button class="panel__close" id="menuClose">Close</button>
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+    <small data-bind="contact-line" hidden></small>
+  </div>
+
+  <main>
+    <!-- MYSHOPTILL case study (logo + website, design & development). Own look: "checkout" — shelf tags for the facts,
+         barcode section numbers, a scanner line that sweeps each block in, six aisles for the page structure, staff badges,
+         a POS keypad for the decisions, a stock list for the build, and scan rails under the two whole-page viewers.
+         Styles: ".msx" block at the end of css/style.css (".vs" only supplies base tokens). -->
+    <div class="vs msx" id="vs">
+
+    <!-- HERO -->
+    <header class="msx-hero vs-wrap">
+      <a class="msx-back" href="projects.html"><span aria-hidden="true">←</span> All work</a>
+      <div class="msx-hero__grid">
+        <div>
+          <p class="msx-eye">Case study · Logo + website</p>
+          <h1 class="msx-hero__title">Myshoptill<em>Logo &amp; website for a cloud POS.</em></h1>
+          <p class="msx-hero__lead">Myshoptill is a cloud POS and mini ERP for supermarkets, hypermarkets, restaurants, textile shops, pharmacies and service businesses, ready for UAE VAT. I designed its logo, then <b>designed and built</b> the marketing website, live at fabiloom.com, where the product currently appears as iPOS.</p>
+          <div class="msx-hero__btns">
+            <a class="msx-btn" href="https://fabiloom.com/" target="_blank" rel="noopener">Visit fabiloom.com <span aria-hidden="true">↗</span></a>
+            <a class="msx-btn msx-btn--soft" href="#msx-aisles">The website</a>
+            <a class="msx-btn msx-btn--soft" href="#msx-web">The whole page</a>
+          </div>
+        </div>
+        <ul class="msx-tags vs-r" aria-label="Project facts"><li><small>Client</small><b>Myshoptill</b><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="3" height="36"/><rect x="4" width="2" height="36"/><rect x="8" width="3" height="36"/><rect x="12" width="3" height="36"/><rect x="16" width="1" height="36"/><rect x="20" width="1" height="36"/><rect x="24" width="2" height="36"/><rect x="27" width="1" height="36"/><rect x="30" width="3" height="36"/><rect x="36" width="1" height="36"/><rect x="39" width="2" height="36"/><rect x="44" width="2" height="36"/><rect x="48" width="3" height="36"/><rect x="54" width="1" height="36"/><rect x="58" width="1" height="36"/></svg><span>SKU 001</span></li><li><small>Logo</small><b>Design</b><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="1" height="36"/><rect x="2" width="1" height="36"/><rect x="5" width="1" height="36"/><rect x="9" width="1" height="36"/><rect x="12" width="1" height="36"/><rect x="16" width="2" height="36"/><rect x="19" width="1" height="36"/><rect x="21" width="2" height="36"/><rect x="25" width="2" height="36"/><rect x="29" width="1" height="36"/><rect x="33" width="3" height="36"/><rect x="37" width="3" height="36"/><rect x="42" width="3" height="36"/><rect x="48" width="3" height="36"/><rect x="53" width="3" height="36"/><rect x="58" width="1" height="36"/><rect x="61" width="3" height="36"/></svg><span>SKU 002</span></li><li><small>Website</small><b>UX/UI design + front-end</b><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="2" height="36"/><rect x="5" width="2" height="36"/><rect x="9" width="3" height="36"/><rect x="15" width="1" height="36"/><rect x="19" width="1" height="36"/><rect x="23" width="3" height="36"/><rect x="28" width="1" height="36"/><rect x="32" width="2" height="36"/><rect x="37" width="1" height="36"/><rect x="39" width="2" height="36"/><rect x="44" width="1" height="36"/><rect x="48" width="1" height="36"/><rect x="52" width="3" height="36"/><rect x="58" width="3" height="36"/></svg><span>SKU 003</span></li><li><small>Built with</small><b>React, Tailwind CSS</b><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="3" height="36"/><rect x="5" width="1" height="36"/><rect x="8" width="2" height="36"/><rect x="11" width="1" height="36"/><rect x="13" width="1" height="36"/><rect x="17" width="2" height="36"/><rect x="22" width="1" height="36"/><rect x="25" width="3" height="36"/><rect x="31" width="3" height="36"/><rect x="36" width="2" height="36"/><rect x="39" width="2" height="36"/><rect x="42" width="3" height="36"/><rect x="47" width="1" height="36"/><rect x="51" width="2" height="36"/><rect x="54" width="2" height="36"/><rect x="57" width="1" height="36"/><rect x="61" width="1" height="36"/></svg><span>SKU 004</span></li><li><small>Type</small><b>Space Grotesk + Inter</b><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="1" height="36"/><rect x="3" width="3" height="36"/><rect x="7" width="3" height="36"/><rect x="12" width="2" height="36"/><rect x="15" width="3" height="36"/><rect x="21" width="3" height="36"/><rect x="25" width="1" height="36"/><rect x="27" width="3" height="36"/><rect x="31" width="2" height="36"/><rect x="34" width="2" height="36"/><rect x="38" width="3" height="36"/><rect x="43" width="1" height="36"/><rect x="47" width="1" height="36"/><rect x="51" width="2" height="36"/><rect x="56" width="1" height="36"/><rect x="58" width="2" height="36"/></svg><span>SKU 005</span></li><li><small>Page</small><b>18 sections, one scroll</b><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="3" height="36"/><rect x="6" width="1" height="36"/><rect x="9" width="2" height="36"/><rect x="14" width="2" height="36"/><rect x="18" width="3" height="36"/><rect x="24" width="1" height="36"/><rect x="28" width="1" height="36"/><rect x="32" width="3" height="36"/><rect x="37" width="1" height="36"/><rect x="41" width="2" height="36"/><rect x="46" width="1" height="36"/><rect x="48" width="2" height="36"/><rect x="53" width="1" height="36"/><rect x="57" width="1" height="36"/><rect x="61" width="3" height="36"/></svg><span>SKU 006</span></li><li class="is-live"><small>Status</small><b><a href="https://fabiloom.com/" target="_blank" rel="noopener">Live ↗</a></b><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="2" height="36"/><rect x="5" width="1" height="36"/><rect x="7" width="2" height="36"/><rect x="10" width="2" height="36"/><rect x="14" width="2" height="36"/><rect x="17" width="1" height="36"/><rect x="21" width="3" height="36"/><rect x="25" width="2" height="36"/><rect x="30" width="3" height="36"/><rect x="34" width="3" height="36"/><rect x="38" width="3" height="36"/><rect x="42" width="1" height="36"/><rect x="45" width="2" height="36"/><rect x="49" width="2" height="36"/><rect x="53" width="3" height="36"/><rect x="59" width="3" height="36"/></svg><span>fabiloom.com</span></li></ul>
+      </div>
+      <div class="vs-cover msx-cover" data-slide style="view-transition-name:shot-myshoptill;view-transition-class:shot"><img src="assets/images/projects/myshoptill/cover.jpg" alt="The iPOS website on a laptop between two phones showing its mobile pages, on a blue-to-cyan gradient" fetchpriority="high" decoding="sync" /></div>
+    </header>
+
+    <!-- BRIEF -->
+    <section class="msx-sec vs-wrap" id="msx-brief">
+      <header class="msx-head vs-r"><span class="msx-code" aria-hidden="true"><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="2" height="36"/><rect x="5" width="2" height="36"/><rect x="9" width="2" height="36"/><rect x="14" width="2" height="36"/><rect x="18" width="3" height="36"/><rect x="24" width="1" height="36"/><rect x="27" width="3" height="36"/><rect x="33" width="3" height="36"/><rect x="39" width="1" height="36"/><rect x="43" width="2" height="36"/><rect x="48" width="1" height="36"/><rect x="52" width="1" height="36"/><rect x="56" width="3" height="36"/><rect x="60" width="1" height="36"/></svg><b>0 01</b></span><div><p class="msx-eye">The brief</p><h2>Six businesses, <em>one till.</em></h2></div></header>
+      <div class="msx-body">
+        <p class="vs-big vs-r">One platform for six very different counters: a supermarket, a hypermarket, a restaurant, a textile shop, a pharmacy and service businesses like spas. Each one bills, stocks and reports in its own way.</p>
+        <p class="vs-r">So the page had three jobs. Promise all six at once, in the headline. Let every owner find their own shop inside the product within one scroll. And prove it with the product itself, its dashboards, its sync and its invoices, not with adjectives, with every path ending at a demo.</p>
+        <ol class="msx-jobs">
+          <li class="vs-r"><span>1</span><b>One promise</b><p>One smart POS, built for six businesses, said in the first line.</p></li>
+          <li class="vs-r"><span>2</span><b>Every shop sees itself</b><p>Six industry cards, each with the workflows only that shop needs.</p></li>
+          <li class="vs-r"><span>3</span><b>Show, don't tell</b><p>Real-looking dashboards, live numbers and a demo button at every turn.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- WHO -->
+    <section class="msx-sec vs-wrap" id="msx-who">
+      <header class="msx-head vs-r"><span class="msx-code" aria-hidden="true"><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="3" height="36"/><rect x="5" width="3" height="36"/><rect x="10" width="3" height="36"/><rect x="14" width="3" height="36"/><rect x="19" width="3" height="36"/><rect x="25" width="2" height="36"/><rect x="30" width="3" height="36"/><rect x="35" width="3" height="36"/><rect x="39" width="3" height="36"/><rect x="43" width="2" height="36"/><rect x="46" width="2" height="36"/><rect x="49" width="2" height="36"/><rect x="54" width="3" height="36"/><rect x="58" width="3" height="36"/></svg><b>0 02</b></span><div><p class="msx-eye">Who it's for</p><h2>Four people <em>behind every counter.</em></h2></div></header>
+      <div class="msx-body">
+        <p class="vs-r">The site says it plainly: every feature is built for the person actually using it. So the page speaks to four of them.</p>
+        <div class="msx-badges">
+          <article class="msx-badge vs-r"><i class="msx-badge__clip" aria-hidden="true"></i><span class="msx-badge__role">Front counter</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7V5h3M17 5h3v2M4 17v2h3M17 19h3v-2M8 8v8M11 8v8M14 8v8M17 8v8"/></svg><h3>The cashier</h3><p>Bills all day. Wants barcode billing, split bills and a receipt that prints first time.</p><small>On the page: industry workflows, receipt printing</small></article>
+          <article class="msx-badge vs-r"><i class="msx-badge__clip" aria-hidden="true"></i><span class="msx-badge__role">Shop floor</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12M8 21v-6h8v6M8 11h8"/></svg><h3>The manager</h3><p>Runs the stock and the staff. Wants live inventory, low-stock alerts and discount rules nobody can bend.</p><small>On the page: the dashboard, discount control</small></article>
+          <article class="msx-badge vs-r"><i class="msx-badge__clip" aria-hidden="true"></i><span class="msx-badge__role">Back office</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18l-2-1.5L13 21l-2-1.5L9 21l-2-1.5zM9.5 8h5M9.5 12h5M9.5 16h3"/></svg><h3>The accountant</h3><p>Closes the books. Wants VAT worked out right and every document ready before the auditor asks.</p><small>On the page: tax engine, UAE VAT, tax documents</small></article>
+          <article class="msx-badge vs-r"><i class="msx-badge__clip" aria-hidden="true"></i><span class="msx-badge__role">Signs it off</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 20V10m4.7 10V6m4.6 14v-8M19 20V4"/></svg><h3>The owner</h3><p>Sees every branch at once. Wants proof it plugs into the ERP they already run, and numbers they can trust.</p><small>On the page: universal ERP, the AI dashboard</small></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLOUR + TYPE -->
+    <section class="msx-sec vs-wrap" id="msx-colour">
+      <header class="msx-head vs-r"><span class="msx-code" aria-hidden="true"><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="1" height="36"/><rect x="3" width="2" height="36"/><rect x="7" width="2" height="36"/><rect x="11" width="3" height="36"/><rect x="17" width="3" height="36"/><rect x="23" width="1" height="36"/><rect x="25" width="3" height="36"/><rect x="29" width="1" height="36"/><rect x="32" width="2" height="36"/><rect x="37" width="3" height="36"/><rect x="41" width="3" height="36"/><rect x="46" width="3" height="36"/><rect x="52" width="1" height="36"/><rect x="54" width="3" height="36"/><rect x="59" width="1" height="36"/></svg><b>0 03</b></span><div><p class="msx-eye">Colour &amp; type</p><h2>Calm surfaces, <em>one bright gradient.</em></h2></div></header>
+      <div class="msx-body">
+        <p class="vs-r">The pages stay white and quiet so the product screens can do the talking. Colour is saved for one blue-to-cyan gradient on the buttons, the key words in each headline and the live parts of the product, with a green that only ever means done or in sync.</p>
+        <div class="msx-pal vs-r">
+          <ul class="msx-dots">
+            <li style="--c:#1E64EF"><i></i><b>Blue</b><span>#1E64EF</span></li>
+            <li style="--c:#00C5DF"><i></i><b>Cyan</b><span>#00C5DF</span></li>
+            <li style="--c:#4BC957"><i></i><b>Green</b><span>#4BC957</span></li>
+            <li style="--c:#0F182B"><i></i><b>Ink</b><span>#0F182B</span></li>
+            <li style="--c:#596475"><i></i><b>Muted text</b><span>#596475</span></li>
+            <li style="--c:#E0E5EB" class="is-light"><i></i><b>Border</b><span>#E0E5EB</span></li>
+            <li style="--c:#F8FAFD" class="is-light"><i></i><b>Surface</b><span>#F8FAFD</span></li>
+          </ul>
+          <div class="msx-pal__grad" aria-hidden="true"><span>#1E64EF</span><b>135° brand gradient</b><span>#00C5DF</span></div>
+        </div>
+        <div class="msx-type">
+          <div class="msx-type__card vs-r"><span class="msx-type__aa msx-sg">Aa</span><div><b>Space Grotesk</b><small>Headings · 600</small><p class="msx-sg">One Smart POS, built for six powerful businesses.</p></div></div>
+          <div class="msx-type__card vs-r"><span class="msx-type__aa msx-in">Aa</span><div><b>Inter</b><small>Body text · 400 to 600</small><p class="msx-in">Manage billing, inventory, stock valuation and UAE VAT from one cloud platform.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRUCTURE: six aisles -->
+    <section class="msx-sec vs-wrap" id="msx-aisles">
+      <header class="msx-head vs-r"><span class="msx-code" aria-hidden="true"><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="2" height="36"/><rect x="3" width="1" height="36"/><rect x="6" width="1" height="36"/><rect x="10" width="3" height="36"/><rect x="14" width="2" height="36"/><rect x="17" width="2" height="36"/><rect x="21" width="3" height="36"/><rect x="27" width="1" height="36"/><rect x="31" width="1" height="36"/><rect x="34" width="3" height="36"/><rect x="39" width="1" height="36"/><rect x="41" width="1" height="36"/><rect x="43" width="1" height="36"/><rect x="45" width="2" height="36"/><rect x="49" width="1" height="36"/><rect x="52" width="1" height="36"/><rect x="54" width="2" height="36"/><rect x="58" width="2" height="36"/></svg><b>0 04</b></span><div><p class="msx-eye">Page structure</p><h2>Eighteen sections, <em>six aisles.</em></h2></div></header>
+      <div class="msx-body msx-body--wide">
+        <p class="vs-r">A long page, laid out like a well-signed shop. The eighteen sections are grouped in the order a buyer's questions arrive, so whoever walks in can head straight for their own aisle.</p>
+        <div class="msx-aisles"><div class="msx-aisle vs-r"><div class="msx-aisle__sign"><small>Aisle 1</small><b>What is it?</b></div><ul><li><figure><img src="assets/images/projects/myshoptill/web/sec-01@1200.jpg" alt="Hero: One Smart POS, Built for Six Powerful Businesses, two buttons and the HQ dashboard right under them." loading="lazy" decoding="async" /></figure><span>01</span><b>Hero</b><p>One Smart POS, Built for Six Powerful Businesses, two buttons and the HQ dashboard right under them.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-02@1200.jpg" alt="Industries: Six industry cards, each with its own illustration and five workflows." loading="lazy" decoding="async" /></figure><span>02</span><b>Industries</b><p>Six industry cards, each with its own illustration and five workflows.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-03@1200.jpg" alt="Why iPOS: Four reasons in four cards: go live in days, security, analytics, global + local." loading="lazy" decoding="async" /></figure><span>03</span><b>Why iPOS</b><p>Four reasons in four cards: go live in days, security, analytics, global + local.</p></li></ul></div><div class="msx-aisle vs-r"><div class="msx-aisle__sign"><small>Aisle 2</small><b>What does it run?</b></div><ul><li><figure><img src="assets/images/projects/myshoptill/web/sec-04@1200.jpg" alt="Dashboard: A large dashboard preview on a soft blue panel." loading="lazy" decoding="async" /></figure><span>04</span><b>Dashboard</b><p>A large dashboard preview on a soft blue panel.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-05@1200.jpg" alt="Core features: Thirteen modules as small cards in one grid." loading="lazy" decoding="async" /></figure><span>05</span><b>Core features</b><p>Thirteen modules as small cards in one grid.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-06@1200.jpg" alt="ERP integration: Five live module cards wired to the iPOS Core sync engine." loading="lazy" decoding="async" /></figure><span>06</span><b>ERP integration</b><p>Five live module cards wired to the iPOS Core sync engine.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-07@1200.jpg" alt="Enterprise: Discount control, Mini ERP and SaaS, switched as you scroll." loading="lazy" decoding="async" /></figure><span>07</span><b>Enterprise</b><p>Discount control, Mini ERP and SaaS, switched as you scroll.</p></li></ul></div><div class="msx-aisle vs-r"><div class="msx-aisle__sign"><small>Aisle 3</small><b>Will it fit my systems?</b></div><ul><li><figure><img src="assets/images/projects/myshoptill/web/sec-08@1200.jpg" alt="Universal ERP: iPOS Core linked to SAP, Oracle, Dynamics, Odoo, Zoho, Tally and custom ERPs." loading="lazy" decoding="async" /></figure><span>08</span><b>Universal ERP</b><p>iPOS Core linked to SAP, Oracle, Dynamics, Odoo, Zoho, Tally and custom ERPs.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-09@1200.jpg" alt="Tax &amp; payments: A sample tax invoice, a live currency converter and the payment gateways." loading="lazy" decoding="async" /></figure><span>09</span><b>Tax &amp; payments</b><p>A sample tax invoice, a live currency converter and the payment gateways.</p></li></ul></div><div class="msx-aisle vs-r"><div class="msx-aisle__sign"><small>Aisle 4</small><b>What is smart about it?</b></div><ul><li><figure><img src="assets/images/projects/myshoptill/web/sec-10@1200.jpg" alt="AI dashboard: An executive dashboard with revenue, margin, stock-out risk and AI insights." loading="lazy" decoding="async" /></figure><span>10</span><b>AI dashboard</b><p>An executive dashboard with revenue, margin, stock-out risk and AI insights.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-11@1200.jpg" alt="Deployment: Cloud deployment in one card." loading="lazy" decoding="async" /></figure><span>11</span><b>Deployment</b><p>Cloud deployment in one card.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-12@1200.jpg" alt="AI POS: An AI business assistant, marked coming soon." loading="lazy" decoding="async" /></figure><span>12</span><b>AI POS</b><p>An AI business assistant, marked coming soon.</p></li></ul></div><div class="msx-aisle vs-r"><div class="msx-aisle__sign"><small>Aisle 5</small><b>Is it compliant?</b></div><ul><li><figure><img src="assets/images/projects/myshoptill/web/sec-13@1200.jpg" alt="UAE VAT: Built for UAE VAT, ready for the FTA." loading="lazy" decoding="async" /></figure><span>13</span><b>UAE VAT</b><p>Built for UAE VAT, ready for the FTA.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-14@1200.jpg" alt="Tax documents: A compliance dashboard and every tax document listed." loading="lazy" decoding="async" /></figure><span>14</span><b>Tax documents</b><p>A compliance dashboard and every tax document listed.</p></li></ul></div><div class="msx-aisle vs-r"><div class="msx-aisle__sign"><small>Aisle 6</small><b>Can I trust it?</b></div><ul><li><figure><img src="assets/images/projects/myshoptill/web/sec-15@1200.jpg" alt="Integrations: The hardware and services it plugs into, from scanners to WhatsApp." loading="lazy" decoding="async" /></figure><span>15</span><b>Integrations</b><p>The hardware and services it plugs into, from scanners to WhatsApp.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-16@1200.jpg" alt="Testimonials: Three short quotes from store operators." loading="lazy" decoding="async" /></figure><span>16</span><b>Testimonials</b><p>Three short quotes from store operators.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-17@1200.jpg" alt="FAQ: Common questions in an accordion." loading="lazy" decoding="async" /></figure><span>17</span><b>FAQ</b><p>Common questions in an accordion.</p></li><li><figure><img src="assets/images/projects/myshoptill/web/sec-18@1200.jpg" alt="Book a demo: Ready to run smarter? on a dark panel, with Book Demo." loading="lazy" decoding="async" /></figure><span>18</span><b>Book a demo</b><p>Ready to run smarter? on a dark panel, with Book Demo.</p></li></ul></div></div>
+      </div>
+    </section>
+
+    <!-- DECISIONS: a POS keypad -->
+    <section class="msx-sec vs-wrap" id="msx-decisions">
+      <header class="msx-head vs-r"><span class="msx-code" aria-hidden="true"><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="3" height="36"/><rect x="6" width="2" height="36"/><rect x="10" width="2" height="36"/><rect x="13" width="1" height="36"/><rect x="16" width="2" height="36"/><rect x="19" width="3" height="36"/><rect x="25" width="3" height="36"/><rect x="30" width="2" height="36"/><rect x="35" width="3" height="36"/><rect x="41" width="3" height="36"/><rect x="47" width="2" height="36"/><rect x="51" width="3" height="36"/><rect x="57" width="1" height="36"/><rect x="59" width="2" height="36"/></svg><b>0 05</b></span><div><p class="msx-eye">Key design decisions</p><h2>Six decisions, <em>one key each.</em></h2></div></header>
+      <div class="msx-body msx-body--wide">
+        <div class="msx-pos vs-r">
+          <div class="msx-pad">
+            <div class="msx-lcd" aria-live="polite"><small>Decision <b data-n>01</b> / 06</small><span data-t>Six businesses in the headline</span></div>
+            <div class="msx-keys"><button type="button" class="msx-key" data-k="0" aria-pressed="true" aria-label="Decision 1: Six businesses in the headline">1</button><button type="button" class="msx-key" data-k="1" aria-pressed="false" aria-label="Decision 2: Every shop finds its own counter">2</button><button type="button" class="msx-key" data-k="2" aria-pressed="false" aria-label="Decision 3: The dashboard, not adjectives">3</button><button type="button" class="msx-key" data-k="3" aria-pressed="false" aria-label="Decision 4: One brain, shown working">4</button><button type="button" class="msx-key" data-k="4" aria-pressed="false" aria-label="Decision 5: A map of every ERP">5</button><button type="button" class="msx-key" data-k="5" aria-pressed="false" aria-label="Decision 6: Money you can watch">6</button><button type="button" class="msx-key msx-key--fn" data-go="-1" aria-label="Previous decision">‹</button><button type="button" class="msx-key msx-key--go" data-go="1" aria-label="Next decision">Next</button></div>
+          </div>
+          <div class="msx-decs"><article class="msx-dec" data-k="0"><figure><img src="assets/images/projects/myshoptill/web/sec-01.jpg" alt="Hero: One Smart POS, Built for Six Powerful Businesses, two buttons and the HQ dashboard right under them." loading="lazy" decoding="async" /></figure><div class="msx-dec__txt"><span>Key 1</span><h3>Six businesses in the headline</h3><p>The first line makes the whole promise: <b>One Smart POS, Built for Six Powerful Businesses</b>, with the six businesses in the brand gradient. Two buttons sit under it, Book a Demo and Watch Product Tour, and the HQ dashboard follows straight after, so the product is part of the very first screen.</p></div></article><article class="msx-dec" data-k="1" hidden><figure><img src="assets/images/projects/myshoptill/web/sec-02.jpg" alt="Industries: Six industry cards, each with its own illustration and five workflows." loading="lazy" decoding="async" /></figure><div class="msx-dec__txt"><span>Key 2</span><h3>Every shop finds its own counter</h3><p>Six cards, one per business, each with its own illustration and five workflows that only that shop needs: matrix inventory and fabric roll cutting for textiles, batch and expiry tracking for pharmacies, kitchen display and split billing for restaurants. Nobody has to translate a generic POS into their own trade.</p></div></article><article class="msx-dec" data-k="2" hidden><figure><img src="assets/images/projects/myshoptill/web/sec-04.jpg" alt="Dashboard: A large dashboard preview on a soft blue panel." loading="lazy" decoding="async" /></figure><div class="msx-dec__txt"><span>Key 3</span><h3>The dashboard, not adjectives</h3><p>Instead of claims about real-time insight, the page shows the HQ dashboard, big, on its own soft panel. It drifts up and grows to full size as you scroll past, so it feels like a product you are walking around rather than a picture.</p></div></article><article class="msx-dec" data-k="3" hidden><figure><img src="assets/images/projects/myshoptill/web/sec-06.jpg" alt="ERP integration: Five live module cards wired to the iPOS Core sync engine." loading="lazy" decoding="async" /></figure><div class="msx-dec__txt"><span>Key 4</span><h3>One brain, shown working</h3><p>The ERP section lays out five live cards, Purchasing, Sales, Inventory, Finance and Reports, each with real-looking numbers and an updated-just-now line, all wired to one iPOS Core. You can see the sync, not just read about it.</p></div></article><article class="msx-dec" data-k="4" hidden><figure><img src="assets/images/projects/myshoptill/web/sec-08.jpg" alt="Universal ERP: iPOS Core linked to SAP, Oracle, Dynamics, Odoo, Zoho, Tally and custom ERPs." loading="lazy" decoding="async" /></figure><div class="msx-dec__txt"><span>Key 5</span><h3>A map of every ERP</h3><p>For the owner who already runs an ERP: iPOS Core in the middle, lines out to SAP, Oracle, Microsoft Dynamics, Odoo, Zoho, Tally and a custom ERP, each labelled with what travels which way. The answer to "will it fit?" in one picture.</p></div></article><article class="msx-dec" data-k="5" hidden><figure><img src="assets/images/projects/myshoptill/web/sec-09.jpg" alt="Tax &amp; payments: A sample tax invoice, a live currency converter and the payment gateways." loading="lazy" decoding="async" /></figure><div class="msx-dec__txt"><span>Key 6</span><h3>Money you can watch</h3><p>The tax engine fills in a sample invoice by itself, one line every 0.65 seconds, until the 5% VAT and the total land. Next to it, a converter moves to a new currency every 2.6 seconds. Two small demos that make tax and payments feel solved.</p></div></article></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUILD: stock list -->
+    <section class="msx-sec vs-wrap" id="msx-build">
+      <header class="msx-head vs-r"><span class="msx-code" aria-hidden="true"><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="2" height="36"/><rect x="4" width="1" height="36"/><rect x="7" width="1" height="36"/><rect x="10" width="1" height="36"/><rect x="14" width="2" height="36"/><rect x="17" width="1" height="36"/><rect x="20" width="2" height="36"/><rect x="24" width="2" height="36"/><rect x="27" width="2" height="36"/><rect x="31" width="3" height="36"/><rect x="35" width="3" height="36"/><rect x="41" width="1" height="36"/><rect x="43" width="1" height="36"/><rect x="45" width="1" height="36"/><rect x="47" width="2" height="36"/><rect x="50" width="3" height="36"/><rect x="55" width="1" height="36"/><rect x="58" width="2" height="36"/></svg><b>0 06</b></span><div><p class="msx-eye">Building it</p><h2>Everything in stock, <em>nothing on back order.</em></h2></div></header>
+      <div class="msx-body">
+        <p class="vs-r">I built the site as a React app, with the motion doing real work: it shows the product moving, rather than decorating it.</p>
+        <div class="msx-stock vs-r">
+          <div class="msx-stock__head"><b>Stock list</b><span>fabiloom.com · home page</span><em>18 sections</em></div>
+          <table>
+            <thead><tr><th scope="col">Item</th><th scope="col">What it does</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">React + TanStack Start</th><td>The whole page is one React app, built from small section components.</td><td><i>In use</i></td></tr>
+              <tr><th scope="row">Tailwind CSS tokens</th><td>Colours live as OKLCH variables, joined by one brand gradient.<span class="msx-codes"><code>--brand-blue</code><code>--brand-cyan</code><code>--brand-green</code><code>--gradient-brand</code></span></td><td><i>In use</i></td></tr>
+              <tr><th scope="row">One section heading</th><td>A single heading component sets every eyebrow, title and subtitle, so fifteen sections read the same way.</td><td><i>In use</i></td></tr>
+              <tr><th scope="row">Scroll-linked header</th><td>Turns from 40% to 85% white, and picks up its border, over the first 80 pixels of scrolling.</td><td><i>In use</i></td></tr>
+              <tr><th scope="row">Moving product</th><td>The dashboard drifts up and grows from 95% to full size as it passes; the enterprise cards switch as you scroll through them.</td><td><i>In use</i></td></tr>
+              <tr><th scope="row">Living demos</th><td>The invoice fills itself in every 0.65 s, the converter changes currency every 2.6 s, and the numbers count up once they are half on screen.</td><td><i>In use</i></td></tr>
+              <tr><th scope="row">Quiet background</th><td>Soft brand glows sit behind the top of the page and fade away before the cloud section.</td><td><i>In use</i></td></tr>
+              <tr><th scope="row">Lucide icons</th><td>One line-icon set across every section.</td><td><i>In use</i></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE WHOLE PAGE, desktop (window.phoneView in main.js, with a scan rail) -->
+    <section class="msx-sec vs-wrap" id="msx-web">
+      <header class="msx-head vs-r"><span class="msx-code" aria-hidden="true"><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="3" height="36"/><rect x="4" width="3" height="36"/><rect x="8" width="3" height="36"/><rect x="13" width="2" height="36"/><rect x="18" width="2" height="36"/><rect x="21" width="3" height="36"/><rect x="26" width="2" height="36"/><rect x="29" width="2" height="36"/><rect x="33" width="1" height="36"/><rect x="35" width="3" height="36"/><rect x="40" width="1" height="36"/><rect x="43" width="2" height="36"/><rect x="46" width="1" height="36"/><rect x="48" width="1" height="36"/><rect x="52" width="2" height="36"/><rect x="57" width="1" height="36"/><rect x="60" width="3" height="36"/></svg><b>0 07</b></span><div><p class="msx-eye">The whole page</p><h2>The live page, <em>top to bottom.</em></h2></div></header>
+      <div class="msx-body msx-body--wide">
+        <p class="vs-r">The real home page at 1440px wide. Scroll inside the window, or click a section on the scan rail to jump there. The header stays on top and turns solid as you scroll, as it does on the live site.</p>
+        <div class="msx-win vs-r" data-pv data-w="1440" data-hdr="65" data-top="40">
+          <div class="msx-win__bar" aria-hidden="true"><i></i><i></i><i></i><span><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3M6 11h12v9H6z"/></svg>fabiloom.com</span><em data-now>Hero</em></div>
+          <div class="msx-win__scr">
+            <div class="msx-win__in" data-pv-in tabindex="0" aria-label="The full home page on desktop, scrollable"><img src="assets/images/projects/myshoptill/web/site-full-1.jpg" width="3840" height="5333" alt="The full desktop home page, part 1 of 9: Hero, Industries" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/site-full-2.jpg" width="3840" height="5333" alt="Part 2 of 9: Industries, Why iPOS, Dashboard" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/site-full-3.jpg" width="3840" height="5333" alt="Part 3 of 9: Dashboard, Core features, ERP integration" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/site-full-4.jpg" width="3840" height="5333" alt="Part 4 of 9: ERP integration, Enterprise, Universal ERP" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/site-full-5.jpg" width="3840" height="5333" alt="Part 5 of 9: Universal ERP, Tax &amp; payments, AI dashboard" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/site-full-6.jpg" width="3840" height="5333" alt="Part 6 of 9: AI dashboard, Deployment, AI POS" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/site-full-7.jpg" width="3840" height="5333" alt="Part 7 of 9: AI POS, UAE VAT, Tax documents" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/site-full-8.jpg" width="3840" height="5333" alt="Part 8 of 9: Tax documents, Integrations, Testimonials, FAQ" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/site-full-9.jpg" width="3840" height="2421" alt="Part 9 of 9: FAQ, Book a demo, Footer" loading="lazy" decoding="async" /></div>
+            <div class="msx-win__hdr" data-pv-hdr aria-hidden="true"><img src="assets/images/projects/myshoptill/web/site-hdr-top.png" alt="" /><img src="assets/images/projects/myshoptill/web/site-hdr-scrolled.png" alt="" /></div>
+          </div>
+          <div class="msx-rail" data-rail aria-label="Jump to a section of the desktop page"><div class="msx-rail__line"><i class="msx-rail__fill"></i><button type="button" data-y="0"><i></i><span>Hero</span></button><button type="button" data-y="1204"><i></i><span>Industries</span></button><button type="button" data-y="3314"><i></i><span>Dashboard</span></button><button type="button" data-y="4443"><i></i><span>Modules</span></button><button type="button" data-y="7274"><i></i><span>ERP</span></button><button type="button" data-y="8418"><i></i><span>Tax</span></button><button type="button" data-y="9588"><i></i><span>AI</span></button><button type="button" data-y="12306"><i></i><span>VAT</span></button><button type="button" data-y="16076"><i></i><span>Contact</span></button></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ON A PHONE (window.phoneView in main.js, with the same scan rail) -->
+    <section class="msx-sec vs-wrap" id="msx-phone">
+      <header class="msx-head vs-r"><span class="msx-code" aria-hidden="true"><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="1" height="36"/><rect x="2" width="1" height="36"/><rect x="5" width="1" height="36"/><rect x="7" width="2" height="36"/><rect x="10" width="1" height="36"/><rect x="13" width="1" height="36"/><rect x="15" width="2" height="36"/><rect x="20" width="3" height="36"/><rect x="25" width="1" height="36"/><rect x="28" width="3" height="36"/><rect x="34" width="2" height="36"/><rect x="39" width="3" height="36"/><rect x="43" width="2" height="36"/><rect x="48" width="3" height="36"/><rect x="53" width="1" height="36"/><rect x="57" width="2" height="36"/><rect x="60" width="2" height="36"/></svg><b>0 08</b></span><div><p class="msx-eye">The whole page, on a phone</p><h2>Same page, <em>in one hand.</em></h2></div></header>
+      <div class="msx-body msx-body--wide">
+        <p class="vs-r">The real mobile page at 390px wide. Scroll inside the phone, tap ☰ for the menu, or pick a section on the rail. The header stays where it is, as it does on the live site.</p>
+        <div class="msx-ph vs-r" data-pv data-w="390" data-hdr="65" data-top="40">
+          <div class="msx-ph__disp" aria-hidden="true"><small>Now showing</small><b data-now>Hero</b><span><i data-pct>0</i>%</span></div>
+          <div class="msx-ph__dev">
+            <div class="msx-ph__status" aria-hidden="true"><b>9:41</b><i><svg viewBox="0 0 20 12"><path d="M1 11h2V8H1zM6 11h2V6H6zM11 11h2V3h-2zM16 11h2V1h-2z"/></svg><svg viewBox="0 0 25 12"><rect x="1" y="1" width="20" height="10" rx="3"/><rect class="f" x="3" y="3" width="14" height="6" rx="1.5"/><path d="M23 4.5v3"/></svg></i></div>
+            <div class="msx-ph__scr">
+              <div class="msx-ph__in" data-pv-in tabindex="0" aria-label="The full mobile home page, scrollable"><img src="assets/images/projects/myshoptill/web/mfull-1.jpg" width="2145" height="8800" alt="The full mobile home page, part 1 of 18: Hero, Industries" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-2.jpg" width="2145" height="8800" alt="Part 2 of 18: Industries" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-3.jpg" width="2145" height="8800" alt="Part 3 of 18: Industries, Why iPOS" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-4.jpg" width="2145" height="8800" alt="Part 4 of 18: Why iPOS, Dashboard, Core features" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-5.jpg" width="2145" height="8800" alt="Part 5 of 18: Core features" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-6.jpg" width="2145" height="8800" alt="Part 6 of 18: Core features, ERP integration" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-7.jpg" width="2145" height="8800" alt="Part 7 of 18: ERP integration, Enterprise" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-8.jpg" width="2145" height="8800" alt="Part 8 of 18: Enterprise" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-9.jpg" width="2145" height="8800" alt="Part 9 of 18: Enterprise, Universal ERP" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-10.jpg" width="2145" height="8800" alt="Part 10 of 18: Universal ERP, Tax &amp; payments" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-11.jpg" width="2145" height="8800" alt="Part 11 of 18: Tax &amp; payments, AI dashboard" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-12.jpg" width="2145" height="8800" alt="Part 12 of 18: AI dashboard, Deployment" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-13.jpg" width="2145" height="8800" alt="Part 13 of 18: Deployment, AI POS, UAE VAT" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-14.jpg" width="2145" height="8800" alt="Part 14 of 18: UAE VAT, Tax documents" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-15.jpg" width="2145" height="8800" alt="Part 15 of 18: Tax documents, Integrations" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-16.jpg" width="2145" height="8800" alt="Part 16 of 18: Integrations, Testimonials, FAQ" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-17.jpg" width="2145" height="8800" alt="Part 17 of 18: FAQ, Book a demo" loading="lazy" decoding="async" /><img src="assets/images/projects/myshoptill/web/mfull-18.jpg" width="2145" height="4345" alt="Part 18 of 18: Footer" loading="lazy" decoding="async" /></div>
+              <div class="msx-ph__hdr" data-pv-hdr aria-hidden="true"><img src="assets/images/projects/myshoptill/web/mfull-hdr-top.png" alt="" /><img src="assets/images/projects/myshoptill/web/mfull-hdr-scrolled.png" alt="" /></div>
+              <img class="msx-ph__menu" data-pv-menu src="assets/images/projects/myshoptill/web/mfull-menu.png" alt="The open mobile menu: Products, Industries, Features, Resources and Contact, with a Book Demo button" loading="lazy" hidden />
+              <button type="button" class="msx-ph__btn" data-pv-btn aria-label="Open the site's menu" aria-expanded="false"></button>
+            </div>
+          </div>
+          <p class="msx-ph__hint" aria-hidden="true">Tap <i class="pv-burger"></i> in the phone for the menu</p>
+          <div class="msx-rail" data-rail aria-label="Jump to a section of the mobile page"><div class="msx-rail__line"><i class="msx-rail__fill"></i><button type="button" data-y="0"><i></i><span>Hero</span></button><button type="button" data-y="882"><i></i><span>Industries</span></button><button type="button" data-y="5743"><i></i><span>Dashboard</span></button><button type="button" data-y="6314"><i></i><span>Modules</span></button><button type="button" data-y="13685"><i></i><span>ERP</span></button><button type="button" data-y="14612"><i></i><span>Tax</span></button><button type="button" data-y="16520"><i></i><span>AI</span></button><button type="button" data-y="20529"><i></i><span>VAT</span></button><button type="button" data-y="26134"><i></i><span>Contact</span></button></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <section class="msx-sec vs-wrap" id="msx-next">
+      <header class="msx-head vs-r"><span class="msx-code" aria-hidden="true"><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="2" height="36"/><rect x="5" width="3" height="36"/><rect x="9" width="3" height="36"/><rect x="13" width="3" height="36"/><rect x="17" width="1" height="36"/><rect x="20" width="2" height="36"/><rect x="24" width="2" height="36"/><rect x="28" width="3" height="36"/><rect x="34" width="3" height="36"/><rect x="40" width="1" height="36"/><rect x="42" width="3" height="36"/><rect x="46" width="1" height="36"/><rect x="49" width="2" height="36"/><rect x="54" width="3" height="36"/><rect x="58" width="3" height="36"/></svg><b>0 09</b></span><div><p class="msx-eye">What I'd do next</p><h2>On order <em>for the next release.</em></h2></div></header>
+      <div class="msx-body msx-body--wide">
+        <ol class="msx-next">
+          <li class="vs-r"><span>On order</span><b>A page per business</b><p>Six businesses deserve six pages, so a pharmacy owner searching for expiry tracking lands on the pharmacy page, not the top of a long one.</p></li>
+          <li class="vs-r"><span>Then</span><b>Arabic, right to left</b><p>For a product built around UAE VAT, an Arabic version of the page would meet many buyers in their own language.</p></li>
+          <li class="vs-r"><span>Later</span><b>A real product tour</b><p>Watch Product Tour deserves a short guided walkthrough of the till, the dashboard and the VAT reports.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- END -->
+    <section class="msx-sec msx-end vs-wrap">
+      <a class="msx-live vs-r" href="https://fabiloom.com/" target="_blank" rel="noopener"><span class="msx-live__ic" aria-hidden="true"><svg class="msx-bc" viewBox="0 0 64 36" preserveAspectRatio="none" aria-hidden="true"><rect x="0" width="1" height="36"/><rect x="2" width="2" height="36"/><rect x="7" width="1" height="36"/><rect x="9" width="3" height="36"/><rect x="13" width="1" height="36"/><rect x="16" width="2" height="36"/><rect x="19" width="3" height="36"/><rect x="23" width="3" height="36"/><rect x="27" width="1" height="36"/><rect x="31" width="1" height="36"/><rect x="33" width="2" height="36"/><rect x="36" width="2" height="36"/><rect x="41" width="3" height="36"/><rect x="47" width="1" height="36"/><rect x="50" width="2" height="36"/><rect x="53" width="3" height="36"/><rect x="58" width="1" height="36"/><rect x="61" width="2" height="36"/></svg></span><span><small>Scan it live</small><b>fabiloom.com</b></span><i aria-hidden="true">↗</i></a>
+      <div data-next-project></div>
+    </section>
+
+    </div>
+
+    <section class="cta-block">
+      <h2 class="reveal" data-render="cta">Let's build<br /><span>something amazing</span></h2>
+      <div class="cta-block__btns reveal"><a class="btn" href="contact.html">Start a project ↗</a><a class="btn btn--ghost" href="projects.html">See my work</a></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__big">Let's connect</p>
+    <!-- Bento footer (kraftbase tray): write-to-me card | pages | elsewhere. Email, socials and location are filled from content.json by main.js -->
+    <div class="ftray">
+      <div class="fcard fcard--mail">
+        <h4 data-ft="mail-title">Start a project</h4>
+        <a class="fmail" data-ft="mail" href="contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
+          <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
+      </div>
+      <div class="fcard">
+        <h4>Pages</h4>
+        <nav class="fnav" aria-label="Footer"><a href="index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+      </div>
+      <div class="fcard" data-ft="elsewhere" hidden>
+        <h4>Elsewhere</h4>
+        <div class="fsoc" data-ft="soc"></div>
+      </div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 Kartikeyan. All rights reserved</span><a class="to-top ftop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></div>
+  </footer>
+  <div class="wordmark" aria-hidden="true"><b>KARTIKEYAN<sup>™</sup></b><span>Product<br />&amp; UI/UX<br />Designer</span></div>
+
+  <aside class="otw" id="otw" aria-label="Availability" data-render="otw">
+    <button class="otw__close" id="otwClose" aria-label="Dismiss">✕</button>
+    <span class="otw__status"><i></i>Open to opportunities</span>
+    <h3>Let's work together</h3>
+    <ul>
+      <li><b>Roles:</b> Product / UI/UX Designer</li>
+      <li><b>Freelance:</b> UI/UX, logo &amp; motion projects</li>
+      <li><b>Based in:</b> Chennai, India · open to remote</li>
+    </ul>
+    <div class="otw__btns"><a class="btn btn--ghost" href="contact.html">Contact</a></div>
+  </aside>
+
+  <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" id="lenisLib" async></script>
+  <script src="js/main.js"></script>
+  <script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // reveal: a scanner line sweeps each block in once its top passes 90% of the screen (rect check, not IntersectionObserver:
+  // Chrome measures an observed element through its own clip-path, so clipped blocks would never count as visible)
+  const pend = $$("#vs .vs-r");
+  if (reduce) pend.forEach((el) => el.classList.add("in"));
+  else {
+    const reveal = () => {
+      const line = innerHeight * .9;
+      for (let i = pend.length - 1; i >= 0; i--) if (pend[i].getBoundingClientRect().top < line) { pend[i].classList.add("in"); pend.splice(i, 1); }
+      if (!pend.length) { removeEventListener("scroll", reveal); removeEventListener("resize", reveal); }
+    };
+    addEventListener("scroll", reveal, { passive: true }); addEventListener("resize", reveal); reveal();
+  }
+
+  // key decisions: a POS keypad (keys 1-6, Next, back, arrow keys)
+  const pos = $(".msx-pos");
+  if (pos) {
+    const decs = $$(".msx-dec", pos), keys = $$(".msx-key[data-k]", pos), n = decs.length, lcdN = $("[data-n]", pos), lcdT = $("[data-t]", pos);
+    let at = 0;
+    const show = (k) => {
+      at = (k + n) % n;
+      decs.forEach((d, j) => { d.hidden = j !== at; });
+      keys.forEach((b, j) => b.setAttribute("aria-pressed", String(j === at)));
+      lcdN.textContent = String(at + 1).padStart(2, "0"); lcdT.textContent = decs[at].querySelector("h3").textContent;
+      pos.classList.remove("beep"); void pos.offsetWidth; pos.classList.add("beep");
+    };
+    keys.forEach((b) => b.addEventListener("click", () => show(+b.dataset.k)));
+    $$("[data-go]", pos).forEach((b) => b.addEventListener("click", () => show(at + +b.dataset.go)));
+    pos.addEventListener("keydown", (e) => { if (e.key === "ArrowRight") { e.preventDefault(); show(at + 1); } if (e.key === "ArrowLeft") { e.preventDefault(); show(at - 1); } if (/^[1-6]$/.test(e.key)) show(+e.key - 1); });
+  }
+
+  // the two whole-page viewers: a scan rail under each; stops sit where their sections are, the fill follows the scroll
+  const railFor = (root) => {
+    const pv = window.phoneView && window.phoneView(root), r = $("[data-rail]", root);
+    if (!pv || !r) return;
+    const bs = $$("button", r), ys = bs.map((b) => +b.dataset.y), hdr = +root.dataset.hdr || 0, line = $(".msx-rail__line", r), now = $("[data-now]", root), pct = $("[data-pct]", root);
+    const place = () => { const max = pv.sc.scrollHeight - pv.sc.clientHeight; bs.forEach((b, i) => b.style.setProperty("--x", max > 0 ? Math.min(1, Math.max(0, (ys[i] > 0 ? ys[i] - hdr : 0) * pv.k() / max)).toFixed(4) : i / (bs.length - 1))); };
+    bs.forEach((b) => b.addEventListener("click", () => pv.jump(+b.dataset.y)));
+    $$("img", pv.sc).forEach((im) => im.addEventListener("load", place, { once: true }));
+    addEventListener("resize", place);
+    pv.on(() => {
+      const p = pv.progress(), c = pv.current(ys);
+      line.style.setProperty("--p", p.toFixed(4));
+      bs.forEach((b, i) => { b.classList.toggle("is-on", i === c); b.classList.toggle("is-past", i < c); });
+      if (now) now.textContent = bs[c].textContent;
+      if (pct) pct.textContent = Math.round(p * 100);
+    });
+    place();
+  };
+  $$(".msx-win, .msx-ph").forEach(railFor);
+})();
+  </script>
+  <span id="page-ready" hidden></span>
+</body>
+</html>

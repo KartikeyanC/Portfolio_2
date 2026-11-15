@@ -24,8 +24,13 @@ class NoCache(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    import threading
+    import build_single
+
     ThreadingHTTPServer.allow_reuse_address = True
     port = int(os.environ.get("PORT", 5173))
     httpd = ThreadingHTTPServer(("", port), NoCache)
     print(f"Serving on http://localhost:{port}")
+    # Keep dist/kartikeyan-portfolio.html (the whole site in one file) up to date: rebuilt on every saved change
+    threading.Thread(target=build_single.watch, daemon=True).start()
     httpd.serve_forever()

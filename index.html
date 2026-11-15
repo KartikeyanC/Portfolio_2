@@ -4,18 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kartikeyan — Product &amp; UI/UX Designer</title>
-  <meta name="description" content="Kartikeyan C — product and UI/UX designer from Chennai, India. Product design, UI/UX, logo design and motion." />
+  <meta name="description" content="Kartikeyan C — product and UI/UX designer from Chennai, India. Product design, UI/UX, graphic design (logos, posters, brochures), motion and video." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
-  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
+  <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
+  <link rel="expect" href="#page-ready" blocking="render" />
 </head>
 <body id="top">
+
+  <!-- Announcement bar — text/link from content.json "announcement" (edit in /gk); dismissed bars stay hidden for the visit -->
+  <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="/contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
 
   <header class="nav">
     <a class="nav__brand" href="index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
@@ -39,44 +44,61 @@
   <div class="panel" id="panel" aria-hidden="true">
     <button class="panel__close" id="menuClose">Close</button>
     <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
-    <small>kartikeyan4878@gmail.com · +91 9488584561</small>
+    <small data-bind="contact-line" hidden></small>
   </div>
 
   <main>
-    <section class="hero">
-      <div class="glow" aria-hidden="true"></div>
-      <p class="hero__side reveal">Based in<b>Chennai, India</b></p>
-      <h1 class="hero__title">
-        <span class="rise"><span class="hero__line"><span><span class="first">K</span>ARTIKEYAN</span><span class="mark mark--spin" aria-hidden="true"></span></span></span>
-        <span class="rise"><span class="hero__line hero__line--grey"><span class="sr-only">Product designer</span><span class="typed" aria-hidden="true"><span id="typed">Product designer</span><span class="typed__caret"></span></span></span></span>
-      </h1>
-      <span class="scroll-cue" aria-hidden="true">SCROLL<i></i></span>
+    <!-- Paint-to-reveal hero (idea from kokiltamta.in): the title is faint until the cursor paints blue blobs
+         that reveal it in white; the eyes follow the cursor. Plays one stroke by itself so touch visitors see it.
+         Two copies of the same content: .kp__base (faint, underneath) and .kp__ink (blue, clipped to the paint). -->
+    <section class="kp" id="kp">
+      <div class="kp__layer kp__base" aria-hidden="true">
+        <div><p class="kp__hello">Hi, I'm Kartikeyan — a</p>
+          <p class="kp__title"><span>Product <i class="kp__spot"></i></span><span>Designer</span></p></div>
+        <div><div class="kp__bottom"><p class="kp__desc">I turn complex ideas into simple, useful experiences — interfaces, brand identities, motion and video.</p>
+          <div class="kp__btns"><a class="btn" href="#work" tabindex="-1">See my work ↓</a><a class="btn btn--ghost" href="contact.html" tabindex="-1">Say hi</a></div></div>
+          <div class="kp__strip"><span>Portfolio ’26</span><span>UI/UX · Graphic · Motion · Video</span><span data-bind="site.location">Chennai, India</span></div></div>
+      </div>
+      <div class="kp__layer kp__ink" id="kpInk">
+        <div><p class="kp__hello">Hi, I'm Kartikeyan — a</p>
+          <h1 class="kp__title"><span>Product <i class="kp__spot" aria-hidden="true"></i></span><span>Designer</span></h1></div>
+        <div><div class="kp__bottom"><p class="kp__desc">I turn complex ideas into simple, useful experiences — interfaces, brand identities, motion and video.</p>
+          <div class="kp__btns"><a class="btn" href="#work">See my work ↓</a><a class="btn btn--ghost" href="contact.html">Say hi</a></div></div>
+          <div class="kp__strip"><span>Portfolio ’26</span><span>UI/UX · Graphic · Motion · Video</span><span data-bind="site.location">Chennai, India</span></div></div>
+      </div>
+      <div class="kp__eyes" id="kpEyes" aria-hidden="true"><span class="eyes" data-eyes><span class="eye"><i></i></span><span class="eye"><i></i></span></span><span class="kp__hint">paint me</span></div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><clipPath id="kpClip" clipPathUnits="userSpaceOnUse"></clipPath></defs></svg>
     </section>
 
     <!-- Crossed ribbons: disciplines (white) over skills (blue) -->
     <div class="ribbons">
     <div class="band band--b" aria-hidden="true">
-      <div class="band__track band__track--rev">
-        <span>User research</span><i>+</i><span>Wireframes</span><i>+</i><span>Interaction design</span><i>+</i><span>Branding</span><i>+</i><span>Animation</span><i>+</i><span>Usability testing</span><i>+</i>
-        <span>User research</span><i>+</i><span>Wireframes</span><i>+</i><span>Interaction design</span><i>+</i><span>Branding</span><i>+</i><span>Animation</span><i>+</i><span>Usability testing</span><i>+</i>
+      <div class="band__track band__track--rev" data-band="pages.home.skills" data-sep="+">
+        <span>User research</span><i>+</i><span>Wireframes</span><i>+</i><span>Interaction design</span><i>+</i><span>Branding</span><i>+</i><span>Thumbnails</span><i>+</i><span>Animation</span><i>+</i><span>Usability testing</span><i>+</i>
+        <span>User research</span><i>+</i><span>Wireframes</span><i>+</i><span>Interaction design</span><i>+</i><span>Branding</span><i>+</i><span>Thumbnails</span><i>+</i><span>Animation</span><i>+</i><span>Usability testing</span><i>+</i>
       </div>
     </div>
     <div class="band band--a" aria-label="Disciplines">
-      <div class="band__track">
-        <span>Product design</span><i>✳</i><span>UI/UX design</span><i>✳</i><span>Logo design</span><i>✳</i><span>Motion design</span><i>✳</i><span>Design systems</span><i>✳</i><span>Prototyping</span><i>✳</i>
-        <span aria-hidden="true">Product design</span><i aria-hidden="true">✳</i><span aria-hidden="true">UI/UX design</span><i aria-hidden="true">✳</i><span aria-hidden="true">Logo design</span><i aria-hidden="true">✳</i><span aria-hidden="true">Motion design</span><i aria-hidden="true">✳</i><span aria-hidden="true">Design systems</span><i aria-hidden="true">✳</i><span aria-hidden="true">Prototyping</span><i aria-hidden="true">✳</i>
+      <div class="band__track" data-band="pages.home.disciplines" data-sep="✳" data-dup-hidden>
+        <span>Product design</span><i>✳</i><span>UI/UX design</span><i>✳</i><span>Graphic design</span><i>✳</i><span>Motion design</span><i>✳</i><span>Video editing</span><i>✳</i><span>Design systems</span><i>✳</i><span>Prototyping</span><i>✳</i>
+        <span aria-hidden="true">Product design</span><i aria-hidden="true">✳</i><span aria-hidden="true">UI/UX design</span><i aria-hidden="true">✳</i><span aria-hidden="true">Graphic design</span><i aria-hidden="true">✳</i><span aria-hidden="true">Motion design</span><i aria-hidden="true">✳</i><span aria-hidden="true">Video editing</span><i aria-hidden="true">✳</i><span aria-hidden="true">Design systems</span><i aria-hidden="true">✳</i><span aria-hidden="true">Prototyping</span><i aria-hidden="true">✳</i>
       </div>
     </div>
     </div>
+
+    <!-- Wall of work (like kraftbase.com): two rows sliding opposite ways — filled from content.json projects + video thumbnails; hovering a row pauses only that row -->
+    <section class="kwall" id="workWall" aria-label="A wall of my work" hidden></section>
 
     <!-- 01 · About -->
     <section class="section">
       <div class="meta"><span>01</span><span>About</span><span>Me</span></div>
       <h2 class="heading">About</h2>
-      <div class="about">
+      <!-- Dot grid behind the About text: dots near the cursor grow and light up blue (idea from kokiltamta.in) -->
+      <div class="about about--grid">
+        <canvas class="kgrid" aria-hidden="true"></canvas>
         <div class="about__art reveal" aria-hidden="true"><span class="mark mark--spin"></span></div>
         <div class="reveal">
-          <p class="about__text">I'm <strong>Kartikeyan C</strong>, a product &amp; UI/UX designer <em>who blends clear thinking with visual craft</em> — from interfaces and brand identities to motion. I measure my work by what it helps people achieve.</p>
+          <p class="about__text" data-md="pages.home.about" data-fill>I'm <strong>Kartikeyan C</strong>, a product &amp; UI/UX designer <em>who blends clear thinking with visual craft</em> — from interfaces and brand identities to motion. I measure my work by what it helps people achieve.</p>
           <p style="margin-top:28px"><a class="btn" href="about.html">More about me ↗</a></p>
         </div>
       </div>
@@ -96,55 +118,63 @@
     </section>
 
     <!-- 02 · Work -->
-    <section class="section">
+    <section class="section" id="work">
       <div class="meta"><span>02</span><span>Portfolio</span><span>Recent work</span></div>
       <h2 class="heading">Selected works</h2>
-      <!-- Project grid — filled from content.json "projects" (featured). Hover shows "View project" or "Coming soon" -->
+      <!-- Project grid — filled from content.json "projects" (featured). Hover shows "View project" or "Coming soon".
+           (The kokiltamta.in expanding panels are hidden for now: put back <div class="acc" id="workPanels"></div> to show them) -->
       <div class="pgrid" id="featuredProjects"></div>
       <p class="pgrid__more"><a class="btn btn--ghost" href="projects.html">All projects ↗</a></p>
     </section>
 
-    <!-- 03 · Expertise -->
-    <section class="section">
-      <div class="meta"><span>03</span><span>Expertise</span><span>What I do</span></div>
-      <h2 class="heading">Expertise</h2>
-      <!-- Expanding panels — filled from content.json "services" -->
-      <div class="panels" id="expertisePanels"></div>
-    </section>
-
-    <!-- Tools folder: hover/tap lifts the tools, clicking the glass opens the folder to full size (tools list lives in content.json) -->
-    <section class="tfold" aria-labelledby="toolsTitle">
-      <div class="tfold__stage" id="toolsFolder">
-        <div class="tfold__head"><small>Tools</small><h2 id="toolsTitle">What's in my toolkit</h2><p class="tfold__hint">Hover the folder, then click the glass</p></div>
+    <!-- Showreel (idea from kraftbase.com): a giant SHOWREEL word, the video card rises over it as you scroll.
+         Link / poster from content.json "video.showreel" (edit in /gk); click-to-load YouTube -->
+    <section class="kreel" id="showreel" aria-label="Showreel" hidden>
+      <div class="kreel__pin">
+        <div class="kreel__word" aria-hidden="true">Showreel</div>
+        <div class="kreel__card" id="showreelCard"></div>
       </div>
     </section>
 
-    <!-- 04 · Process -->
+    <!-- 03 · Expertise — "What I do best" (like kraftbase.com): the heading stays pinned on the left while a tray
+         of service cards scrolls past on the right. Filled from content.json "services" -->
     <section class="section">
-      <div class="meta"><span>04</span><span>Process</span><span>How I work</span></div>
-      <h2 class="heading">Process</h2>
-      <!-- Process step tabs — filled from content.json "process" -->
-      <div class="steps" id="processSteps"></div>
+      <div class="meta"><span>03</span><span>Expertise</span><span>What I do</span></div>
+      <div class="svc">
+        <div class="svc__head"><span class="eyebrow">Services</span><h2 class="svc__title">What I do best</h2></div>
+        <div class="svc__tray" id="serviceStack"></div>
+      </div>
     </section>
     <section class="cta-block">
-      <h2 class="reveal">Let's build<br /><span>something amazing</span></h2>
+      <h2 class="reveal" data-render="cta">Let's build<br /><span>something amazing</span></h2>
       <div class="cta-block__btns reveal"><a class="btn" href="contact.html">Start a project ↗</a><a class="btn btn--ghost" href="projects.html">See my work</a></div>
     </section>
   </main>
 
   <footer class="footer">
     <p class="footer__big">Let's connect</p>
-    <div class="footer__cols">
-      <div class="footer__col"><small>(EMAIL)</small><a class="hl" href="mailto:kartikeyan4878@gmail.com">kartikeyan4878@gmail.com</a></div>
-      <div class="footer__col"><small>(PHONE)</small><a class="hl" href="tel:+919488584561">+91 9488584561</a></div>
-      <div class="footer__col"><small>(LINKS)</small><a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a></div>
-      <div class="footer__col"><small>(SOCIALS)</small><a href="https://www.linkedin.com/in/kartikeyanc/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://contra.com/kartikeyan_9z096t3z" target="_blank" rel="noopener">Contra ↗</a></div>
+    <!-- Bento footer (kraftbase tray): write-to-me card | pages | elsewhere. Email, socials and location are filled from content.json by main.js -->
+    <div class="ftray">
+      <div class="fcard fcard--mail">
+        <h4 data-ft="mail-title">Start a project</h4>
+        <a class="fmail" data-ft="mail" href="contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
+          <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
+      </div>
+      <div class="fcard">
+        <h4>Pages</h4>
+        <nav class="fnav" aria-label="Footer"><a href="index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+      </div>
+      <div class="fcard" data-ft="elsewhere" hidden>
+        <h4>Elsewhere</h4>
+        <div class="fsoc" data-ft="soc"></div>
+      </div>
     </div>
-    <div class="footer__bottom"><span>© 2026 Kartikeyan. All rights reserved</span><span>Chennai, India</span><a class="to-top" href="#top">Back to top ↑</a></div>
+    <div class="footer__bottom"><span>© 2026 Kartikeyan. All rights reserved</span><a class="to-top ftop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></div>
   </footer>
   <div class="wordmark" aria-hidden="true"><b>KARTIKEYAN<sup>™</sup></b><span>Product<br />&amp; UI/UX<br />Designer</span></div>
 
-  <aside class="otw" id="otw" aria-label="Availability">
+  <aside class="otw" id="otw" aria-label="Availability" data-render="otw">
     <button class="otw__close" id="otwClose" aria-label="Dismiss">✕</button>
     <span class="otw__status"><i></i>Open to opportunities</span>
     <h3>Let's work together</h3>
@@ -153,9 +183,12 @@
       <li><b>Freelance:</b> UI/UX, logo &amp; motion projects</li>
       <li><b>Based in:</b> Chennai, India · open to remote</li>
     </ul>
-    <div class="otw__btns"><a class="btn" href="https://www.linkedin.com/in/kartikeyanc/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a><a class="btn btn--ghost" href="contact.html">Contact</a></div>
+    <div class="otw__btns"><a class="btn btn--ghost" href="contact.html">Contact</a></div>
   </aside>
 
+  <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" id="lenisLib" async></script>
   <script src="js/main.js"></script>
+  <span id="page-ready" hidden></span>
 </body>
 </html>
