@@ -558,7 +558,7 @@
     const featured = realProjects.filter((p) => p.featured);
     grid.innerHTML = featured.map((p) => {
       const soon = p.status === "ongoing";
-      const img = coverImg(p, vtShot(p), `<div class="pgrid__soon">${esc(p.name)}</div>`);
+      const img = coverImg(p, vtShot(p) + ' loading="lazy"', `<div class="pgrid__soon">${esc(p.name)}</div>`); // below the hero: load as it nears
       return `<a href="${hasCase(p) ? caseUrl(p) : "projects.html#" + esc(p.id)}"${soon ? ' data-status="soon"' : ""}><div class="pgrid__img">${img}${soon ? '<span class="pgrid__badge"><i></i>Ongoing</span>' : ""}</div><div class="pgrid__cap"><b>${esc(p.name)} <span>| ${esc(p.type)}</span></b><small>${esc(p.category)}</small></div></a>`;
     }).join(""); // no "your project could be next" tile here — it looked like a project
   }
@@ -860,10 +860,11 @@
   // frames, two flat rows sliding in opposite directions. Hovering a row pauses only that row.
   const wall = $("#workWall");
   if (wall) {
+    const real = (x) => !x.sample || x.image; // placeholders (the gk "Sample" switch) stay off the home page
     const tiles = [
       ...realProjects.map((p) => ({ href: p.caseStudy && p.caseStudy.show ? "/" + caseUrl(p) : "/projects.html", html: coverImg({ ...p, alt: "" }, ' loading="lazy"', "remove"), pic: true })),
-      ...(vOn ? VT.map((t, i) => ({ href: "/projects.html#video", html: thumbArt(plain(t), i) })) : []),
-      ...(vOn ? VP.map((p, i) => ({ href: "/projects.html#video", html: podArt(plain(p), true, i) })) : []),
+      ...(vOn ? VT.map((t, i) => (real(t) ? { href: "/projects.html#video", html: thumbArt(plain(t), i) } : null)).filter(Boolean) : []),
+      ...(vOn ? VP.map((p, i) => (real(p) ? { href: "/projects.html#video", html: podArt(plain(p), true, i) } : null)).filter(Boolean) : []),
     ];
     if (tiles.length >= 3) {
       // Each row repeats the tiles until it is wider than big screens, then doubles for a seamless loop
@@ -880,7 +881,8 @@
   // Home — showreel (like kraftbase.com): a giant SHOWREEL word that shrinks back while the video card rises
   // and grows over it as the section scrolls past. The YouTube video loads only when someone presses play.
   const reelBox = $("#showreel"), SR = V.showreel || {};
-  if (reelBox && vOn && SR.show !== false) {
+  // shown once there is a real reel (a YouTube link or a poster); until then the section stays hidden instead of an empty card
+  if (reelBox && vOn && SR.show !== false && (ytId(SR.youtube) || SR.poster)) {
     const card = $("#showreelCard"), id = ytId(SR.youtube), poster = SR.poster || (id ? `https://i.ytimg.com/vi/${id}/maxresdefault.jpg` : "");
     card.innerHTML = `${poster ? `<img src="${esc(poster)}" alt="" loading="lazy" />` : autoImg(`${IMG}/video/showreel/poster`, "", ' loading="lazy"')}<button class="kreel__play" type="button" aria-label="${id ? "Play showreel" : "Showreel coming soon"}"${id ? "" : " disabled"}>▶</button>`;
     if (id) $(".kreel__play", card).addEventListener("click", () => { card.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="Showreel" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`; card.classList.add("is-playing"); });
@@ -1158,7 +1160,9 @@
       const spot = $(".kp__base .kp__spot", kp).getBoundingClientRect(), box = kp.getBoundingClientRect();
       eyesBox.style.left = spot.left - box.left + "px"; eyesBox.style.top = spot.top - box.top + "px";
     };
-    placeEyes(); addEventListener("resize", placeEyes); if (document.fonts) document.fonts.ready.then(placeEyes);
+    // the eyes stay invisible until the title's real font has loaded and they sit in its gap, so they appear in place instead of jumping
+    const showEyes = () => { placeEyes(); eyesBox.classList.add("is-placed"); };
+    placeEyes(); addEventListener("resize", placeEyes); if (document.fonts) document.fonts.ready.then(showEyes); else showEyes();
     if (!hover) $(".kp__hint", kp).textContent = "tap to paint";
     if (reduce) {
       const all = document.createElementNS(NS, "rect"); all.setAttribute("width", 99999); all.setAttribute("height", 99999); clip.append(all); kp.classList.add("is-painted");
@@ -1184,6 +1188,12 @@
       // and a sideways swipe paints a stroke (up/down swipes still scroll the page)
       kp.addEventListener("pointerdown", (e) => { if (e.pointerType === "mouse") return; const r = kp.getBoundingClientRect(); last = null; paintTo(e.clientX - r.left, e.clientY - r.top); });
       ["pointerup", "pointercancel"].forEach((t) => kp.addEventListener(t, (e) => { if (e.pointerType !== "mouse") last = null; }));
+      // keyboard focus on a hero button paints a stroke across it, so the real (blue-layer) button and its ring show
+      $("#kpInk").addEventListener("focusin", (e) => {
+        const a = e.target.closest("a"); if (!a) return;
+        const r = a.getBoundingClientRect(), box = kp.getBoundingClientRect(), y = r.top - box.top + r.height / 2;
+        last = null; paintTo(r.left - box.left - 20, y); paintTo(r.right - box.left + 20, y); last = null;
+      });
     }
   }
 

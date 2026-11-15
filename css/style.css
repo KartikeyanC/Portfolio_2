@@ -1417,6 +1417,7 @@ html .hero .glow.glow--live { background: var(--bg); }
 .kp__base .btn, .kp__base .btn.btn--ghost { background: transparent; color: var(--dim); border: 1px solid var(--line); box-shadow: none; }
 .kp__ink { z-index: 2; background: var(--acc); color: var(--on-acc); clip-path: url(#kpClip); pointer-events: none; }
 .kp__ink a { pointer-events: auto; }
+.kp__ink a:focus-visible, .abar :focus-visible { outline-color: var(--on-acc); } /* a navy ring: the blue one vanished on the blue layer and bar */
 .kp__ink .btn { background: #fff; color: #000; }
 .kp__ink .btn.btn--ghost { background: transparent; color: var(--on-acc); border: 1px solid currentColor; box-shadow: none; }
 .kp__hello { font-size: clamp(17px, 1.7vw, 24px); font-weight: 500; }
@@ -1424,7 +1425,8 @@ html .hero .glow.glow--live { background: var(--bg); }
 .kp__title > span { display: flex; align-items: center; gap: .14em; white-space: nowrap; }
 .kp__title > span + span { padding-left: clamp(0px, 9vw, 170px); }
 .kp__spot { display: inline-block; width: 1.68em; height: .78em; } /* the gap the eyes sit in */
-.kp__eyes { position: absolute; z-index: 3; font-size: clamp(48px, 11.5vw, 190px); line-height: 1; }
+.kp__eyes { position: absolute; z-index: 3; font-size: clamp(48px, 11.5vw, 190px); line-height: 1; visibility: hidden; }
+.kp__eyes.is-placed { visibility: visible; } /* shown once main.js has set them in the title's gap (no jump on load) */
 .kp__hint { position: absolute; left: 50%; top: calc(100% + 10px); translate: -50% 0; white-space: nowrap; padding: 7px 13px; border-radius: 99px; background: #fff; color: #000; font: 500 12px var(--body); box-shadow: 0 8px 20px rgba(0,0,0,.3); transition: opacity .4s; pointer-events: none; }
 .kp.is-painted .kp__hint { opacity: 0; }
 .kp__bottom { display: flex; justify-content: space-between; align-items: end; gap: 20px 40px; flex-wrap: wrap; }
