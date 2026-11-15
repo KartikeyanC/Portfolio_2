@@ -497,11 +497,13 @@
   // footer) keep the site colour. The "Next project" card wears the NEXT project's colours.
   const caseList = C.projects.filter(hasCase);
   const nextOf = (p) => (p && caseList.length > 1 ? caseList[(caseList.indexOf(p) + 1) % caseList.length] : null);
+  // cards that open a case study carry data-shot, so their picture flies into the case study header
+  const vtShot = (p) => (hasCase(p) ? ` data-shot="${esc(p.id)}"` : "");
   const hexRgb = (h) => { const m = /^#?([0-9a-f]{6})$/i.exec(h || ""); return m ? [0, 2, 4].map((i) => parseInt(m[1].slice(i, i + 2), 16)).join(" ") : ""; };
   const nextCard = (next) => {
     const b = next.brand || {};
     const st = b.card ? ` style="--nx-bg:${esc(b.card)};--nx-ink:${esc(b.cardInk || "#fff")};--nx-btn:${esc(b.cardBtn || "#fff")};--nx-btn-ink:${esc(b.cardBtnInk || b.card)}"` : "";
-    return `<section class="cs-next"><a class="cs-next__card${b.card ? " is-brand" : ""}" href="${caseUrl(next)}"${st} aria-label="Next project: ${esc(next.name)} case study"><div class="cs-next__txt"><small>Next project</small><b>${esc(next.name)}</b>${next.type ? `<span>${esc(next.type)}</span>` : ""}<em class="cs-next__go">Open case study →</em></div>${coverImg({ ...next, alt: "" }, ' loading="lazy"')}</a></section>`;
+    return `<section class="cs-next"><a class="cs-next__card${b.card ? " is-brand" : ""}" href="${caseUrl(next)}"${st} aria-label="Next project: ${esc(next.name)} case study"><div class="cs-next__txt"><small>Next project</small><b>${esc(next.name)}</b>${next.type ? `<span>${esc(next.type)}</span>` : ""}<em class="cs-next__go">Open case study →</em></div>${coverImg({ ...next, alt: "" }, vtShot(next) + ' loading="lazy"')}</a></section>`;
   };
   const curProject = page === "case.html" ? C.projects.find((p) => p.id === new URLSearchParams(location.search).get("p")) : C.projects.find((p) => p.caseStudy && p.caseStudy.page === page);
   const curBrand = curProject && hasCase(curProject) && curProject.brand;
@@ -514,10 +516,22 @@
   // hand-built case study pages (respay.html, vstar.html) leave a <div data-next-project> for the shared card
   $$("[data-next-project]").forEach((el) => { const n = nextOf(curProject); if (n) el.outerHTML = nextCard(n); else el.remove(); });
   const shotName = (id) => "shot-" + String(id).replace(/[^\w-]/g, "");
-  const vtShot = (p) => (hasCase(p) ? ` data-shot="${esc(p.id)}"` : "");
   // the project a URL opens: case.html?p=<id>, or a project's own page (caseStudy.page, e.g. nexura.html)
   const caseIdOf = (url) => { try { const u = new URL(url, location.href); if (u.pathname.endsWith("/case.html")) return u.searchParams.get("p"); const f = u.pathname.split("/").pop(), own = f && C.projects.find((p) => p.caseStudy && p.caseStudy.page === f); return own ? own.id : null; } catch (e) { return null; } };
-  const nameShot = (id) => { const img = id && $(`img[data-shot="${CSS.escape(id)}"]`); if (img) { img.style.viewTransitionName = shotName(id); img.style.viewTransitionClass = "shot"; } return img; };
+  // A project's picture can be on a page twice (the Projects menu in the nav + a card below), so fly the one you
+  // clicked; otherwise (arriving back) the first one that isn't hidden, never the closed menu's copy.
+  let clickedShot = null;
+  addEventListener("click", (e) => { const a = e.target.closest && e.target.closest("a[href]"); clickedShot = a ? a.querySelector("img[data-shot]") : null; }, true);
+  const showing = (img) => img.getBoundingClientRect().width > 0 && getComputedStyle(img).visibility !== "hidden";
+  const nameShot = (id) => {
+    if (!id) return null;
+    const all = $$(`img[data-shot="${CSS.escape(id)}"]`);
+    // already on that project's page (its header carries the name): a second copy would cancel the transition
+    if ($$('[style*="view-transition-name"]').some((el) => !all.includes(el) && el.style.viewTransitionName === shotName(id))) return null;
+    const img = (clickedShot && all.includes(clickedShot) ? clickedShot : null) || all.find(showing) || null;
+    if (img) { img.style.viewTransitionName = shotName(id); img.style.viewTransitionClass = "shot"; }
+    return img;
+  };
   // Case study header picture (Milton's case.html and the own pages: respay / nexura / vstar [data-slide]): as the page
   // scrolls, the picture slides upward inside its wide frame (image top → bottom), finishing by the time the frame
   // has mostly scrolled away. The picture keeps its own height and is moved with transform (.is-slide in style.css),
@@ -549,7 +563,10 @@
   addEventListener("pagereveal", (e) => {
     if (!e.viewTransition || !window.navigation || !navigation.activation || !navigation.activation.from) return;
     const img = nameShot(caseIdOf(navigation.activation.from.url));
-    if (img) e.viewTransition.finished.finally(() => { img.style.viewTransitionName = ""; });
+    if (!img) return;
+    // e.g. "All work" on a case study: the picture flies back into its card with the same fade + lift as opening it
+    if (e.viewTransition.types) e.viewTransition.types.add("project");
+    e.viewTransition.finished.finally(() => { img.style.viewTransitionName = ""; });
   });
 
   // Home — featured project grid (a "Let's work together" card fills an odd slot)
@@ -591,7 +608,7 @@
     projLink.setAttribute("aria-haspopup", "true"); projLink.setAttribute("aria-expanded", "false");
     wrap.appendChild(projLink);
     wrap.insertAdjacentHTML("beforeend", `<div class="mega" role="menu" aria-label="Projects">
-        <div class="mega__cards" style="--n:${cards.length}">${cards.map((p) => `<a href="${href(p)}" role="menuitem"><span class="mega__pic">${coverImg({ ...p, alt: "" }, ' loading="lazy"', `<span class="mega__soon">${esc(p.name)}</span>`, "280px")}${p.status === "ongoing" ? '<em class="mega__badge"><i></i>Coming soon</em>' : ""}</span><b>${esc(p.name)}</b><span class="mega__type">${esc(p.type)}</span></a>`).join("")}</div>
+        <div class="mega__cards" style="--n:${cards.length}">${cards.map((p) => `<a href="${href(p)}" role="menuitem"><span class="mega__pic">${coverImg({ ...p, alt: "" }, vtShot(p) + ' loading="lazy"', `<span class="mega__soon">${esc(p.name)}</span>`, "280px")}${p.status === "ongoing" ? '<em class="mega__badge"><i></i>Coming soon</em>' : ""}</span><b>${esc(p.name)}</b><span class="mega__type">${esc(p.type)}</span></a>`).join("")}</div>
         <div class="mega__list"><small>Explore more</small>${rest.map((p) => `<a href="${href(p)}" role="menuitem">${esc(p.name)}${p.status === "ongoing" ? " · coming soon" : ""} <i aria-hidden="true">›</i></a>`).join("")}${C.video && C.video.show !== false ? `<a href="${root}projects.html#video" role="menuitem">Video work <i aria-hidden="true">›</i></a>` : ""}<a class="mega__all" href="${root}projects.html" role="menuitem">See all projects</a></div>
       </div>`);
     let t; // the panel spans the whole nav bar (CSS), so it never needs nudging back on screen
@@ -609,7 +626,7 @@
     const withCase = C.projects.filter(hasCase);
     const p = withCase.find((x) => x.id === id);
     if (!p) {
-      caseBox.innerHTML = `<section class="cs-empty"><h1>This case study isn't ready yet</h1><p style="color:var(--grey);margin-bottom:26px">It may still be in progress. Have a look at the other projects meanwhile.</p><a class="btn" href="projects.html">All projects ↗</a></section>`;
+      caseBox.innerHTML = `<section class="cs-empty"><a class="cs-back" href="projects.html">← All work</a><h1>This case study isn't ready yet</h1><p style="color:var(--grey);margin-bottom:26px">It may still be in progress. Have a look at the other projects meanwhile.</p><a class="btn" href="projects.html">All projects ↗</a></section>`;
       document.title = "Case study — Kartikeyan";
     } else if (p.caseStudy.page && /^https?:$/.test(location.protocol)) {
       location.replace(p.caseStudy.page); // old case.html?p=<id> links → the project's own page

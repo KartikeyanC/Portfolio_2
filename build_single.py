@@ -269,16 +269,27 @@ VIEWER = """const startSite = (B) => {
   // Opening a project = the OLD transition (as css/style.css does for the "project" view-transition type): the old
   // page fades out, the case study fades in with a small lift, and the picture of the card you clicked flies into
   // the case study header (cropped, never stretched, in a rounded frame that morphs between the two shapes).
+  // the case study header picture (its style text may read "name: shot-x" once the page has touched it)
+  const headerIn = (doc) => doc && doc.querySelector('[style*="view-transition-name"][style*="shot-"]');
+  const shotOf = (el) => el.getAttribute("style").split("shot-")[1].split(";")[0].trim();
+  const cardIn = (doc, id) => doc && [...doc.querySelectorAll("img[data-shot]")].find((i) => {   // a card's picture, if it is on screen
+    if (i.getAttribute("data-shot").replace(/[^A-Za-z0-9_-]/g, "") !== id) return false;
+    if (i.ownerDocument.defaultView.getComputedStyle(i).visibility === "hidden") return false;   // e.g. the closed Projects menu
+    const b = i.getBoundingClientRect(); return b.width > 0 && b.bottom > 0 && b.top < innerHeight;
+  });
+  // Opening a project: the card's picture flies into the case study header. Leaving one (e.g. "All work"):
+  // the header picture flies back into its card, if that card is on screen. Same page fade + lift both ways.
   const openProject = (old, f, d, done) => {
-    // the case study header picture (its style text may read "name: shot-x" once the page has touched it)
-    const to = d.querySelector('[style*="view-transition-name"][style*="shot-"]');
-    if (!to) return false;
-    const id = to.getAttribute("style").split("shot-")[1].split(";")[0].trim();
-    const od = old.contentDocument, vh = innerHeight;
-    const from = od && [...od.querySelectorAll("img[data-shot]")].find((i) => {   // the card's picture, if it is on screen
-      if (i.getAttribute("data-shot").replace(/[^A-Za-z0-9_-]/g, "") !== id) return false;
-      const b = i.getBoundingClientRect(); return b.width > 0 && b.bottom > 0 && b.top < vh;
-    });
+    const od = old.contentDocument, head = headerIn(d);
+    let from, to;
+    if (head) { to = head; from = cardIn(od, shotOf(head)); }
+    else {
+      const back = headerIn(od);
+      if (!back) return false;
+      to = cardIn(d, shotOf(back));
+      if (!to) return false;
+      from = back;
+    }
     const bg = d.defaultView.getComputedStyle(d.body).backgroundColor;
     document.documentElement.style.background = bg && bg !== "rgba(0, 0, 0, 0)" ? bg : "";   // no dark flash on light pages
     const runs = [];
@@ -294,7 +305,7 @@ VIEWER = """const startSite = (B) => {
       c.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:" + img.ownerDocument.defaultView.getComputedStyle(img).objectPosition;
       return c;
     };
-    const a = from && copy(from), z = from && copy(pic(to));
+    const a = from && copy(pic(from)), z = from && copy(pic(to));
     let fly = null;
     if (a && z) {
       const A = from.getBoundingClientRect(), Z = to.getBoundingClientRect();
