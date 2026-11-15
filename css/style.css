@@ -33,7 +33,10 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; } /* no grey tap flash; :active styles below give the feedback */
+a, button, label, summary, select, [role="button"] { touch-action: manipulation; } /* taps fire at once, no double-tap-zoom wait */
+.btn:active, .nav__cta:active, .nav__menu:active, .panel__close:active, .theme-btn:active, .filters button:active, .abar__link:active, .cs-next__go:active, .sbento__cta:active { scale: .97; }
+.nav__links a:active, .panel a:active, .footer__col a:active, .contact-rows a:active, .soc-link:active { opacity: .7; }
 body { background: var(--bg); color: var(--ink); font-family: var(--body); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 h1, h2, h3, h4 { text-wrap: balance; }
 p { text-wrap: pretty; }
