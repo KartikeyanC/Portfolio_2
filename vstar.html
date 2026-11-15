@@ -17,7 +17,8 @@
   <style>
     .mx-body .nav.is-pill { top: calc(var(--nav-top, 0px) + 12px); }   /* the pill sits under the announcement bar until it scrolls away */
     #vs.mx-wrap { padding-top: calc(var(--abar-h, 0px) + 92px); background: #000 !important; color: #fff; overflow: clip; }
-    .mx-b { position: relative; container-type: inline-size; width: calc(100% - 2 * var(--pad)); max-width: 1680px; margin: 0 auto; background: #000; }   /* the site's side gap on both sides, as on the other case studies */
+    .mx-b { position: relative; container-type: inline-size; width: calc(100% - 2 * var(--pad)); max-width: 1680px; margin: 0 auto clamp(10px, 1.1vw, 16px); background: #000; border-radius: 26px; overflow: clip; }   /* the site's side gap on both sides; each board a rounded card with a small gap below */
+    .mx-b::after { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); pointer-events: none; }   /* hairline edge, so the curve shows on the black boards */
     .mx-b__img { display: block; width: 100%; height: auto; }
     #cover .mx-b__img { border-radius: 26px; }   /* rounded on all four sides, like the other case-study headers */
     .mx-bar { container-type: inline-size; width: calc(100% - 2 * var(--pad)); max-width: 1680px; margin: 0 auto; padding-bottom: clamp(12px, 1.2vw, 20px); }
@@ -98,7 +99,7 @@
     .mx-end .cs-next { padding-top: 0; }
 
     @media (max-width: 760px) {
-      .mx-b { container-type: normal; }
+      .mx-b { container-type: normal; border-radius: 18px; }
       #cover .mx-b__img { border-radius: 18px; }
       .mx-t { position: static; width: auto !important; padding: 0 16px; }
       .mx-b > .mx-t:first-of-type, .mx-b .mx-t + .mx-t { margin-top: 0; }
