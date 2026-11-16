@@ -119,6 +119,8 @@ def watermark_posters():
     Drop a clean poster into _originals/posters/ (NN-name.jpg); the build writes the watermarked
     NN-name.jpg + NN-name@1200.jpg into assets/images/projects/posters/, which is what the site shows.
     The mark is white on dark posters and near-black on light ones (judged from the middle of the poster).
+    The Posters cover (_originals/posters/cover.jpg → cover.jpg; card_covers() then makes its cover@… sizes) gets
+    the same mark at about a third of the strength, lighter than on the posters (user, 16 Nov).
     A copy is remade only when its original changes (the original's md5 is kept in the copy's JPEG comment)."""
     try:
         from PIL import Image, ImageOps, ImageStat, ImageFilter
@@ -129,9 +131,10 @@ def watermark_posters():
         return
     for src in sorted(f for f in POSTER_SRC.iterdir() if f.suffix.lower() in EXTS and "@" not in f.stem):
         tag = hashlib.md5(src.read_bytes()).hexdigest().encode()
+        cover = src.stem == "cover"
         full, small = POSTER_OUT / (src.stem + ".jpg"), POSTER_OUT / f"{src.stem}@{POSTER_SMALL}.jpg"
         try:
-            if all(Image.open(o).info.get("comment") == tag for o in (full, small)):
+            if all(Image.open(o).info.get("comment") == tag for o in ((full,) if cover else (full, small))):
                 continue
         except Exception:
             pass
@@ -142,10 +145,14 @@ def watermark_posters():
         size = round(min(w, h) * 0.34)  # mark box = 34% of the poster width, as in samples/watermark.html
         x, y = (w - size) // 2, (h - size) // 2
         light = ImageStat.Stat(im.crop((x, y, x + size, y + size)).convert("L")).mean[0] > 150
-        mark = _k_mark(size, (17, 17, 17) if light else (255, 255, 255), 0.13 if light else 0.18)
+        strength = 0.35 if cover else 1   # the cover's mark is lighter than the posters'
+        mark = _k_mark(size, (17, 17, 17) if light else (255, 255, 255), (0.13 if light else 0.18) * strength)
         out = im.convert("RGBA"); out.alpha_composite(mark, (x, y)); out = out.convert("RGB")
         POSTER_OUT.mkdir(parents=True, exist_ok=True)
         out.save(full, "JPEG", quality=90, optimize=True, progressive=True, comment=tag)
+        if cover:
+            print(f"  watermarked: {full.relative_to(ROOT)} (cover, lighter {'dark' if light else 'white'} mark)", flush=True)
+            continue
         sm = out.resize((POSTER_SMALL, round(h * POSTER_SMALL / w)), Image.LANCZOS).filter(ImageFilter.UnsharpMask(radius=0.6, percent=50, threshold=1))
         sm.save(small, "JPEG", quality=86, optimize=True, progressive=True, comment=tag)
         print(f"  watermarked: {full.relative_to(ROOT)} ({'dark' if light else 'white'} mark)", flush=True)
