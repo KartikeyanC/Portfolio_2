@@ -85,6 +85,11 @@ def card_covers():
 POSTER_SRC = ROOT / "_originals" / "posters"   # clean posters: on this computer only (.gitignore), never published
 POSTER_OUT = IMG / "projects" / "posters"
 POSTER_SMALL = 1200   # NN-name@1200.jpg for the poster wall; NN-name.jpg (full size) for the viewer
+# Watermark strength (opacity of the K mark) as (on dark posters: white mark, on light posters: dark mark).
+# Posters were made lighter on 16 Nov (user: "little light"); the cover stays lighter still. Change a number
+# here and every poster is re-stamped on the next build (the numbers are part of each copy's tag).
+WM_POSTER = (0.12, 0.085)   # was (0.18, 0.13)
+WM_COVER = (0.063, 0.045)
 
 
 def _k_mark(size: int, ink, opacity: float):
@@ -120,8 +125,8 @@ def watermark_posters():
     NN-name.jpg + NN-name@1200.jpg into assets/images/projects/posters/, which is what the site shows.
     The mark is white on dark posters and near-black on light ones (judged from the middle of the poster).
     The Posters cover (_originals/posters/cover.jpg → cover.jpg; card_covers() then makes its cover@… sizes) gets
-    the same mark at about a third of the strength, lighter than on the posters (user, 16 Nov).
-    A copy is remade only when its original changes (the original's md5 is kept in the copy's JPEG comment)."""
+    the same mark, lighter than on the posters (user, 16 Nov).
+    A copy is remade only when its original or the strength changes (both are in the copy's JPEG comment)."""
     try:
         from PIL import Image, ImageOps, ImageStat, ImageFilter
     except ImportError:
@@ -130,8 +135,9 @@ def watermark_posters():
     if not POSTER_SRC.exists():
         return
     for src in sorted(f for f in POSTER_SRC.iterdir() if f.suffix.lower() in EXTS and "@" not in f.stem):
-        tag = hashlib.md5(src.read_bytes()).hexdigest().encode()
         cover = src.stem == "cover"
+        alpha = WM_COVER if cover else WM_POSTER
+        tag = (hashlib.md5(src.read_bytes()).hexdigest() + f" wm{alpha[0]}/{alpha[1]}").encode()
         full, small = POSTER_OUT / (src.stem + ".jpg"), POSTER_OUT / f"{src.stem}@{POSTER_SMALL}.jpg"
         try:
             if all(Image.open(o).info.get("comment") == tag for o in ((full,) if cover else (full, small))):
@@ -145,8 +151,7 @@ def watermark_posters():
         size = round(min(w, h) * 0.34)  # mark box = 34% of the poster width, as in samples/watermark.html
         x, y = (w - size) // 2, (h - size) // 2
         light = ImageStat.Stat(im.crop((x, y, x + size, y + size)).convert("L")).mean[0] > 150
-        strength = 0.35 if cover else 1   # the cover's mark is lighter than the posters'
-        mark = _k_mark(size, (17, 17, 17) if light else (255, 255, 255), (0.13 if light else 0.18) * strength)
+        mark = _k_mark(size, (17, 17, 17) if light else (255, 255, 255), alpha[1] if light else alpha[0])
         out = im.convert("RGBA"); out.alpha_composite(mark, (x, y)); out = out.convert("RGB")
         POSTER_OUT.mkdir(parents=True, exist_ok=True)
         out.save(full, "JPEG", quality=90, optimize=True, progressive=True, comment=tag)
