@@ -1523,9 +1523,7 @@ html .hero .glow.glow--live { background: var(--bg); }
 #kpClip circle { transition: r .55s cubic-bezier(.2,.8,.2,1); }
 @media (max-width: 520px) { .kp { height: auto; min-height: 600px; } .kp__layer { padding-top: 100px; } .kp__title, .kp__eyes { font-size: 10.5vw; } } /* PRODUCT + eyes fit a 320px phone */
 /* The nav over the home paint: items stay plain text (user, 15 Nov: no button-style pills on Home, Projects, Services ...).
-   White reads on both the black hero and the blue paint; a hovered link stays white (blue would vanish on the paint) and
-   just dims a little. No underline: it made Home the only page with a line under the hovered link (user, 16 Nov). */
-@media (hover: hover) and (pointer: fine) { body:has(.kp) .nav:not(.is-pill) .nav__links a:hover { color: var(--ink); opacity: .7; } }
+   Hover is the same blue as on every other page (user, 16 Nov) — no Home-only underline or dimming. */
 
 /* K6 Home about — dot grid canvas behind the text (drawn by main.js on hover screens only) */
 .about--grid { position: relative; isolation: isolate; }
