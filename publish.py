@@ -19,7 +19,7 @@ OUT = os.path.join(ROOT, "_site")
 
 # The public pages (without .html). Test pages such as home-new / projects-v3 stay off the live site.
 PAGES = ["index", "about", "projects", "services", "contact", "case", "posters",
-         "ifortigo", "myshoptill", "nexura", "respay", "vstar", "404"]
+         "ifortigo", "myshoptill", "nexura", "respay", "vstar", "nineflow", "finroot", "404"]
 FILES = ["content.json", "favicon.ico", "robots.txt"]
 FOLDERS = ["css", "js", "assets", "gk"]
 SKIP = shutil.ignore_patterns(".gitkeep", "README.txt", "*-info.json", "Thumbs.db", ".DS_Store")

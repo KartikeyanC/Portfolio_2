@@ -16,7 +16,7 @@ import base64, json, mimetypes, pathlib, re, urllib.request
 
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "dist" / "kartikeyan-portfolio.html"
-PAGES = ["index.html", "about.html", "projects.html", "services.html", "contact.html", "case.html", "respay.html", "vstar.html", "nexura.html", "ifortigo.html", "myshoptill.html", "posters.html", "404.html"]
+PAGES = ["index.html", "about.html", "projects.html", "services.html", "contact.html", "case.html", "respay.html", "vstar.html", "nexura.html", "ifortigo.html", "myshoptill.html", "posters.html", "nineflow.html", "finroot.html", "404.html"]
 IMG = ROOT / "assets" / "images"
 EXTS = [".jpg", ".png", ".webp", ".jpeg"]
 LENIS = "https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"

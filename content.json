@@ -207,6 +207,338 @@
   },
   "projects": [
     {
+      "id": "nineflow",
+      "name": "NineFlow",
+      "show": true,
+      "type": "Own product · Planner app",
+      "category": "Product",
+      "tags": [
+        "Own product",
+        "Web · Desktop · Android",
+        "Productivity"
+      ],
+      "filters": [
+        "product",
+        "uiux"
+      ],
+      "image": "",
+      "alt": "NineFlow: the dashboard on a laptop and the month calendar on a phone, on orange",
+      "description": "My own product: a daily planner, focus timer and work log in one app, for web, desktop and Android. Plan the day, track real working time and keep a record of every change.",
+      "status": "live",
+      "featured": false,
+      "link": "nineflow.html",
+      "brand": {
+        "accent": "#FF6A13",
+        "inkLight": "#BA4500",
+        "inkDark": "#FF8A45",
+        "onAccent": "#FFFFFF",
+        "card": "#1A0C04",
+        "cardInk": "#FFFFFF",
+        "cardBtn": "#FF6A13",
+        "cardBtnInk": "#FFFFFF"
+      },
+      "caseStudy": {
+        "show": true,
+        "page": "nineflow.html",
+        "title": "NineFlow: a daily planner, focus timer and work log",
+        "client": "Own product",
+        "website": "",
+        "year": "",
+        "role": "",
+        "tools": [],
+        "tags": [
+          "Own product",
+          "Productivity",
+          "Web · Desktop · Android"
+        ],
+        "sections": [
+          {
+            "id": "overview",
+            "label": "01 Overview",
+            "show": true
+          },
+          {
+            "id": "plan",
+            "label": "02 Plan the day (dashboard)",
+            "show": true
+          },
+          {
+            "id": "views",
+            "label": "03 Views (week + board)",
+            "show": true
+          },
+          {
+            "id": "capture",
+            "label": "04 Add work quickly",
+            "show": true
+          },
+          {
+            "id": "track",
+            "label": "05 Track & improve (charts, history)",
+            "show": true
+          },
+          {
+            "id": "phone",
+            "label": "06 On your phone (Android screens)",
+            "show": true
+          },
+          {
+            "id": "data",
+            "label": "07 Your data",
+            "show": true
+          },
+          {
+            "id": "brand",
+            "label": "08 Brand (logo)",
+            "show": true
+          },
+          {
+            "id": "end",
+            "label": "09 Next project",
+            "show": true
+          }
+        ],
+        "shots": [
+          {
+            "id": "cover",
+            "label": "Cover (top of the page)",
+            "show": true
+          },
+          {
+            "id": "desk-dashboard",
+            "label": "Desktop · Dashboard",
+            "show": true
+          },
+          {
+            "id": "desk-week",
+            "label": "Desktop · Week",
+            "show": true
+          },
+          {
+            "id": "desk-board",
+            "label": "Desktop · Board",
+            "show": true
+          },
+          {
+            "id": "desk-prompt",
+            "label": "Desktop · Prompt to list (AI)",
+            "show": true
+          },
+          {
+            "id": "desk-charts",
+            "label": "Desktop · Charts",
+            "show": true
+          },
+          {
+            "id": "desk-history",
+            "label": "Desktop · Task history",
+            "show": true
+          },
+          {
+            "id": "desk-panel",
+            "label": "Desktop · Task panel",
+            "show": true
+          },
+          {
+            "id": "phone-home",
+            "label": "Phone · Home",
+            "show": true
+          },
+          {
+            "id": "phone-month",
+            "label": "Phone · Month",
+            "show": true
+          },
+          {
+            "id": "phone-week",
+            "label": "Phone · Week",
+            "show": true
+          },
+          {
+            "id": "phone-board",
+            "label": "Phone · Board",
+            "show": true
+          },
+          {
+            "id": "phone-more",
+            "label": "Phone · More menu",
+            "show": true
+          },
+          {
+            "id": "brand-logo",
+            "label": "Brand · Logo",
+            "show": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "finroot",
+      "name": "FinRoot",
+      "show": true,
+      "type": "Own product · Money app",
+      "category": "Product",
+      "tags": [
+        "Own product",
+        "Web · Windows · Android",
+        "Personal finance"
+      ],
+      "filters": [
+        "product",
+        "uiux"
+      ],
+      "image": "",
+      "alt": "FinRoot: the family dashboard on a laptop and Quick Log on a phone, on green",
+      "description": "My own product: one money plan the whole family can see. Each month is split across seven buckets, so everyday questions like \"can we afford it?\" answer themselves.",
+      "status": "live",
+      "featured": false,
+      "link": "finroot.html",
+      "brand": {
+        "accent": "#0D7A5F",
+        "inkLight": "#0A5E48",
+        "inkDark": "#3FC495",
+        "onAccent": "#FFFFFF",
+        "card": "#04241B",
+        "cardInk": "#FFFFFF",
+        "cardBtn": "#0E8466",
+        "cardBtnInk": "#FFFFFF"
+      },
+      "caseStudy": {
+        "show": true,
+        "page": "finroot.html",
+        "title": "FinRoot: household money in seven buckets",
+        "client": "Own product",
+        "website": "",
+        "year": "",
+        "role": "",
+        "tools": [],
+        "tags": [
+          "Own product",
+          "Personal finance",
+          "Web · Windows · Android"
+        ],
+        "sections": [
+          {
+            "id": "overview",
+            "label": "01 Overview",
+            "show": true
+          },
+          {
+            "id": "buckets",
+            "label": "02 The seven buckets",
+            "show": true
+          },
+          {
+            "id": "ask",
+            "label": "03 Ask your buckets",
+            "show": true
+          },
+          {
+            "id": "family",
+            "label": "04 Family view (dashboard)",
+            "show": true
+          },
+          {
+            "id": "ledger",
+            "label": "05 One ledger",
+            "show": true
+          },
+          {
+            "id": "capture",
+            "label": "06 On your phone (Android screens)",
+            "show": true
+          },
+          {
+            "id": "modules",
+            "label": "07 Modules",
+            "show": true
+          },
+          {
+            "id": "brand",
+            "label": "08 Brand (logo + website)",
+            "show": true
+          },
+          {
+            "id": "end",
+            "label": "09 Next project",
+            "show": true
+          }
+        ],
+        "shots": [
+          {
+            "id": "cover",
+            "label": "Cover (top of the page)",
+            "show": true
+          },
+          {
+            "id": "web-buckets",
+            "label": "Web · Bucket cards",
+            "show": true
+          },
+          {
+            "id": "web-ask",
+            "label": "Web · Can we afford it?",
+            "show": true
+          },
+          {
+            "id": "web-dashboard",
+            "label": "Web · Household overview",
+            "show": true
+          },
+          {
+            "id": "web-ledger",
+            "label": "Web · One ledger",
+            "show": true
+          },
+          {
+            "id": "phone-quickadd-1",
+            "label": "Phone · Quick settings tile",
+            "show": true
+          },
+          {
+            "id": "phone-quickadd-2",
+            "label": "Phone · Floating card",
+            "show": true
+          },
+          {
+            "id": "phone-quickadd-3",
+            "label": "Phone · Amount & category",
+            "show": true
+          },
+          {
+            "id": "phone-quickadd-4",
+            "label": "Phone · Saved",
+            "show": true
+          },
+          {
+            "id": "phone-quicklog",
+            "label": "Phone · Quick Log",
+            "show": true
+          },
+          {
+            "id": "phone-add-expense",
+            "label": "Phone · Add expense (dark)",
+            "show": true
+          },
+          {
+            "id": "phone-add-transfer",
+            "label": "Phone · Add transfer (light)",
+            "show": true
+          },
+          {
+            "id": "brand-lockup",
+            "label": "Brand · Logo",
+            "show": true
+          },
+          {
+            "id": "web-hero",
+            "label": "Web · Website home",
+            "show": true
+          }
+        ]
+      }
+    },
+    {
       "alt": "Nexura logo: a hexagonal 'N' mark above the NEXURA wordmark and the tagline 'Creating Intelligent Solutions', white on dark brown",
       "name": "Nexura",
       "featured": true,

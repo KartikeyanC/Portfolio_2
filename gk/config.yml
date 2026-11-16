@@ -197,6 +197,7 @@ collections:
                 options:
                   - { label: "Live — shows the OPEN cursor", value: live }
                   - { label: "Ongoing — shows the IN PROGRESS cursor and an Ongoing badge", value: ongoing }
+              - { label: Show on the site, name: show, widget: boolean, default: true, required: false, hint: "Off = this project is hidden from every visitor (Home, Projects, menu, counters). Its own page still opens by direct link." }
               - { label: Show on Home page, name: featured, widget: boolean, default: true }
               - { label: Sample (placeholder), name: sample, widget: boolean, default: false, required: false, hint: "On = a placeholder: gets a drawn cover when there is no image, never shown on Home, in the menu or in the counters. Turn off (or delete) when you add the real project." }
               - { label: Link, name: link, widget: string, default: contact.html, hint: "Where the card goes when the project has no case study" }
@@ -214,6 +215,28 @@ collections:
                   - { label: Client, name: client, widget: string, required: false, hint: "e.g. Nexura Infotech, or Self-initiated redesign" }
                   - { label: Website, name: website, widget: string, required: false, hint: "Full link starting with https:// — shows a Visit website button. Empty = hidden" }
                   - { label: Website button text, name: websiteLabel, widget: string, required: false, hint: "e.g. View on Behance — empty = Visit website" }
+                  - label: Sections (own product pages)
+                    name: sections
+                    widget: list
+                    required: false
+                    allow_add: false
+                    summary: "{{fields.label}} · show: {{fields.show}}"
+                    hint: "NineFlow and FinRoot pages only. Turn Show off to hide a whole section from visitors; the numbers close up."
+                    fields:
+                      - { label: Section, name: label, widget: string }
+                      - { label: ID, name: id, widget: hidden }
+                      - { label: Show, name: show, widget: boolean, default: true }
+                  - label: Screens (own product pages)
+                    name: shots
+                    widget: list
+                    required: false
+                    allow_add: false
+                    summary: "{{fields.label}} · show: {{fields.show}}"
+                    hint: "Each picture on the page. Turn Show off to hide it from visitors. A section whose pictures are all off is hidden too."
+                    fields:
+                      - { label: Screen, name: label, widget: string }
+                      - { label: ID, name: id, widget: hidden }
+                      - { label: Show, name: show, widget: boolean, default: true }
                   - { label: Tools, name: tools, widget: list, required: false, hint: "Comma separated, e.g. Figma, Illustrator" }
                   - { label: Overview (background), name: background, widget: text, required: false }
                   - { label: My role, name: role, widget: text, required: false }

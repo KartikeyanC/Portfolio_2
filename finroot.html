@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinRoot — Case study — Kartikeyan</title>
+  <meta name="description" content="FinRoot, an own product by Kartikeyan C: household money in seven buckets, for web, Windows and Android." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
+  <link rel="expect" href="#page-ready" blocking="render" />
+</head>
+<body id="top">
+
+  <!-- Announcement bar — text/link from content.json "announcement" (edit in /gk); dismissed bars stay hidden for the visit -->
+  <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="/contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
+
+  <header class="nav">
+    <a class="nav__brand" href="index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="nav__cta" href="contact.html">Let's talk</a>
+      <button class="nav__menu" id="menuOpen" aria-expanded="false" aria-controls="panel">Menu</button>
+    </div>
+  </header>
+
+  <div class="panel" id="panel" aria-hidden="true">
+    <button class="panel__close" id="menuClose">Close</button>
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+    <small data-bind="contact-line" hidden></small>
+  </div>
+
+  <main>
+    <!-- FinRoot: own product case study. Layout = RESPAY's ".rp .rx" block; colours = ".rp.pfr" at the end of css/style.css.
+         Every section (data-sec) and picture (data-item) can be switched off in /gk → Projects → FinRoot → Case study. -->
+    <div class="rp rx pfr" id="rp">
+    <nav class="index" id="index" aria-label="Sections"></nav>
+
+<!-- 00 HERO -->
+<header class="hero wrap rx-hero" id="s-top" data-label="Intro">
+  <a class="cs-back" href="projects.html">← All work</a>
+  <div class="rx-app">
+    <img class="rx-app__icon pd-lock" src="assets/images/projects/finroot/logo-lockup.png" alt="FinRoot logo: an R mark and the FINROOT wordmark, Finance rooted in you" height="64" />
+    <div class="rx-app__name"><span class="pd-own">Own product</span><h1>FinRoot</h1><p>Your household's money, clearly answered</p><small>Personal finance · web, Windows &amp; Android</small><p class="cs-outcome"><b>The idea</b> Split each month across seven buckets, so everyday money questions answer themselves.</p></div>
+    <div class="rx-app__get"><a class="rx-get" href="#s-buckets">See the buckets</a></div>
+  </div>
+  <dl class="rx-strip">
+    <div><dt>Buckets</dt><dd>7</dd><small>every rupee gets a place</small></div>
+    <div><dt>Platforms</dt><dd>3</dd><small>web · Windows · Android</small></div>
+    <div><dt>Currencies</dt><dd>5</dd><small>INR · USD · EUR · GBP · AED</small></div>
+    <div><dt>Household</dt><dd>Roles</dd><small>each member sees what you choose</small></div>
+    <div><dt>Bank password</dt><dd>None</dd><small>needed</small></div>
+    <div><dt>Type</dt><dd>Own</dd><small>product</small></div>
+  </dl>
+  <p class="rx-desc">One money plan the whole family can see: salary split into buckets on payday, every bill and premium on one calendar, and goals both partners can follow.</p>
+  <div class="hero__cover pd-cover" data-item="cover" style="view-transition-name:shot-finroot;view-transition-class:shot"><img src="assets/images/projects/finroot/cover.jpg" alt="FinRoot: the family dashboard on a laptop and Quick Log on a phone, on green" /></div>
+</header>
+
+
+<!-- 01 OVERVIEW -->
+<section class="sec wrap" id="s-overview" data-sec="overview" data-label="Overview">
+  <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>01</b></span><div><span class="kicker">Product overview</span><h2 class="h2">Money questions, <em>answered by the plan</em></h2></div></header>
+  <div class="ov">
+    <div class="card rp-r"><p>FinRoot divides each month across <b>seven buckets</b>. Because every rupee already has a place, everyday questions answer themselves: <b>can we go this weekend</b>, is the school fee covered, how long will this harvest last.</p><p>It is built for the person who keeps the household's money on track, and the family members they invite.</p></div>
+    <div class="ps">
+      <div class="card rp-r"><h3>The problem</h3><p>A household's money is spread over accounts, bills, policies and people, so a simple "can we afford it?" needs a spreadsheet.</p></div>
+      <div class="card is-sol rp-r"><h3>The idea</h3><p>Split the month into buckets on payday and match spending to them automatically, so the answer is just what's left in the right bucket.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 SEVEN BUCKETS -->
+<section class="sec wrap" id="s-buckets" data-sec="buckets" data-label="Seven buckets">
+  <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>02</b></span><div><span class="kicker">The seven buckets</span><h2 class="h2">Every rupee <em>gets a place</em></h2></div></header>
+  <p class="lead rp-r">Seven jars with your own percentages. The moment salary lands it's divided, and spending is matched to its jar.</p>
+  <div class="pd-chips rp-r"><span>Needs</span><span>Financial Freedom</span><span>Education</span><span>Play</span><span>Long-Term Savings</span><span>Giving</span><span>Agri</span></div>
+  <figure class="card board rp-r" data-item="web-buckets"><img src="assets/images/projects/finroot/screen-buckets.jpg" alt="FinRoot bucket cards: Needs, Financial Freedom, Education, Play and Long-Term Savings with example monthly amounts" loading="lazy" /><figcaption><b>The buckets.</b> Example month: ₹1,20,000 of income, each bucket with its own amount.</figcaption></figure>
+</section>
+
+<!-- 03 ASK -->
+<section class="sec wrap" id="s-ask" data-sec="ask" data-label="Ask">
+  <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>03</b></span><div><span class="kicker">Ask your buckets</span><h2 class="h2">Plain questions, <em>plain answers</em></h2></div></header>
+  <p class="lead rp-r">Pick a question and move the slider. The answer reads straight from the bucket it belongs to, without touching any other.</p>
+  <figure class="card board rp-r" data-item="web-ask"><img src="assets/images/projects/finroot/screen-ask.jpg" alt="FinRoot answer card: Can we afford a weekend trip? Yes, ₹1,400 stays in Play" loading="lazy" /><figcaption><b>Can we afford a weekend trip?</b> Yes — ₹1,400 stays in Play (example household).</figcaption></figure>
+</section>
+
+<!-- 04 FAMILY VIEW -->
+<section class="sec wrap" id="s-family" data-sec="family" data-label="Family view">
+  <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>04</b></span><div><span class="kicker">For families</span><h2 class="h2">One plan <em>the whole family can see</em></h2></div></header>
+  <p class="lead rp-r">Spending by bucket, budget health and one shared ledger, with roles so each member sees only what the owner chooses.</p>
+  <figure class="card board rp-r" data-item="web-dashboard"><img src="assets/images/projects/finroot/screen-dashboard.jpg" alt="FinRoot household overview: daily spending by jar, budget health and recent transactions" loading="lazy" /><figcaption><b>Household overview.</b> Daily spending by jar, budget health and the latest entries.</figcaption></figure>
+  <div class="pd-cards">
+    <div class="card rp-r"><i>01</i><h3>Families &amp; couples</h3><p>One shared budget both partners trust, with roles that decide who can see and edit what.</p></div>
+    <div class="card rp-r"><i>02</i><h3>Young professionals</h3><p>Split salary on payday and see what's left in each jar.</p></div>
+    <div class="card rp-r"><i>03</i><h3>NRIs &amp; freelancers</h3><p>Income in five currencies, one net worth in rupees.</p></div>
+    <div class="card rp-r"><i>04</i><h3>Farming households</h3><p>An Agri jar for land, seed and equipment, alongside the home budget.</p></div>
+  </div>
+</section>
+
+<!-- 05 ONE LEDGER -->
+<section class="sec wrap" id="s-ledger" data-sec="ledger" data-label="One ledger">
+  <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>05</b></span><div><span class="kicker">One ledger</span><h2 class="h2">Different sources, <em>one household picture</em></h2></div></header>
+  <p class="lead rp-r">Type it, import it or snap it. Everything lands in the same private ledger: typed entries, bank statements and scanned bills.</p>
+  <figure class="card board rp-r" data-item="web-ledger"><img src="assets/images/projects/finroot/screen-ledger.jpg" alt="FinRoot one ledger diagram: typed entries, bank statements, bill scans, insurance, goals and family members around the FinRoot mark" loading="lazy" /><figcaption><b>One ledger.</b> Every source feeds the same household picture.</figcaption></figure>
+</section>
+
+<!-- 06 ON YOUR PHONE -->
+<section class="sec wrap" id="s-capture" data-sec="capture" data-label="On your phone">
+  <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>06</b></span><div><span class="kicker">Android app</span><h2 class="h2">Log a rupee <em>in seconds</em></h2></div></header>
+  <p class="lead rp-r">On the phone, logging has to be faster than forgetting: a floating quick-add card, a number-pad Quick Log and one sheet for expense, income and transfer.</p>
+  <div class="show" data-items>
+    <div class="show__phone" aria-hidden="true"><div class="stack"><img src="assets/images/projects/finroot/phone-quickadd-1.jpg" alt="Start from anywhere" data-item="phone-quickadd-1" /><img src="assets/images/projects/finroot/phone-quickadd-2.jpg" alt="Quick expense" data-item="phone-quickadd-2" /><img src="assets/images/projects/finroot/phone-quickadd-3.jpg" alt="Two taps" data-item="phone-quickadd-3" /><img src="assets/images/projects/finroot/phone-quickadd-4.jpg" alt="Back to your day" data-item="phone-quickadd-4" /><img src="assets/images/projects/finroot/phone-quicklog.jpg" alt="A number pad for money" data-item="phone-quicklog" /><img src="assets/images/projects/finroot/phone-add-expense.jpg" alt="One sheet, three kinds" data-item="phone-add-expense" /><img src="assets/images/projects/finroot/phone-add-transfer.jpg" alt="Move money between accounts" data-item="phone-add-transfer" /></div></div>
+    <div class="show__steps"><article class="card feat" data-item="phone-quickadd-1"><small>Quick settings</small><h3>Start from anywhere</h3><p>A quick-settings tile opens FinRoot's floating card over any app.</p><img class="m" src="assets/images/projects/finroot/phone-quickadd-1.jpg" alt="Quick settings" loading="lazy" /></article><article class="card feat" data-item="phone-quickadd-2"><small>Floating card</small><h3>Quick expense</h3><p>Amount first, then a category, without leaving what you were doing.</p><img class="m" src="assets/images/projects/finroot/phone-quickadd-2.jpg" alt="Floating card" loading="lazy" /></article><article class="card feat" data-item="phone-quickadd-3"><small>Amount & category</small><h3>Two taps</h3><p>Type ₹15, tap Food, save.</p><img class="m" src="assets/images/projects/finroot/phone-quickadd-3.jpg" alt="Amount & category" loading="lazy" /></article><article class="card feat" data-item="phone-quickadd-4"><small>Saved</small><h3>Back to your day</h3><p>The entry is saved and you're back where you were.</p><img class="m" src="assets/images/projects/finroot/phone-quickadd-4.jpg" alt="Saved" loading="lazy" /></article><article class="card feat" data-item="phone-quicklog"><small>Quick Log</small><h3>A number pad for money</h3><p>Category tiles, optional subcategory and a big keypad for the amount.</p><img class="m" src="assets/images/projects/finroot/phone-quicklog.jpg" alt="Quick Log" loading="lazy" /></article><article class="card feat" data-item="phone-add-expense"><small>Add expense</small><h3>One sheet, three kinds</h3><p>Expense, income or transfer, with category, payment mode, account, date and a note.</p><img class="m" src="assets/images/projects/finroot/phone-add-expense.jpg" alt="Add expense" loading="lazy" /></article><article class="card feat" data-item="phone-add-transfer"><small>Add transfer</small><h3>Move money between accounts</h3><p>From and to, in the light theme.</p><img class="m" src="assets/images/projects/finroot/phone-add-transfer.jpg" alt="Add transfer" loading="lazy" /></article></div>
+  </div>
+</section>
+
+<!-- 07 MODULES -->
+<section class="sec wrap" id="s-modules" data-sec="modules" data-label="Modules">
+  <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>07</b></span><div><span class="kicker">Modules</span><h2 class="h2">Building blocks for <em>every rupee of the month</em></h2></div></header>
+  <div class="pd-cards">
+    <div class="card rp-r"><i>01</i><h3>Capture</h3><p>Bill scan, CSV import, quick entry and recurring rules.</p></div>
+    <div class="card rp-r"><i>02</i><h3>Allocate</h3><p>Seven-jar budgets, auto-matching, monthly carry-over and gentle nudges.</p></div>
+    <div class="card rp-r"><i>03</i><h3>Protect</h3><p>An insurance shelf, document vault, renewal reminders and a premium calendar.</p></div>
+    <div class="card rp-r"><i>04</i><h3>Grow</h3><p>Investments, goals, net worth and a weekly digest.</p></div>
+  </div>
+</section>
+
+<!-- 08 BRAND -->
+<section class="sec wrap" id="s-brand" data-sec="brand" data-label="Brand">
+  <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>08</b></span><div><span class="kicker">Brand</span><h2 class="h2">Finance <em>rooted in you</em></h2></div></header>
+  <p class="lead rp-r">An R mark that grows from a root, the FINROOT wordmark and a calm green for money that should feel safe.</p>
+  <figure class="card board rp-r" data-item="brand-lockup"><div class="pd-brand" style="background:#0d7a5f"><img src="assets/images/projects/finroot/logo-lockup.png" alt="FinRoot logo: R mark, FINROOT wordmark and the line Finance rooted in you" loading="lazy" /></div><figcaption><b>Logo.</b> The R mark and the FINROOT lock-up.</figcaption></figure>
+  <figure class="card board rp-r" data-item="web-hero"><img src="assets/images/projects/finroot/screen-hero.jpg" alt="FinRoot website home: Your household's money, clearly answered, with a phone showing Priya's household" loading="lazy" /><figcaption><b>Website.</b> The home page, with an example household on the phone.</figcaption></figure>
+</section>
+
+<!-- 09 NEXT -->
+<section class="sec wrap" id="s-end" data-sec="end" data-label="Next">
+  <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>09</b></span><div><span class="kicker">Thanks for scrolling</span><h2 class="h2">Every rupee, <em>a place and a purpose</em></h2></div></header>
+  <div data-next-project></div>
+</section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__big">Let's connect</p>
+    <!-- Bento footer (kraftbase tray): write-to-me card | pages | elsewhere. Email, socials and location are filled from content.json by main.js -->
+    <div class="ftray">
+      <div class="fcard fcard--mail">
+        <h4 data-ft="mail-title">Start a project</h4>
+        <a class="fmail" data-ft="mail" href="contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
+          <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
+      </div>
+      <div class="fcard">
+        <h4>Pages</h4>
+        <nav class="fnav" aria-label="Footer"><a href="index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+      </div>
+      <div class="fcard" data-ft="elsewhere" hidden>
+        <h4>Elsewhere</h4>
+        <div class="fsoc" data-ft="soc"></div>
+      </div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 Kartikeyan. All rights reserved</span><a class="to-top ftop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></div>
+  </footer>
+  <div class="wordmark" aria-hidden="true"><b>KARTIKEYAN<sup>™</sup></b><span>Product<br />&amp; UI/UX<br />Designer</span></div>
+
+  <aside class="otw" id="otw" aria-label="Availability" data-render="otw">
+    <button class="otw__close" id="otwClose" aria-label="Dismiss">✕</button>
+    <span class="otw__status"><i></i>Open to opportunities</span>
+    <h3>Let's work together</h3>
+    <ul>
+      <li><b>Roles:</b> Product / UI/UX Designer</li>
+      <li><b>Freelance:</b> UI/UX, logo &amp; motion projects</li>
+      <li><b>Based in:</b> Chennai, India · open to remote</li>
+    </ul>
+    <div class="otw__btns"><a class="btn btn--ghost" href="contact.html">Contact</a></div>
+  </aside>
+
+  <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" integrity="sha384-FKTX0CNJ8ngN1oGMBReVu7mvjTJyjFiD5etb1NKnYxc+8eFI2O0KWnksTN+oTFcu" crossorigin="anonymous" id="lenisLib" async></script>
+  <script src="js/main.js"></script>
+  <script src="js/fluid-cursor.js" defer></script>
+  <script>
+(() => {
+  const $ = (s) => document.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // main.js first removes the sections and pictures switched off in /gk, then fires "case-ready"
+  const go = () => {
+    // screens widget: the sticky phone shows the screen whose card is in the middle of the view
+    $$(".show").forEach((show) => {
+      const imgs = $$(".stack img", show), fs = $$(".feat", show);
+      fs.forEach((f, i) => (f.dataset.i = i));
+      if (imgs[0]) imgs[0].classList.add("on"); if (fs[0]) fs[0].classList.add("on");
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (!e.isIntersecting) return; const i = +e.target.dataset.i; imgs.forEach((im, j) => im.classList.toggle("on", j === i)); fs.forEach((f, j) => f.classList.toggle("on", j === i)); }), { rootMargin: "-45% 0px -45% 0px" });
+      fs.forEach((f) => io.observe(f));
+    });
+    // side index
+    const secs = $$("[data-label]");
+    const pad = (n) => String(n).padStart(2, "0");
+    $("#index").innerHTML = `<b class="index__num"><span id="ixN">01</span><small>/${pad(secs.length)}</small></b>
+      <div class="index__track"><i class="index__fill"></i>${secs.map((s) => `<a href="#${s.id}" aria-label="${s.dataset.label}"><i></i><span>${s.dataset.label}</span></a>`).join("")}</div>
+      <span class="index__label" id="ixL">${secs[0].dataset.label}</span>`;
+    const links = $$("#index a"), track = $(".index__track");
+    const setOn = (id) => { const k = secs.findIndex((s) => s.id === id); if (k < 0) return;
+      links.forEach((a, j) => { a.classList.toggle("is-on", j === k); a.classList.toggle("is-past", j < k); });
+      track.style.setProperty("--f", secs.length > 1 ? k / (secs.length - 1) : 0);
+      $("#ixN").textContent = pad(k + 1); $("#ixL").textContent = secs[k].dataset.label; };
+    setOn(secs[0].id);
+    const ix = $("#index"), endSec = secs[secs.length - 1];
+    const fadeIx = () => { const b = endSec.getBoundingClientRect().bottom, o = Math.min(1, Math.max(0, (b - innerHeight * .25) / (innerHeight * .5)));
+      ix.style.opacity = o; ix.style.visibility = o < .02 ? "hidden" : ""; ix.style.pointerEvents = o < .5 ? "none" : ""; };
+    addEventListener("scroll", fadeIx, { passive: true }); addEventListener("resize", fadeIx); fadeIx();
+    const ioS = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) setOn(e.target.id); }), { rootMargin: "-40% 0px -55% 0px" });
+    secs.forEach((s) => ioS.observe(s));
+    // reveal on scroll
+    if (reduce) $$("#rp .rp-r").forEach((el) => el.classList.add("in"));
+    else { const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 }); $$("#rp .rp-r").forEach((el) => io.observe(el)); }
+  };
+  if (window.__caseReady) go(); else addEventListener("case-ready", go, { once: true });
+})();
+  </script>
+  <span id="page-ready" hidden></span>
+</body>
+</html>

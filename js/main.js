@@ -121,7 +121,7 @@
 
   // Current page in nav / panel / footer
   const page = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  const navPage = page === "case.html" || page === "respay.html" || page === "vstar.html" || page === "nexura.html" || page === "ifortigo.html" || page === "myshoptill.html" || page === "posters.html" ? "projects.html" : page; // case studies belong to Projects
+  const navPage = page === "case.html" || page === "respay.html" || page === "vstar.html" || page === "nexura.html" || page === "ifortigo.html" || page === "myshoptill.html" || page === "posters.html" || page === "nineflow.html" || page === "finroot.html" ? "projects.html" : page; // case studies belong to Projects
   $$(".nav__links a, .panel a, .footer__col a").forEach((a) => {
     const target = (a.getAttribute("href") || "").split("#")[0].split("/").pop().toLowerCase();
     if (target && target === navPage) a.setAttribute("aria-current", "page");
@@ -245,6 +245,9 @@
     try { const txt = await fresh; C = { ...C, ...JSON.parse(txt) }; remember(txt); }
     catch (err) { console.error("Could not load content.json — run the site through a local server (python serve.py).", err); }
   }
+  // a project switched off in /gk ("Show on the site" off) is left out everywhere; its own page still opens by direct link
+  const allProjects = C.projects || [];
+  C.projects = allProjects.filter((p) => p && p.show !== false);
 
   // Site colour (set in /gk → content.json "theme"). Presets live in css/style.css;
   // a custom colour gets its button, text and folder shades worked out here.
@@ -559,7 +562,7 @@
     const st = b.card ? ` style="--nx-bg:${esc(b.card)};--nx-ink:${esc(b.cardInk || "#fff")};--nx-btn:${esc(b.cardBtn || "#fff")};--nx-btn-ink:${esc(b.cardBtnInk || b.card)}"` : "";
     return `<section class="cs-next"><a class="cs-next__card${b.card ? " is-brand" : ""}" href="${caseUrl(next)}"${st} aria-label="Next project: ${esc(next.name)} case study"><div class="cs-next__txt"><small>Next project</small><b>${esc(next.name)}</b>${next.type ? `<span>${esc(next.type)}</span>` : ""}<em class="cs-next__go">Open case study →</em></div>${coverImg({ ...next, alt: "" }, vtShot(next) + ' loading="lazy"')}</a></section>`;
   };
-  const curProject = page === "case.html" ? C.projects.find((p) => p.id === new URLSearchParams(location.search).get("p")) : C.projects.find((p) => p.caseStudy && p.caseStudy.page === page);
+  const curProject = page === "case.html" ? C.projects.find((p) => p.id === new URLSearchParams(location.search).get("p")) : allProjects.find((p) => p.caseStudy && p.caseStudy.page === page);
   const curBrand = curProject && hasCase(curProject) && curProject.brand;
   if (curBrand && curBrand.accent) {
     const b = curBrand, rgb = hexRgb(b.accent), st = document.getElementById("project-brand") || document.head.appendChild(Object.assign(document.createElement("style"), { id: "project-brand" }));
@@ -569,6 +572,17 @@
   }
   // hand-built case study pages (respay.html, vstar.html) leave a <div data-next-project> for the shared card
   $$("[data-next-project]").forEach((el) => { const n = nextOf(curProject); if (n) el.outerHTML = nextCard(n); else el.remove(); });
+  // Own-product pages (nineflow.html, finroot.html): every section carries data-sec and every picture data-item.
+  // /gk → the project's Case study → Sections / Screens has a Show switch for each; switched-off ones are removed
+  // before the page is seen, a section left with no pictures goes too, and the section numbers close up.
+  if (curProject && curProject.caseStudy && $("[data-sec]")) {
+    const cs = curProject.caseStudy, offOf = (list) => new Set((list || []).filter((x) => x && x.show === false).map((x) => x.id));
+    const secOff = offOf(cs.sections), itemOff = offOf(cs.shots);
+    $$("[data-item]").forEach((el) => { if (itemOff.has(el.dataset.item)) el.remove(); });
+    $$("[data-sec]").forEach((el) => { const box = $("[data-items]", el); if (secOff.has(el.dataset.sec) || (box && !$("[data-item]", el))) el.remove(); });
+    $$("[data-sec] .rx-coin b").forEach((b, i) => (b.textContent = String(i + 1).padStart(2, "0")));
+  }
+  window.__caseReady = true; dispatchEvent(new Event("case-ready"));
   const shotName = (id) => "shot-" + String(id).replace(/[^\w-]/g, "");
   // the project a URL opens: case.html?p=<id>, or a project's own page (caseStudy.page, e.g. nexura.html)
   const caseIdOf = (url) => { try { const u = new URL(url, location.href); if (u.pathname.endsWith("/case.html")) return u.searchParams.get("p"); const f = u.pathname.split("/").pop(), own = f && C.projects.find((p) => p.caseStudy && p.caseStudy.page === f); return own ? own.id : null; } catch (e) { return null; } };

@@ -4075,3 +4075,38 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .form__status b { color: var(--ink); font-weight: 600; }
 .form__copy { display: flex; flex-wrap: wrap; gap: 10px; }
 .form__copy .btn { padding: 12px 20px; font-size: 14px; }
+
+/* ===================== Own products: NineFlow + FinRoot case studies (nineflow.html, finroot.html) =====================
+   Same RESPAY ".rp .rx" layout, re-coloured per product. Each section carries data-sec and each picture data-item;
+   main.js removes the ones switched off in /gk (caseStudy.sections / caseStudy.shots) and renumbers the rest. */
+.rp.pnf { --navy: #ba4500; --navy-rgb: 186 69 0; --navy-2: #d9530a; --tint: #ffe9db; --tint-2: #ffb78a; --pop: "Inter Tight", "Inter", system-ui, sans-serif; }
+:root:not([data-theme="light"]) .rp.pnf { --bg: #0d0704; --card: #1a110b; --tint: #3a1d0c; --tint-2: #6b3413; --navy-2: #ff8a45; }
+.rp.pfr { --navy: #0a5e48; --navy-rgb: 10 94 72; --navy-2: #0d7a5f; --tint: #e3f3ec; --tint-2: #9fd8c1; --pop: "Inter Tight", "Inter", system-ui, sans-serif; }
+:root:not([data-theme="light"]) .rp.pfr { --bg: #030f0b; --card: #0b1914; --tint: #0f3328; --tint-2: #1b5a46; --navy-2: #3fc495; }
+.rp .pd-own { display: inline-flex; align-items: center; gap: 7px; font: 600 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; padding: 6px 11px; border-radius: 99px; background: var(--tint); color: var(--navy-2); }
+.rp .pd-own::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.rp .pd-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.rp .pd-chips span { font: 500 14px var(--pop); padding: 8px 14px; border-radius: 99px; background: var(--card); border: 1px solid var(--line); }
+.rp .pd-code { display: block; margin-top: 16px; padding: 14px 16px; border-radius: 12px; background: var(--tint); color: var(--ink); font: 500 clamp(13px, 1.2vw, 15px)/1.5 var(--mono); overflow-x: auto; white-space: nowrap; }
+.rp .pd-code b { color: var(--navy-2); font-weight: 500; }
+.rp .pd-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 24px; }
+.rp .pd-grid2 .board { margin-top: 0; }
+.rp .pd-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 30px; }
+.rp .pd-cards .card { padding: 24px; }
+.rp .pd-cards h3 { font: 600 19px var(--pop); margin-bottom: 8px; }
+.rp .pd-cards p { color: var(--grey); font-size: 15px; }
+.rp .pd-cards i { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; margin-bottom: 14px; background: var(--tint); color: var(--navy-2); font: 600 14px var(--mono); font-style: normal; }
+.rp .pd-phones { display: flex; gap: clamp(14px, 2vw, 26px); margin-top: 30px; overflow-x: auto; padding: 6px 2px 18px; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+.rp .pd-phones figure { flex: 0 0 clamp(180px, 19vw, 250px); scroll-snap-align: start; }
+.rp .pd-phones img { display: block; width: 100%; border-radius: 26px; border: 6px solid #111; background: #111; box-shadow: var(--shadow); }
+.rp .pd-phones figcaption { margin-top: 12px; font-size: 14px; color: var(--grey); }
+.rp .pd-phones figcaption b { display: block; color: var(--ink); font-weight: 600; }
+.rp .pd-brand { display: grid; place-items: center; padding: clamp(30px, 5vw, 70px); border-radius: 22px; margin-top: 24px; }
+.rp .pd-brand img { max-width: min(560px, 100%); }
+.rp .pd-cover { margin-top: clamp(28px, 4vw, 48px); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); }
+.rp .pd-cover img { display: block; width: 100%; }
+.rp .rx-app__icon.pd-lock { width: auto; height: 64px; padding: 12px 16px; border-radius: 16px; background: #0d7a5f; object-fit: contain; }
+@media (max-width: 760px) {
+  .rp .pd-grid2 { grid-template-columns: 1fr; }
+  .rp .pd-phones figure { flex-basis: 62vw; }
+}
