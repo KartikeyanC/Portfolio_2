@@ -83,14 +83,15 @@
       }).join("");
     };
     const rolesText = roles.map((r) => r.replace(/\b\w/g, (m) => m.toUpperCase())).join(" | ");
-    intro.innerHTML = `<div class="cin__dim"></div><div class="cin__h cin__h--top"><p class="cin__name"><span>${splitIn("KARTIKEYAN", 0.05, 0.28)}<sup>™</sup></span></p></div>`
-      + `<div class="cin__h cin__h--bot"><p class="cin__roles">${splitIn(rolesText, 0.12, 0.25)}</p></div>`;
+    intro.innerHTML = `<div class="cin__dim"></div><div class="cin__h cin__h--top"><p class="cin__name"><span>${splitIn("KARTIKEYAN", 0.05, 0.36)}<sup>™</sup></span></p></div>`
+      + `<div class="cin__h cin__h--bot"><p class="cin__roles">${splitIn(rolesText, 0.15, 0.33)}</p></div>`;
     document.body.appendChild(intro);
     document.documentElement.classList.add("is-intro");
-    setTimeout(() => intro.classList.add("is-crack"), 1150);
-    setTimeout(() => { intro.classList.remove("is-crack"); intro.classList.add("is-open"); }, 1550);
-    setTimeout(() => { document.documentElement.classList.remove("is-intro"); if (window.lenis) window.lenis.start(); }, 2300);
-    setTimeout(() => intro.remove(), 3000);
+    // about 30% slower than the first version (user, 16 Nov): letters land, a crack opens, then the halves split
+    setTimeout(() => intro.classList.add("is-crack"), 1650);
+    setTimeout(() => { intro.classList.remove("is-crack"); intro.classList.add("is-open"); }, 2150);
+    setTimeout(() => { document.documentElement.classList.remove("is-intro"); if (window.lenis) window.lenis.start(); }, 3150);
+    setTimeout(() => intro.remove(), 4000);
   }
 
   // Brand mark: fill every .mark with six "k" glyphs
