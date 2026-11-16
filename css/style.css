@@ -4013,10 +4013,9 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .sbento__card--also { background: transparent; box-shadow: inset 0 0 0 1px var(--line); }
 .sbento__card--also h3 { font-size: clamp(20px, 1.6vw, 24px); }
 :root[data-theme="light"] .sbento__card--also { background: transparent; box-shadow: inset 0 0 0 1px rgba(6,6,18,.12); }
-/* CV download: hidden until the PDF exists (main.js), then sits beside the About buttons */
+/* "Request my CV" sits beside the About buttons (the CV itself is sent by email, never published) */
 .about__btns { display: flex; flex-wrap: wrap; gap: 10px; }
 .hero__cv { margin-top: 26px; }
-a[data-cv][hidden] { display: none; } /* .btn sets display, which would otherwise override [hidden] */
 
 /* Contact form: hidden spam trap, and the status / copy panel under the Send button */
 .form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

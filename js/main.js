@@ -191,7 +191,7 @@
       e.preventDefault();
       const f = form.elements, mail = to(), endpoint = (C.site && C.site.formEndpoint) || "";
       if (f["bot-field"] && f["bot-field"].value) return; // spam bots fill the hidden field
-      const subject = `Project enquiry — ${f.service.value} — ${f.name.value}`;
+      const subject = f.service.value === "CV request" ? `CV request — ${f.name.value}` : `Project enquiry — ${f.service.value} — ${f.name.value}`;
       const body = `Hi Kartikeyan,\n\n${f.message.value}\n\nName: ${f.name.value}\nEmail: ${f.email.value}\nService: ${f.service.value}\nTimeline: ${f.timeline.value || "—"}`;
       const viaEmailApp = (lead) => {
         status.dataset.lead = lead;
@@ -1050,18 +1050,6 @@
     book.hidden = false;
   }
 
-  // CV link(s): shown only once the file named in content.json (site.experience.cv) is actually there
-  const cvFile = (S.experience || {}).cv, cvLinks = $$("[data-cv]");
-  if (cvFile && cvLinks.length && /^https?:$/.test(location.protocol)) {
-    fetch(cvFile, { method: "HEAD" }).then((r) => {
-      if (!r.ok || !/pdf/i.test(r.headers.get("content-type") || "")) return;
-      cvLinks.forEach((a) => {
-        a.href = cvFile; a.setAttribute("download", ""); a.textContent = (S.experience || {}).cvLabel || "Download CV";
-        a.hidden = false; const row = a.closest("[data-cv-row]"); if (row) row.hidden = false;
-      });
-    }).catch(() => {});
-  }
-
   // About — bento: quick facts, disciplines and a sliding strip of work (project covers + one tile per craft)
   const factsBox = $('[data-render="facts"]');
   if (factsBox) {
@@ -1331,14 +1319,19 @@
   // Contact page — service dropdown
   const select = $("#serviceSelect");
   if (select) {
-    select.innerHTML = [...C.services.map((s) => [s.name, s.id]), ["Something else", "other"]].map(([n, id]) => `<option data-ic="${esc(id)}">${esc(n)}</option>`).join("");
+    // "CV request": the CV is sent by email to people who ask (it carries a phone number, so it is never a public file)
+    select.innerHTML = [...C.services.map((s) => [s.name, s.id]), ["CV request", "cv"], ["Something else", "other"]].map(([n, id]) => `<option data-ic="${esc(id)}">${esc(n)}</option>`).join("");
     const pre = new URLSearchParams(location.search).get("service");
     if (pre) select.value = pre;
+    const msg = form && form.elements.message, hint = msg ? msg.placeholder : "";
+    const cvHint = () => { if (msg) msg.placeholder = select.value === "CV request" ? "Which role is it for? Company, role and location help me reply with the right CV." : hint; };
+    select.addEventListener("change", cvHint); cvHint();
   }
 
   // Every <select> on the site → a custom dropdown (.dd) that matches the site. The native select stays in the
   // form (hidden) so values, `required` and the mailto code keep working. Keyboard: ↑ ↓ Home End, Enter/Space, Esc, type to jump.
   SVC_ICONS.other = '<path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8"/>';
+  SVC_ICONS.cv = '<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/>';
   const TICK = '<svg class="dd__tick" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
   $$("select").forEach((sel, n) => {
     const opts = [...sel.options], id = "dd" + n;
