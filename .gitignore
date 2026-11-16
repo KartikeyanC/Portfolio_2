@@ -14,3 +14,6 @@ dist/
 
 # Clean (un-watermarked) originals — kept on this computer only; build_single.py watermarks them into assets/images
 _originals/
+
+# Design-check tool cache (impeccable) — local only
+.impeccable/
