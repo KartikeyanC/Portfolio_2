@@ -74,7 +74,7 @@
     // name letters: the first five slide in from the left, the last five from the right, meeting in the centre
     const NAME = "KARTIKEYAN", half = Math.ceil(NAME.length / 2);
     const nameHtml = [...NAME].map((ch, i) => {
-      const left = i < half, n = left ? i : NAME.length - 1 - i; // outer letters lead, inner ones follow
+      const left = i < half, n = left ? half - 1 - i : i - half; // letters nearest the centre lead, so none cross on the way in
       return `<i class="${left ? "is-l" : "is-r"}" style="--d:${(0.05 + n * 0.07).toFixed(2)}s">${ch}</i>`;
     }).join("");
     intro.innerHTML = `<div class="cin__dim"></div><div class="cin__h cin__h--top"><p class="cin__name"><span>${nameHtml}<sup>™</sup></span></p></div>`
