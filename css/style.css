@@ -954,6 +954,14 @@ html:active-view-transition-type(project)::view-transition-new(root) { animation
 /* KARTI slides in from the left, KEYAN from the right, letter by letter, meeting in the centre */
 .cin__name i, .cin__roles i { display: inline-block; font-style: normal; animation: cinFromL .85s cubic-bezier(.2, .8, .2, 1) var(--d, 0s) both; }
 .cin__name i.is-r, .cin__roles i.is-r { animation-name: cinFromR; }
+/* the ™ rides in from the right just behind the last letter (N), then settles with a small pop */
+.cin__name sup { display: inline-block; animation: cinTm 1s cubic-bezier(.2, .8, .2, 1) .4s both; }
+@keyframes cinTm {
+  0% { transform: translateX(55vw); opacity: 0; }
+  65% { transform: translateX(0) scale(.5); opacity: 1; }
+  82% { transform: scale(1.25); }
+  100% { transform: none; }
+}
 @keyframes cinFromL { from { transform: translateX(-55vw); opacity: 0; } }
 @keyframes cinFromR { from { transform: translateX(55vw); opacity: 0; } }
 .cin__name sup { position: relative; top: .3em; margin-left: .06em; font: 600 .24em var(--body); vertical-align: top; }
