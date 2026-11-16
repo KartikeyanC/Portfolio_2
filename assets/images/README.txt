@@ -37,6 +37,11 @@ Each project has its own folder. The folder name is the project's ID (see conten
                        NN-name@1200.jpg = the same poster for the wall. Both are
                        written into posters.html by name, so a new poster also
                        needs a line there.
+                       WATERMARKED: don't put posters here yourself. Drop the clean
+                       poster (NN-name.jpg) into _originals/posters/ at the top of the
+                       project; the build (python build_single.py, or serve.py while it
+                       runs) adds the faint K mark in the middle and writes both files
+                       here. _originals/ stays on this computer (never uploaded).
     sample-brochure/   drop cover.jpg → replaces the drawn "Sample brochure" picture
     sample-deck/       drop cover.jpg → replaces the drawn "Sample company deck" picture
     sample-web/        drop cover.jpg → replaces the drawn "Sample landing page" picture

@@ -82,6 +82,75 @@ def card_covers():
             print(f"  card copy: {out.relative_to(ROOT)}", flush=True)
 
 
+POSTER_SRC = ROOT / "_originals" / "posters"   # clean posters: on this computer only (.gitignore), never published
+POSTER_OUT = IMG / "projects" / "posters"
+POSTER_SMALL = 1200   # NN-name@1200.jpg for the poster wall; NN-name.jpg (full size) for the viewer
+
+
+def _k_mark(size: int, ink, opacity: float):
+    """The site's K mark (same drawing as markSvg() in js/main.js / assets/favicon.svg) as an RGBA image size x size.
+    Drawn 3x bigger and shrunk, so the edges stay smooth."""
+    from PIL import Image, ImageDraw, ImageChops
+    import math
+    ss = size * 3
+    u = ss / 68  # svg viewBox -34 -34 68 68
+    pt = lambda x, y: ((x + 34) * u, (y + 34) * u)
+    hexa = lambda r: [pt(r * math.sin(math.radians(a)), -r * math.cos(math.radians(a))) for a in range(0, 360, 60)]
+    frame = Image.new("L", (ss, ss), 0)
+    ImageDraw.Draw(frame).line(hexa(30) + hexa(30)[:2], fill=255, width=round(4 * u), joint="curve")
+    arms = Image.new("L", (ss, ss), 0)
+    da = ImageDraw.Draw(arms)
+    segs = [((7, -40), (7, -3)), ((9, -21), (23, -46)), ((12, -27), (24, -3))]   # K_ARM
+    for r in range(0, 360, 60):
+        c, s = math.cos(math.radians(r)), math.sin(math.radians(r))
+        for a, b in segs:
+            rot = lambda p: pt(p[0] * c - p[1] * s, p[0] * s + p[1] * c)
+            da.line([rot(a), rot(b)], fill=255, width=round(7 * u))
+    clip = Image.new("L", (ss, ss), 0)
+    ImageDraw.Draw(clip).polygon(hexa(26), fill=255)
+    mask = ImageChops.lighter(frame, ImageChops.multiply(arms, clip)).resize((size, size), Image.LANCZOS)
+    out = Image.new("RGBA", (size, size), ink + (0,))
+    out.putalpha(mask.point(lambda v: round(v * opacity)))
+    return out
+
+
+def watermark_posters():
+    """W6 watermark (chosen 16 Nov): the K mark, large and faint, in the middle of every poster.
+    Drop a clean poster into _originals/posters/ (NN-name.jpg); the build writes the watermarked
+    NN-name.jpg + NN-name@1200.jpg into assets/images/projects/posters/, which is what the site shows.
+    The mark is white on dark posters and near-black on light ones (judged from the middle of the poster).
+    A copy is remade only when its original changes (the original's md5 is kept in the copy's JPEG comment)."""
+    try:
+        from PIL import Image, ImageOps, ImageStat, ImageFilter
+    except ImportError:
+        return
+    import hashlib
+    if not POSTER_SRC.exists():
+        return
+    for src in sorted(f for f in POSTER_SRC.iterdir() if f.suffix.lower() in EXTS and "@" not in f.stem):
+        tag = hashlib.md5(src.read_bytes()).hexdigest().encode()
+        full, small = POSTER_OUT / (src.stem + ".jpg"), POSTER_OUT / f"{src.stem}@{POSTER_SMALL}.jpg"
+        try:
+            if all(Image.open(o).info.get("comment") == tag for o in (full, small)):
+                continue
+        except Exception:
+            pass
+        im = ImageOps.exif_transpose(Image.open(src))
+        if im.mode != "RGB":
+            rgba = im.convert("RGBA"); im = Image.new("RGB", im.size, "white"); im.paste(rgba, mask=rgba.getchannel("A"))
+        w, h = im.size
+        size = round(min(w, h) * 0.34)  # mark box = 34% of the poster width, as in samples/watermark.html
+        x, y = (w - size) // 2, (h - size) // 2
+        light = ImageStat.Stat(im.crop((x, y, x + size, y + size)).convert("L")).mean[0] > 150
+        mark = _k_mark(size, (17, 17, 17) if light else (255, 255, 255), 0.13 if light else 0.18)
+        out = im.convert("RGBA"); out.alpha_composite(mark, (x, y)); out = out.convert("RGB")
+        POSTER_OUT.mkdir(parents=True, exist_ok=True)
+        out.save(full, "JPEG", quality=90, optimize=True, progressive=True, comment=tag)
+        sm = out.resize((POSTER_SMALL, round(h * POSTER_SMALL / w)), Image.LANCZOS).filter(ImageFilter.UnsharpMask(radius=0.6, percent=50, threshold=1))
+        sm.save(small, "JPEG", quality=86, optimize=True, progressive=True, comment=tag)
+        print(f"  watermarked: {full.relative_to(ROOT)} ({'dark' if light else 'white'} mark)", flush=True)
+
+
 def local(src: str):
     """A /assets/... or assets/... path from content.json → the file on disk (or None)."""
     if not src or src.startswith(("data:", "http:", "https:")):
@@ -183,6 +252,7 @@ def page_doc(html: str) -> str:
 
 
 def main(lock=None):
+    watermark_posters()
     card_covers()
     content = embed_content(json.loads((ROOT / "content.json").read_text(encoding="utf-8")))
     css = (ROOT / "css" / "style.css").read_text(encoding="utf-8")
@@ -513,6 +583,7 @@ def sources():
     """Every file that ends up inside the single file."""
     files = [ROOT / p for p in PAGES] + [ROOT / "css" / "style.css", ROOT / "js" / "main.js", ROOT / "js" / "fluid-cursor.js", ROOT / "content.json", ROOT / "assets" / "favicon.svg"]
     files += [f for f in IMG.rglob("*") if f.is_file()] if IMG.exists() else []
+    files += [f for f in POSTER_SRC.iterdir() if f.is_file()] if POSTER_SRC.exists() else []   # a new clean poster → watermark + rebuild
     return files
 
 
