@@ -89,7 +89,7 @@ POSTER_SMALL = 1200   # NN-name@1200.jpg for the poster wall; NN-name.jpg (full 
 # Posters were made lighter on 16 Nov (user: "little light"); the cover stays lighter still. Change a number
 # here and every poster is re-stamped on the next build (the numbers are part of each copy's tag).
 WM_POSTER = (0.12, 0.085)   # was (0.18, 0.13)
-WM_COVER = (0.063, 0.045)
+WM_COVER = (0.03, 0.04)    # cover: white mark 3%, dark mark 4% (user, 16 Nov)
 
 
 def _k_mark(size: int, ink, opacity: float):
