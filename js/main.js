@@ -71,14 +71,20 @@
     try { const c = JSON.parse(window.__SITE_CONTENT__ || sessionStorage.getItem("content-json") || "null"); if (c && Array.isArray(c.roles) && c.roles.length) roles = c.roles; } catch (e) {}
     const intro = document.createElement("div");
     intro.className = "cin"; intro.setAttribute("aria-hidden", "true");
-    // name letters: the first five slide in from the left, the last five from the right, meeting in the centre
-    const NAME = "KARTIKEYAN", half = Math.ceil(NAME.length / 2);
-    const nameHtml = [...NAME].map((ch, i) => {
-      const left = i < half, n = left ? half - 1 - i : i - half; // letters nearest the centre lead, so none cross on the way in
-      return `<i class="${left ? "is-l" : "is-r"}" style="--d:${(0.05 + n * 0.07).toFixed(2)}s">${ch}</i>`;
-    }).join("");
-    intro.innerHTML = `<div class="cin__dim"></div><div class="cin__h cin__h--top"><p class="cin__name"><span>${nameHtml}<sup>™</sup></span></p></div>`
-      + `<div class="cin__h cin__h--bot"><p class="cin__roles">${roles.map((r) => esc(r.replace(/\b\w/g, (m) => m.toUpperCase()))).join(" | ")}</p></div>`;
+    // name + roles letters: the first half slides in from the left, the second half from the right, meeting in the centre.
+    // Letters nearest the centre lead, so none cross on the way in; `spread` is how long the whole stagger takes.
+    // Spaces stay plain text so the roles line can still wrap between words on a phone.
+    const splitIn = (text, start, spread) => {
+      const chars = [...text], half = Math.ceil(chars.length / 2), step = spread / Math.max(1, half - 1);
+      return chars.map((ch, i) => {
+        if (ch === " ") return " ";
+        const left = i < half, n = left ? half - 1 - i : i - half;
+        return `<i class="${left ? "is-l" : "is-r"}" style="--d:${(start + n * step).toFixed(3)}s">${esc(ch)}</i>`;
+      }).join("");
+    };
+    const rolesText = roles.map((r) => r.replace(/\b\w/g, (m) => m.toUpperCase())).join(" | ");
+    intro.innerHTML = `<div class="cin__dim"></div><div class="cin__h cin__h--top"><p class="cin__name"><span>${splitIn("KARTIKEYAN", 0.05, 0.28)}<sup>™</sup></span></p></div>`
+      + `<div class="cin__h cin__h--bot"><p class="cin__roles">${splitIn(rolesText, 0.12, 0.25)}</p></div>`;
     document.body.appendChild(intro);
     document.documentElement.classList.add("is-intro");
     setTimeout(() => intro.classList.add("is-crack"), 1150);
