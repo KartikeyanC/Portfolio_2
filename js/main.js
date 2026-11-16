@@ -950,8 +950,9 @@
       ...(vOn ? VP.map((p, i) => (real(p) ? { href: "/projects.html#video", html: podArt(plain(p), true, i) } : null)).filter(Boolean) : []),
     ];
     if (tiles.length >= 3) {
-      // Each row repeats the tiles until it is wider than big screens, then doubles for a seamless loop
-      const len = Math.max(tiles.length, 8);
+      // Each row repeats the WHOLE set of tiles until it is wider than big screens (at least 8), then doubles for a
+      // seamless loop. Whole sets only: a part-set (7 tiles padded to 8) put the same picture twice side by side.
+      const len = tiles.length * Math.ceil(8 / tiles.length);
       const row = (list) => { const r = Array.from({ length: len }, (_, i) => list[i % list.length]); return `<div class="kwall__row">${[...r, ...r].map((t) => `<a href="${t.href}" tabindex="-1" aria-hidden="true"${t.pic ? " data-pic" : ""}>${t.html}</a>`).join("")}</div>`; };
       // The second row uses a different order (reversed, then every other tile first) so the two rows
       // never show the same pictures stacked on top of each other; CSS also gives it its own speed and start.
