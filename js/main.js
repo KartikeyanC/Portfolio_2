@@ -1281,7 +1281,7 @@
       const dab = (x, y) => {
         const c = document.createElementNS(NS, "circle"), size = Math.max(60, kp.clientWidth * .08);
         c.setAttribute("cx", x.toFixed(1)); c.setAttribute("cy", y.toFixed(1)); c.setAttribute("r", 0);
-        clip.append(c); requestAnimationFrame(() => c.setAttribute("r", (size * (.75 + Math.random() * .6)).toFixed(1)));
+        clip.append(c); requestAnimationFrame(() => { c.setAttribute("r", (size * (.75 + Math.random() * .6)).toFixed(1)); queueNav(); });
         if (++count > 700) { clip.firstElementChild.remove(); count--; }
         kp.classList.add("is-painted");
       };
@@ -1292,7 +1292,24 @@
         for (let t = step; t <= dist; t += step) dab(last.x + (x - last.x) * t / dist, last.y + (y - last.y) * t / dist);
         last = { x, y };
       };
-      kp.addEventListener("pointermove", (e) => { const r = kp.getBoundingClientRect(); paintTo(e.clientX - r.left, e.clientY - r.top); });
+      // Nav items sitting over the blue paint switch to the on-accent colour (white on blue) so they stay readable;
+      // once the nav turns into the solid scrolled pill (or the paint is scrolled away) they go back to normal.
+      const topNav = $(".nav"), navBits = topNav ? $$(".nav__brand, .nav__links > a, .nav__links > .mega-wrap > a, .theme-btn, .nav__cta, .nav__menu", topNav) : [];
+      let navRaf = 0;
+      const navOverPaint = () => {
+        navRaf = 0;
+        const box = kp.getBoundingClientRect(), pill = topNav.classList.contains("is-pill"), dots = pill ? [] : [...clip.children];
+        navBits.forEach((el) => {
+          // test 5 points across the item; it turns white when most of it sits on the paint
+          const r = el.getBoundingClientRect(), y = r.top + r.height / 2 - box.top;
+          const hit = (x) => dots.some((c) => Math.hypot(x - c.cx.baseVal.value, y - c.cy.baseVal.value) < c.r.baseVal.value);
+          const on = !!r.width && [.1, .3, .5, .7, .9].filter((f) => hit(r.left + r.width * f - box.left)).length >= 3;
+          el.classList.toggle("on-paint", on);
+        });
+      };
+      const queueNav = () => { if (topNav && !navRaf) navRaf = requestAnimationFrame(navOverPaint); };
+      addEventListener("scroll", queueNav, { passive: true }); addEventListener("resize", queueNav);
+      kp.addEventListener("pointermove", (e) => { const r = kp.getBoundingClientRect(); paintTo(e.clientX - r.left, e.clientY - r.top); queueNav(); });
       kp.addEventListener("pointerleave", () => (last = null));
       // Nothing paints by itself: the cursor paints on computers; on touch screens a tap drops a blob
       // and a sideways swipe paints a stroke (up/down swipes still scroll the page)

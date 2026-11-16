@@ -59,6 +59,9 @@ img { display: block; max-width: 100%; }
 .nav__links { display: flex; gap: clamp(20px, 5.4vw, 78px); font-size: 14px; letter-spacing: .02em; text-transform: uppercase; }
 .nav__links a { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); transition: color .2s; }
 @media (hover: hover) and (pointer: fine) { .nav__links a:hover { color: var(--acc-text); } }
+/* over the home hero's blue paint (js adds .on-paint per item): white on blue, any theme; back to normal once scrolled */
+:root .nav .on-paint, :root .nav .on-paint:hover { color: var(--on-acc); }
+:root .nav .theme-btn.on-paint, :root .nav .nav__cta.on-paint { border-color: color-mix(in srgb, var(--on-acc) 45%, transparent); }
 .nav__links a[aria-current="page"] { color: var(--ink); font-weight: 600; } /* same colour as the other items, marked by the star + bold (user, 15 Nov: white, not blue) */
 .nav__links a[aria-current="page"]::before { content: ""; width: 14px; height: 14px; background: currentColor;
   clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%); }
