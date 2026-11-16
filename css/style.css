@@ -613,6 +613,38 @@ body, .nav, .panel, .work__frame, .fact, .otw { transition: background-color .35
   --acc: #8b7bff; --acc-rgb: 139 123 255; --acc-deep: #5a45e0;
   --on-acc: #140b4a; --on-acc-2: #241766; --on-fold: #fff;
 }
+/* Coral — a full palette, not just an accent: Coral #F54748 · Ink #1F252E · Blush #FBE9E7.
+   Kept ready for a future update; the live site stays blue until "coral" is picked in /gk.
+   White on coral is only 3.6:1, so coral fills carry dark ink text (#161A21, 4.9:1).
+   Coral as small text: #FF6B6B on the ink page (5.6:1), #C4302F on the blush page (4.7:1). */
+:root[data-accent="coral"] {
+  --acc: #F54748; --acc-rgb: 245 71 72; --acc-deep: #B8292A;
+  --acc-btn: var(--acc); --on-acc: #161A21; --on-btn: #161A21; --on-acc-2: #3a1515; --on-fold: #fff;
+  --acc-text: #FF6B6B;
+}
+:root[data-accent="coral"]:not([data-theme="light"]) {   /* dark theme: ink page, blush text */
+  --bg: #1F252E; --ink: #FBE9E7; --grey: #BDB4B2; --dim: #9E9799;
+  --line: rgba(251, 233, 231, .12); --card: #262D38; --surface: #232A34; --surface-2: #2C3440;
+  --on-ink: #1F252E; --nav-bg: rgba(31, 37, 46, .72); --blob: #2A313C;
+  --field-edge: #7A7C84; --field-edge-hover: #A3A5AC;
+}
+:root[data-accent="coral"][data-theme="light"] {         /* light theme: blush page, white cards, ink text */
+  --bg: #FBE9E7; --ink: #1F252E; --grey: #4D5561; --dim: #646B76;
+  --line: rgba(31, 37, 46, .1); --surface-2: #F6DCD9; --on-ink: #FBE9E7;
+  --nav-bg: rgba(251, 233, 231, .85); --blob: #F6DCD9;
+  --acc-text: #C4302F;
+}
+:root[data-accent="coral"] ::selection { background: var(--acc); color: var(--on-acc); }
+:root[data-accent="coral"] .sticker--green { background: #FBE9E7; color: #1F252E; }   /* stickers + seal moved into the palette */
+:root[data-accent="coral"] .sticker--yellow { background: #FFB4A8; color: #1F252E; }
+:root[data-accent="coral"] .sticker--purple { background: #2C3440; color: #FBE9E7; }
+:root[data-accent="coral"] .seal circle { fill: #1F252E; stroke: #F54748; }
+:root[data-accent="coral"] .seal text { fill: #FBE9E7; }
+:root[data-accent="coral"] .seal__k text { fill: #F54748; }
+/* moving hero glow: the three helper blobs are fixed blues, so give them coral-family tones */
+:root[data-accent="coral"] .glow--live > i:nth-child(2) { background: radial-gradient(circle, rgba(255, 154, 139, .8) 0%, rgba(255, 154, 139, .35) 40%, transparent 68%); }
+:root[data-accent="coral"] .glow--live > i:nth-child(3) { background: radial-gradient(circle, rgba(184, 41, 42, .95) 0%, rgba(184, 41, 42, .4) 45%, transparent 70%); }
+:root[data-accent="coral"] .glow--live > i:nth-child(4) { background: radial-gradient(circle, rgba(255, 180, 168, .7) 0%, transparent 70%); }
 /* Light mode: bright accents get a darker shade wherever they are used as text */
 :root[data-theme="light"]:not([data-accent]), :root[data-theme="light"][data-accent="blue"] { --acc-text: var(--acc); } /* blue TEXT on light: same #1E9BFF as the buttons */
 :root[data-theme="light"][data-accent="lime"] { --acc-text: #5f7a00; }
@@ -1874,7 +1906,8 @@ body:has(.pvc) .nav:not(.is-pill) .nav__links a, body:has(.pvc) .nav:not(.is-pil
 /* "OPEN" / "VIEW" / "SAY HI" cursor: frosted white glass + blue outline instead of the dark glass */
 :root[data-theme="light"] .pcur:not(.is-soon) {
   /* white .82 (was .52) so the label still reads over bright covers (Milton red turned it pink); text darker than the accent, no outer blue haze */
-  color: color-mix(in srgb, var(--acc) 70%, #000); background: rgba(255,255,255,.82); border-color: rgb(var(--acc-rgb) / .7);
+  /* label + outline in the primary blue itself (user, 16 Nov: the darkened 70%-black mix read as navy, "not a primary blue") */
+  color: var(--acc); background: rgba(255,255,255,.82); border-color: var(--acc);
   box-shadow: 0 10px 30px rgba(6,6,18,.18), inset 0 1px 0 rgba(255,255,255,.95), inset 0 0 12px rgb(var(--acc-rgb) / .10);
   -webkit-backdrop-filter: blur(14px) saturate(1.8); backdrop-filter: blur(14px) saturate(1.8); }
 /* Floating pill nav: see-through frosted glass (was 88% solid white) */

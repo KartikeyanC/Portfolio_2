@@ -45,6 +45,7 @@ collections:
                   - { label: "Acid lime", value: lime }
                   - { label: "Signal orange", value: orange }
                   - { label: "Soft violet", value: violet }
+                  - { label: "Coral palette — coral, ink and blush (whole site)", value: coral }
                   - { label: "Custom — use the colour below", value: custom }
               - { label: Custom colour, name: custom, widget: color, allowInput: true, default: "#1e9bff", required: false, hint: "Only used when Accent is Custom. Button and text shades are worked out automatically so text stays readable." }
 

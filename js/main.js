@@ -249,7 +249,7 @@
   // Site colour (set in /gk → content.json "theme"). Presets live in css/style.css;
   // a custom colour gets its button, text and folder shades worked out here.
   const applyTheme = (theme = {}) => {
-    const root = document.documentElement, presets = ["lime", "orange", "violet"];
+    const root = document.documentElement, presets = ["lime", "orange", "violet", "coral"];
     const VARS = ["--acc", "--acc-rgb", "--acc-deep", "--acc-btn", "--on-acc", "--on-acc-2", "--on-btn", "--on-fold", "--acc-text-dark", "--acc-text-light"];
     VARS.forEach((v) => root.style.removeProperty(v));
     let cache = { accent: "", vars: {} };
@@ -1109,9 +1109,10 @@
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
       const gap = 26, R = 150, base = dark() ? "rgba(255,255,255,.1)" : "rgba(6,6,18,.12)";
+      const acc = (getComputedStyle(document.documentElement).getPropertyValue("--acc-rgb").trim() || "30 155 255").split(/[\s,]+/).join(","); // follows the site accent
       for (let y = gap / 2; y < H; y += gap) for (let x = gap / 2; x < W; x += gap) {
         const k = m ? Math.max(0, 1 - Math.hypot(x - m.x, y - m.y) / R) * glow : 0;
-        ctx.fillStyle = k > .02 ? `rgba(30,155,255,${.18 + k * .82})` : base;
+        ctx.fillStyle = k > .02 ? `rgba(${acc},${.18 + k * .82})` : base;
         ctx.beginPath(); ctx.arc(x, y, 1.1 + k * 2.6, 0, 6.283); ctx.fill();
       }
     };
