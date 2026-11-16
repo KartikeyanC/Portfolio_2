@@ -1554,6 +1554,16 @@
         sc.classList.remove("is-on"); run = false;
       });
     });
+    // pointerleave doesn't fire when the page scrolls away under a still mouse or the pointer exits the window,
+    // so re-check what's actually under the pointer and hide the tile if it's no longer over a link.
+    const recheck = () => {
+      if (!sc.classList.contains("is-on")) return;
+      const el = document.elementFromPoint(x, y);
+      if (!el || !el.closest(".soc, .soc-link")) { sc.classList.remove("is-on"); run = false; }
+    };
+    window.addEventListener("scroll", recheck, { passive: true });
+    document.addEventListener("pointerout", (e) => { if (!e.relatedTarget) { sc.classList.remove("is-on"); run = false; } });
+    window.addEventListener("blur", () => { sc.classList.remove("is-on"); run = false; });
   }
 
   // Projects filter
