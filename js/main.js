@@ -71,7 +71,13 @@
     try { const c = JSON.parse(window.__SITE_CONTENT__ || sessionStorage.getItem("content-json") || "null"); if (c && Array.isArray(c.roles) && c.roles.length) roles = c.roles; } catch (e) {}
     const intro = document.createElement("div");
     intro.className = "cin"; intro.setAttribute("aria-hidden", "true");
-    intro.innerHTML = '<div class="cin__dim"></div><div class="cin__h cin__h--top"><p class="cin__name"><span>KARTIKEYAN<sup>™</sup></span></p></div>'
+    // name letters: the first five slide in from the left, the last five from the right, meeting in the centre
+    const NAME = "KARTIKEYAN", half = Math.ceil(NAME.length / 2);
+    const nameHtml = [...NAME].map((ch, i) => {
+      const left = i < half, n = left ? i : NAME.length - 1 - i; // outer letters lead, inner ones follow
+      return `<i class="${left ? "is-l" : "is-r"}" style="--d:${(0.05 + n * 0.07).toFixed(2)}s">${ch}</i>`;
+    }).join("");
+    intro.innerHTML = `<div class="cin__dim"></div><div class="cin__h cin__h--top"><p class="cin__name"><span>${nameHtml}<sup>™</sup></span></p></div>`
       + `<div class="cin__h cin__h--bot"><p class="cin__roles">${roles.map((r) => esc(r.replace(/\b\w/g, (m) => m.toUpperCase()))).join(" | ")}</p></div>`;
     document.body.appendChild(intro);
     document.documentElement.classList.add("is-intro");
