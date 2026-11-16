@@ -446,9 +446,10 @@ body, .nav, .panel, .work__frame, .fact, .otw { transition: background-color .35
    ongoing work gets a light grey glass pill (IN PROGRESS) */
 .pcur { position: fixed; left: 0; top: 0; z-index: 80; pointer-events: none;
   display: flex; align-items: center; gap: 10px; padding: 12px 22px 12px 18px; border-radius: 999px; white-space: nowrap;
-  font-family: var(--clash); font-weight: 700; font-size: 17px; line-height: 1; text-transform: uppercase; letter-spacing: .02em; color: var(--acc);
-  background: rgba(6,12,22,.55); border: 1.5px solid var(--acc);
-  box-shadow: 0 0 22px rgb(var(--acc-rgb) / .45), inset 0 0 12px rgb(var(--acc-rgb) / .18);
+  font-family: var(--clash); font-weight: 700; font-size: 17px; line-height: 1; text-transform: uppercase; letter-spacing: .02em;
+  /* dark theme: solid primary-blue fill + white label (user, 16 Nov: "make it brighter" — the blue text on dark glass looked dim) */
+  color: var(--on-acc); background: var(--acc); border: 1.5px solid rgb(255 255 255 / .35);
+  box-shadow: 0 0 24px rgb(var(--acc-rgb) / .55), 0 8px 22px rgba(0,0,0,.35), inset 0 1px 0 rgb(255 255 255 / .3);
   -webkit-backdrop-filter: blur(12px) saturate(1.4); backdrop-filter: blur(12px) saturate(1.4);
   transform: scale(0); transition: transform .35s cubic-bezier(.2,.7,.2,1); } /* main.js centres it on the cursor at whole pixels (keeps the label sharp) */
 .pcur svg { width: 22px; height: 22px; flex: none; fill: currentColor; }
