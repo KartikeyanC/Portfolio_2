@@ -4079,7 +4079,7 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 /* ===================== Own products: NineFlow + FinRoot case studies (nineflow.html, finroot.html) =====================
    Same RESPAY ".rp .rx" layout, re-coloured per product. Each section carries data-sec and each picture data-item;
    main.js removes the ones switched off in /gk (caseStudy.sections / caseStudy.shots) and renumbers the rest. */
-.rp.pnf { --navy: #ba4500; --navy-rgb: 186 69 0; --navy-2: #d9530a; --tint: #ffe9db; --tint-2: #ffb78a; --pop: "Inter Tight", "Inter", system-ui, sans-serif; }
+.rp.pnf { --navy: #ba4500; --navy-rgb: 186 69 0; --navy-2: #b84705; --tint: #ffe9db; --tint-2: #ffb78a; --pop: "Inter Tight", "Inter", system-ui, sans-serif; }
 :root:not([data-theme="light"]) .rp.pnf { --bg: #0d0704; --card: #1a110b; --tint: #3a1d0c; --tint-2: #6b3413; --navy-2: #ff8a45; }
 .rp.pfr { --navy: #0a5e48; --navy-rgb: 10 94 72; --navy-2: #0d7a5f; --tint: #e3f3ec; --tint-2: #9fd8c1; --pop: "Inter Tight", "Inter", system-ui, sans-serif; }
 :root:not([data-theme="light"]) .rp.pfr { --bg: #030f0b; --card: #0b1914; --tint: #0f3328; --tint-2: #1b5a46; --navy-2: #3fc495; }
