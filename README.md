@@ -31,7 +31,7 @@ npx decap-server
    git remote add origin https://github.com/YOUR-USERNAME/portfolio.git
    git push -u origin main
    ```
-2. **gk/config.yml** — replace `YOUR-GITHUB-USERNAME/portfolio` with your real `username/repository`, commit and push.
+2. **gk/config.yml** — already points at `KartikeyanC/Portfolio_2`. If you move or rename the repository, update `repo:` there.
 3. **Netlify** — sign up with GitHub → *Add new site* → *Import an existing project* → pick the repository → **Deploy** (no build settings needed; `netlify.toml` handles it). Rename the site under *Site configuration → Site details* (e.g. `kartikeyan` → `kartikeyan.netlify.app`).
 4. **Dashboard login** — on GitHub: *Settings → Developer settings → OAuth Apps → New OAuth App*
    - Homepage URL: `https://kartikeyan.netlify.app`

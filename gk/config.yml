@@ -3,7 +3,7 @@
 
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/portfolio   # ← replace with your GitHub username/repository after creating it
+  repo: KartikeyanC/Portfolio_2
   branch: main
   base_url: https://api.netlify.com      # Netlify handles the "Log in with GitHub" step
 

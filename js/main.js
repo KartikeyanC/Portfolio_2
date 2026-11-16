@@ -9,6 +9,14 @@
   const hover = matchMedia("(hover: hover) and (pointer: fine)").matches;
   // Escape text from content.json before putting it into HTML
   const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  // Links typed in /gk: only web (http/https), email (mailto:) and phone (tel:) links or paths on this site.
+  // Anything else, e.g. "javascript:…", becomes "#" so a bad link can never run code.
+  const safeUrl = (u) => {
+    const v = String(u ?? "").trim();
+    const scheme = v.replace(/[\u0000-\u0020]/g, "").match(/^([a-z][a-z0-9+.-]*):/i);
+    return !scheme || /^(https?|mailto|tel)$/i.test(scheme[1]) ? v : "#";
+  };
+  const escUrl = (u) => esc(safeUrl(u));
   const pad = (n) => String(n).padStart(2, "0");
 
   // Brand mark: six "k" strokes turned around the centre, cut to a hexagon and set inside a hexagon frame
@@ -293,7 +301,7 @@
   const mapHref = (place) => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(place);
   const socKey = (x) => String(x.name).toLowerCase().replace(/[^a-z]/g, "");
   const socLogo = (x) => SOC[socKey(x)] ? `<svg viewBox="0 0 24 24" aria-hidden="true">${SOC[socKey(x)][1]}</svg>` : `<b>${esc(x.name[0])}</b>`;
-  const socRow = (x) => `<a class="soc" data-soc="${socKey(x)}" style="--brand:${(SOC[socKey(x)] || ["var(--acc)"])[0]}" href="${esc(x.url)}" target="_blank" rel="noopener">
+  const socRow = (x) => `<a class="soc" data-soc="${socKey(x)}" style="--brand:${(SOC[socKey(x)] || ["var(--acc)"])[0]}" href="${escUrl(x.url)}" target="_blank" rel="noopener">
       <span class="soc__handle">${esc(handle(x))}</span><b><em class="soc__ic">${socLogo(x)}</em><span class="soc__name">${esc(x.name)}${x.note ? `<small>${esc(x.note)}</small>` : ""}</span></b><i aria-hidden="true">↗</i></a>`;
 
 
@@ -325,7 +333,7 @@
       const tickIST = () => { const t = new Date().toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit", timeZone: "Asia/Kolkata" }) + " IST"; clocks.forEach((c) => (c.textContent = t)); };
       tickIST(); setInterval(tickIST, 30000);
     }
-    const tile = (href, brand, logo, name, note, ext = true) => `<a href="${esc(href)}"${ext ? ' target="_blank" rel="noopener"' : ""} style="--brand:${brand}"><span class="fic">${logo}</span><b>${esc(name)}${note ? `<small>${esc(note)}</small>` : ""}</b><span class="arrow" aria-hidden="true">↗</span></a>`;
+    const tile = (href, brand, logo, name, note, ext = true) => `<a href="${escUrl(href)}"${ext ? ' target="_blank" rel="noopener"' : ""} style="--brand:${brand}"><span class="fic">${logo}</span><b>${esc(name)}${note ? `<small>${esc(note)}</small>` : ""}</b><span class="arrow" aria-hidden="true">↗</span></a>`;
     const tiles = [
       ...socials.map((x) => tile(x.url, (SOC[socKey(x)] || ["var(--acc)"])[0], socLogo(x), x.name, x.note)),
       phone ? tile(telHref(phone), PHONE_BRAND, PHONE, phone, "Call me", false) : "",
@@ -333,7 +341,7 @@
     ].join("");
     ft("soc").forEach((el) => { el.innerHTML = tiles; el.closest("[data-ft='elsewhere']").hidden = !tiles; });
     $$('[data-render="socials"]').forEach((el) => {
-      el.innerHTML = "<small>(SOCIALS)</small>" + socials.map((x) => `<a class="soc-link" data-soc="${socKey(x)}" data-logo="${esc(socLogo(x))}" style="--brand:${(SOC[socKey(x)] || ["var(--acc)"])[0]}" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)} ↗</a>`).join("");
+      el.innerHTML = "<small>(SOCIALS)</small>" + socials.map((x) => `<a class="soc-link" data-soc="${socKey(x)}" data-logo="${esc(socLogo(x))}" style="--brand:${(SOC[socKey(x)] || ["var(--acc)"])[0]}" href="${escUrl(x.url)}" target="_blank" rel="noopener">${esc(x.name)} ↗</a>`).join("");
       el.hidden = !socials.length;
     });
   }
@@ -342,9 +350,9 @@
     if (rowsBox) {
       rowsBox.innerHTML = [
         email ? `<a class="soc" ${mailAttrs(email)} href="mailto:${esc(email)}"><span>Email</span><b class="lower">${esc(email)}</b><i aria-hidden="true">↗</i></a>` : "",
-        phone ? `<a class="soc" data-logo="${esc(PHONE)}" style="--brand:${PHONE_BRAND}" href="${esc(telHref(phone))}"><span>Phone</span><b>${esc(phone)}</b><i aria-hidden="true">↗</i></a>` : "",
+        phone ? `<a class="soc" data-logo="${esc(PHONE)}" style="--brand:${PHONE_BRAND}" href="${escUrl(telHref(phone))}"><span>Phone</span><b>${esc(phone)}</b><i aria-hidden="true">↗</i></a>` : "",
         ...socials.map(socRow),
-        S.location ? `<a class="soc" data-logo="${esc(PIN)}" style="--brand:${PIN_BRAND}" href="${esc(mapHref(S.location))}" target="_blank" rel="noopener"><span>Location</span><b>${esc(S.location)}</b><i aria-hidden="true">↗</i></a>` : "",
+        S.location ? `<a class="soc" data-logo="${esc(PIN)}" style="--brand:${PIN_BRAND}" href="${escUrl(mapHref(S.location))}" target="_blank" rel="noopener"><span>Location</span><b>${esc(S.location)}</b><i aria-hidden="true">↗</i></a>` : "",
       ].join("");
     }
   }
@@ -475,7 +483,7 @@
     <span class="otw__status"><i></i>Open to opportunities</span>
     <h3>${esc(W2.title)}</h3>
     <ul>${[["Roles", W2.roles], ["Freelance", W2.freelance], ["Based in", W2.basedIn]].filter(([, v]) => v).map(([k, v]) => `<li><b>${k}:</b> ${esc(v)}</li>`).join("")}</ul>
-    <div class="otw__btns">${W2.buttonUrl ? `<a class="btn" href="${esc(W2.buttonUrl)}" target="_blank" rel="noopener">${esc(W2.buttonLabel || "Connect")} ↗</a>` : ""}<a class="btn btn--ghost" href="/contact.html">Contact</a></div>`;
+    <div class="otw__btns">${W2.buttonUrl ? `<a class="btn" href="${escUrl(W2.buttonUrl)}" target="_blank" rel="noopener">${esc(W2.buttonLabel || "Connect")} ↗</a>` : ""}<a class="btn btn--ghost" href="/contact.html">Contact</a></div>`;
   }
   if (otw && W2.show !== false && footer) {
     let dismissed = false;
@@ -524,7 +532,7 @@
   // view-transition name is added at the moment of that navigation, so e.g. Home → All projects simply fades.
   const hasCase = (p) => !!(p && p.caseStudy && p.caseStudy.show !== false);
   // a project can have its own hand-built case study page (caseStudy.page, e.g. respay.html); otherwise the shared template
-  const caseUrl = (p) => (p.caseStudy && p.caseStudy.page) || `case.html?p=${encodeURIComponent(p.id)}`;
+  const caseUrl = (p) => escUrl((p.caseStudy && p.caseStudy.page) || `case.html?p=${encodeURIComponent(p.id)}`);
   // Brand colours (content.json → project "brand"): the case study CONTENT wears its own project's colours
   // (accent numbers, text, buttons and background) — the site's own parts (top banner, menu, "Start a project",
   // footer) keep the site colour. The "Next project" card wears the NEXT project's colours.
@@ -631,7 +639,7 @@
     else {
       $(".abar__text", abar).textContent = AN.text;
       const l = $(".abar__link", abar);
-      if (AN.link && AN.linkLabel) { l.href = AN.link; l.textContent = AN.linkLabel + " ↗"; } else l.remove();
+      if (AN.link && AN.linkLabel) { l.href = safeUrl(AN.link); l.textContent = AN.linkLabel + " ↗"; } else l.remove();
     }
     onScroll();
   }
@@ -700,10 +708,10 @@
           <h1 class="cs-title">${esc(cs.title || p.name)}</h1>
           ${cs.outcome ? `<p class="cs-outcome"><b>Outcome</b> ${esc(cs.outcome)}</p>` : ""}
           <div class="cs-meta">${[cs.year, ...(cs.tags || p.tags || [])].filter(Boolean).map((t) => `<span>${esc(t)}</span>`).join("")}</div>
-          ${site ? `<a class="btn cs-site" href="${esc(site)}" target="_blank" rel="noopener">${esc(cs.websiteLabel || "Visit website")} ↗</a>` : ""}
+          ${site ? `<a class="btn cs-site" href="${escUrl(site)}" target="_blank" rel="noopener">${esc(cs.websiteLabel || "Visit website")} ↗</a>` : ""}
         </section>
         <div class="cs-shot" data-pic>${coverImg(p, ` style="${shot}" fetchpriority="high" decoding="sync"`, "remove", "")}</div>
-        ${facts.length || site ? `<dl class="cs-facts reveal">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${md(v)}</dd></div>`).join("")}${site ? `<div><dt>${/behance\.net/i.test(site) ? "Behance" : "Website"}</dt><dd><a class="cs-site-link" href="${esc(site)}" target="_blank" rel="noopener">${esc(/behance\.net/i.test(site) ? "Full case study" : siteName)} ↗</a></dd></div>` : ""}</dl>` : ""}
+        ${facts.length || site ? `<dl class="cs-facts reveal">${facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${md(v)}</dd></div>`).join("")}${site ? `<div><dt>${/behance\.net/i.test(site) ? "Behance" : "Website"}</dt><dd><a class="cs-site-link" href="${escUrl(site)}" target="_blank" rel="noopener">${esc(/behance\.net/i.test(site) ? "Full case study" : siteName)} ↗</a></dd></div>` : ""}</dl>` : ""}
         ${cs.background ? `<section class="cs-sec reveal"><small>(${secNo()}) Overview</small><p>${md(cs.background)}</p></section>` : ""}
         ${cs.challenge && !deck.length ? `<section class="cs-sec reveal"><small>(${secNo()}) The challenge</small><p>${md(cs.challenge)}</p></section>` : ""}
         ${goals.length ? `<section class="cs-sec reveal"><small>(${secNo()}) Goals</small><ol class="cs-goals">${goals.map((g) => `<li>${md(g)}</li>`).join("")}</ol></section>` : ""}
@@ -810,7 +818,7 @@
     const media = r.video ? `<video src="${esc(r.video)}"${r.poster ? ` poster="${esc(r.poster)}"` : ""} muted loop playsinline preload="none"></video>`
       : r.poster ? `<img src="${esc(r.poster)}" alt="${esc(r.title)}" loading="lazy" />`
       : autoImg(`${IMG}/video/reels/${i + 1}`, r.title || "", ' loading="lazy"', `<div class="vreel__v" style="--g1:${g1};--g2:${g2}">${person("#0b0b0b", "rgba(255,255,255,.35)")}</div><div class="vreel__bar"><i></i></div><div class="vreel__cap" aria-hidden="true"><span>${REEL_WORDS[0]}</span></div>`);
-    const meta = mini ? "" : `<div class="vreel__meta">${r.handle ? `<b>${esc(r.handle)}</b>` : ""}${esc(r.title)}${r.did ? `<br /><span style="opacity:.8">${esc(r.did)}</span>` : ""}${r.link ? `<br /><a class="vreel__go" href="${esc(r.link)}" target="_blank" rel="noopener">Watch ↗</a>` : ""}</div>`;
+    const meta = mini ? "" : `<div class="vreel__meta">${r.handle ? `<b>${esc(r.handle)}</b>` : ""}${esc(r.title)}${r.did ? `<br /><span style="opacity:.8">${esc(r.did)}</span>` : ""}${r.link ? `<br /><a class="vreel__go" href="${escUrl(r.link)}" target="_blank" rel="noopener">Watch ↗</a>` : ""}</div>`;
     return `<div class="vreel" data-reel="${i}">${media}${vBadge(r)}${r.video && !mini ? '<button class="vreel__snd" type="button" aria-label="Turn sound on">🔇</button>' : ""}${meta}</div>`;
   };
   const ytId = (u) => { const m = String(u || "").match(/(?:youtu\.be\/|[?&]v=|shorts\/|embed\/|live\/)([\w-]{11})/); return m ? m[1] : ""; };
@@ -823,7 +831,7 @@
   // Same frame as the project cards: tag pills on the top edge, rounded frame, name in the notch (↗)
   const framed = (tags, inner, name, { el = "div", attrs = "", href = "" } = {}) => {
     const nm = `<span class="work__label">${esc(name)}</span> <i aria-hidden="true">↗</i>`;
-    return `<${el} class="work work--v" ${attrs}><div class="work__tags">${tags.filter(Boolean).map((t) => `<span>${esc(t)}</span>`).join("")}</div><div class="work__frame"><div class="work__img">${inner}</div>${href ? `<a class="work__name" href="${esc(href)}"${/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : ""}>${nm}</a>` : `<span class="work__name">${nm}</span>`}</div></${el}>`;
+    return `<${el} class="work work--v" ${attrs}><div class="work__tags">${tags.filter(Boolean).map((t) => `<span>${esc(t)}</span>`).join("")}</div><div class="work__frame"><div class="work__img">${inner}</div>${href ? `<a class="work__name" href="${escUrl(href)}"${/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : ""}>${nm}</a>` : `<span class="work__name">${nm}</span>`}</div></${el}>`;
   };
   const plain = (x) => ({ ...x, sample: false }); // "Sample" moves from the corner badge into the tag pills
 
@@ -873,7 +881,7 @@
       const close = () => { lb.classList.remove("is-on"); if (opener) opener.focus(); };
       $$(".vthumbs > button", videoBox).forEach((b) => b.addEventListener("click", () => {
         const i = +b.dataset.t, t = VT[i]; opener = b;
-        $(".vlb__in", lb).innerHTML = thumbArt(t, i) + `<p><span>${esc(t.title)}</span>${t.link ? `<a class="btn" href="${esc(t.link)}" target="_blank" rel="noopener">Watch video ↗</a>` : ""}</p>`;
+        $(".vlb__in", lb).innerHTML = thumbArt(t, i) + `<p><span>${esc(t.title)}</span>${t.link ? `<a class="btn" href="${escUrl(t.link)}" target="_blank" rel="noopener">Watch video ↗</a>` : ""}</p>`;
         lb.classList.add("is-on"); $(".vlb__close", lb).focus();
       }));
       lb.addEventListener("click", (e) => { if (e.target === lb || e.target.closest(".vlb__close")) close(); });
@@ -999,11 +1007,11 @@
   const accBox = $("#workPanels");
   if (accBox) {
     const items = workItems(realProjects.filter((p) => p.featured));
-    accBox.innerHTML = items.map((it, i) => `<article class="acc__p${i ? "" : " is-open"}" data-href="${esc(it.href)}" aria-label="${esc(it.title)}">
+    accBox.innerHTML = items.map((it, i) => `<article class="acc__p${i ? "" : " is-open"}" data-href="${escUrl(it.href)}" aria-label="${esc(it.title)}">
       <div class="acc__pic">${itemPic(it)}</div>
       <span class="acc__peek" aria-hidden="true">${pad(i + 1)} — ${esc(it.label)}</span>
       <div class="acc__body"><span class="acc__eyebrow">${pad(i + 1)} — ${esc(it.eyebrow)}</span><h3 class="acc__title">${esc(it.title)}</h3><p class="acc__desc">${esc(it.desc)}</p>
-        <div class="acc__tags">${it.tags.map((t) => `<span>${esc(t)}</span>`).join("")}<a class="acc__go" href="${esc(it.href)}" aria-label="Open ${esc(it.title)}">↗</a></div></div></article>`).join("");
+        <div class="acc__tags">${it.tags.map((t) => `<span>${esc(t)}</span>`).join("")}<a class="acc__go" href="${escUrl(it.href)}" aria-label="Open ${esc(it.title)}">↗</a></div></div></article>`).join("");
     const panels = $$(".acc__p", accBox);
     const openP = (p) => panels.forEach((x) => x.classList.toggle("is-open", x === p));
     panels.forEach((p) => {
@@ -1030,7 +1038,7 @@
       const body = !i
         ? `<h3>Index</h3><table><tr><th>Project</th><th>Page no.</th></tr>${pages.slice(1).map((q, j) => `<tr data-go="${j + 1}" tabindex="0"><td>${esc(q.tab)}</td><td>${pad(j + 1)}</td></tr>`).join("")}</table>`
         : p.soon ? `<span class="pg-no">Page ${pad(i)}</span><h3 class="pg-h">Next up</h3><p>Posters, brochures and company decks are the next pages in this book. Check back in a bit…</p><a class="pg-open" href="contact.html">Have one in mind? ↗</a>`
-        : `<span class="pg-no">Page ${pad(i)} · ${esc(p.it.eyebrow)}</span><h3 class="pg-h">${esc(p.it.title)}</h3><div class="pg-pic">${itemPic(p.it)}</div><p>${esc(p.it.desc)}</p><a class="pg-open" href="${esc(p.it.href)}">Open ↗</a>`;
+        : `<span class="pg-no">Page ${pad(i)} · ${esc(p.it.eyebrow)}</span><h3 class="pg-h">${esc(p.it.title)}</h3><div class="pg-pic">${itemPic(p.it)}</div><p>${esc(p.it.desc)}</p><a class="pg-open" href="${escUrl(p.it.href)}">Open ↗</a>`;
       $$("button", tabs).forEach((b, j) => { b.classList.toggle("is-on", j === i); b.setAttribute("aria-selected", j === i); });
       const swap = () => { page.innerHTML = body + nav; };
       if (anim && !reduce) { page.classList.remove("is-flip"); void page.offsetWidth; page.classList.add("is-flip"); setTimeout(swap, 250); } else swap();
@@ -1066,7 +1074,7 @@
   const rollBox = $('[data-render="roll"]');
   if (rollBox) {
     const tiles = [
-      ...realProjects.map((p) => `<a href="${esc(projHref(p))}" tabindex="-1">${coverImg(p, ' loading="lazy"', `<span class="abento__ph">${esc(p.name)}</span>`)}</a>`),
+      ...realProjects.map((p) => `<a href="${escUrl(projHref(p))}" tabindex="-1">${coverImg(p, ' loading="lazy"', `<span class="abento__ph">${esc(p.name)}</span>`)}</a>`),
       ...C.services.map((s) => `<span class="abento__ph">${svgIc(s.id)}${esc(s.name)}</span>`),
     ];
     const set = tiles.map((t, i) => t.replace(/^<(a|span)/, `<$1 style="--r:${[-1.5, 1, -0.5, 1.5, -1][i % 5]}deg"`)).join("");
@@ -1081,7 +1089,7 @@
   if (kcMail && email) { kcMail.href = "mailto:" + email; kcMail.textContent = email; }
   const kcRows = $('[data-render="kc-rows"]');
   if (kcRows) {
-    const row = (href, brand, logo, name, note, ext = true) => `<a href="${esc(href)}"${ext ? ' target="_blank" rel="noopener"' : ""} style="--b:${brand}"><span class="kc__ic" aria-hidden="true">${logo}</span><span><b>${esc(name)}</b>${note ? `<small>${esc(note)}</small>` : ""}</span><em aria-hidden="true">↗</em></a>`;
+    const row = (href, brand, logo, name, note, ext = true) => `<a href="${escUrl(href)}"${ext ? ' target="_blank" rel="noopener"' : ""} style="--b:${brand}"><span class="kc__ic" aria-hidden="true">${logo}</span><span><b>${esc(name)}</b>${note ? `<small>${esc(note)}</small>` : ""}</span><em aria-hidden="true">↗</em></a>`;
     kcRows.innerHTML = [
       email ? row("mailto:" + email, /@gmail\.com$/i.test(email) ? "#ea4335" : "var(--acc)", MAIL, "Email", "Best for project briefs", false) : "",
       phone ? row(telHref(phone), PHONE_BRAND, PHONE, phone, "Call me", false) : "",
@@ -1165,7 +1173,7 @@
     const open = (it, from) => {
       back = from;
       $(".xlb__vis", lb).innerHTML = it.pic ? it.pic.replace(' loading="lazy"', "").replace(/ srcset="[^"]*" sizes="[^"]*"/, "") : ART[it.art]; // big lightbox: the full cover
-      $(".xlb__foot", lb).innerHTML = `<div><b>${esc(it.name)}</b><small>${esc(it.kind)}${it.sample ? " · sample" : ""}</small></div><p>${esc(it.text)}</p><a class="btn" href="${esc(it.href)}">${esc(it.go)}</a>`;
+      $(".xlb__foot", lb).innerHTML = `<div><b>${esc(it.name)}</b><small>${esc(it.kind)}${it.sample ? " · sample" : ""}</small></div><p>${esc(it.text)}</p><a class="btn" href="${escUrl(it.href)}">${esc(it.go)}</a>`;
       lb.classList.add("is-on"); if (window.lenis) window.lenis.stop(); $(".xlb__x", lb).focus();
     };
     workTiles.addEventListener("click", (e) => { const t = e.target.closest(".xw__tile"); if (t) open(items[+t.dataset.i], t); });
@@ -1212,7 +1220,7 @@
   }
   // P8 #pvSignoff: email (if shown) + social links under the one-line sign-off
   const pvSign = $("#pvSignoff");
-  if (pvSign) pvSign.innerHTML = [email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>` : `<a href="contact.html">Start a project</a>`, ...socials.map((x) => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>`)].join("");
+  if (pvSign) pvSign.innerHTML = [email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>` : `<a href="contact.html">Start a project</a>`, ...socials.map((x) => `<a href="${escUrl(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>`)].join("");
 
   // Eyes (Home hero + Contact): pupils look at the pointer and blink now and then
   const eyeSets = $$("[data-eyes]");
