@@ -1,6 +1,18 @@
-# Netlify hosting: the site is plain static files, so there is no build step.
+# Netlify hosting. publish.py copies only the public site into _site/ (no build tools, notes or test pages)
+# and writes _site/_headers with each page's Content-Security-Policy.
 [build]
-  publish = "."
+  command = "python3 publish.py"
+  publish = "_site"
+
+# Security headers for every file
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    Cross-Origin-Opener-Policy = "same-origin-allow-popups"
 
 # Always fetch the latest content after an edit in /gk
 [[headers]]

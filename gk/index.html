@@ -9,6 +9,8 @@
 </head>
 <body>
   <!-- gk: content dashboard (Decap CMS). Forms are defined in gk/config.yml and edit /content.json -->
-  <script src="https://unpkg.com/decap-cms@^3.6.0/dist/decap-cms.js"></script>
+  <!-- Pinned version + integrity hash: the browser refuses the file if unpkg ever serves anything else.
+       To upgrade: change the version, then recompute the hash (openssl dgst -sha384 -binary decap-cms.js | openssl base64 -A). -->
+  <script src="https://unpkg.com/decap-cms@3.17.3/dist/decap-cms.js" integrity="sha384-RWRzuHfiZSWCt3nEvG7B0v3cMgM1C2UuJmgBSL92GQh4uXmNSkbcthql/mNBqvjr" crossorigin="anonymous"></script>
 </body>
 </html>

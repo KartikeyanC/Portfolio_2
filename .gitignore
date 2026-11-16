@@ -17,3 +17,6 @@ _originals/
 
 # Design-check tool cache (impeccable) — local only
 .impeccable/
+
+# Publish output (publish.py) — rebuilt by Netlify on every deploy
+_site/

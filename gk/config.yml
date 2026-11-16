@@ -58,7 +58,7 @@ collections:
             fields:
               - { label: Email, name: email, widget: string }
               - { label: Show email on the website, name: showEmail, widget: boolean, default: false, hint: "Off = hidden in the footer, menu and Contact page. The contact form still sends to this email." }
-              - { label: Phone, name: phone, widget: string, hint: "Shown as written, e.g. +91 9488584561" }
+              - { label: Phone, name: phone, widget: string, hint: "Shown as written, e.g. +91 98765 43210. Anything typed here is public (it is saved in content.json, which anyone can download), even with Show switched off" }
               - { label: Show phone on the website, name: showPhone, widget: boolean, default: false }
               - { label: Location, name: location, widget: string }
               - label: Social links
