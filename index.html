@@ -88,12 +88,22 @@
     </div>
     </div>
 
+    <!-- 01 · Work (first, so the work is the first thing after the hero) -->
+    <section class="section" id="work">
+      <div class="meta"><span>01</span><span>Portfolio</span><span>Recent work</span></div>
+      <h2 class="heading">Selected works</h2>
+      <!-- Project grid — filled from content.json "projects" (featured). Hover shows "View project" or "Coming soon".
+           (The kokiltamta.in expanding panels are hidden for now: put back <div class="acc" id="workPanels"></div> to show them) -->
+      <div class="pgrid" id="featuredProjects"></div>
+      <p class="pgrid__more"><a class="btn btn--ghost" href="projects.html">All projects ↗</a></p>
+    </section>
+
     <!-- Wall of work (like kraftbase.com): two rows sliding opposite ways — filled from content.json projects + video thumbnails; hovering a row pauses only that row -->
     <section class="kwall" id="workWall" aria-label="A wall of my work" hidden></section>
 
-    <!-- 01 · About -->
+    <!-- 02 · About -->
     <section class="section">
-      <div class="meta"><span>01</span><span>About</span><span>Me</span></div>
+      <div class="meta"><span>02</span><span>About</span><span>Me</span></div>
       <h2 class="heading">About</h2>
       <!-- Dot grid behind the About text: dots near the cursor grow and light up blue (idea from kokiltamta.in) -->
       <div class="about about--grid">
@@ -101,7 +111,7 @@
         <div class="about__art reveal" aria-hidden="true"><span class="mark mark--spin"></span></div>
         <div class="reveal">
           <p class="about__text" data-md="pages.home.about" data-fill>I'm <strong>Kartikeyan C</strong>, a product &amp; UI/UX designer <em>who blends clear thinking with visual craft</em> — from interfaces and brand identities to motion. I measure my work by what it helps people achieve.</p>
-          <p style="margin-top:28px"><a class="btn" href="about.html">More about me ↗</a></p>
+          <p style="margin-top:28px" class="about__btns"><a class="btn" href="about.html">More about me ↗</a><a class="btn btn--ghost" data-cv hidden>Download CV</a></p>
         </div>
       </div>
       <!-- Tilted sticker facts (only real, countable things) -->
@@ -117,16 +127,6 @@
           <g class="seal__k"><text x="60" y="72" text-anchor="middle">K</text></g>
         </svg>
       </div>
-    </section>
-
-    <!-- 02 · Work -->
-    <section class="section" id="work">
-      <div class="meta"><span>02</span><span>Portfolio</span><span>Recent work</span></div>
-      <h2 class="heading">Selected works</h2>
-      <!-- Project grid — filled from content.json "projects" (featured). Hover shows "View project" or "Coming soon".
-           (The kokiltamta.in expanding panels are hidden for now: put back <div class="acc" id="workPanels"></div> to show them) -->
-      <div class="pgrid" id="featuredProjects"></div>
-      <p class="pgrid__more"><a class="btn btn--ghost" href="projects.html">All projects ↗</a></p>
     </section>
 
     <!-- Showreel (idea from kraftbase.com): a giant SHOWREEL word, the video card rises over it as you scroll.

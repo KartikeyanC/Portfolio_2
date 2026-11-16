@@ -86,9 +86,11 @@
               <div><dt>Based in:</dt><dd><span data-bind="site.location">Chennai, India</span> · open to remote</dd></div>
               <div><dt>I work on:</dt><dd>Product design, UI/UX, logo &amp; brand, motion and video editing</dd></div>
             </dl>
-            <p class="brief__note" id="formNote" aria-live="polite">Sending opens your email app with the message ready to go.</p>
+            <p class="brief__note" id="formNote">Sending opens your email app with the message ready to go. No email app? You can copy the message instead.</p>
           </div>
-          <form class="form form--brief" id="contactForm">
+          <form class="form form--brief" id="contactForm" name="brief" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="brief" />
+            <p class="form__trap" aria-hidden="true"><label>Leave this empty<input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
             <label>Name or company*<input name="name" autocomplete="name" placeholder="Your name" required /></label>
             <label>Email*<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required /></label>
             <label class="half">Service
@@ -97,6 +99,7 @@
             <label class="half">Timeline<input name="timeline" placeholder="e.g. 4 weeks" /></label>
             <label>Message*<textarea name="message" placeholder="Tell me about your project" required></textarea></label>
             <button class="btn" type="submit">Send a message</button>
+            <div class="form__status" id="formStatus" role="status" aria-live="polite" hidden></div>
           </form>
         </div>
       </div>

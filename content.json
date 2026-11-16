@@ -1,24 +1,23 @@
 {
   "pages": {
     "home": {
-      "about": "I'm **Kartikeyan C**, a product & UI/UX designer *who blends clear thinking with visual craft* — from interfaces and brand identities to motion. I measure my work by what it helps people achieve.",
+      "about": "I'm **Kartikeyan C**, a product & UI/UX designer with **14+ years** of experience *who blends clear thinking with visual craft* — from interfaces and brand identities to motion. I work full-time and take on freelance projects, and I measure my work by what it helps people achieve.",
       "disciplines": [
         "Product design",
         "UI/UX design",
-        "Graphic design",
-        "Motion design",
-        "Video editing",
         "Design systems",
-        "Prototyping"
+        "Prototyping",
+        "Brand identity",
+        "Motion design"
       ],
       "skills": [
         "User research",
+        "User flows",
         "Wireframes",
         "Interaction design",
-        "Branding",
-        "Animation",
-        "Thumbnails",
-        "Usability testing"
+        "Usability testing",
+        "Design handoff",
+        "Branding"
       ]
     },
     "about": {
@@ -30,7 +29,7 @@
         },
         {
           "label": "Recruiters",
-          "text": "I'm a **product & UI/UX designer** who can take work from research and flows to polished UI — plus logo and motion design. Based in Chennai and happy to talk about roles, on-site or remote."
+          "text": "I'm a **product & UI/UX designer with 14+ years of experience**, taking work from research and flows to polished UI — plus logo and motion design. I work full-time and take on freelance projects; based in Chennai and happy to talk about roles, on-site or remote."
         },
         {
           "label": "Product teams",
@@ -71,10 +70,10 @@
       ]
     },
     "projects": {
-      "lead": "Selected projects across UI/UX, product, brand identity and video."
+      "lead": "Product, UI/UX and brand identity work — case studies from research to shipped screens."
     },
     "services": {
-      "lead": "Five crafts, one goal — products, brands and content that are clear, consistent and a joy to use."
+      "lead": "Product and UI/UX design first, backed by brand and motion craft — one goal: products that are clear, consistent and a joy to use."
     },
     "contact": {
       "lead": "Have a product, brand or idea? Tell me a little about it and I'll get back to you.",
@@ -151,7 +150,14 @@
       "basedIn": "Chennai, India · open to remote",
       "buttonLabel": "Connect on LinkedIn",
       "buttonUrl": "https://www.linkedin.com/in/kartikeyanc/"
-    }
+    },
+    "experience": {
+      "years": "14+",
+      "work": "Full-time & freelance",
+      "cv": "assets/kartikeyan-cv.pdf",
+      "cvLabel": "Download CV"
+    },
+    "formEndpoint": ""
   },
   "theme": {
     "accent": "blue",
@@ -202,148 +208,6 @@
     "line2": "something amazing"
   },
   "projects": [
-    {
-      "alt": "Milton e-commerce website design: home page with product category icons, search, a “Keep It Hot” campaign hero, the Fame Thermosteel bottle offer and sub-brand logos",
-      "name": "Milton",
-      "featured": true,
-      "status": "live",
-      "tags": [
-        "E-commerce",
-        "UI/UX"
-      ],
-      "caseStudy": {
-        "show": true,
-        "title": "Redesigning Milton's online store",
-        "client": "Self-initiated redesign",
-        "year": "",
-        "role": "UI/UX design: wireframe, layout grid and high-fidelity UI",
-        "tools": [],
-        "tags": [
-          "UI/UX design",
-          "E-commerce",
-          "Website"
-        ],
-        "background": "**Milton** sells bottles, flasks, lunch boxes, cookware, storage and kitchen appliances, alongside its sister brands **Treo, Spotzero and Milton ProCook**. This is a *self-initiated redesign* of its online store: I designed the home page and a product page, from a low-fidelity wireframe to high-fidelity UI.",
-        "challenge": "A catalogue this wide is hard to shop. Someone looking for a lunch box has to get past bottles, cookware and appliances, and offers get lost in the noise. The challenge I set myself: put every category **one tap from the home page**, let shoppers see the **price, the saving and the next step** on every card, and keep Milton's bold red brand.",
-        "goals": [
-          "Every product category one tap away from the home page",
-          "Price, MRP and saving readable at a glance on every card",
-          "New launches, deals and best sellers easy to tell apart",
-          "A product page that answers colour, size and delivery before checkout",
-          "Keep Milton's confident red brand look"
-        ],
-        "stats": [
-          {
-            "value": "13",
-            "label": "product categories, one tap away"
-          },
-          {
-            "value": "2",
-            "label": "page types designed: home and product"
-          },
-          {
-            "value": "3",
-            "label": "stages: wireframe, grid, high-fidelity UI"
-          }
-        ],
-        "process": [
-          {
-            "title": "Low-fidelity wireframe",
-            "image": "/assets/images/projects/milton/process-wireframe.jpg",
-            "text": "I blocked out the home page first: search and account links on top, a row of category tiles, then the campaign hero next to a featured product. The angled section dividers that run through the final design were already part of this stage."
-          },
-          {
-            "title": "Layout grid",
-            "image": "/assets/images/projects/milton/process-grid.jpg",
-            "text": "Every section sits on one column grid, so category tiles, product cards and banners line up from the header down to the footer."
-          },
-          {
-            "title": "High-fidelity UI",
-            "image": "/assets/images/projects/milton/process-ui.jpg",
-            "text": "Real products, prices and Milton's red turned the wireframe into a long, shoppable home page: campaign, new launches, deals and category shelves, then reviews and a full footer."
-          }
-        ],
-        "features": [
-          {
-            "label": "Navigation",
-            "title": "Every category, one tap away",
-            "image": "/assets/images/projects/milton/decision-nav.jpg",
-            "text": "A row of 13 line-icon category tiles, from Hot & Cold Bottles and Office Lunch Boxes to Cleaning Products, plus All Products, right under the search bar. Login, Cart and Wishlist stay in the top corner."
-          },
-          {
-            "label": "Campaign hero",
-            "title": "The story and the offer, side by side",
-            "image": "/assets/images/projects/milton/decision-hero.jpg",
-            "text": "“Keep It Hot: keep your drink hot or cold for hours” sits next to a featured product, the Fame Thermosteel Bottle at ₹1,082 with the ₹1,280 MRP struck through, so the hero sells as well as it tells."
-          },
-          {
-            "label": "Product cards",
-            "title": "Price and saving first",
-            "image": "/assets/images/projects/milton/decision-cards.jpg",
-            "text": "Each card leads with the selling price in red, the MRP struck through and a yellow “% off” badge, plus the size and a “New Launch” tag where it helps."
-          },
-          {
-            "label": "Shelves",
-            "title": "A long catalogue in small groups",
-            "image": "/assets/images/projects/milton/decision-shelves.jpg",
-            "text": "Top Deals, Trending Bottles, Top Selling Lunchboxes, Cookware and Electrical shelves, broken up by bold category banners, so the page reads as small, scannable groups instead of one endless grid."
-          },
-          {
-            "label": "Product page",
-            "title": "Answers before checkout",
-            "image": "/assets/images/projects/milton/decision-product.jpg",
-            "text": "Colour swatches, size chips from 350 ml to 1000 ml, quantity, Add to Cart and Shop Now, plus a PIN-code check that shows the expected delivery day."
-          },
-          {
-            "label": "Trust",
-            "title": "Reasons to buy",
-            "image": "/assets/images/projects/milton/decision-reviews.jpg",
-            "text": "A short “Why choose us” list and reviews from verified buyers, with star ratings, close the page before the footer."
-          }
-        ],
-        "screens": [
-          {
-            "label": "Home page",
-            "image": "/assets/images/projects/milton/screen-home.jpg"
-          },
-          {
-            "label": "Product page",
-            "image": "/assets/images/projects/milton/screen-product.jpg"
-          }
-        ],
-        "gallery": [],
-        "galleryTitle": "",
-        "deliverables": [
-          "Low-fidelity wireframe",
-          "Layout grid",
-          "Home page (desktop)",
-          "Product page (desktop)"
-        ],
-        "outcome": ""
-      },
-      "type": "E-commerce website",
-      "link": "contact.html?service=UI%2FUX%20design",
-      "id": "milton",
-      "image": "",
-      "filters": [
-        "uiux",
-        "product"
-      ],
-      "description": "A self-initiated redesign of Milton's online store: every category one tap away, prices and savings up front, and a product page that answers colour, size and delivery before checkout.",
-      "category": "UI/UX",
-      "brand": {
-        "accent": "#D11F25",
-        "inkLight": "#C21C22",
-        "inkDark": "#FF6B6F",
-        "onAccent": "#FFFFFF",
-        "bgLight": "#FBF4F3",
-        "bgDark": "#0D0606",
-        "card": "#D11F25",
-        "cardInk": "#FFFFFF",
-        "cardBtn": "#FFFFFF",
-        "cardBtnInk": "#C21C22"
-      }
-    },
     {
       "alt": "Nexura logo: a hexagonal 'N' mark above the NEXURA wordmark and the tagline 'Creating Intelligent Solutions', white on dark brown",
       "name": "Nexura",
@@ -440,7 +304,7 @@
           "Mockups: ID card, office glass, bottle, exhibition stand, business cards",
           "Website: 25 pages, designed and built (HTML, CSS, JavaScript)"
         ],
-        "outcome": "",
+        "outcome": "Shipped the Nexura identity — a hexagon that hides all six letters — and a 25-page website I designed and built.",
         "websiteLabel": "Visit nexurainfotech.com"
       },
       "type": "Brand identity & website",
@@ -622,7 +486,7 @@
           "Low and mid-fidelity wireframes",
           "90+ high-fidelity screens and a prototype"
         ],
-        "outcome": "",
+        "outcome": "90+ screens and a prototype in 14 weeks, from research to high-fidelity UI.",
         "slides": [
           "/assets/images/projects/respay/slides/02.jpg",
           "/assets/images/projects/respay/slides/03.jpg",
@@ -667,6 +531,148 @@
         "cardInk": "#FFFFFF",
         "cardBtn": "#FFFFFF",
         "cardBtnInk": "#232F93"
+      }
+    },
+    {
+      "alt": "Milton e-commerce website design: home page with product category icons, search, a “Keep It Hot” campaign hero, the Fame Thermosteel bottle offer and sub-brand logos",
+      "name": "Milton",
+      "featured": true,
+      "status": "live",
+      "tags": [
+        "E-commerce",
+        "UI/UX"
+      ],
+      "caseStudy": {
+        "show": true,
+        "title": "Redesigning Milton's online store",
+        "client": "Self-initiated redesign",
+        "year": "",
+        "role": "UI/UX design: wireframe, layout grid and high-fidelity UI",
+        "tools": [],
+        "tags": [
+          "UI/UX design",
+          "E-commerce",
+          "Website"
+        ],
+        "background": "**Milton** sells bottles, flasks, lunch boxes, cookware, storage and kitchen appliances, alongside its sister brands **Treo, Spotzero and Milton ProCook**. This is a *self-initiated redesign* of its online store: I designed the home page and a product page, from a low-fidelity wireframe to high-fidelity UI.",
+        "challenge": "A catalogue this wide is hard to shop. Someone looking for a lunch box has to get past bottles, cookware and appliances, and offers get lost in the noise. The challenge I set myself: put every category **one tap from the home page**, let shoppers see the **price, the saving and the next step** on every card, and keep Milton's bold red brand.",
+        "goals": [
+          "Every product category one tap away from the home page",
+          "Price, MRP and saving readable at a glance on every card",
+          "New launches, deals and best sellers easy to tell apart",
+          "A product page that answers colour, size and delivery before checkout",
+          "Keep Milton's confident red brand look"
+        ],
+        "stats": [
+          {
+            "value": "13",
+            "label": "product categories, one tap away"
+          },
+          {
+            "value": "2",
+            "label": "page types designed: home and product"
+          },
+          {
+            "value": "3",
+            "label": "stages: wireframe, grid, high-fidelity UI"
+          }
+        ],
+        "process": [
+          {
+            "title": "Low-fidelity wireframe",
+            "image": "/assets/images/projects/milton/process-wireframe.jpg",
+            "text": "I blocked out the home page first: search and account links on top, a row of category tiles, then the campaign hero next to a featured product. The angled section dividers that run through the final design were already part of this stage."
+          },
+          {
+            "title": "Layout grid",
+            "image": "/assets/images/projects/milton/process-grid.jpg",
+            "text": "Every section sits on one column grid, so category tiles, product cards and banners line up from the header down to the footer."
+          },
+          {
+            "title": "High-fidelity UI",
+            "image": "/assets/images/projects/milton/process-ui.jpg",
+            "text": "Real products, prices and Milton's red turned the wireframe into a long, shoppable home page: campaign, new launches, deals and category shelves, then reviews and a full footer."
+          }
+        ],
+        "features": [
+          {
+            "label": "Navigation",
+            "title": "Every category, one tap away",
+            "image": "/assets/images/projects/milton/decision-nav.jpg",
+            "text": "A row of 13 line-icon category tiles, from Hot & Cold Bottles and Office Lunch Boxes to Cleaning Products, plus All Products, right under the search bar. Login, Cart and Wishlist stay in the top corner."
+          },
+          {
+            "label": "Campaign hero",
+            "title": "The story and the offer, side by side",
+            "image": "/assets/images/projects/milton/decision-hero.jpg",
+            "text": "“Keep It Hot: keep your drink hot or cold for hours” sits next to a featured product, the Fame Thermosteel Bottle at ₹1,082 with the ₹1,280 MRP struck through, so the hero sells as well as it tells."
+          },
+          {
+            "label": "Product cards",
+            "title": "Price and saving first",
+            "image": "/assets/images/projects/milton/decision-cards.jpg",
+            "text": "Each card leads with the selling price in red, the MRP struck through and a yellow “% off” badge, plus the size and a “New Launch” tag where it helps."
+          },
+          {
+            "label": "Shelves",
+            "title": "A long catalogue in small groups",
+            "image": "/assets/images/projects/milton/decision-shelves.jpg",
+            "text": "Top Deals, Trending Bottles, Top Selling Lunchboxes, Cookware and Electrical shelves, broken up by bold category banners, so the page reads as small, scannable groups instead of one endless grid."
+          },
+          {
+            "label": "Product page",
+            "title": "Answers before checkout",
+            "image": "/assets/images/projects/milton/decision-product.jpg",
+            "text": "Colour swatches, size chips from 350 ml to 1000 ml, quantity, Add to Cart and Shop Now, plus a PIN-code check that shows the expected delivery day."
+          },
+          {
+            "label": "Trust",
+            "title": "Reasons to buy",
+            "image": "/assets/images/projects/milton/decision-reviews.jpg",
+            "text": "A short “Why choose us” list and reviews from verified buyers, with star ratings, close the page before the footer."
+          }
+        ],
+        "screens": [
+          {
+            "label": "Home page",
+            "image": "/assets/images/projects/milton/screen-home.jpg"
+          },
+          {
+            "label": "Product page",
+            "image": "/assets/images/projects/milton/screen-product.jpg"
+          }
+        ],
+        "gallery": [],
+        "galleryTitle": "",
+        "deliverables": [
+          "Low-fidelity wireframe",
+          "Layout grid",
+          "Home page (desktop)",
+          "Product page (desktop)"
+        ],
+        "outcome": "A self-initiated redesign: all 13 product categories one tap away, with prices and savings shown first."
+      },
+      "type": "E-commerce website",
+      "link": "contact.html?service=UI%2FUX%20design",
+      "id": "milton",
+      "image": "",
+      "filters": [
+        "uiux",
+        "product"
+      ],
+      "description": "A self-initiated redesign of Milton's online store: every category one tap away, prices and savings up front, and a product page that answers colour, size and delivery before checkout.",
+      "category": "UI/UX",
+      "brand": {
+        "accent": "#D11F25",
+        "inkLight": "#C21C22",
+        "inkDark": "#FF6B6F",
+        "onAccent": "#FFFFFF",
+        "bgLight": "#FBF4F3",
+        "bgDark": "#0D0606",
+        "card": "#D11F25",
+        "cardInk": "#FFFFFF",
+        "cardBtn": "#FFFFFF",
+        "cardBtnInk": "#C21C22"
       }
     },
     {
@@ -774,36 +780,6 @@
       }
     },
     {
-      "id": "posters",
-      "name": "Posters",
-      "type": "Social media posters",
-      "category": "Graphic",
-      "tags": [
-        "Posters",
-        "Social media",
-        "16 designs"
-      ],
-      "filters": [
-        "graphic"
-      ],
-      "image": "",
-      "alt": "A tilted wall of square posters: product launch posts, tech service posts, Tamil festival greetings and days that matter",
-      "description": "Sixteen square social media posters: launch posts for a zero-client PC product, tech service posts, Tamil festival greetings and days that matter.",
-      "status": "live",
-      "featured": false,
-      "link": "contact.html?service=Graphic%20design",
-      "caseStudy": {
-        "show": true,
-        "page": "posters.html",
-        "title": "Posters: sixteen square social media posts",
-        "role": "Poster design",
-        "tags": [
-          "Posters",
-          "Social media"
-        ]
-      }
-    },
-    {
       "id": "myshoptill",
       "name": "Myshoptill",
       "type": "Logo & website",
@@ -853,6 +829,36 @@
           "Logo",
           "Website",
           "Design & development"
+        ]
+      }
+    },
+    {
+      "id": "posters",
+      "name": "Posters",
+      "type": "Social media posters",
+      "category": "Graphic",
+      "tags": [
+        "Posters",
+        "Social media",
+        "16 designs"
+      ],
+      "filters": [
+        "graphic"
+      ],
+      "image": "",
+      "alt": "A tilted wall of square posters: product launch posts, tech service posts, Tamil festival greetings and days that matter",
+      "description": "Sixteen square social media posters: launch posts for a zero-client PC product, tech service posts, Tamil festival greetings and days that matter.",
+      "status": "live",
+      "featured": false,
+      "link": "contact.html?service=Graphic%20design",
+      "caseStudy": {
+        "show": true,
+        "page": "posters.html",
+        "title": "Posters: sixteen square social media posts",
+        "role": "Poster design",
+        "tags": [
+          "Posters",
+          "Social media"
         ]
       }
     },
@@ -1235,9 +1241,8 @@
   "roles": [
     "Product designer",
     "UI/UX designer",
-    "Graphic designer",
-    "Motion designer",
-    "Video editor"
+    "Brand designer",
+    "Motion designer"
   ],
   "services": [
     {
@@ -1336,7 +1341,8 @@
         "YouTube thumbnails",
         "Reels & shorts",
         "Podcast episodes & clips"
-      ]
+      ],
+      "also": true
     }
   ]
 }

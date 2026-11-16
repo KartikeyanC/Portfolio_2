@@ -161,17 +161,45 @@
   panel.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setPanel(false)));
   addEventListener("keydown", (e) => { if (e.key === "Escape" && panel.classList.contains("is-open")) setPanel(false); });
 
-  // Contact form → opens the visitor's email app with everything filled in
+  // Contact form. With site.formEndpoint set ("/" on Netlify, or a Formspree URL) it sends directly and shows
+  // sending / sent / failed. Without one it opens the visitor's email app — and, because webmail users have no
+  // email app, it also shows the message ready to copy. The typed message is never cleared unless it was sent.
   const form = $("#contactForm");
   if (form) {
+    // C (the content) loads further down, so read it when the form is sent, not now
+    const to = () => (C.site && C.site.email) || "kartikeyan4878@gmail.com";
+    const status = $("#formStatus"), sendBtn = $('button[type="submit"]', form), sendLabel = sendBtn.textContent;
+    const say = (html) => { status.innerHTML = html; status.hidden = false; };
+    const copyBtns = (text) => {
+      say(`<p>${status.dataset.lead}</p><div class="form__copy"><button class="btn btn--ghost" type="button" data-copy="msg">Copy message</button><button class="btn btn--ghost" type="button" data-copy="mail">Copy email address</button></div>`);
+      $$("[data-copy]", status).forEach((b) => b.addEventListener("click", () => {
+        const val = b.dataset.copy === "msg" ? text : to(), label = b.textContent;
+        const done = () => { b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = label), 1800); };
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(val).then(done, () => prompt("Copy this:", val));
+        else prompt("Copy this:", val);
+      }));
+    };
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const f = form.elements;
+      const f = form.elements, mail = to(), endpoint = (C.site && C.site.formEndpoint) || "";
+      if (f["bot-field"] && f["bot-field"].value) return; // spam bots fill the hidden field
       const subject = `Project enquiry — ${f.service.value} — ${f.name.value}`;
       const body = `Hi Kartikeyan,\n\n${f.message.value}\n\nName: ${f.name.value}\nEmail: ${f.email.value}\nService: ${f.service.value}\nTimeline: ${f.timeline.value || "—"}`;
-      const to = (C.site && C.site.email) || "kartikeyan4878@gmail.com";
-      location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      $("#formNote").textContent = `Opening your email app… If nothing happens, write to ${to}.`;
+      const viaEmailApp = (lead) => {
+        status.dataset.lead = lead;
+        location.href = `mailto:${mail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        copyBtns(`To: ${mail}\nSubject: ${subject}\n\n${body}`);
+      };
+      if (!endpoint) return viaEmailApp(`Your email app should open with the message ready. Nothing opened? Copy the message and send it to <b>${esc(mail)}</b> from any email.`);
+      sendBtn.disabled = true; sendBtn.textContent = "Sending…"; status.hidden = true;
+      fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/json" }, body: new URLSearchParams(new FormData(form)).toString() })
+        .then((r) => {
+          if (!r.ok) throw new Error(r.status);
+          say(`<p><b>Thanks, ${esc(f.name.value.split(" ")[0] || "there")} — your message is on its way.</b> I'll reply to ${esc(f.email.value)}.</p>`);
+          form.reset();
+        })
+        .catch(() => viaEmailApp(`Your message couldn't be sent just now, but it's still here. Try again in a moment, or copy it and email <b>${esc(mail)}</b>.`))
+        .finally(() => { sendBtn.disabled = false; sendBtn.textContent = sendLabel; });
     });
   }
 
@@ -468,8 +496,13 @@
   }
 
 
-  // "sample" projects are placeholders on the Projects page only — never counted, featured or in the menu
-  const realProjects = C.projects.filter((p) => !p.sample);
+  // "sample" items are placeholders (the /gk "Sample" switch): they are never shown to visitors, counted,
+  // featured or put in the menu. Turn the switch off once the real work is added.
+  function realOnly(list) { return (list || []).filter((x) => !x.sample); }
+  function hasRealVideo() { const v = C.video || {}; return v.show !== false && ["thumbnails", "reels", "podcasts"].some((k) => realOnly(v[k]).length > 0); }
+  const realProjects = realOnly(C.projects);
+  // Services: the main crafts lead; ones marked "also" (video editing) get a smaller secondary spot
+  const mainSvcs = C.services.filter((s) => !s.also), alsoSvcs = C.services.filter((s) => s.also);
   const live = realProjects.filter((p) => p.status !== "ongoing");
   const ongoing = realProjects.filter((p) => p.status === "ongoing");
 
@@ -477,7 +510,7 @@
   // The blue sticker counts case studies on the way; when none are in progress it counts the finished
   // case studies instead (never shows "00"), and hides itself if there are neither.
   const readyCases = realProjects.filter((p) => p.caseStudy && p.caseStudy.show !== false).length;
-  const counts = { services: C.services.length, live: live.length, ongoing: ongoing.length || readyCases };
+  const counts = { services: mainSvcs.length, live: realProjects.filter((p) => p.featured).length, ongoing: ongoing.length || readyCases };
   $$("[data-count-of]").forEach((el) => { const n = counts[el.dataset.countOf] ?? 0; el.dataset.count = n; el.textContent = pad(n); });
   const ongoingLabel = $('[data-label-of="ongoing"]');
   if (ongoingLabel) {
@@ -620,7 +653,7 @@
     wrap.appendChild(projLink);
     wrap.insertAdjacentHTML("beforeend", `<div class="mega" role="menu" aria-label="Projects">
         <div class="mega__cards" style="--n:${cards.length}">${cards.map((p) => `<a href="${href(p)}" role="menuitem"><span class="mega__pic">${coverImg({ ...p, alt: "" }, vtShot(p) + ' loading="lazy"', `<span class="mega__soon">${esc(p.name)}</span>`, "280px")}${p.status === "ongoing" ? '<em class="mega__badge"><i></i>Coming soon</em>' : ""}</span><b>${esc(p.name)}</b><span class="mega__type">${esc(p.type)}</span></a>`).join("")}</div>
-        <div class="mega__list"><small>Explore more</small>${rest.map((p) => `<a href="${href(p)}" role="menuitem">${esc(p.name)}${p.status === "ongoing" ? " · coming soon" : ""} <i aria-hidden="true">›</i></a>`).join("")}${C.video && C.video.show !== false ? `<a href="${root}projects.html#video" role="menuitem">Video work <i aria-hidden="true">›</i></a>` : ""}<a class="mega__all" href="${root}projects.html" role="menuitem">See all projects</a></div>
+        <div class="mega__list"><small>Explore more</small>${rest.map((p) => `<a href="${href(p)}" role="menuitem">${esc(p.name)}${p.status === "ongoing" ? " · coming soon" : ""} <i aria-hidden="true">›</i></a>`).join("")}${hasRealVideo() ? `<a href="${root}projects.html#video" role="menuitem">Video work <i aria-hidden="true">›</i></a>` : ""}<a class="mega__all" href="${root}projects.html" role="menuitem">See all projects</a></div>
       </div>`);
     let t; // the panel spans the whole nav bar (CSS), so it never needs nudging back on screen
     const setMega = (on) => { clearTimeout(t); wrap.classList.toggle("is-open", on); projLink.setAttribute("aria-expanded", String(on)); };
@@ -665,6 +698,7 @@
         <section class="cs-head">
           <a class="cs-back" href="projects.html">← All work</a>
           <h1 class="cs-title">${esc(cs.title || p.name)}</h1>
+          ${cs.outcome ? `<p class="cs-outcome"><b>Outcome</b> ${esc(cs.outcome)}</p>` : ""}
           <div class="cs-meta">${[cs.year, ...(cs.tags || p.tags || [])].filter(Boolean).map((t) => `<span>${esc(t)}</span>`).join("")}</div>
           ${site ? `<a class="btn cs-site" href="${esc(site)}" target="_blank" rel="noopener">${esc(cs.websiteLabel || "Visit website")} ↗</a>` : ""}
         </section>
@@ -681,7 +715,6 @@
         ${screens.length ? `<section class="cs-screens"><small class="cs-label">(${secNo()}) Full screens</small><p class="cs-hint">Scroll inside each frame to see the whole page</p><div class="cs-screens__row">${screens.map((s) => `<figure class="cs-screen reveal"><figcaption><i></i><i></i><i></i><span>${esc(s.label || "")}</span></figcaption><div class="cs-screen__in" data-lenis-prevent tabindex="0" aria-label="${esc(s.label || "Screen")}, scrollable"><img src="${esc(s.image)}" alt="${esc(s.label || "")}" loading="lazy" /></div></figure>`).join("")}</div></section>` : ""}
         <section class="cs-gallery" id="csGallery"${gal.length ? "" : " hidden"}>${cs.galleryTitle ? `<small class="cs-label">(${secNo()}) ${esc(cs.galleryTitle)}</small>` : ""}${gal.map((g) => `<img src="${esc(g)}" alt="" loading="lazy" />`).join("")}</section>
         ${dels.length ? `<section class="cs-sec reveal"><small>(${secNo()}) Deliverables</small><ul class="cs-dels">${dels.map((d) => `<li>${md(d)}</li>`).join("")}</ul></section>` : ""}
-        ${cs.outcome ? `<section class="cs-sec reveal"><small>(${secNo()}) Outcome</small><p>${md(cs.outcome)}</p></section>` : ""}
         ${next ? nextCard(next) : ""}`;
       // Header picture: as the page scrolls, the picture slides upward inside its wide frame (image top → bottom),
       // finishing by the time the frame has mostly scrolled away. Skipped for reduced motion.
@@ -717,8 +750,9 @@
   }
 
   // Video work lists (content.json "video")
+  // Placeholders ("sample", the gk switch) never reach visitors: a format with no real work yet simply doesn't show
   const V = C.video || {};
-  const VT = V.thumbnails || [], VR = V.reels || [], VP = V.podcasts || [];
+  const VT = realOnly(V.thumbnails), VR = realOnly(V.reels), VP = realOnly(V.podcasts);
   const vOn = V.show !== false && (VT.length || VR.length || VP.length) > 0;
 
   // Projects page — filters and cards (+ a "Video ↓" jump link when there is video work)
@@ -741,7 +775,7 @@
   };
   const list = $("#projectList");
   if (list) {
-    list.innerHTML = C.projects.map((p) => {
+    list.innerHTML = realProjects.map((p) => {
       const soon = p.status === "ongoing";
       const img = coverImg(p, vtShot(p), p.sample ? sampleArt(p) : '<div class="work__soon">Case study<br />coming soon</div>');
       return `<a class="work reveal" id="${esc(p.id)}" data-cat="${esc((p.filters || []).join(" "))}"${soon ? ' data-status="soon"' : ""} href="${hasCase(p) ? caseUrl(p) : esc(p.link || "contact.html")}">
@@ -909,8 +943,8 @@
   // Home — showreel (like kraftbase.com): a giant SHOWREEL word that shrinks back while the video card rises
   // and grows over it as the section scrolls past. The YouTube video loads only when someone presses play.
   const reelBox = $("#showreel"), SR = V.showreel || {};
-  // without a YouTube link the card is a plain blue card with a (disabled) play button, as the gk hint says
-  if (reelBox && vOn && SR.show !== false) {
+  // shown only once there is a real video (a YouTube link in /gk); until then the section stays hidden
+  if (reelBox && SR.show !== false && ytId(SR.youtube)) {
     const card = $("#showreelCard"), id = ytId(SR.youtube), poster = SR.poster || (id ? `https://i.ytimg.com/vi/${id}/maxresdefault.jpg` : "");
     card.innerHTML = `${poster ? `<img src="${esc(poster)}" alt="" loading="lazy" />` : autoImg(`${IMG}/video/showreel/poster`, "", ' loading="lazy"')}<button class="kreel__play" type="button" aria-label="${id ? "Play showreel" : "Showreel coming soon"}"${id ? "" : " disabled"}>▶</button>`;
     if (id) $(".kreel__play", card).addEventListener("click", () => { card.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="Showreel" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`; card.classList.add("is-playing"); });
@@ -945,7 +979,8 @@
   };
   const svcBox = $("#serviceStack");
   if (svcBox) {
-    svcBox.innerHTML = C.services.map((s) => `<article class="svc__card reveal"><header><h3>${esc(s.name)}</h3><span class="svc__ic" aria-hidden="true">${SVC_ICONS[s.id] ? `<svg viewBox="0 0 24 24">${SVC_ICONS[s.id]}</svg>` : esc(s.letter || s.name[0])}</span></header><p>${esc(s.detail || s.summary)}</p><ul>${(s.skills || []).map((k) => `<li>${esc(k)}</li>`).join("")}</ul></article>`).join("");
+    svcBox.innerHTML = mainSvcs.map((s) => `<article class="svc__card reveal"><header><h3>${esc(s.name)}</h3><span class="svc__ic" aria-hidden="true">${SVC_ICONS[s.id] ? `<svg viewBox="0 0 24 24">${SVC_ICONS[s.id]}</svg>` : esc(s.letter || s.name[0])}</span></header><p>${esc(s.detail || s.summary)}</p><ul>${(s.skills || []).map((k) => `<li>${esc(k)}</li>`).join("")}</ul></article>`).join("")
+      + alsoSvcs.map((s) => `<p class="svc__also reveal"><span>Also</span> <b>${esc(s.name)}</b> — ${esc(s.summary || "")} <a href="contact.html?service=${encodeURIComponent(s.name)}">Ask about it ↗</a></p>`).join("");
   }
 
   // ---------- Ideas from kokiltamta.in (picked from samples/kokiltamta.html) ----------
@@ -1007,10 +1042,23 @@
     book.hidden = false;
   }
 
+  // CV link(s): shown only once the file named in content.json (site.experience.cv) is actually there
+  const cvFile = (S.experience || {}).cv, cvLinks = $$("[data-cv]");
+  if (cvFile && cvLinks.length && /^https?:$/.test(location.protocol)) {
+    fetch(cvFile, { method: "HEAD" }).then((r) => {
+      if (!r.ok || !/pdf/i.test(r.headers.get("content-type") || "")) return;
+      cvLinks.forEach((a) => {
+        a.href = cvFile; a.setAttribute("download", ""); a.textContent = (S.experience || {}).cvLabel || "Download CV";
+        a.hidden = false; const row = a.closest("[data-cv-row]"); if (row) row.hidden = false;
+      });
+    }).catch(() => {});
+  }
+
   // About — bento: quick facts, disciplines and a sliding strip of work (project covers + one tile per craft)
   const factsBox = $('[data-render="facts"]');
   if (factsBox) {
-    const facts = [["Based in", S.location || "Chennai, India"], ["Crafts", pad(C.services.length)], ["Apps", pad((C.tools || []).filter((t) => t.group !== "ai").length)], ["Remote", "Open to it"]];
+    const XP = S.experience || {};
+    const facts = [["Experience", XP.years ? `${XP.years} years` : ""], ["Works", XP.work || ""], ["Based in", S.location || "Chennai, India"], ["Remote", "Open to it"]].filter((f) => f[1]);
     factsBox.innerHTML = facts.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
   }
   const doesBox = $('[data-render="disciplines"]');
@@ -1262,8 +1310,8 @@
     const TOOL_BADGE = { Figma: ["Fg", "#a259ff", "#000"], Illustrator: ["Ai", "#330000", "#ff9a00"], "After Effects": ["Ae", "#00005b", "#9999ff"], "Premiere Pro": ["Pr", "#00005b", "#9999ff"], Photoshop: ["Ps", "#001e36", "#31a8ff"] };
     const toolsFor = (s) => Object.keys(TOOL_BADGE).filter((t) => `${s.detail || ""} ${s.summary || ""}`.includes(t));
     const ic = (s) => (SVC_ICONS[s.id] ? `<svg viewBox="0 0 24 24" aria-hidden="true">${SVC_ICONS[s.id]}</svg>` : `<b>${esc(s.letter || s.name[0])}</b>`);
-    rows.innerHTML = C.services.map((s, i) => `<article class="sbento__card reveal">
-      <div class="sbento__top"><span class="sbento__ic">${ic(s)}</span><span class="sbento__num">${pad(i + 1)}</span></div>
+    rows.innerHTML = [...mainSvcs, ...alsoSvcs].map((s, i) => `<article class="sbento__card${s.also ? " sbento__card--also" : ""} reveal">
+      <div class="sbento__top"><span class="sbento__ic">${ic(s)}</span><span class="sbento__num">${s.also ? "Also" : pad(i + 1)}</span></div>
       <div><h3>${esc(s.name)}</h3>${s.subtitle ? `<h4>${esc(s.subtitle)}</h4>` : ""}</div>
       ${i === 0 ? `<div class="sbento__art" aria-hidden="true">${ic(s)}</div>` : ""}
       <p>${esc(i === 0 ? s.detail || s.summary : s.summary || s.detail)}</p>
