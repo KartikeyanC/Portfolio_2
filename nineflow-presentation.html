@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NineFlow — Presentation — Kartikeyan</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="NineFlow, an own product by Kartikeyan C: a daily planner, focus timer and work log for web, desktop and Android." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
+  <link rel="expect" href="#page-ready" blocking="render" />
+</head>
+<body id="top">
+
+  <!-- Announcement bar — text/link from content.json "announcement" (edit in /gk); dismissed bars stay hidden for the visit -->
+  <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="/contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
+
+  <header class="nav">
+    <a class="nav__brand" href="index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="nav__cta" href="contact.html">Let's talk</a>
+      <button class="nav__menu" id="menuOpen" aria-expanded="false" aria-controls="panel">Menu</button>
+    </div>
+  </header>
+
+  <div class="panel" id="panel" aria-hidden="true">
+    <button class="panel__close" id="menuClose">Close</button>
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+    <small data-bind="contact-line" hidden></small>
+  </div>
+
+  <main class="nfp" id="nfp">
+    <!-- NINEFLOW presentation (own product, design + build). Own look: "the day" — chapters are times of day, and an orange
+         "now" line on the left rail follows the scroll like the app's week view. Styles: the ".nfp" block at the end of css/style.css. -->
+
+    <nav class="nfp-rail" aria-label="Chapters" id="nfpRail">
+      <span class="nfp-rail__now" id="nfpNow" aria-hidden="true"><b>07:00</b></span>
+    </nav>
+
+    <!-- HERO -->
+    <section class="nfp-wrap nfp-hero" id="n-top" data-time="06:00" data-label="Intro">
+      <a class="cs-back nfp-back" href="projects.html">← All work</a>
+      <div class="nfp-hero__card">
+        <span class="nfp-hero__word" aria-hidden="true">NINEFLOW</span>
+        <div class="nfp-hero__copy">
+          <img class="nfp-hero__tile" src="assets/images/projects/nineflow/nineflow-tile.png" alt="NineFlow app icon" width="72" height="72" />
+          <p class="nfp-kick">Case study · own product · design + build</p>
+          <h1>NineFlow</h1>
+          <p class="nfp-hero__tag">Plan better, flow forward.</p>
+          <p class="nfp-hero__out"><b>Outcome</b> A planner, a focus timer and a work log in one app, designed and built solo, shipped on web, Windows, Mac and Android from one React codebase that works offline.</p>
+          <div class="nfp-hero__btns"><a class="nfp-btn nfp-btn--ink" href="#n-dash">See the product ↓</a><a class="nfp-btn nfp-btn--ghost" href="nineflow.html">Behance board</a></div>
+        </div>
+        <div class="nfp-hero__devices" aria-hidden="true">
+          <figure class="nfp-bz nfp-hero__laptop"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/week</em></span><img src="assets/images/projects/nineflow/pres/desk-light-week@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-week@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-week.jpg 3840w" sizes="(min-width: 1100px) 60vw, 92vw" width="3840" height="2400" alt="" /></figure>
+          <figure class="nfp-ph nfp-hero__phone"><img src="assets/images/projects/nineflow/pres/phone-light-month.jpg" width="1170" height="2532" alt="" /></figure>
+        </div>
+      </div>
+      <dl class="nfp-facts">
+        <div><dt>My role</dt><dd>Solo</dd><small>design + build</small></div>
+        <div><dt>Timeline</dt><dd>2025 – now</dd><small>in active use</small></div>
+        <div><dt>Platforms</dt><dd>4</dd><small>web · Windows · Mac · Android</small></div>
+        <div><dt>Built with</dt><dd>React</dd><small>Tailwind · Electron · Capacitor</small></div>
+        <div><dt>Status</dt><dd>Live</dd><small>works offline</small></div>
+      </dl>
+    </section>
+
+    <!-- 07:00 BRIEF -->
+    <section class="nfp-wrap nfp-sec" id="n-brief" data-time="07:00" data-label="The brief">
+      <header class="nfp-h nfp-r"><time>07:00</time><span>The brief</span><h2>The plan and the work <em>never met.</em></h2></header>
+      <div class="nfp-two">
+        <article class="nfp-card nfp-r"><small>The problem</small><p>Plans live in one app, timers in another, and the record of what actually happened nowhere. So a day's plan and a day's work never meet, and nobody can say where the hours went.</p></article>
+        <article class="nfp-card nfp-card--hot nfp-r"><small>The idea</small><p>One planner where moving a task to <b>Working</b> starts its timer, and every change to a task is kept. The plan <b>is</b> the work log.</p></article>
+      </div>
+      <ul class="nfp-goals nfp-r" aria-label="Goals">
+        <li><b>01</b>See today in one look</li>
+        <li><b>02</b>Add work in plain words</li>
+        <li><b>03</b>Lose nothing, even offline</li>
+      </ul>
+    </section>
+
+    <!-- 08:00 RESEARCH -->
+    <section class="nfp-wrap nfp-sec" id="n-research" data-time="08:00" data-label="Research">
+      <header class="nfp-h nfp-r"><time>08:00</time><span>Research</span><h2>Twenty people, <em>one planner.</em></h2>
+        <p>I walked through the app as 20 different people, from a first-time visitor to a night-shift nurse and a screen-reader user, and wrote down what got in each one's way, in the order they'd hit it. Then I ranked the fixes by how many people each one helps.</p></header>
+      <div class="nfp-stats nfp-r">
+        <div><b data-count="20">20</b><span>user types walked through</span></div>
+        <div><b data-count="14">14</b><span>fixes, ranked by reach</span></div>
+        <div><b data-count="12">12</b><span>shipped so far</span></div>
+      </div>
+      <div class="nfp-people">
+        <article class="nfp-person nfp-r"><h3>First-time visitor</h3><p><small>In the way</small>Had to make an account before seeing anything, then landed on a dashboard of zeros.</p><p><small>Fix</small>Try it as a guest, on sample data kept only in this browser.</p><span class="nfp-tag">Shipped</span></article>
+        <article class="nfp-person nfp-r"><h3>Exam aspirant</h3><p><small>In the way</small>The study plan was fixed to one person's dates, and its progress was missing from backups.</p><p><small>Fix</small>A "Prepare for an exam" goal; the plan is built back from your exam date and exported with everything else.</p><span class="nfp-tag">Shipped</span></article>
+        <article class="nfp-person nfp-r"><h3>Night-shift worker</h3><p><small>In the way</small>A workday from 22:00 to 06:00 counted as zero hours.</p><p><small>Fix</small>An end time before the start means the next morning, and the load bar runs across midnight.</p><span class="nfp-tag">Shipped</span></article>
+        <article class="nfp-person nfp-r"><h3>Low-vision user</h3><p><small>In the way</small>Text as small as 10 px, and a month heatmap that showed load by colour alone.</p><p><small>Fix</small>A Text size setting, a 12 px floor, numbers in every heatmap cell and a match-system theme.</p><span class="nfp-tag">Shipped</span></article>
+        <article class="nfp-person nfp-r"><h3>Keyboard power user</h3><p><small>In the way</small>"⌘K to add a task" didn't add a task, and there was no list of shortcuts.</p><p><small>Fix</small><kbd>N</kbd> for a new task, <kbd>?</kbd> for shortcuts, and a Matrix you can drive with the arrow keys.</p><span class="nfp-tag">Shipped</span></article>
+        <article class="nfp-person nfp-r"><h3>Hindi or Tamil speaker</h3><p><small>In the way</small>Every word on screen is in English.</p><p><small>Fix</small>Move all strings into one dictionary first, then add Hindi.</p><span class="nfp-tag nfp-tag--next">Next</span></article>
+      </div>
+    </section>
+
+    <!-- 09:00 MARK -->
+    <section class="nfp-wrap nfp-sec" id="n-mark" data-time="09:00" data-label="The mark">
+      <header class="nfp-h nfp-r"><time>09:00</time><span>The mark</span><h2>Three shapes, <em>one letter.</em></h2></header>
+      <div class="nfp-mark">
+        <figure class="nfp-mark__art nfp-r"><img src="assets/images/projects/nineflow/pres/mark-night.jpg" width="2400" height="2400" alt="The NineFlow mark: an orange ribbon N with a dark play shape and an orange dot" loading="lazy" /></figure>
+        <ol class="nfp-mark__list">
+          <li class="nfp-r"><b>N for NineFlow</b>Read together, the shapes draw an N. Read alone, each one says something about the app.</li>
+          <li class="nfp-r"><b>The ribbon is the flow</b>One unbroken band from top left to bottom right: the day moving forward, task by task, with no hard corners.</li>
+          <li class="nfp-r"><b>The play shape is the start</b>The dark form on the left points right like a play button: press start, and the focus timer runs.</li>
+          <li class="nfp-r"><b>The dot is you</b>A person standing on the flow, a step ahead of it, and the focus point the whole app is built around.</li>
+        </ol>
+      </div>
+      <figure class="nfp-board nfp-r"><img src="assets/images/projects/nineflow/deck/p04-construction@1920.jpg" srcset="assets/images/projects/nineflow/deck/p04-construction@1200.jpg 1200w, assets/images/projects/nineflow/deck/p04-construction@1920.jpg 1920w, assets/images/projects/nineflow/deck/p04-construction.jpg 3840w" sizes="100vw" width="3840" height="2160" alt="Logo construction: the mark built on a few parallel lines and true circles" loading="lazy" /></figure>
+      <figure class="nfp-board nfp-r"><img src="assets/images/projects/nineflow/deck/p05-lockups@1920.jpg" srcset="assets/images/projects/nineflow/deck/p05-lockups@1200.jpg 1200w, assets/images/projects/nineflow/deck/p05-lockups@1920.jpg 1920w, assets/images/projects/nineflow/deck/p05-lockups.jpg 3840w" sizes="100vw" width="3840" height="2160" alt="Logo lockups: the mark and wordmark on cream, ink and orange" loading="lazy" /></figure>
+    </section>
+
+    <!-- 10:00 COLOUR & TYPE -->
+    <section class="nfp-wrap nfp-sec" id="n-colour" data-time="10:00" data-label="Colour & type">
+      <header class="nfp-h nfp-r"><time>10:00</time><span>Colour &amp; type</span><h2>Warm orange <em>on cream.</em></h2>
+        <p>A sunrise gradient for the moments that matter, cream and sand for calm working surfaces, and warm greys instead of pure black after dark.</p></header>
+      <div class="nfp-sw nfp-r">
+        <div style="--c:#FF9F1C"><b>Sun</b><code>#FF9F1C</code></div>
+        <div style="--c:#FF6A13"><b>NineFlow orange</b><code>#FF6A13</code></div>
+        <div style="--c:#F2420E"><b>Ember</b><code>#F2420E</code></div>
+        <div style="--c:#BA4500"><b>Deep orange</b><code>#BA4500</code></div>
+        <div style="--c:#FAF7F0;--t:#111"><b>Cream</b><code>#FAF7F0</code></div>
+        <div style="--c:#FFECE0;--t:#111"><b>Peach</b><code>#FFECE0</code></div>
+        <div style="--c:#111111"><b>Ink</b><code>#111111</code></div>
+        <div style="--c:#1A1917"><b>Night</b><code>#1A1917</code></div>
+      </div>
+      <div class="nfp-grad nfp-r"><span>Sunrise → Ember</span><code>135° · #FF9F1C → #FF6A13 → #F2420E</code></div>
+      <div class="nfp-type nfp-r">
+        <p class="nfp-type__aa" aria-hidden="true">Aa</p>
+        <div><b>Inter</b><p>One family for the wordmark and the whole app. Tabular figures keep timers and hours from jumping as they count.</p>
+          <p class="nfp-type__demo"><span>Today's load</span> <strong>7h 05m</strong> <span>of 8h · finish ≈ 19:34</span></p></div>
+      </div>
+    </section>
+
+    <!-- 11:00 PRINCIPLES -->
+    <section class="nfp-wrap nfp-sec" id="n-principles" data-time="11:00" data-label="Principles">
+      <header class="nfp-h nfp-r"><time>11:00</time><span>Principles</span><h2>Designed for the next five minutes, <em>and the next five weeks.</em></h2></header>
+      <div class="nfp-princ">
+        <article class="nfp-r"><b>01</b><h3>One look at today</h3><p>The load bar compares planned hours with the working day, so an over-full day shows before it starts.</p></article>
+        <article class="nfp-r"><b>02</b><h3>Add in plain words</h3><p>"Call the bank tomorrow 3pm !high" fills in the day, time and priority. Speak tasks, or paste messy notes.</p></article>
+        <article class="nfp-r"><b>03</b><h3>Nothing gets lost</h3><p>Works offline, carries unfinished work forward, and keeps a history of every change on every task.</p></article>
+      </div>
+    </section>
+
+    <!-- 12:00 DASHBOARD -->
+    <section class="nfp-wrap nfp-sec" id="n-dash" data-time="12:00" data-label="Dashboard">
+      <header class="nfp-h nfp-r"><time>12:00</time><span>Dashboard</span><h2>Today, <em>at a glance.</em></h2>
+        <p>The first screen answers three questions before anything else: what's left, how long it takes, and when you'll finish.</p></header>
+      <figure class="nfp-bz nfp-bz--big nfp-r"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/dashboard</em></span><img src="assets/images/projects/nineflow/pres/desk-light-dashboard@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-dashboard@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-dashboard.jpg 3840w" sizes="92vw" width="3840" height="2400" alt="NineFlow dashboard: today's load bar, carried-over tasks, task counts, today's schedule, task list and a productivity ring" loading="lazy" /></figure>
+      <div class="nfp-calls">
+        <article class="nfp-r"><b>1</b><div><h3>Today's load</h3><p>Planned hours against your working hours. Over-full days turn orange and offer to move the lowest-priority task to tomorrow.</p><img src="assets/images/projects/nineflow/pres/crop-loadbar.jpg" width="2324" height="242" alt="Load bar: 7h 5m of 8h, 1h 4m over, finish around 19:34" loading="lazy" /></div></article>
+        <article class="nfp-r"><b>2</b><div><h3>Carried over</h3><p>Unfinished work from earlier days waits here. Give each one a day, or let it go, instead of silently piling up.</p><img src="assets/images/projects/nineflow/pres/crop-carried.jpg" width="2324" height="244" alt="Carried over: one task from Tuesday with Today, Tomorrow and Someday buttons" loading="lazy" /></div></article>
+        <article class="nfp-r"><b>3</b><div><h3>Schedule and counts</h3><p>A time-blocked schedule next to five counts: planned, completed, working, in review and to do.</p></div></article>
+      </div>
+    </section>
+
+    <!-- 13:00 VIEWS -->
+    <section class="nfp-wrap nfp-sec" id="n-views" data-time="13:00" data-label="Views">
+      <header class="nfp-h nfp-r"><time>13:00</time><span>Views</span><h2>The same tasks, <em>seen eight ways.</em></h2>
+        <p>Every view reads the same list, so a change made in one shows in all of them.</p></header>
+      <div class="nfp-views nfp-r" id="nfpViews">
+        <div class="nfp-tabs" role="tablist" aria-label="Views"></div>
+        <figure class="nfp-bz nfp-bz--big"><span class="nfp-bz__bar"><i></i><i></i><i></i><em id="nfpViewUrl">nineflow.app/board</em></span><div class="nfp-views__stage" id="nfpViewStage"></div></figure>
+        <p class="nfp-views__cap" id="nfpViewCap" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 14:00 FEATURES -->
+    <section class="nfp-wrap nfp-sec" id="n-features" data-time="14:00" data-label="Features">
+      <header class="nfp-h nfp-r"><time>14:00</time><span>Features</span><h2>Small features <em>that save the day.</em></h2></header>
+      <div class="nfp-bento">
+        <article class="nfp-tile nfp-tile--w nfp-r"><figure><img src="assets/images/projects/nineflow/pres/crop-quickadd.jpg" width="1137" height="877" alt="Quick add reading the day, time, length, priority and category from one typed line" loading="lazy" /></figure><h3>Type it</h3><p>"Edit trailer tomorrow 2pm 90m #work !high" becomes a scheduled task.</p></article>
+        <article class="nfp-tile nfp-tile--num nfp-r"><b data-count="13">13</b><p>views from one set of tasks</p></article>
+        <article class="nfp-tile nfp-r"><figure><img src="assets/images/projects/nineflow/pres/crop-voice.jpg" width="1137" height="897" alt="Speak tasks: several tasks spoken in one go, fixed by voice" loading="lazy" /></figure><h3>Say it</h3><p>Speak several tasks at once; "delete that" works while you talk.</p></article>
+        <article class="nfp-tile nfp-tile--tall nfp-r"><figure><img src="assets/images/projects/nineflow/pres/crop-goal-plan.jpg" width="1137" height="1197" alt="Plan a goal: a UPSC Prelims plan with one topic every evening" loading="lazy" /></figure><h3>Plan a goal</h3><p>An exam in 24 days? Every free evening gets a topic, revision comes last.</p></article>
+        <article class="nfp-tile nfp-r"><figure><img src="assets/images/projects/nineflow/pres/crop-palette.jpg" width="1137" height="1075" alt="Command palette open with Ctrl+K" loading="lazy" /></figure><h3>Ctrl + K</h3><p>Any action or task, two keys away.</p></article>
+        <article class="nfp-tile nfp-tile--phone nfp-r"><figure><img src="assets/images/projects/nineflow/pres/phone-feat-focus.jpg" width="1170" height="2532" alt="Focus timer counting down on a phone" loading="lazy" /></figure><h3>Focus</h3><p>A Pomodoro timer that logs real time on the task.</p></article>
+        <article class="nfp-tile nfp-tile--num nfp-tile--hot nfp-r"><b>0</b><p>sign-ups needed: try it as a guest</p></article>
+        <article class="nfp-tile nfp-r"><figure><img src="assets/images/projects/nineflow/pres/crop-checklist.jpg" width="1340" height="1800" alt="Task checklist with steps ticked off" loading="lazy" /></figure><h3>Finish properly</h3><p>A checklist and a short "done?" check before a task closes.</p></article>
+        <article class="nfp-tile nfp-r"><figure><img src="assets/images/projects/nineflow/pres/crop-invoice.jpg" width="1329" height="1349" alt="An invoice made from billable hours for one client" loading="lazy" /></figure><h3>Hours to invoice</h3><p>Billable time by client turns into a ready invoice.</p></article>
+        <article class="nfp-tile nfp-tile--w nfp-r"><figure><img src="assets/images/projects/nineflow/pres/feat-revise-answer@1440.jpg" srcset="assets/images/projects/nineflow/pres/feat-revise-answer@1440.jpg 1440w, assets/images/projects/nineflow/pres/feat-revise-answer.jpg 3840w" sizes="(min-width: 900px) 46vw, 92vw" width="3840" height="2400" alt="Revise: a flashcard from a note, with Knew it and Forgot buttons" loading="lazy" /></figure><h3>Notes become flashcards</h3><p>Write "question :: answer" in any note; Revise brings it back after 1, 3, 7, 21, 45 and 90 days.</p></article>
+        <article class="nfp-tile nfp-tile--num nfp-r"><b>100%</b><p>usable offline, synced when back</p></article>
+        <article class="nfp-tile nfp-tile--wide nfp-r"><figure><img src="assets/images/projects/nineflow/pres/crop-versions.jpg" width="1542" height="520" alt="Version history with restore points" loading="lazy" /></figure><h3>Nothing lost</h3><p>Version history with restore, and several separate planners.</p></article>
+      </div>
+    </section>
+
+    <!-- 15:00 PHONE -->
+    <section class="nfp-sec nfp-phone" id="n-phone" data-time="15:00" data-label="On a phone">
+      <div class="nfp-wrap"><header class="nfp-h nfp-r"><time>15:00</time><span>On a phone</span><h2>Made for <em>one hand.</em></h2>
+        <p>The Android app is the same planner, laid out for a thumb: Home, Board, Week and Month in a bottom bar, everything else one tap away.</p></header></div>
+      <div class="nfp-phones" id="nfpPhones" tabindex="0" aria-label="Phone screens, scroll sideways">
+        <figure class="nfp-ph nfp-r"><img src="assets/images/projects/nineflow/pres/phone-light-home.jpg" width="1170" height="2532" alt="Phone home: today's load and schedule" loading="lazy" /><figcaption>Home</figcaption></figure>
+        <figure class="nfp-ph nfp-r"><img src="assets/images/projects/nineflow/pres/phone-light-week.jpg" width="1170" height="2532" alt="Phone week timeline" loading="lazy" /><figcaption>Week</figcaption></figure>
+        <figure class="nfp-ph nfp-r"><img src="assets/images/projects/nineflow/pres/phone-light-board.jpg" width="1170" height="2532" alt="Phone board with To do, Working and In review tabs" loading="lazy" /><figcaption>Board</figcaption></figure>
+        <figure class="nfp-ph nfp-r"><img src="assets/images/projects/nineflow/pres/phone-light-month.jpg" width="1170" height="2532" alt="Phone month calendar with hours per day" loading="lazy" /><figcaption>Month</figcaption></figure>
+        <figure class="nfp-ph nfp-r"><img src="assets/images/projects/nineflow/pres/phone-light-charts.jpg" width="1170" height="2532" alt="Phone charts of hours worked" loading="lazy" /><figcaption>Charts</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 16:00 DARK -->
+    <section class="nfp-wrap nfp-sec" id="n-dark" data-time="16:00" data-label="After dark">
+      <header class="nfp-h nfp-r"><time>16:00</time><span>After dark</span><h2>Easy on the eyes <em>after dark.</em></h2>
+        <p>Warm greys instead of pure black, and the same orange, so the brand looks the same day and night. Four more colour themes for people who want their own.</p></header>
+      <div class="nfp-dark nfp-r">
+        <figure class="nfp-bz nfp-bz--dark"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app</em></span><img src="assets/images/projects/nineflow/pres/desk-dark-dashboard@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-dark-dashboard@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-dark-dashboard.jpg 3840w" sizes="80vw" width="3840" height="2400" alt="The dashboard in dark mode" loading="lazy" /></figure>
+        <figure class="nfp-ph nfp-dark__ph"><img src="assets/images/projects/nineflow/pres/phone-dark-home.jpg" width="1170" height="2532" alt="Phone home in dark mode" loading="lazy" /></figure>
+      </div>
+      <div class="nfp-themes">
+        <figure class="nfp-r"><img src="assets/images/projects/nineflow/pres/theme-ocean@1440.jpg" width="1440" height="900" alt="Dashboard in the Ocean theme" loading="lazy" /><figcaption>Ocean</figcaption></figure>
+        <figure class="nfp-r"><img src="assets/images/projects/nineflow/pres/theme-forest@1440.jpg" width="1440" height="900" alt="Dashboard in the Forest theme" loading="lazy" /><figcaption>Forest</figcaption></figure>
+        <figure class="nfp-r"><img src="assets/images/projects/nineflow/pres/theme-berry@1440.jpg" width="1440" height="900" alt="Dashboard in the Berry theme" loading="lazy" /><figcaption>Berry</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 17:00 BUILD -->
+    <section class="nfp-wrap nfp-sec" id="n-build" data-time="17:00" data-label="The build">
+      <header class="nfp-h nfp-r"><time>17:00</time><span>The build</span><h2>One codebase, <em>four platforms.</em></h2>
+        <p>I designed it and built it: the same React app runs in the browser, wraps into a desktop app with Electron and into Android with Capacitor.</p></header>
+      <div class="nfp-stats nfp-r">
+        <div><b>1</b><span>codebase</span></div>
+        <div><b>4</b><span>platforms</span></div>
+        <div><b data-count="195">195</b><span>commits</span></div>
+      </div>
+      <dl class="nfp-stack nfp-r">
+        <div><dt>App</dt><dd>React 18, Vite, Tailwind CSS, date-fns, Recharts, dnd-kit</dd></div>
+        <div><dt>Desktop</dt><dd>Electron, a signed Windows installer and a macOS build</dd></div>
+        <div><dt>Android</dt><dd>Capacitor, with native speech recognition and local notifications</dd></div>
+        <div><dt>Sync</dt><dd>Google Drive (your own), or email accounts with Supabase</dd></div>
+        <div><dt>AI</dt><dd>Prompt to list and Ask NineFlow, through Claude on serverless functions</dd></div>
+        <div><dt>Testing</dt><dd>Playwright end-to-end tests on desktop and phone, unit tests for the parsers</dd></div>
+      </dl>
+    </section>
+
+    <!-- 18:00 NEXT -->
+    <section class="nfp-wrap nfp-sec" id="n-next" data-time="18:00" data-label="What's next">
+      <header class="nfp-h nfp-r"><time>18:00</time><span>What's next</span><h2>Still on <em>the list.</em></h2></header>
+      <div class="nfp-princ nfp-princ--quiet">
+        <article class="nfp-r"><b>01</b><h3>Hindi, then more</h3><p>Move every string into one dictionary, then add Hindi for the Indian users the audit found.</p></article>
+        <article class="nfp-r"><b>02</b><h3>Quiet Google reconnect</h3><p>Refresh the Google sign-in in the background, so the reconnect banner only shows when it truly fails.</p></article>
+        <article class="nfp-r"><b>03</b><h3>Delete account</h3><p>A one-step way to remove an email account and all its data, which needs a small server call.</p></article>
+      </div>
+      <div class="nfp-nextbox" id="nfpNext"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__big">Let's connect</p>
+    <!-- Bento footer (kraftbase tray): write-to-me card | pages | elsewhere. Email, socials and location are filled from content.json by main.js -->
+    <div class="ftray">
+      <div class="fcard fcard--mail">
+        <h4 data-ft="mail-title">Start a project</h4>
+        <a class="fmail" data-ft="mail" href="contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
+          <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
+      </div>
+      <div class="fcard">
+        <h4>Pages</h4>
+        <nav class="fnav" aria-label="Footer"><a href="index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+      </div>
+      <div class="fcard" data-ft="elsewhere" hidden>
+        <h4>Elsewhere</h4>
+        <div class="fsoc" data-ft="soc"></div>
+      </div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 Kartikeyan. All rights reserved</span><a class="to-top ftop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></div>
+  </footer>
+  <div class="wordmark" aria-hidden="true"><b>KARTIKEYAN<sup>™</sup></b><span>Product<br />&amp; UI/UX<br />Designer</span></div>
+
+  <aside class="otw" id="otw" aria-label="Availability" data-render="otw">
+    <button class="otw__close" id="otwClose" aria-label="Dismiss">✕</button>
+    <span class="otw__status"><i></i>Open to opportunities</span>
+    <h3>Let's work together</h3>
+    <ul>
+      <li><b>Roles:</b> Product / UI/UX Designer</li>
+      <li><b>Freelance:</b> UI/UX, logo &amp; motion projects</li>
+      <li><b>Based in:</b> Chennai, India · open to remote</li>
+    </ul>
+    <div class="otw__btns"><a class="btn btn--ghost" href="contact.html">Contact</a></div>
+  </aside>
+
+  <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" integrity="sha384-FKTX0CNJ8ngN1oGMBReVu7mvjTJyjFiD5etb1NKnYxc+8eFI2O0KWnksTN+oTFcu" crossorigin="anonymous" id="lenisLib" async></script>
+  <script src="js/main.js"></script>
+  <script src="js/fluid-cursor.js" defer></script>
+  <script>
+// NineFlow presentation: the time rail (chapters as times of day, a "now" line that follows the scroll),
+// the view switcher, the reveal on scroll, and the next-project card.
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Reveal
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -10% 0px" });
+  $$(".nfp-r").forEach((el) => (reduce ? el.classList.add("in") : io.observe(el)));
+
+  // Count-up on the big numbers
+  const cio = new IntersectionObserver((es) => es.forEach((e) => {
+    if (!e.isIntersecting) return; cio.unobserve(e.target);
+    const el = e.target, to = +el.dataset.count; if (reduce || !to) return;
+    const t0 = performance.now(), d = 1100;
+    const step = (t) => { const k = Math.min(1, (t - t0) / d); el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }), { threshold: .6 });
+  $$("[data-count]").forEach((el) => cio.observe(el));
+
+  // Time rail
+  const rail = $("#nfpRail"), now = $("#nfpNow"), secs = $$("#nfp [data-time]");
+  const toMin = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+  const fmt = (m) => String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(Math.round(m % 60)).padStart(2, "0");
+  const first = toMin(secs[0].dataset.time), last = toMin(secs[secs.length - 1].dataset.time) + 60;
+  const links = secs.map((s) => {
+    const a = document.createElement("a");
+    a.href = "#" + s.id; a.textContent = s.dataset.time === "06:00" ? "Start" : s.dataset.time;
+    a.title = s.dataset.label; a.setAttribute("aria-label", s.dataset.label + " · " + s.dataset.time);
+    a.style.top = ((toMin(s.dataset.time) - first) / (last - first) * 100) + "%";
+    rail.appendChild(a); return a;
+  });
+  let ticking = false;
+  function frame() {
+    ticking = false;
+    const mid = innerHeight * .35;
+    let i = 0;
+    secs.forEach((s, k) => { if (s.getBoundingClientRect().top <= mid) i = k; });
+    const s = secs[i], next = secs[i + 1];
+    const r = s.getBoundingClientRect();
+    const span = next ? next.getBoundingClientRect().top - r.top : r.height;
+    const f = Math.min(1, Math.max(0, (mid - r.top) / Math.max(1, span)));
+    const m = toMin(s.dataset.time) + f * ((next ? toMin(next.dataset.time) : toMin(s.dataset.time) + 60) - toMin(s.dataset.time));
+    now.style.top = ((m - first) / (last - first) * 100) + "%";
+    now.querySelector("b").textContent = fmt(Math.min(m, last));
+    links.forEach((a, k) => a.classList.toggle("is-on", k === i));
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
+  addEventListener("resize", frame);
+  frame();
+
+  // Views: the same tasks, seen eight ways
+  const P = "assets/images/projects/nineflow/pres/";
+  const VIEWS = [
+    ["Board", "board", "Drag a card to <b>Working</b> and its timer starts; In review and Completed keep the record."],
+    ["Week", "week", "Every task blocked on the calendar, coloured by category, with a live <b>now</b> line."],
+    ["Month", "month", "Hours or tasks per day, the busiest day, and how much of the month is done."],
+    ["Charts", "charts", "Hours worked, tasks done, and hours by category or client over any range."],
+    ["Matrix", "matrix", "An Eisenhower matrix: urgent and important first, the rest scheduled or dropped."],
+    ["Table", "table", "Sort, filter and edit many tasks at once, like a spreadsheet."],
+    ["Notes", "notes", "Notes with pictures and links; a <b>question :: answer</b> line becomes a flashcard."],
+    ["Dashboard", "dashboard", "Today's load, carried-over work and the day's schedule in one view."],
+  ];
+  const tabs = $("#nfpViews .nfp-tabs"), stage = $("#nfpViewStage"), cap = $("#nfpViewCap"), url = $("#nfpViewUrl");
+  VIEWS.forEach(([name, id, text], i) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.role = "tab"; b.id = "nfpTab-" + id; b.textContent = name;
+    b.setAttribute("aria-selected", i === 0); b.setAttribute("aria-controls", "nfpViewStage"); b.tabIndex = i === 0 ? 0 : -1;
+    tabs.appendChild(b);
+    const img = new Image();
+    img.src = P + "desk-light-" + id + "@1440.jpg"; img.srcset = P + "desk-light-" + id + "@1440.jpg 1440w, " + P + "desk-light-" + id + ".jpg 3840w";
+    img.sizes = "92vw"; img.alt = "NineFlow " + name + " view"; img.loading = i === 0 ? "eager" : "lazy"; img.decoding = "async";
+    if (i === 0) img.className = "on";
+    stage.appendChild(img);
+  });
+  stage.setAttribute("role", "tabpanel");
+  function show(i) {
+    $$("button", tabs).forEach((b, k) => { b.setAttribute("aria-selected", k === i); b.tabIndex = k === i ? 0 : -1; });
+    $$("img", stage).forEach((im, k) => { im.classList.toggle("on", k === i); if (k === i) im.loading = "eager"; });
+    cap.innerHTML = "<b>" + VIEWS[i][0] + ".</b> " + VIEWS[i][2];
+    url.textContent = "nineflow.app/" + VIEWS[i][1];
+    stage.setAttribute("aria-labelledby", "nfpTab-" + VIEWS[i][1]);
+  }
+  tabs.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) show($$("button", tabs).indexOf(b)); });
+  tabs.addEventListener("keydown", (e) => {
+    const bs = $$("button", tabs), i = bs.indexOf(document.activeElement);
+    if (i < 0 || !["ArrowRight", "ArrowLeft", "Home", "End"].includes(e.key)) return;
+    e.preventDefault();
+    const n = e.key === "Home" ? 0 : e.key === "End" ? bs.length - 1 : (i + (e.key === "ArrowRight" ? 1 : -1) + bs.length) % bs.length;
+    show(n); bs[n].focus();
+  });
+  show(0);
+
+  // Next project: main.js only fills [data-next-project] on a page named in content.json, so this draft adds the card itself.
+  const fillNext = () => {
+    const box = $("#nfpNext");
+    if (!box || box.children.length) return;
+    box.innerHTML = '<section class="cs-next"><a class="cs-next__card is-brand" href="finroot.html" style="--nx-bg:#04241B;--nx-ink:#FFFFFF;--nx-btn:#0E8466;--nx-btn-ink:#FFFFFF" aria-label="Next project: FinRoot case study"><div class="cs-next__txt"><small>Next project</small><b>FinRoot</b><span>Own product · Money app</span><em class="cs-next__go">Open case study →</em></div><img src="assets/images/projects/finroot/cover@960.jpg" alt="" loading="lazy" /></a></section>';
+  };
+  if (window.__caseReady) fillNext(); else addEventListener("case-ready", fillNext, { once: true });
+  setTimeout(fillNext, 2500);
+})();
+  </script>
+  <span id="page-ready" hidden></span>
+</body>
+</html>
