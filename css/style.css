@@ -4258,17 +4258,8 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfp-views__stage img.on { opacity: 1; }
 .nfp-views__cap { margin-top: 14px; color: var(--mut); font-size: 15px; } .nfp-views__cap b { color: #fff; }
 
-/* Views as a scroll list: sticky numbered index on the left, one screen + write-up per view */
-.nfv { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
-.nfv__nav { position: sticky; top: 110px; }
-.nfv__nav ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; border-left: 1px solid var(--hair); }
-.nfv__nav a { display: flex; gap: 12px; align-items: baseline; padding: 8px 0 8px 16px; margin-left: -1px; border-left: 2px solid transparent; color: var(--mut); text-decoration: none; font: 500 15px var(--nf); transition: color .2s, border-color .2s; }
-.nfv__nav a span { font: 500 11px var(--mono); color: var(--mut); }
-.nfv__nav a:hover { color: #fff; }
-.nfv__nav a.on { color: #fff; border-left-color: var(--o); } .nfv__nav a.on span { color: var(--o); }
-.nfv__nav a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+/* Views as a scroll list: one screen + write-up per view, full width */
 .nfv__list { display: grid; gap: clamp(64px, 8vw, 120px); }
-.nfv__item { scroll-margin-top: 100px; }
 .nfv__txt { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(20px, 3vw, 48px); margin-top: clamp(20px, 2.4vw, 32px); }
 .nfv__no { display: block; font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--o); margin-bottom: 10px; }
 .nfv__txt h3 { font-weight: 800; font-size: clamp(24px, 2.4vw, 36px); line-height: 1.1; }
@@ -4276,11 +4267,7 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfv__txt ul { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; }
 .nfv__txt li { position: relative; padding-left: 20px; color: var(--on); font-size: 15px; }
 .nfv__txt li::before { content: ""; position: absolute; left: 0; top: .55em; width: 8px; height: 8px; border-radius: 50%; background: var(--o); }
-@media (max-width: 1000px) {
-  .nfv { grid-template-columns: 1fr; }
-  .nfv__nav { display: none; }
-  .nfv__txt { grid-template-columns: 1fr; gap: 12px; }
-}
+@media (max-width: 1000px) { .nfv__txt { grid-template-columns: 1fr; gap: 12px; } }
 
 /* features bento */
 .nfp-bento { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-flow: dense; gap: 14px; }
