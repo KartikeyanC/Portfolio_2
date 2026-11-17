@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex" />
+  <script src="sample-mode.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample · iFortigo — Logo &amp; website — Kartikeyan</title>
+  <meta name="description" content="iFortigo, a logo and a one-page website designed and built by Kartikeyan C for a field sales app used by DSD teams: logo, colour, type, page structure, key decisions and the build." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Sora:wght@300;400;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
+  <link rel="expect" href="#page-ready" blocking="render" />
+  <link rel="stylesheet" href="sample-mode.css" />
+</head>
+<body id="top">
+
+  <!-- Announcement bar — text/link from content.json "announcement" (edit in /gk); dismissed bars stay hidden for the visit -->
+  <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="sample-contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
+
+  <header class="nav">
+    <a class="nav__brand" href="sample-index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="sample-index.html">Home</a>
+      <a href="sample-about.html">About</a>
+      <a href="sample-projects.html">Projects</a>
+      <a href="sample-services.html">Services</a>
+      <a href="sample-contact.html">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="nav__cta" href="sample-contact.html">Let's talk</a>
+      <button class="nav__menu" id="menuOpen" aria-expanded="false" aria-controls="panel">Menu</button>
+    </div>
+  </header>
+
+  <div class="panel" id="panel" aria-hidden="true">
+    <button class="panel__close" id="menuClose">Close</button>
+    <a href="sample-index.html">Home</a><a href="sample-about.html">About</a><a href="sample-projects.html">Projects</a><a href="sample-services.html">Services</a><a href="sample-contact.html">Contact</a>
+    <small data-bind="contact-line" hidden></small>
+  </div>
+
+  <main>
+    <!-- iFORTIGO case study (logo + website, design & development). Own look: "delivery route" — route slip, map-pin
+         section numbers, drive-in reveal, a pinned route through the page structure, a swipe deck of decisions,
+         a manifest for the build, and route bars that drive the two whole-page viewers. Styles: ".ifx" block at the end
+         of css/style.css (".vs" only supplies base tokens). -->
+    <div class="vs ifx" id="vs">
+
+    <!-- HERO -->
+    <header class="ifx-hero vs-wrap">
+      <a class="cs-back" href="sample-projects.html">← All work</a>
+      <div class="ifx-hero__head">
+        <p class="ifx-eye">Case study · Logo + website</p>
+        <h1 class="ifx-hero__title">iFortigo<em>Logo &amp; website for a field sales app.</em></h1>
+        <p class="cs-outcome"><b>Outcome</b> Shipped a logo and a one-page website, designed and built, where a sales manager can book a demo from anywhere on the page.</p>
+      </div>
+      <div class="vs-cover ifx-cover" data-slide style="view-transition-name:shot-ifortigo;view-transition-class:shot"><img src="assets/images/projects/ifortigo/cover.jpg" alt="The iFortigo logo, large and white on a blue-to-purple background, behind a desktop display and a phone showing the iFortigo website" fetchpriority="high" decoding="sync" /></div>
+      <div class="ifx-hero__grid">
+        <div>
+          <p class="ifx-hero__lead">iFortigo Sales is an app for field sales and direct store delivery (DSD) teams: the people who drive the routes, book the orders and print the invoices at the shop counter. I designed its logo, then <b>designed and built</b> the one-page website that explains it.</p>
+          <div class="ifx-hero__btns">
+            <a class="ifx-btn" href="https://ifortigo.com/" target="_blank" rel="noopener">Visit ifortigo.com <span aria-hidden="true">↗</span></a>
+            <a class="ifx-btn ifx-btn--soft" href="#ifx-logo">The logo</a>
+            <a class="ifx-btn ifx-btn--soft" href="#ifx-route">The website</a>
+          </div>
+        </div>
+        <aside class="ifx-slip vs-r" aria-label="Project facts">
+          <p class="ifx-slip__head"><b>Route slip</b><span>ifortigo.com</span></p>
+          <dl>
+            <div><dt>Client</dt><dd>iFortigo</dd></div>
+            <div><dt>Logo</dt><dd>Design</dd></div>
+            <div><dt>Website</dt><dd>UX/UI design, front-end development</dd></div>
+            <div><dt>Built with</dt><dd>HTML, CSS, JavaScript</dd></div>
+            <div><dt>Type</dt><dd>Sora + DM Sans</dd></div>
+            <div><dt>Page</dt><dd>8 sections, one scroll</dd></div>
+            <div><dt>Status</dt><dd><a href="https://ifortigo.com/" target="_blank" rel="noopener">Live ↗</a></dd></div>
+          </dl>
+          <p class="ifx-slip__foot"><span aria-hidden="true">✓</span> Delivered</p>
+        </aside>
+      </div>
+    </header>
+
+    <!-- 01 BRIEF -->
+    <section class="ifx-sec vs-wrap" id="ifx-brief">
+      <header class="ifx-head vs-r"><span class="ifx-pin" aria-hidden="true"><b>01</b></span><div><p class="ifx-eye">The brief</p><h2>A dense product, <em>one easy scroll.</em></h2></div></header>
+      <div class="ifx-body">
+        <p class="vs-big vs-r">iFortigo does a lot: orders, invoices, returns, discounts, VAT, routes and attendance, in seven modules and 42 features. The people who choose it want one answer first: will this make my field team faster?</p>
+        <p class="vs-r">So the website had three jobs. Say what iFortigo is in one line. Make a long feature list easy to scan, so anyone who wants the detail can find it. And make every path on the page end in the same place: a demo request.</p>
+        <ol class="ifx-jobs">
+          <li class="vs-r"><span>1</span><b>One line</b><p>What it is and who it is for, before the first scroll.</p></li>
+          <li class="vs-r"><span>2</span><b>Scannable detail</b><p>42 features, grouped into 7 numbered modules.</p></li>
+          <li class="vs-r"><span>3</span><b>One destination</b><p>Every button on the page ends at the demo form.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 02 WHO -->
+    <section class="ifx-sec vs-wrap" id="ifx-who">
+      <header class="ifx-head vs-r"><span class="ifx-pin" aria-hidden="true"><b>02</b></span><div><p class="ifx-eye">Who it's for</p><h2>Three people, <em>one decision.</em></h2></div></header>
+      <div class="ifx-body">
+        <p class="vs-r">A field sales platform is used by one person, managed by another and paid for by a third. The page has something for each of them.</p>
+        <div class="ifx-tickets">
+          <article class="ifx-ticket vs-r"><div class="ifx-ticket__stub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><span>On the route</span></div><div class="ifx-ticket__main"><h3>The field executive</h3><p>Out on the road all day with a phone. Wants to book an order, print the invoice and move on, even with no signal.</p><small>On the page: benefits for on-field executives</small></div></article>
+          <article class="ifx-ticket vs-r"><div class="ifx-ticket__stub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>In the office</span></div><div class="ifx-ticket__main"><h3>The sales manager</h3><p>Watches the team and the numbers. Wants reports, oversight of the field team and a clear picture of the customers.</p><small>On the page: benefits for managers</small></div></article>
+          <article class="ifx-ticket vs-r"><div class="ifx-ticket__stub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span>Signs it off</span></div><div class="ifx-ticket__main"><h3>The decision maker</h3><p>Chooses the platform. Wants to know the data is safe, that it connects to their ERP and that help is there when it is needed.</p><small>On the page: the trust strip and Advantages</small></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 LOGO -->
+    <section class="ifx-sec vs-wrap" id="ifx-logo">
+      <header class="ifx-head vs-r"><span class="ifx-pin" aria-hidden="true"><b>03</b></span><div><p class="ifx-eye">The logo</p><h2>The GO <em>is the delivery.</em></h2></div></header>
+      <div class="ifx-body">
+        <p class="vs-r">A name with a job in it. The last two letters of iFortigo carry the whole idea: the G and the O become the two wheels of a delivery vehicle, drawn in blue line with speed lines behind it and a dashed road under its wheels.</p>
+        <figure class="ifx-logo vs-r"><img id="ifxLogo" src="assets/images/projects/ifortigo/logo.png" width="3840" height="1465" alt="The iFortigo Sales logo: a red serif i, 'forti' in blue, and a red G and O that form the wheels of a blue line-drawn delivery vehicle, with SALES in plum underneath" loading="lazy" decoding="async" /></figure>
+        <ul class="ifx-parts">
+          <li class="vs-r"><span class="ifx-crop" data-crop="0,180,380,1100" aria-hidden="true"></span><div><b>The i</b><p>A serif <i>i</i> in red that leans forward, set apart from the rest of the name.</p><em style="--c:#CF0E16">#CF0E16</em></div></li>
+          <li class="vs-r"><span class="ifx-crop" data-crop="400,180,1840,1100" aria-hidden="true"></span><div><b>forti</b><p>A plain, rounded letterform in the brand blue, so the name stays easy to read.</p><em style="--c:#2554A1">#2554A1</em></div></li>
+          <li class="vs-r"><span class="ifx-crop" data-crop="2270,0,1570,1140" aria-hidden="true"></span><div><b>GO</b><p>The G and the O in red are the wheels. The vehicle around them is one blue outline, moving to the right.</p><em style="--c:#2554A1">#2554A1 + #CF0E16</em></div></li>
+          <li class="vs-r"><span class="ifx-crop" data-crop="2360,1040,1480,425" aria-hidden="true"></span><div><b>SALES</b><p>Widely spaced in plum under the road, naming the product.</p><em style="--c:#73365D">#73365D</em></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 04 COLOUR + TYPE -->
+    <section class="ifx-sec vs-wrap" id="ifx-colour">
+      <header class="ifx-head vs-r"><span class="ifx-pin" aria-hidden="true"><b>04</b></span><div><p class="ifx-eye">Colour &amp; type</p><h2>From the logo <em>to the screen.</em></h2></div></header>
+      <div class="ifx-body">
+        <p class="vs-r">The logo's red, blue and plum stay on the logo. The website runs on its own pair, a deep blue and a purple, joined by one gradient that colours the buttons, the icons and the product's name in the headline.</p>
+        <div class="ifx-pal vs-r">
+          <div class="ifx-pal__row"><span class="ifx-pal__lbl">Logo</span><ul><li style="--c:#CF0E16"><b>Red</b>#CF0E16</li><li style="--c:#2554A1"><b>Blue</b>#2554A1</li><li style="--c:#73365D"><b>Plum</b>#73365D</li></ul></div>
+          <div class="ifx-pal__grad" aria-hidden="true"><span>#0A409A</span><span>#7F13B7</span></div>
+          <div class="ifx-pal__row"><span class="ifx-pal__lbl">Website</span><ul><li style="--c:#0A409A"><b>Primary</b>#0A409A</li><li style="--c:#0E3574"><b>Primary dark</b>#0E3574</li><li style="--c:#7F13B7"><b>Secondary</b>#7F13B7</li><li style="--c:#0D1B3E"><b>Text</b>#0D1B3E</li><li style="--c:#DBE8FF" class="is-light"><b>Blue tint</b>#DBE8FF</li><li style="--c:#F5E1FF" class="is-light"><b>Purple tint</b>#F5E1FF</li><li style="--c:#ECF2FC" class="is-light"><b>Page</b>#ECF2FC</li></ul></div>
+        </div>
+        <div class="ifx-type">
+          <div class="ifx-type__card vs-r"><span class="ifx-type__aa ifx-sora">Aa</span><div><b>Sora</b><small>Headings · 300 to 800</small><p class="ifx-sora">iFortigo is the field sales platform built for DSD teams.</p></div></div>
+          <div class="ifx-type__card vs-r"><span class="ifx-type__aa ifx-dm">Aa</span><div><b>DM Sans</b><small>Body text · 300 to 600</small><p class="ifx-dm">Real-time inventory, offline order booking, and live route tracking, all from one app.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 STRUCTURE: a pinned route through the eight sections -->
+    <section class="ifx-sec vs-wrap" id="ifx-route">
+      <header class="ifx-head vs-r"><span class="ifx-pin" aria-hidden="true"><b>05</b></span><div><p class="ifx-eye">Page structure</p><h2>Eight stops, <em>one route.</em></h2></div></header>
+      <div class="ifx-body">
+        <p class="vs-r">The page follows the order a buyer's questions arrive in: what is it, what does it do for me, why this one, what exactly is inside, and how do I start. Keep scrolling to drive through it.</p>
+      </div>
+    </section>
+    <div class="ifx-drive">
+      <div class="ifx-drive__pin">
+        <div class="ifx-drive__road" aria-hidden="true"><span class="ifx-van"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 4.5h22v13.5H2z"/><path d="M24 8.5h7.5l5.5 5.5v4H24z"/><circle cx="9" cy="19" r="3.4"/><circle cx="30.5" cy="19" r="3.4"/></svg></span></div>
+        <ol class="ifx-drive__track"><li class="ifx-stop"><span class="ifx-stop__no">01</span><figure><img src="assets/images/projects/ifortigo/web/sec-hero@1200.jpg" width="1200" height="866" alt="The iFortigo hero: 'iFortigo is the field sales platform built for DSD teams.', a Get Started button, two phones showing the app in blue and in purple, and a strip of four trust points underneath" loading="lazy" decoding="async" /></figure><b>Hero</b><p>What it is in one line, with the app shown in both of its colour themes.</p></li><li class="ifx-stop"><span class="ifx-stop__no">02</span><figure><img src="assets/images/projects/ifortigo/web/sec-benefits@1200.jpg" width="1200" height="701" alt="Key Benefits: fifteen white tiles in three rows of five, each with one gradient line icon and two or three words" loading="lazy" decoding="async" /></figure><b>Key benefits</b><p>Fifteen benefits as icon tiles, readable at a glance.</p></li><li class="ifx-stop"><span class="ifx-stop__no">03</span><figure><img src="assets/images/projects/ifortigo/web/sec-salient@1200.jpg" width="1200" height="775" alt="Salient Features: eight cards in two columns, each with an icon, a blue title and one line of text" loading="lazy" decoding="async" /></figure><b>Salient features</b><p>Eight headline features, one line each.</p></li><li class="ifx-stop"><span class="ifx-stop__no">04</span><figure><img src="assets/images/projects/ifortigo/web/sec-advantages@1200.jpg" width="1200" height="496" alt="Advantages: five glassy tiles on deep blue, from SaaS Model to 24/7 Support" loading="lazy" decoding="async" /></figure><b>Advantages</b><p>Why choose it: SaaS, live reports, ERP links, tailor-made, 24/7 support.</p></li><li class="ifx-stop"><span class="ifx-stop__no">05</span><figure><img src="assets/images/projects/ifortigo/web/sec-spotlight@1200.jpg" width="1200" height="641" alt="Benefits: a navy panel with one benefit shown large and the other eight as small tiles beside it" loading="lazy" decoding="async" /></figure><b>Benefits</b><p>Business outcomes, with a spotlight that moves through them.</p></li><li class="ifx-stop"><span class="ifx-stop__no">06</span><figure><img src="assets/images/projects/ifortigo/web/sec-roles@1200.jpg" width="1200" height="590" alt="Benefits by Role: two tabs, On-Field Executives and Benefits For Manager, above four benefit cards" loading="lazy" decoding="async" /></figure><b>Benefits by role</b><p>Two tabs: one for field executives, one for managers.</p></li><li class="ifx-stop"><span class="ifx-stop__no">07</span><figure><img src="assets/images/projects/ifortigo/web/sec-modules@1200.jpg" width="1200" height="1099" alt="Features: seven module cards with blue and purple headers numbered 1 to 7, each listing its features" loading="lazy" decoding="async" /></figure><b>Features</b><p>All 42 features, sorted into 7 numbered modules.</p></li><li class="ifx-stop"><span class="ifx-stop__no">08</span><figure><img src="assets/images/projects/ifortigo/web/sec-contact@1200.jpg" width="1200" height="799" alt="Get in Touch: a short form for name, email, phone, address and message on deep blue, with a Send Message button" loading="lazy" decoding="async" /></figure><b>Get in touch</b><p>One short form, where every button on the page ends.</p></li></ol>
+      </div>
+    </div>
+
+    <!-- 06 DECISIONS: a swipe deck -->
+    <section class="ifx-sec vs-wrap" id="ifx-decisions">
+      <header class="ifx-head vs-r"><span class="ifx-pin" aria-hidden="true"><b>06</b></span><div><p class="ifx-eye">Key design decisions</p><h2>Six decisions, <em>up close.</em></h2></div></header>
+      <div class="ifx-body ifx-body--wide">
+        <div class="ifx-deck vs-r" tabindex="0" aria-roledescription="carousel" aria-label="Key design decisions">
+          <div class="ifx-deck__stage"><article class="ifx-card" data-d="0"><figure><img src="assets/images/projects/ifortigo/web/sec-hero.jpg" alt="The iFortigo hero with the headline, the Get Started button, two phones in blue and purple, and the trust strip below" loading="lazy" decoding="async" /></figure><div class="ifx-card__txt"><span>01</span><h3>A promise and a picture</h3><p>One sentence says what iFortigo is and who it is for, with a single <b>Get Started</b> button under it. The picture shows the same app in both of its colour themes, blue and purple. Just below, a strip answers the four things a buyer checks first: data security, SaaS cloud, ERP integration and 24/7 support.</p></div></article><article class="ifx-card" data-d="1"><figure><img src="assets/images/projects/ifortigo/web/sec-benefits.jpg" alt="Fifteen benefit tiles in three rows of five" loading="lazy" decoding="async" /></figure><div class="ifx-card__txt"><span>02</span><h3>Fifteen benefits, one glance</h3><p>Every benefit is a tile with one icon and two or three words, five to a row. There is nothing to read in full: you see the range of the product in the time it takes to scroll past.</p></div></article><article class="ifx-card" data-d="2"><figure><img src="assets/images/projects/ifortigo/web/sec-spotlight.jpg" alt="The navy Benefits panel with the spotlight card and eight smaller benefit tiles" loading="lazy" decoding="async" /></figure><div class="ifx-card__txt"><span>03</span><h3>A spotlight that moves on its own</h3><p>The business outcomes sit in one navy panel. One is shown large while the rest wait beside it. The spotlight moves on every 3.5 seconds while the panel is on screen, and holds still for six seconds when you point at an item.</p></div></article><article class="ifx-card" data-d="3"><figure><img src="assets/images/projects/ifortigo/web/sec-roles.jpg" alt="Benefits by Role with the On-Field Executives tab selected" loading="lazy" decoding="async" /></figure><div class="ifx-card__txt"><span>04</span><h3>Two audiences, one section</h3><p>Field executives and their managers want different things. Instead of two pages, one section with two tabs: each person picks their own tab and reads only their own benefits.</p></div></article><article class="ifx-card" data-d="4"><figure><img src="assets/images/projects/ifortigo/web/sec-modules.jpg" alt="Seven module cards with alternating blue and purple headers" loading="lazy" decoding="async" /></figure><div class="ifx-card__txt"><span>05</span><h3>42 features in 7 modules</h3><p>The full feature list is grouped into seven numbered module cards. Their headers take turns in blue and purple, so neighbouring columns never blur into one, and the big number in each header gives every module a name you can point to.</p></div></article><article class="ifx-card" data-d="5"><figure><img src="assets/images/projects/ifortigo/web/sec-contact.jpg" alt="The Get in Touch form on deep blue" loading="lazy" decoding="async" /></figure><div class="ifx-card__txt"><span>06</span><h3>Every road ends here</h3><p>Every <b>Book a Demo</b> and <b>Get Started</b> button leads to one short form. Each button also writes its own name into a hidden field, so every enquiry says which button brought it in. The form sends without leaving the page, and a WhatsApp button waits in the corner for anyone who would rather chat.</p></div></article></div>
+          <div class="ifx-deck__nav">
+            <button type="button" class="ifx-deck__btn" data-go="-1" aria-label="Previous decision"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <p class="ifx-deck__count" aria-live="polite"><b>01</b> / 06</p>
+            <span class="ifx-deck__bar" aria-hidden="true"><i></i></span>
+            <button type="button" class="ifx-deck__btn" data-go="1" aria-label="Next decision"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 BUILD: the manifest -->
+    <section class="ifx-sec vs-wrap" id="ifx-build">
+      <header class="ifx-head vs-r"><span class="ifx-pin" aria-hidden="true"><b>07</b></span><div><p class="ifx-eye">Building it</p><h2>Hand-built, <em>nothing extra on board.</em></h2></div></header>
+      <div class="ifx-body">
+        <p class="vs-r">I built the site the way I designed it: one page of plain code, with no framework and no page builder.</p>
+        <div class="ifx-manifest vs-r">
+          <div class="ifx-manifest__head"><b>Manifest</b><span>ifortigo.com · index.html</span><em><b>84</b> KB</em></div>
+          <ul>
+            <li><b>One page</b><p>About 84 KB of HTML, with its styles and one 10 KB script inside. The only outside files are the two fonts.</p></li>
+            <li><b>Design tokens</b><p>Colours, radii, shadows and both fonts live as variables at the top of the stylesheet.</p><code>--primary: #0A409A</code><code>--secondary: #7F13B7</code><code>--radius-md: 18px</code><code>--font-head: Sora</code></li>
+            <li><b>One icon set, on brand</b><p>The line icons are inline SVG. A short script gives every one of them the same blue-to-purple gradient.</p></li>
+            <li><b>Calm motion</b><p>Sections rise in as they reach the screen, and the header picks up a soft shadow after the first 20 pixels of scrolling.</p></li>
+            <li><b>The spotlight</b><p>Moves on every 3.5 seconds, only while it is on screen, and pauses for 6 seconds when someone points at an item.</p></li>
+            <li><b>Enquiries</b><p>The form sends in the background through Web3Forms and shows a sent or failed message without reloading. The name of the button that brought the visitor travels with it.</p></li>
+            <li><b>On the phone</b><p>The links fold into a dropdown card behind a menu button, and the WhatsApp button stays in the corner.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 THE WHOLE PAGE, desktop (viewer = window.phoneView in main.js, with a route bar) -->
+    <section class="ifx-sec vs-wrap" id="ifx-web">
+      <header class="ifx-head vs-r"><span class="ifx-pin" aria-hidden="true"><b>08</b></span><div><p class="ifx-eye">The whole page</p><h2>The live page, <em>header and all.</em></h2></div></header>
+      <div class="ifx-body ifx-body--wide">
+        <p class="vs-r">The real home page at 1440px wide. Scroll inside the window, or click a stop on the route to drive there. The header stays on top and picks up its shadow, just like on the live site.</p>
+        <div class="ifx-win vs-r" data-pv data-w="1440" data-hdr="77" data-top="20">
+          <div class="ifx-win__bar" aria-hidden="true"><i></i><i></i><i></i><span><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3M6 11h12v9H6z"/></svg>ifortigo.com</span></div>
+          <div class="ifx-win__scr">
+            <div class="ifx-win__in" data-pv-in tabindex="0" aria-label="The full iFortigo home page on desktop, scrollable"><img src="assets/images/projects/ifortigo/web/site-full-1.jpg" width="3840" height="5333" alt="The full iFortigo home page on desktop, part 1 of 4: the hero, the trust strip, Key Benefits and the start of Salient Features" loading="lazy" decoding="async" /><img src="assets/images/projects/ifortigo/web/site-full-2.jpg" width="3840" height="5333" alt="Part 2 of 4: Salient Features, Advantages on deep blue and the Benefits panel" loading="lazy" decoding="async" /><img src="assets/images/projects/ifortigo/web/site-full-3.jpg" width="3840" height="5333" alt="Part 3 of 4: Benefits by Role and the seven feature modules" loading="lazy" decoding="async" /><img src="assets/images/projects/ifortigo/web/site-full-4.jpg" width="3840" height="3323" alt="Part 4 of 4: the end of the modules, Get in Touch and the footer" loading="lazy" decoding="async" /></div>
+            <div class="ifx-win__hdr" data-pv-hdr aria-hidden="true"><img src="assets/images/projects/ifortigo/web/site-hdr-top.png" alt="" /><img src="assets/images/projects/ifortigo/web/site-hdr-scrolled.png" alt="" /></div>
+            <img class="ifx-win__wa" src="assets/images/projects/ifortigo/web/site-wa.png" alt="" aria-hidden="true" />
+          </div>
+          <div class="ifx-road" data-road aria-label="Jump to a section of the desktop page"><div class="ifx-road__line"><i class="ifx-road__fill"></i><span class="ifx-road__van"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 4.5h22v13.5H2z"/><path d="M24 8.5h7.5l5.5 5.5v4H24z"/><circle cx="9" cy="19" r="3.4"/><circle cx="30.5" cy="19" r="3.4"/></svg></span><button type="button" data-y="0"><i></i><span>Hero</span></button><button type="button" data-y="1039"><i></i><span>Benefits</span></button><button type="button" data-y="1879"><i></i><span>Highlights</span></button><button type="button" data-y="2809"><i></i><span>Why us</span></button><button type="button" data-y="3404"><i></i><span>Impact</span></button><button type="button" data-y="4173"><i></i><span>Roles</span></button><button type="button" data-y="4881"><i></i><span>Modules</span></button><button type="button" data-y="6200"><i></i><span>Contact</span></button></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 ON A PHONE (viewer = window.phoneView in main.js, with the same route bar) -->
+    <section class="ifx-sec vs-wrap" id="ifx-phone">
+      <header class="ifx-head vs-r"><span class="ifx-pin" aria-hidden="true"><b>09</b></span><div><p class="ifx-eye">The whole page, on a phone</p><h2>Same page, <em>on the road.</em></h2></div></header>
+      <div class="ifx-body ifx-body--wide">
+        <p class="vs-r">The real mobile page at 390px wide, the size of the phone in a field executive's hand. Scroll inside the phone, tap ☰ for the menu, or drive along the route. The header and the WhatsApp button stay where they are, as they do on the live site.</p>
+        <div class="ifx-ph vs-r" data-pv data-w="390" data-hdr="77" data-top="20">
+          <div class="ifx-ph__sign" aria-hidden="true"><small>Now passing</small><b data-now>Hero</b><span data-pct>0%</span></div>
+          <div class="ifx-ph__dev iph">
+            <div class="iph__disp">
+              <i class="iph__sb" aria-hidden="true"></i>
+              <div class="ifx-ph__scr iph__view">
+                <div class="ifx-ph__in" data-pv-in tabindex="0" aria-label="The full iFortigo mobile home page, scrollable"><img src="assets/images/projects/ifortigo/web/mfull-1.jpg" width="2145" height="8800" alt="The full iFortigo mobile home page, part 1 of 8: the two phones, the headline, the trust points and the start of Key Benefits" loading="lazy" decoding="async" /><img src="assets/images/projects/ifortigo/web/mfull-2.jpg" width="2145" height="8800" alt="Part 2 of 8: Key Benefits as two tiles per row" loading="lazy" decoding="async" /><img src="assets/images/projects/ifortigo/web/mfull-3.jpg" width="2145" height="8800" alt="Part 3 of 8: Salient Features, one card per row" loading="lazy" decoding="async" /><img src="assets/images/projects/ifortigo/web/mfull-4.jpg" width="2145" height="8800" alt="Part 4 of 8: Advantages on deep blue" loading="lazy" decoding="async" /><img src="assets/images/projects/ifortigo/web/mfull-5.jpg" width="2145" height="8800" alt="Part 5 of 8: the Benefits panel" loading="lazy" decoding="async" /><img src="assets/images/projects/ifortigo/web/mfull-6.jpg" width="2145" height="8800" alt="Part 6 of 8: Benefits by Role with its two tabs" loading="lazy" decoding="async" /><img src="assets/images/projects/ifortigo/web/mfull-7.jpg" width="2145" height="8800" alt="Part 7 of 8: the feature modules, one per row" loading="lazy" decoding="async" /><img src="assets/images/projects/ifortigo/web/mfull-8.jpg" width="2145" height="6402" alt="Part 8 of 8: the last modules, Get in Touch and the footer" loading="lazy" decoding="async" /></div>
+                <div class="ifx-ph__hdr" data-pv-hdr aria-hidden="true"><img src="assets/images/projects/ifortigo/web/mfull-hdr-top.png" alt="" /><img src="assets/images/projects/ifortigo/web/mfull-hdr-scrolled.png" alt="" /></div>
+                <img class="ifx-ph__wa" src="assets/images/projects/ifortigo/web/mfull-wa.png" alt="" aria-hidden="true" />
+                <img class="ifx-ph__menu" data-pv-menu src="assets/images/projects/ifortigo/web/mfull-menu.png" alt="The open mobile menu: a white card with Benefits, Features, Advantages and Contact under the header" loading="lazy" hidden />
+                <button type="button" class="ifx-ph__btn" data-pv-btn aria-label="Open the site's menu" aria-expanded="false"></button>
+              </div>
+            </div>
+          </div>
+          <p class="ifx-ph__hint" aria-hidden="true">Tap <i></i> in the phone for the menu</p>
+          <div class="ifx-road" data-road aria-label="Jump to a section of the mobile page"><div class="ifx-road__line"><i class="ifx-road__fill"></i><span class="ifx-road__van"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 4.5h22v13.5H2z"/><path d="M24 8.5h7.5l5.5 5.5v4H24z"/><circle cx="9" cy="19" r="3.4"/><circle cx="30.5" cy="19" r="3.4"/></svg></span><button type="button" data-y="0"><i></i><span>Hero</span></button><button type="button" data-y="1247"><i></i><span>Benefits</span></button><button type="button" data-y="2913"><i></i><span>Highlights</span></button><button type="button" data-y="4596"><i></i><span>Why us</span></button><button type="button" data-y="5656"><i></i><span>Impact</span></button><button type="button" data-y="7200"><i></i><span>Roles</span></button><button type="button" data-y="8216"><i></i><span>Modules</span></button><button type="button" data-y="11197"><i></i><span>Contact</span></button></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 NEXT -->
+    <section class="ifx-sec vs-wrap" id="ifx-next">
+      <header class="ifx-head vs-r"><span class="ifx-pin" aria-hidden="true"><b>10</b></span><div><p class="ifx-eye">What I'd do next</p><h2>The next <em>deliveries.</em></h2></div></header>
+      <div class="ifx-body ifx-body--wide">
+        <ol class="ifx-next">
+          <li class="vs-r"><span>Next stop</span><b>A page per module</b><p>Seven modules deserve seven pages, so someone searching for exactly one of them, like route planning or van sales invoicing, lands in the right place.</p></li>
+          <li class="vs-r"><span>Then</span><b>Stories from the field</b><p>One short client story per industry, with real numbers, would say more than any benefit tile.</p></li>
+          <li class="vs-r"><span>Later</span><b>A guided product tour</b><p>A short walkthrough of the app for buyers who want to see it before they book a demo.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- END -->
+    <section class="ifx-sec ifx-end vs-wrap">
+      <a class="ifx-live vs-r" href="https://ifortigo.com/" target="_blank" rel="noopener"><span class="ifx-live__van" aria-hidden="true"><svg viewBox="0 0 40 24" aria-hidden="true"><path d="M2 4.5h22v13.5H2z"/><path d="M24 8.5h7.5l5.5 5.5v4H24z"/><circle cx="9" cy="19" r="3.4"/><circle cx="30.5" cy="19" r="3.4"/></svg></span><span><small>See it on the road</small><b>ifortigo.com</b></span><i aria-hidden="true">↗</i></a>
+      <div data-next-project></div>
+    </section>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer__big">Let's connect</p>
+    <!-- Bento footer (kraftbase tray): write-to-me card | pages | elsewhere. Email, socials and location are filled from content.json by main.js -->
+    <div class="ftray">
+      <div class="fcard fcard--mail">
+        <h4 data-ft="mail-title">Start a project</h4>
+        <a class="fmail" data-ft="mail" href="sample-contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
+          <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
+      </div>
+      <div class="fcard">
+        <h4>Pages</h4>
+        <nav class="fnav" aria-label="Footer"><a href="sample-index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="sample-about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="sample-projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="sample-services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="sample-contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+      </div>
+      <div class="fcard" data-ft="elsewhere" hidden>
+        <h4>Elsewhere</h4>
+        <div class="fsoc" data-ft="soc"></div>
+      </div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 Kartikeyan. All rights reserved</span><a class="to-top ftop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></div>
+  </footer>
+  <div class="wordmark" aria-hidden="true"><b>KARTIKEYAN<sup>™</sup></b><span>Product<br />&amp; UI/UX<br />Designer</span></div>
+
+  <aside class="otw" id="otw" aria-label="Availability" data-render="otw">
+    <button class="otw__close" id="otwClose" aria-label="Dismiss">✕</button>
+    <span class="otw__status"><i></i>Open to opportunities</span>
+    <h3>Let's work together</h3>
+    <ul>
+      <li><b>Roles:</b> Product / UI/UX Designer</li>
+      <li><b>Freelance:</b> UI/UX, logo &amp; motion projects</li>
+      <li><b>Based in:</b> Chennai, India · open to remote</li>
+    </ul>
+    <div class="otw__btns"><a class="btn btn--ghost" href="sample-contact.html">Contact</a></div>
+  </aside>
+
+  <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" integrity="sha384-FKTX0CNJ8ngN1oGMBReVu7mvjTJyjFiD5etb1NKnYxc+8eFI2O0KWnksTN+oTFcu" crossorigin="anonymous" id="lenisLib" async></script>
+  <script src="js/main.js"></script>
+  <script src="js/fluid-cursor.js" defer></script>
+  <script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // reveal: blocks "drive in" from the left once their top passes 90% of the screen
+  const pend = $$("#vs .vs-r");
+  if (reduce) pend.forEach((el) => el.classList.add("in"));
+  else {
+    const reveal = () => {
+      const line = innerHeight * .9;
+      for (let i = pend.length - 1; i >= 0; i--) if (pend[i].getBoundingClientRect().top < line) { pend[i].classList.add("in"); pend.splice(i, 1); }
+      if (!pend.length) { removeEventListener("scroll", reveal); removeEventListener("resize", reveal); }
+    };
+    addEventListener("scroll", reveal, { passive: true }); addEventListener("resize", reveal); reveal();
+  }
+
+  // logo parts: crops of the one logo picture (no second copy of the file in the page)
+  const logo = $("#ifxLogo");
+  if (logo) {
+    const crops = $$(".ifx-crop").map((box) => {
+      const [x, y, w, h] = box.dataset.crop.split(",").map(Number), win = document.createElement("i"), im = new Image();
+      im.alt = ""; im.decoding = "async"; im.src = logo.getAttribute("src");
+      Object.assign(im.style, { width: (3840 / w * 100) + "%", left: (-x / w * 100) + "%", top: (-y / h * 100) + "%" });
+      win.append(im); box.append(win);
+      return { box, win, r: w / h };
+    });
+    // fit each crop inside its tile, keeping its shape
+    const fit = () => crops.forEach(({ box, win, r }) => { const cs = getComputedStyle(box), bw = box.clientWidth - parseFloat(cs.paddingLeft) * 2, bh = box.clientHeight - parseFloat(cs.paddingTop) * 2; let w = bw, h = bw / r; if (h > bh) { h = bh; w = bh * r; } win.style.width = w + "px"; win.style.height = h + "px"; });
+    addEventListener("resize", fit); fit();
+  }
+
+  // page structure: the route is pinned and scrolling drives the van along the eight stops (phones: swipe the row)
+  const drive = $(".ifx-drive");
+  if (drive) {
+    const pin = $(".ifx-drive__pin", drive), track = $(".ifx-drive__track", drive), stops = $$(".ifx-stop", drive), van = $(".ifx-van", drive);
+    const wide = () => innerWidth > 900 && !reduce;
+    let dist = 0, run = 0, start = 0;
+    const tick = () => {
+      if (!wide()) return;
+      const r = drive.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / Math.max(1, drive.offsetHeight - pin.offsetHeight)));
+      track.style.transform = `translate3d(${(-p * dist).toFixed(1)}px,0,0)`;
+      drive.style.setProperty("--p", p.toFixed(4)); drive.style.setProperty("--road", (-p * dist).toFixed(1) + "px");
+      van.style.transform = `translate3d(${(start + p * run).toFixed(1)}px,0,0)`;
+      const vx = van.getBoundingClientRect().left + van.offsetWidth / 2; let c = 0, best = 1e9;
+      stops.forEach((s, i) => { const b = s.querySelector(".ifx-stop__no").getBoundingClientRect(), d = Math.abs(b.left + b.width / 2 - vx); if (d < best) { best = d; c = i; } });
+      stops.forEach((s, i) => { s.classList.toggle("is-on", i === c); s.classList.toggle("is-past", i < c); });
+    };
+    const size = () => {
+      if (!wide()) { drive.style.height = ""; track.style.transform = ""; van.style.transform = ""; stops.forEach((s) => s.classList.remove("is-on", "is-past")); return; }
+      dist = Math.max(0, track.scrollWidth - pin.clientWidth);
+      // the van starts under the first stop's pin and ends under the last one's (track fully driven)
+      start = stops[0].offsetLeft + stops[0].offsetWidth / 2 - van.offsetWidth / 2;
+      run = Math.max(0, pin.clientWidth - 2 * start - van.offsetWidth);
+      drive.style.height = (pin.offsetHeight + dist) + "px";
+      tick();
+    };
+    addEventListener("scroll", tick, { passive: true }); addEventListener("resize", size);
+    $$("img", track).forEach((im) => im.addEventListener("load", size));
+    size();
+  }
+
+  // key decisions: a deck of six cards (buttons, arrow keys, or swipe)
+  const deck = $(".ifx-deck");
+  if (deck) {
+    const cards = $$(".ifx-card", deck), n = cards.length, cnt = $(".ifx-deck__count b", deck), bar = $(".ifx-deck__bar i", deck);
+    let at = 0;
+    const show = (k) => {
+      at = (k + n) % n;
+      cards.forEach((c, j) => { const d = (j - at + n) % n; c.dataset.d = d; c.inert = d !== 0; c.setAttribute("aria-hidden", String(d !== 0)); });
+      cnt.textContent = String(at + 1).padStart(2, "0"); bar.style.width = ((at + 1) / n * 100) + "%";
+    };
+    $$("[data-go]", deck).forEach((b) => b.addEventListener("click", () => show(at + +b.dataset.go)));
+    deck.addEventListener("keydown", (e) => { if (e.key === "ArrowRight") { e.preventDefault(); show(at + 1); } if (e.key === "ArrowLeft") { e.preventDefault(); show(at - 1); } });
+    let x0 = null;
+    const stage = $(".ifx-deck__stage", deck);
+    stage.addEventListener("pointerdown", (e) => { x0 = e.clientX; });
+    stage.addEventListener("pointerup", (e) => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1)); });
+    stage.addEventListener("pointercancel", () => { x0 = null; });
+    show(0);
+  }
+
+  // the two whole-page viewers: a route under each; stops sit where their sections are, the van follows the scroll
+  const roadFor = (root, onCur) => {
+    const pv = window.phoneView && window.phoneView(root), r = $("[data-road]", root);
+    if (!pv || !r) return;
+    const bs = $$("button", r), ys = bs.map((b) => +b.dataset.y), hdr = +root.dataset.hdr || 0, line = $(".ifx-road__line", r);
+    const place = () => { const max = pv.sc.scrollHeight - pv.sc.clientHeight; bs.forEach((b, i) => b.style.setProperty("--x", max > 0 ? Math.min(1, Math.max(0, (ys[i] > 0 ? ys[i] - hdr : 0) * pv.k() / max)).toFixed(4) : i / (bs.length - 1))); };
+    bs.forEach((b) => b.addEventListener("click", () => pv.jump(+b.dataset.y)));
+    $$("img", pv.sc).forEach((im) => im.addEventListener("load", place, { once: true }));
+    addEventListener("resize", place);
+    pv.on(() => {
+      const p = pv.progress(), c = pv.current(ys);
+      line.style.setProperty("--p", p.toFixed(4));
+      bs.forEach((b, i) => { b.classList.toggle("is-on", i === c); b.classList.toggle("is-past", i < c); });
+      if (onCur) onCur(c, p, bs);
+    });
+    place();
+  };
+  roadFor($(".ifx-win"));
+  const ph = $(".ifx-ph");
+  if (ph) roadFor(ph, (c, p, bs) => { $("[data-now]", ph).textContent = bs[c].textContent; $("[data-pct]", ph).textContent = Math.round(p * 100) + "%"; });
+})();
+  </script>
+  <span id="page-ready" hidden></span>
+
+  <details class="xs" id="xsLegend">
+    <summary><b>SAMPLE</b> Proposed changes <i>▾</i></summary>
+    <ol>
+      <li><em>3+ years</em> of experience everywhere (Home, About).</li>
+      <li><a href="sample-index.html#work">Selected works</a>: NineFlow, FinRoot, Nexura, RESPAY.</li>
+      <li><a href="sample-index.html#clients">Designed for</a>: real client logos.</li>
+      <li><a href="sample-nineflow.html">NineFlow</a> facts: role, timeline, status.</li>
+      <li>Home stickers: real numbers.</li>
+      <li>Phone Home: DESIGNER no longer covered.</li>
+      <li>Home end: <em>Book a 15-min call</em>.</li>
+    </ol>
+    <p>Every page and link here is the sample. The live site is unchanged.</p>
+  </details>
+</body>
+</html>

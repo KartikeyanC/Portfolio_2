@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex" />
+  <script src="sample-mode.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample · Posters — Social media posters — Kartikeyan</title>
+  <meta name="description" content="Sixteen square social media posters designed by Kartikeyan C: product launch posts, tech service posts, Tamil festival greetings and days that matter." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
+  <link rel="expect" href="#page-ready" blocking="render" />
+  <link rel="stylesheet" href="sample-mode.css" />
+</head>
+<body id="top">
+
+  <!-- Announcement bar — text/link from content.json "announcement" (edit in /gk); dismissed bars stay hidden for the visit -->
+  <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="sample-contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
+
+  <header class="nav">
+    <a class="nav__brand" href="sample-index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="sample-index.html">Home</a>
+      <a href="sample-about.html">About</a>
+      <a href="sample-projects.html">Projects</a>
+      <a href="sample-services.html">Services</a>
+      <a href="sample-contact.html">Contact</a>
+    </nav>
+    <div class="nav__right">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="nav__cta" href="sample-contact.html">Let's talk</a>
+      <button class="nav__menu" id="menuOpen" aria-expanded="false" aria-controls="panel">Menu</button>
+    </div>
+  </header>
+
+  <div class="panel" id="panel" aria-hidden="true">
+    <button class="panel__close" id="menuClose">Close</button>
+    <a href="sample-index.html">Home</a><a href="sample-about.html">About</a><a href="sample-projects.html">Projects</a><a href="sample-services.html">Services</a><a href="sample-contact.html">Contact</a>
+    <small data-bind="contact-line" hidden></small>
+  </div>
+
+  <main>
+    <!-- Posters (16 square social media posts). Own layout, a small "gallery": four rooms, posters hung on the wall
+         with museum labels, a full-screen viewer. Styles: the ".px" block at the end of css/style.css.
+         Pictures: assets/images/projects/posters/ (NN-name.jpg = 3840 px for the viewer, NN-name@1200.jpg for the wall).
+         Both are made, with the K watermark, from the clean poster in _originals/posters/ by build_single.py. -->
+    <div class="px" id="px">
+
+    <header class="px-hero px-wrap">
+      <a class="cs-back" href="sample-projects.html">← All work</a>
+      <div class="px-hero__grid">
+        <div>
+          <p class="px-eye"><i aria-hidden="true"></i>Graphic design · Social media posters</p>
+          <h1 class="px-title">Posters<sup>16</sup></h1>
+          <p class="cs-outcome"><b>Outcome</b> Sixteen square posters: product launches, tech service posts, Tamil festival greetings and days that matter.</p>
+        </div>
+        <div class="px-hero__side">
+          <p class="px-lead">Sixteen square posts from my social media work: product launches, tech services, Tamil festivals and the days that matter. Open any poster to see it full size.</p>
+          <dl class="px-card">
+            <div><dt>Works</dt><dd>16 posters</dd></div>
+            <div><dt>Format</dt><dd>Square, 1:1</dd></div>
+            <div><dt>Size</dt><dd>4320 × 4320 px</dd></div>
+            <div><dt>Made for</dt><dd>Social media feeds</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="px-cover" data-slide style="view-transition-name:shot-posters;view-transition-class:shot"><img src="assets/images/projects/posters/cover.jpg" alt="A tilted wall of square posters: product launch posts, tech service posts, Tamil festival greetings and days that matter" fetchpriority="high" decoding="sync" /></div>
+    </header>
+
+    <!-- room index: sticky; lights up the room you're in -->
+    <nav class="px-rooms" id="pxRooms" aria-label="Poster groups">
+      <a href="#room-1"><b>01</b><span>Product launch</span><i>5</i></a>
+      <a href="#room-2"><b>02</b><span>Tech services</span><i>3</i></a>
+      <a href="#room-3"><b>03</b><span>Tamil festivals</span><i>4</i></a>
+      <a href="#room-4"><b>04</b><span>Days that matter</span><i>4</i></a>
+    </nav>
+
+    <section class="px-room px-wrap" id="room-1" aria-labelledby="room-1-t">
+      <div class="px-room__head px-r">
+        <span class="px-room__no" aria-hidden="true">01</span>
+        <div>
+          <p class="px-eye">Room 01 · 5 posters</p>
+          <h2 id="room-1-t">Product launch</h2>
+        </div>
+        <p class="px-room__note">Launch posts for Clientronix zero clients, a small box that shares one PC with up to 99 users. The device stays the hero, and every post gives it a different light: teal, a green glow, a black podium, a city at night.</p>
+      </div>
+      <div class="px-grid px-grid--5">
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/01-clientronix-zero-clients.jpg"><img src="assets/images/projects/posters/01-clientronix-zero-clients@1200.jpg" alt="Clientronix poster: two zero-client devices on dark teal with the line Extend 1PC for 99 Users and a list of features" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 01</span><b>Best budget zero clients</b><small>Clientronix · teal</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/02-extend-1pc-glow.jpg"><img src="assets/images/projects/posters/02-extend-1pc-glow@1200.jpg" alt="Clientronix device glowing green on black, with a 3 years warranty badge and an Order now button" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 02</span><b>Extend 1PC for 99 users</b><small>Clientronix · green glow</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/03-refresh-office-computers.jpg"><img src="assets/images/projects/posters/03-refresh-office-computers@1200.jpg" alt="Zero-client device with every port labelled: Ethernet, USB, VGA, power, reset, microphone and headphone" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 03</span><b>Refresh your office computers</b><small>Clientronix · port callouts</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/04-mini-in-size.jpg"><img src="assets/images/projects/posters/04-mini-in-size@1200.jpg" alt="Clientronix device on a black podium, with savings and features in green outlined boxes" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 04</span><b>Mini in size, massive in capabilities</b><small>Clientronix · black podium</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/05-extend-1pc-city.jpg"><img src="assets/images/projects/posters/05-extend-1pc-city@1200.jpg" alt="Two Clientronix devices over a purple city at night with light trails" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 05</span><b>Extend 1 PC for 99 users</b><small>Clientronix · city lights</small></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="px-room px-wrap" id="room-2" aria-labelledby="room-2-t">
+      <div class="px-room__head px-r">
+        <span class="px-room__no" aria-hidden="true">02</span>
+        <div>
+          <p class="px-eye">Room 02 · 3 posters</p>
+          <h2 id="room-2-t">Tech services</h2>
+        </div>
+        <p class="px-room__note">Posts for software services: app development, ERP and AI. Isometric illustrations and short, bold headlines.</p>
+      </div>
+      <div class="px-grid px-grid--3">
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/06-app-development.jpg"><img src="assets/images/projects/posters/06-app-development@1200.jpg" alt="Isometric phone surrounded by app icons on a deep red background, headline Apps that connect the world" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 06</span><b>Apps that connect the world</b><small>App development</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/07-erp.jpg"><img src="assets/images/projects/posters/07-erp@1200.jpg" alt="Isometric ERP modules in blue on dark teal, listing finance, inventory, HR, sales and analytics" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 07</span><b>One platform. Endless possibilities.</b><small>ERP</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/08-ai.jpg"><img src="assets/images/projects/posters/08-ai@1200.jpg" alt="Blue AI poster with a wireframe head, big AI letters and the line Goodbye manual, hello intelligent" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 08</span><b>Goodbye manual, hello intelligent</b><small>AI</small></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="px-room px-wrap" id="room-3" aria-labelledby="room-3-t">
+      <div class="px-room__head px-r">
+        <span class="px-room__no" aria-hidden="true">03</span>
+        <div>
+          <p class="px-eye">Room 03 · 4 posters</p>
+          <h2 id="room-3-t">Tamil festivals</h2>
+        </div>
+        <p class="px-room__note">Greetings for Tamil New Year, Thaipusam, Maha Shivaratri and Thiruvalluvar. Tamil lettering, line drawings and festival details: marigold and mango-leaf garlands, a banana-leaf meal, the vel and peacock feathers.</p>
+      </div>
+      <div class="px-grid px-grid--4">
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/09-tamil-new-year.jpg"><img src="assets/images/projects/posters/09-tamil-new-year@1200.jpg" alt="Tamil New Year greeting: pencil sketch of a temple, marigold and mango-leaf garland, and a banana-leaf meal" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 09</span><b>Tamil New Year</b><small lang="ta">இனிய தமிழ் புத்தாண்டு</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/10-thaipusam.jpg"><img src="assets/images/projects/posters/10-thaipusam@1200.jpg" alt="Thaipusam greeting in green Tamil lettering with a golden vel, peacock feathers and clay pots under hanging mango leaves" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 10</span><b>Thaipusam</b><small lang="ta">இனிய தைப்பூசம்</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/11-maha-shivaratri.jpg"><img src="assets/images/projects/posters/11-maha-shivaratri@1200.jpg" alt="Line drawing of Lord Shiva with a trident and snakes under Tamil lettering" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 11</span><b>Maha Shivaratri</b><small lang="ta">மகா சிவராத்திரி</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/12-thiruvalluvar.jpg"><img src="assets/images/projects/posters/12-thiruvalluvar@1200.jpg" alt="Line drawing of Thiruvalluvar beside a palm-leaf scroll of Tamil verse, on maroon" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 12</span><b>Thiruvalluvar</b><small lang="ta">திருவள்ளுவர்</small></figcaption></figure>
+      </div>
+    </section>
+
+    <section class="px-room px-wrap" id="room-4" aria-labelledby="room-4-t">
+      <div class="px-room__head px-r">
+        <span class="px-room__no" aria-hidden="true">04</span>
+        <div>
+          <p class="px-eye">Room 04 · 4 posters</p>
+          <h2 id="room-4-t">Days that matter</h2>
+        </div>
+        <p class="px-room__note">Mother's Day, Women's Day, Labour Day and World Cancer Day. Light layouts with one image, one message and plenty of room.</p>
+      </div>
+      <div class="px-grid px-grid--4">
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/13-mothers-day.jpg"><img src="assets/images/projects/posters/13-mothers-day@1200.jpg" alt="Pencil sketch of a mother holding her baby beside a short Mother's Day message" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 13</span><b>Mother's Day</b><small>Pencil sketch</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/14-womens-day.jpg"><img src="assets/images/projects/posters/14-womens-day@1200.jpg" alt="A woman's silhouette filled with women of different generations, beside a Women's Day message in script" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 14</span><b>Women's Day</b><small>Generations</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/15-labour-day.jpg"><img src="assets/images/projects/posters/15-labour-day@1200.jpg" alt="Blue scribbled raised fist on light blue with a Labour Day message" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 15</span><b>Labour Day</b><small>Scribbled fist</small></figcaption></figure>
+        <figure class="px-item px-r"><button type="button" class="px-open" data-full="assets/images/projects/posters/16-world-cancer-day.jpg"><img src="assets/images/projects/posters/16-world-cancer-day@1200.jpg" alt="Purple ribbon looping into a heart, with World Cancer Day and February 4th, early detection saves lives" width="1200" height="1200" loading="lazy" decoding="async" /></button>
+          <figcaption class="px-label"><span class="px-no">No. 16</span><b>World Cancer Day</b><small>Ribbon heart</small></figcaption></figure>
+      </div>
+    </section>
+
+    <!-- END -->
+    <section class="px-end px-wrap">
+      <a class="px-ask px-r" href="sample-contact.html?service=Graphic%20design"><span><small>Need posts like these?</small><b>Posters &amp; social media design</b></span><em>Start a project <span aria-hidden="true">↗</span></em></a>
+      <div data-next-project></div>
+    </section>
+
+    <!-- full-screen viewer -->
+    <div class="px-lb" id="pxLb" role="dialog" aria-modal="true" aria-label="Poster viewer" hidden>
+      <div class="px-lb__bar">
+        <span class="px-lb__count" aria-live="polite"></span>
+        <button type="button" class="px-lb__x" aria-label="Close viewer">✕</button>
+      </div>
+      <button type="button" class="px-lb__nav px-lb__prev" aria-label="Previous poster"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <figure class="px-lb__fig"><img alt="" /><figcaption><b></b><small></small></figcaption></figure>
+      <button type="button" class="px-lb__nav px-lb__next" aria-label="Next poster"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer__big">Let's connect</p>
+    <!-- Bento footer (kraftbase tray): write-to-me card | pages | elsewhere. Email, socials and location are filled from content.json by main.js -->
+    <div class="ftray">
+      <div class="fcard fcard--mail">
+        <h4 data-ft="mail-title">Start a project</h4>
+        <a class="fmail" data-ft="mail" href="sample-contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
+          <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
+      </div>
+      <div class="fcard">
+        <h4>Pages</h4>
+        <nav class="fnav" aria-label="Footer"><a href="sample-index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="sample-about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="sample-projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="sample-services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="sample-contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+      </div>
+      <div class="fcard" data-ft="elsewhere" hidden>
+        <h4>Elsewhere</h4>
+        <div class="fsoc" data-ft="soc"></div>
+      </div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 Kartikeyan. All rights reserved</span><a class="to-top ftop" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a></div>
+  </footer>
+  <div class="wordmark" aria-hidden="true"><b>KARTIKEYAN<sup>™</sup></b><span>Product<br />&amp; UI/UX<br />Designer</span></div>
+
+  <aside class="otw" id="otw" aria-label="Availability" data-render="otw">
+    <button class="otw__close" id="otwClose" aria-label="Dismiss">✕</button>
+    <span class="otw__status"><i></i>Open to opportunities</span>
+    <h3>Let's work together</h3>
+    <ul>
+      <li><b>Roles:</b> Product / UI/UX Designer</li>
+      <li><b>Freelance:</b> UI/UX, logo &amp; motion projects</li>
+      <li><b>Based in:</b> Chennai, India · open to remote</li>
+    </ul>
+    <div class="otw__btns"><a class="btn btn--ghost" href="sample-contact.html">Contact</a></div>
+  </aside>
+
+  <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" integrity="sha384-FKTX0CNJ8ngN1oGMBReVu7mvjTJyjFiD5etb1NKnYxc+8eFI2O0KWnksTN+oTFcu" crossorigin="anonymous" id="lenisLib" async></script>
+  <script src="js/main.js"></script>
+  <script src="js/fluid-cursor.js" defer></script>
+  <script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // reveal: each poster is "hung" on the wall as it comes into view (drops a little and settles)
+  const rev = $$("#px .px-r");
+  if (reduce || !("IntersectionObserver" in window)) rev.forEach((el) => el.classList.add("in"));
+  else {
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+    rev.forEach((el, i) => { el.style.setProperty("--d", (i % 4) * 70 + "ms"); io.observe(el); });
+  }
+
+  // room index: smooth jump + the room you're in lights up
+  const nav = $("#pxRooms"), links = $$("a", nav), rooms = links.map((a) => $(a.getAttribute("href")));
+  const offset = () => (nav.getBoundingClientRect().height || 0) + 110;
+  links.forEach((a, i) => a.addEventListener("click", (e) => {
+    e.preventDefault();
+    const y = rooms[i].getBoundingClientRect().top + scrollY - offset() + 30;
+    window.lenis ? window.lenis.scrollTo(y) : scrollTo({ top: y, behavior: reduce ? "auto" : "smooth" });
+  }));
+  const updRooms = () => {
+    const mid = innerHeight * .4; let cur = -1;
+    rooms.forEach((r, i) => { if (r.getBoundingClientRect().top < mid) cur = i; });
+    links.forEach((a, i) => a.classList.toggle("is-on", i === cur));
+  };
+  addEventListener("scroll", updRooms, { passive: true }); addEventListener("resize", updRooms); updRooms();
+
+  // full-screen viewer: the wall copy shows at once, the 4K file replaces it when it has loaded
+  const lb = $("#pxLb"), lbImg = $(".px-lb__fig img", lb), cap = $(".px-lb__fig figcaption", lb), count = $(".px-lb__count", lb);
+  const items = $$(".px-item").map((f) => ({ btn: $(".px-open", f), img: $("img", f), no: $(".px-no", f).textContent, title: $("b", f).textContent, detail: $("small", f), room: f.closest(".px-room").querySelector("h2").textContent }));
+  let at = -1, back = null, token = 0;
+  const show = (i) => {
+    at = (i + items.length) % items.length; const it = items[at], my = ++token;
+    lbImg.src = it.img.currentSrc || it.img.src; lbImg.alt = it.img.alt;
+    const full = new Image(); full.decoding = "async"; full.onload = () => { if (my === token) lbImg.src = full.src; }; full.src = it.btn.dataset.full;
+    $("b", cap).textContent = it.title;
+    const sm = $("small", cap); sm.textContent = it.room + " · " + it.detail.textContent; sm.lang = it.detail.lang || "";
+    count.textContent = String(at + 1).padStart(2, "0") + " / " + items.length;
+  };
+  const open = (i) => {
+    back = document.activeElement; show(i); lb.hidden = false;
+    requestAnimationFrame(() => lb.classList.add("is-open"));
+    document.documentElement.classList.add("px-locked"); window.lenis && window.lenis.stop();
+    $(".px-lb__x", lb).focus();
+  };
+  const close = () => {
+    lb.classList.remove("is-open"); document.documentElement.classList.remove("px-locked"); window.lenis && window.lenis.start();
+    setTimeout(() => { lb.hidden = true; lbImg.removeAttribute("src"); }, reduce ? 0 : 250);
+    back && back.focus && back.focus();
+  };
+  items.forEach((it, i) => { it.btn.setAttribute("aria-label", `Open ${it.no.replace("No. ", "poster ")} full size: ${it.title}`); it.btn.addEventListener("click", () => open(i)); });
+  $(".px-lb__x", lb).addEventListener("click", close);
+  $(".px-lb__prev", lb).addEventListener("click", () => show(at - 1));
+  $(".px-lb__next", lb).addEventListener("click", () => show(at + 1));
+  lb.addEventListener("click", (e) => { if (e.target === lb) close(); });
+  document.addEventListener("keydown", (e) => {
+    if (lb.hidden) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowLeft") show(at - 1);
+    else if (e.key === "ArrowRight") show(at + 1);
+    else if (e.key === "Tab") {   // keep focus inside the viewer
+      const f = $$("button", lb), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  // swipe left / right on touch screens
+  let sx = null;
+  lb.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") sx = e.clientX; });
+  lb.addEventListener("pointerup", (e) => { if (sx === null) return; const dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 50) show(at + (dx < 0 ? 1 : -1)); });
+})();
+  </script>
+  <span id="page-ready" hidden></span>
+
+  <details class="xs" id="xsLegend">
+    <summary><b>SAMPLE</b> Proposed changes <i>▾</i></summary>
+    <ol>
+      <li><em>3+ years</em> of experience everywhere (Home, About).</li>
+      <li><a href="sample-index.html#work">Selected works</a>: NineFlow, FinRoot, Nexura, RESPAY.</li>
+      <li><a href="sample-index.html#clients">Designed for</a>: real client logos.</li>
+      <li><a href="sample-nineflow.html">NineFlow</a> facts: role, timeline, status.</li>
+      <li>Home stickers: real numbers.</li>
+      <li>Phone Home: DESIGNER no longer covered.</li>
+      <li>Home end: <em>Book a 15-min call</em>.</li>
+    </ol>
+    <p>Every page and link here is the sample. The live site is unchanged.</p>
+  </details>
+</body>
+</html>
