@@ -49,9 +49,15 @@
 
 /* Home · phone hero: eyes and hint no longer sit on DESIGNER */
 @media (max-width: 520px) {
-  .kp__hint { display: none; } /* above the eyes it hit the Menu button; below it covered DESIGNER */
-  .kp__eyes { font-size: 8.6vw; }
+  html:not(.off-herofix) .kp__hint { display: none; } /* above the eyes it hit the Menu button; below it covered DESIGNER */
+  html:not(.off-herofix) .kp__eyes { font-size: 8.6vw; }
 }
+
+/* Switched-off changes (samples/choose.html → ?off=…): the "Designed for" logos and the NineFlow facts strip */
+.off-clients #clients > .meta, .off-clients #clients > .heading, .off-clients .xclients, .off-clients .xown { display: none; }
+.off-clients #strip { margin-top: 0; }
+.off-strip #strip { display: none; }
+.off-clients.off-strip #clients { display: none; }
 
 /* Home · curved work gallery (sample-gallery.js) */
 .wgal { position: relative; margin-inline: calc(50% - 50vw); }
@@ -94,3 +100,6 @@
 .wgal.is-flat .wgal__p::before, .wgal.is-flat .wgal__p::after { display: none; }
 .wgal.is-flat .wgal__cap { padding-top: 10px; padding-bottom: 0; }
 .wgal.is-flat .wgal__rail { display: none; }
+
+/* a switched-off change hides its new version even where a class sets display */
+[data-x][hidden], [data-x-old][hidden], [data-needs][hidden] { display: none !important; }

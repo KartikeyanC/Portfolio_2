@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex" />
-  <script src="sample-mode.js?v=2"></script>
+  <script src="sample-mode.js?v=3"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sample · Kartikeyan — Product &amp; UI/UX Designer</title>
   <meta name="description" content="Kartikeyan C — product and UI/UX designer from Chennai, India. Product design, UI/UX, graphic design (logos, posters, brochures), motion and video." />
@@ -18,7 +18,7 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
   <link rel="expect" href="#page-ready" blocking="render" />
-  <link rel="stylesheet" href="sample-mode.css?v=9" />
+  <link rel="stylesheet" href="sample-mode.css?v=10" />
 </head>
 <body id="top">
 
@@ -143,10 +143,14 @@
       </div>
       <!-- Tilted sticker facts (only real, countable things) -->
       <div class="stickers">
-        <div class="sticker sticker--green reveal"><b>08</b><span>Case studies<br />to read</span></div>
-        <div class="sticker sticker--yellow reveal"><b>04</b><span>Sites designed<br />&amp; built</span></div>
-        <div class="sticker sticker--blue reveal"><b>02</b><span>Own products<br />shipped</span></div>
-        <div class="sticker sticker--purple reveal"><b>3+</b><span>Years in<br />product design</span></div>
+        <div data-x-old="stickers" class="sticker sticker--green reveal"><b data-count-of="services">04</b><span>Design<br />disciplines</span></div>
+        <div data-x-old="stickers" class="sticker sticker--yellow reveal"><b data-count-of="live">02</b><span>Featured<br />projects</span></div>
+        <div data-x-old="stickers" class="sticker sticker--blue reveal"><b data-count-of="ongoing">01</b><span data-label-of="ongoing">Case study<br />on the way</span></div>
+        <div data-x-old="stickers" class="sticker sticker--purple reveal"><b>IN</b><span>Based in<br />Chennai</span></div>
+        <div data-x="stickers" class="sticker sticker--green reveal"><b>08</b><span>Case studies<br />to read</span></div>
+        <div data-x="stickers" class="sticker sticker--yellow reveal"><b>04</b><span>Sites designed<br />&amp; built</span></div>
+        <div data-x="stickers" class="sticker sticker--blue reveal"><b>02</b><span>Own products<br />shipped</span></div>
+        <div data-x="stickers" data-needs="years" class="sticker sticker--purple reveal"><b>3+</b><span>Years in<br />product design</span></div>
         <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
           <defs><path id="sealPath" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0" /></defs>
           <circle cx="60" cy="60" r="58" />
@@ -176,7 +180,7 @@
     </section>
     <section class="cta-block">
       <h2 class="reveal" data-render="cta">Let's build<br /><span>something amazing</span></h2>
-      <div class="cta-block__btns reveal"><a class="btn" href="sample-contact.html">Start a project ↗</a><a class="btn btn--ghost" href="sample-contact.html?service=Something%20else#contactForm">Book a 15-min call</a></div>
+      <div class="cta-block__btns reveal"><a class="btn" href="sample-contact.html">Start a project ↗</a><a class="btn btn--ghost" data-x-old="call" href="sample-projects.html">See my work</a><a class="btn btn--ghost" data-x="call" href="sample-contact.html?service=Something%20else#contactForm">Book a 15-min call</a></div>
     </section>
   </main>
 
