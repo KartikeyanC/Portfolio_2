@@ -4126,7 +4126,7 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
   --mono: "DM Mono", ui-monospace, monospace; --gap: clamp(88px, 11vw, 160px);
   position: relative; background: var(--night); color: var(--on); font-family: var(--nf); padding-bottom: 40px; }
 .nfp ::selection { background: var(--o); color: #fff; }
-.nfp-wrap { width: calc(100% - 2 * var(--pad)); max-width: 1440px; margin-inline: auto; }
+.nfp-wrap { width: calc(100% - 2 * var(--pad)); margin-inline: auto; }   /* full width like the Milton page: only the side padding */
 .nfp-sec { padding-top: var(--gap); }
 .nfp h1, .nfp h2, .nfp h3 { font-family: var(--nf); color: #fff; letter-spacing: -.035em; margin: 0; }
 .nfp p { margin: 0; }
@@ -4277,7 +4277,6 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 /* phones */
 .nfp-phone { background: linear-gradient(180deg, var(--night) 0%, #1c120c 40%, #1c120c 100%); }
 .nfp-phones { display: flex; gap: clamp(14px, 2vw, 28px); overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px var(--pad) 40px; scrollbar-width: none; }
-@media (min-width: 1500px) { .nfp-phones { padding-left: calc((100% - 1440px) / 2); } }
 .nfp-phones::-webkit-scrollbar { display: none; }
 .nfp-phones .nfp-ph { flex: 0 0 clamp(210px, 19vw, 300px); scroll-snap-align: start; }
 .nfp-phones figcaption { margin-top: 12px; text-align: center; font: 500 12px var(--mono); color: var(--mut); }
