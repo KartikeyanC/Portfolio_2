@@ -4111,6 +4111,6 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 }
 
 /* NineFlow · full presentation (24 Behance pages, 4K JPG): pages stack edge to edge like Behance */
-.rp .nfd { max-width: 1400px; margin: clamp(28px, 4vw, 52px) auto 0; border-radius: clamp(12px, 1.6vw, 22px); overflow: hidden; background: #f5efe6; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .06); }
+.rp .nfd { margin: clamp(28px, 4vw, 52px) 0 0; border-radius: clamp(12px, 1.6vw, 22px); overflow: hidden; background: #f5efe6; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .06); }
 .rp .nfd__p { margin: 0; }
 .rp .nfd__p img { display: block; width: 100%; height: auto; }
