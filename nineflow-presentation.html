@@ -49,12 +49,8 @@
   </div>
 
   <main class="nfp" id="nfp">
-    <!-- NINEFLOW presentation (own product, design + build). Own look: "the day" — chapters are times of day, and an orange
-         "now" line on the left rail follows the scroll like the app's week view. Styles: the ".nfp" block at the end of css/style.css. -->
+    <!-- NINEFLOW presentation (own product, design + build). Styles: the ".nfp" block at the end of css/style.css. -->
 
-    <nav class="nfp-rail" aria-label="Chapters" id="nfpRail">
-      <span class="nfp-rail__now" id="nfpNow" aria-hidden="true"><b>07:00</b></span>
-    </nav>
 
     <!-- HERO -->
     <section class="nfp-wrap nfp-hero" id="n-top" data-time="06:00" data-label="Intro">
@@ -85,7 +81,7 @@
 
     <!-- 07:00 BRIEF -->
     <section class="nfp-wrap nfp-sec" id="n-brief" data-time="07:00" data-label="The brief">
-      <header class="nfp-h nfp-r"><time>07:00</time><span>The brief</span><h2>The plan and the work <em>never met.</em></h2></header>
+      <header class="nfp-h nfp-r"><span>The brief</span><h2>The plan and the work <em>never met.</em></h2></header>
       <div class="nfp-two">
         <article class="nfp-card nfp-r"><small>The problem</small><p>Plans live in one app, timers in another, and the record of what actually happened nowhere. So a day's plan and a day's work never meet, and nobody can say where the hours went.</p></article>
         <article class="nfp-card nfp-card--hot nfp-r"><small>The idea</small><p>One planner where moving a task to <b>Working</b> starts its timer, and every change to a task is kept. The plan <b>is</b> the work log.</p></article>
@@ -99,7 +95,7 @@
 
     <!-- 08:00 RESEARCH -->
     <section class="nfp-wrap nfp-sec" id="n-research" data-time="08:00" data-label="Research">
-      <header class="nfp-h nfp-r"><time>08:00</time><span>Research</span><h2>Twenty people, <em>one planner.</em></h2>
+      <header class="nfp-h nfp-r"><span>Research</span><h2>Twenty people, <em>one planner.</em></h2>
         <p>I walked through the app as 20 different people, from a first-time visitor to a night-shift nurse and a screen-reader user, and wrote down what got in each one's way, in the order they'd hit it. Then I ranked the fixes by how many people each one helps.</p></header>
       <div class="nfp-stats nfp-r">
         <div><b data-count="20">20</b><span>user types walked through</span></div>
@@ -118,7 +114,7 @@
 
     <!-- 09:00 MARK -->
     <section class="nfp-wrap nfp-sec" id="n-mark" data-time="09:00" data-label="The mark">
-      <header class="nfp-h nfp-r"><time>09:00</time><span>The mark</span><h2>Three shapes, <em>one letter.</em></h2></header>
+      <header class="nfp-h nfp-r"><span>The mark</span><h2>Three shapes, <em>one letter.</em></h2></header>
       <div class="nfp-mark">
         <figure class="nfp-mark__art nfp-r"><img src="assets/images/projects/nineflow/pres/mark-night.jpg" width="2400" height="2400" alt="The NineFlow mark: an orange ribbon N with a dark play shape and an orange dot" loading="lazy" /></figure>
         <ol class="nfp-mark__list">
@@ -128,13 +124,71 @@
           <li class="nfp-r"><b>The dot is you</b>A person standing on the flow, a step ahead of it, and the focus point the whole app is built around.</li>
         </ol>
       </div>
-      <figure class="nfp-board nfp-r"><img src="assets/images/projects/nineflow/deck/p04-construction@1920.jpg" srcset="assets/images/projects/nineflow/deck/p04-construction@1200.jpg 1200w, assets/images/projects/nineflow/deck/p04-construction@1920.jpg 1920w, assets/images/projects/nineflow/deck/p04-construction.jpg 3840w" sizes="100vw" width="3840" height="2160" alt="Logo construction: the mark built on a few parallel lines and true circles" loading="lazy" /></figure>
+      <figure class="nfc nfp-r" id="nfcFig">
+        <div class="nfc__art">
+        <svg class="nfc__svg" viewBox="-26 -26 564 459" role="img" aria-labelledby="nfcTitle">
+          <title id="nfcTitle">NineFlow mark construction: alignment lines, angle lines, and eight circles for its rounded parts</title>
+          <image href="assets/images/projects/nineflow/pres/mark-cream.jpg" x="0" y="0" width="512" height="407" preserveAspectRatio="none"/>
+          <g class="nfc__align" fill="none" stroke="#8a847a" stroke-width=".6" stroke-dasharray="3 4">
+            <line x1="-26" y1="3.3" x2="538" y2="3.3"/>
+            <line x1="-26" y1="79.9" x2="538" y2="79.9"/>
+            <line x1="-26" y1="403.7" x2="538" y2="403.7"/>
+            <line x1="3" y1="-26" x2="3" y2="433"/>
+            <line x1="503" y1="-26" x2="503" y2="433"/>
+            <line x1="441.9" y1="-26" x2="441.9" y2="433"/>
+          </g>
+          <g class="nfc__lines" fill="none" stroke="#1f9d55" stroke-width=".9">
+            <line x1="-8.6" y1="-26.0" x2="343.6" y2="433.0" pathLength="1"/>
+            <line x1="203.0" y1="-26.0" x2="538.0" y2="402.7" pathLength="1"/>
+            <line x1="29.8" y1="433.0" x2="538.0" y2="-16.6" pathLength="1"/>
+            <line x1="-26.0" y1="60.1" x2="321.8" y2="433.0" pathLength="1"/>
+            <line x1="-26.0" y1="378.9" x2="538.0" y2="105.1" pathLength="1"/>
+          </g>
+          <g class="nfc__circles" fill="none" stroke="#e8430c" stroke-width=".9">
+            <circle cx="441.2" cy="79.9" r="65.1" pathLength="1"><title>1 · Dot</title></circle>
+            <circle cx="155.2" cy="146.0" r="142.7" pathLength="1"><title>2 · Ribbon, top arc</title></circle>
+            <circle cx="389.2" cy="279.5" r="124.2" pathLength="1"><title>3 · Ribbon, bottom arc</title></circle>
+            <circle cx="442.7" cy="234.1" r="74.3" pathLength="1"><title>4 · Body, top curve</title></circle>
+            <circle cx="471.5" cy="242.5" r="31.5" pathLength="1"><title>5 · Body, bottom corner</title></circle>
+            <circle cx="51.4" cy="208.4" r="46.8" pathLength="1"><title>6 · Play shape, top corner</title></circle>
+            <circle cx="58.4" cy="333.9" r="54.1" pathLength="1"><title>7 · Play shape, bottom corner</title></circle>
+            <circle cx="150.5" cy="289.3" r="28.8" pathLength="1"><title>8 · Play shape, tip</title></circle>
+          </g>
+          <g class="nfc__pts">
+            <circle cx="441.2" cy="79.9" r="2.4" fill="#e8430c"/><text x="446.2" y="74.9">1</text>
+            <circle cx="155.2" cy="146.0" r="2.4" fill="#e8430c"/><text x="160.2" y="141.0">2</text>
+            <circle cx="389.2" cy="279.5" r="2.4" fill="#e8430c"/><text x="394.2" y="274.5">3</text>
+            <circle cx="442.7" cy="234.1" r="2.4" fill="#e8430c"/><text x="447.7" y="229.1">4</text>
+            <circle cx="471.5" cy="242.5" r="2.4" fill="#e8430c"/><text x="476.5" y="237.5">5</text>
+            <circle cx="51.4" cy="208.4" r="2.4" fill="#e8430c"/><text x="56.4" y="203.4">6</text>
+            <circle cx="58.4" cy="333.9" r="2.4" fill="#e8430c"/><text x="63.4" y="328.9">7</text>
+            <circle cx="150.5" cy="289.3" r="2.4" fill="#e8430c"/><text x="155.5" y="284.3">8</text>
+          </g>
+        </svg>
+        </div>
+        <figcaption class="nfc__cap">
+          <p class="nfc__kick">Construction</p>
+          <h3>Built on a few simple lines</h3>
+          <p>Every edge of the mark lines up with a few parallel lines and true circles, measured from the logo itself. Each rounded part has its own circle.</p>
+          <ol class="nfc__legend">
+          <li><b>1</b>Dot<span>r 65.1</span></li>
+          <li><b>2</b>Ribbon, top arc<span>r 142.7</span></li>
+          <li><b>3</b>Ribbon, bottom arc<span>r 124.2</span></li>
+          <li><b>4</b>Body, top curve<span>r 74.3</span></li>
+          <li><b>5</b>Body, bottom corner<span>r 31.5</span></li>
+          <li><b>6</b>Play shape, top corner<span>r 46.8</span></li>
+          <li><b>7</b>Play shape, bottom corner<span>r 54.1</span></li>
+          <li><b>8</b>Play shape, tip<span>r 28.8</span></li>
+          </ol>
+          <p class="nfc__keys"><i class="k-c"></i>Circles <i class="k-l"></i>Angle lines <i class="k-a"></i>Alignment</p>
+        </figcaption>
+      </figure>
       <figure class="nfp-board nfp-r"><img src="assets/images/projects/nineflow/deck/p05-lockups@1920.jpg" srcset="assets/images/projects/nineflow/deck/p05-lockups@1200.jpg 1200w, assets/images/projects/nineflow/deck/p05-lockups@1920.jpg 1920w, assets/images/projects/nineflow/deck/p05-lockups.jpg 3840w" sizes="100vw" width="3840" height="2160" alt="Logo lockups: the mark and wordmark on cream, ink and orange" loading="lazy" /></figure>
     </section>
 
     <!-- 10:00 COLOUR & TYPE -->
     <section class="nfp-wrap nfp-sec" id="n-colour" data-time="10:00" data-label="Colour & type">
-      <header class="nfp-h nfp-r"><time>10:00</time><span>Colour &amp; type</span><h2>Warm orange <em>on cream.</em></h2>
+      <header class="nfp-h nfp-r"><span>Colour &amp; type</span><h2>Warm orange <em>on cream.</em></h2>
         <p>A sunrise gradient for the moments that matter, cream and sand for calm working surfaces, and warm greys instead of pure black after dark.</p></header>
       <div class="nfp-sw nfp-r">
         <div style="--c:#FF9F1C;--t:#111"><b>Sun</b><code>#FF9F1C</code></div>
@@ -156,7 +210,7 @@
 
     <!-- 11:00 PRINCIPLES -->
     <section class="nfp-wrap nfp-sec" id="n-principles" data-time="11:00" data-label="Principles">
-      <header class="nfp-h nfp-r"><time>11:00</time><span>Principles</span><h2>Designed for the next five minutes, <em>and the next five weeks.</em></h2></header>
+      <header class="nfp-h nfp-r"><span>Principles</span><h2>Designed for the next five minutes, <em>and the next five weeks.</em></h2></header>
       <div class="nfp-princ">
         <article class="nfp-r"><b>01</b><h3>One look at today</h3><p>The load bar compares planned hours with the working day, so an over-full day shows before it starts.</p></article>
         <article class="nfp-r"><b>02</b><h3>Add in plain words</h3><p>"Call the bank tomorrow 3pm !high" fills in the day, time and priority. Speak tasks, or paste messy notes.</p></article>
@@ -166,7 +220,7 @@
 
     <!-- 12:00 DASHBOARD -->
     <section class="nfp-wrap nfp-sec" id="n-dash" data-time="12:00" data-label="Dashboard">
-      <header class="nfp-h nfp-r"><time>12:00</time><span>Dashboard</span><h2>Today, <em>at a glance.</em></h2>
+      <header class="nfp-h nfp-r"><span>Dashboard</span><h2>Today, <em>at a glance.</em></h2>
         <p>The first screen answers three questions before anything else: what's left, how long it takes, and when you'll finish.</p></header>
       <figure class="nfp-bz nfp-bz--big nfp-r"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/dashboard</em></span><img src="assets/images/projects/nineflow/pres/desk-light-dashboard@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-dashboard@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-dashboard.jpg 3840w" sizes="92vw" width="3840" height="2400" alt="NineFlow dashboard: today's load bar, carried-over tasks, task counts, today's schedule, task list and a productivity ring" loading="lazy" /></figure>
       <div class="nfp-calls">
@@ -178,7 +232,7 @@
 
     <!-- 13:00 VIEWS -->
     <section class="nfp-wrap nfp-sec" id="n-views" data-time="13:00" data-label="Views">
-      <header class="nfp-h nfp-r"><time>13:00</time><span>Views</span><h2>The same tasks, <em>seen eight ways.</em></h2>
+      <header class="nfp-h nfp-r"><span>Views</span><h2>The same tasks, <em>seen eight ways.</em></h2>
         <p>Every view reads the same list, so a change made in one shows in all of them.</p></header>
       <div class="nfp-views nfp-r" id="nfpViews">
         <div class="nfp-tabs" role="tablist" aria-label="Views"></div>
@@ -189,7 +243,7 @@
 
     <!-- 14:00 FEATURES -->
     <section class="nfp-wrap nfp-sec" id="n-features" data-time="14:00" data-label="Features">
-      <header class="nfp-h nfp-r"><time>14:00</time><span>Features</span><h2>Small features <em>that save the day.</em></h2></header>
+      <header class="nfp-h nfp-r"><span>Features</span><h2>Small features <em>that save the day.</em></h2></header>
       <div class="nfp-bento">
         <article class="nfp-tile nfp-tile--w nfp-r"><figure><img src="assets/images/projects/nineflow/pres/crop-quickadd.jpg" width="1137" height="877" alt="Quick add reading the day, time, length, priority and category from one typed line" loading="lazy" /></figure><h3>Type it</h3><p>"Edit trailer tomorrow 2pm 90m #work !high" becomes a scheduled task.</p></article>
         <article class="nfp-tile nfp-tile--num nfp-r"><b data-count="13">13</b><p>views from one set of tasks</p></article>
@@ -208,7 +262,7 @@
 
     <!-- 15:00 PHONE -->
     <section class="nfp-sec nfp-phone" id="n-phone" data-time="15:00" data-label="On a phone">
-      <div class="nfp-wrap"><header class="nfp-h nfp-r"><time>15:00</time><span>On a phone</span><h2>Made for <em>one hand.</em></h2>
+      <div class="nfp-wrap"><header class="nfp-h nfp-r"><span>On a phone</span><h2>Made for <em>one hand.</em></h2>
         <p>The Android app is the same planner, laid out for a thumb: Home, Board, Week and Month in a bottom bar, everything else one tap away.</p></header></div>
       <div class="nfp-phones" id="nfpPhones" tabindex="0" aria-label="Phone screens, scroll sideways">
         <figure class="nfp-ph nfp-r"><img src="assets/images/projects/nineflow/pres/phone-light-home.jpg" width="1170" height="2532" alt="Phone home: today's load and schedule" loading="lazy" /><figcaption>Home</figcaption></figure>
@@ -221,7 +275,7 @@
 
     <!-- 16:00 DARK -->
     <section class="nfp-wrap nfp-sec" id="n-dark" data-time="16:00" data-label="After dark">
-      <header class="nfp-h nfp-r"><time>16:00</time><span>After dark</span><h2>Easy on the eyes <em>after dark.</em></h2>
+      <header class="nfp-h nfp-r"><span>After dark</span><h2>Easy on the eyes <em>after dark.</em></h2>
         <p>Warm greys instead of pure black, and the same orange, so the brand looks the same day and night. Four more colour themes for people who want their own.</p></header>
       <div class="nfp-dark nfp-r">
         <figure class="nfp-bz nfp-bz--dark"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app</em></span><img src="assets/images/projects/nineflow/pres/desk-dark-dashboard@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-dark-dashboard@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-dark-dashboard.jpg 3840w" sizes="80vw" width="3840" height="2400" alt="The dashboard in dark mode" loading="lazy" /></figure>
@@ -236,7 +290,7 @@
 
     <!-- 17:00 BUILD -->
     <section class="nfp-wrap nfp-sec" id="n-build" data-time="17:00" data-label="The build">
-      <header class="nfp-h nfp-r"><time>17:00</time><span>The build</span><h2>One codebase, <em>four platforms.</em></h2>
+      <header class="nfp-h nfp-r"><span>The build</span><h2>One codebase, <em>four platforms.</em></h2>
         <p>I designed it and built it: the same React app runs in the browser, wraps into a desktop app with Electron and into Android with Capacitor.</p></header>
       <div class="nfp-stats nfp-r">
         <div><b>1</b><span>codebase</span></div>
@@ -255,7 +309,7 @@
 
     <!-- 18:00 NEXT -->
     <section class="nfp-wrap nfp-sec" id="n-next" data-time="18:00" data-label="What's next">
-      <header class="nfp-h nfp-r"><time>18:00</time><span>What's next</span><h2>Still on <em>the list.</em></h2></header>
+      <header class="nfp-h nfp-r"><span>What's next</span><h2>Still on <em>the list.</em></h2></header>
       <div class="nfp-princ nfp-princ--quiet">
         <article class="nfp-r"><b>01</b><h3>Hindi, then more</h3><p>Move every string into one dictionary, then add Hindi for the Indian users the audit found.</p></article>
         <article class="nfp-r"><b>02</b><h3>Quiet Google reconnect</h3><p>Refresh the Google sign-in in the background, so the reconnect banner only shows when it truly fails.</p></article>
@@ -305,8 +359,7 @@
   <script src="js/main.js"></script>
   <script src="js/fluid-cursor.js" defer></script>
   <script>
-// NineFlow presentation: the time rail (chapters as times of day, a "now" line that follows the scroll),
-// the view switcher, the reveal on scroll, and the next-project card.
+// NineFlow presentation: the reveal on scroll, the count-ups, the view switcher and the next-project card.
 (() => {
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -324,37 +377,6 @@
     requestAnimationFrame(step);
   }), { threshold: .6 });
   $$("[data-count]").forEach((el) => cio.observe(el));
-
-  // Time rail
-  const rail = $("#nfpRail"), now = $("#nfpNow"), secs = $$("#nfp [data-time]");
-  const toMin = (t) => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
-  const fmt = (m) => String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(Math.round(m % 60)).padStart(2, "0");
-  const first = toMin(secs[0].dataset.time), last = toMin(secs[secs.length - 1].dataset.time) + 60;
-  const links = secs.map((s) => {
-    const a = document.createElement("a");
-    a.href = "#" + s.id; a.textContent = s.dataset.time === "06:00" ? "Start" : s.dataset.time;
-    a.title = s.dataset.label; a.setAttribute("aria-label", s.dataset.label + " · " + s.dataset.time);
-    a.style.top = ((toMin(s.dataset.time) - first) / (last - first) * 100) + "%";
-    rail.appendChild(a); return a;
-  });
-  let ticking = false;
-  function frame() {
-    ticking = false;
-    const mid = innerHeight * .35;
-    let i = 0;
-    secs.forEach((s, k) => { if (s.getBoundingClientRect().top <= mid) i = k; });
-    const s = secs[i], next = secs[i + 1];
-    const r = s.getBoundingClientRect();
-    const span = next ? next.getBoundingClientRect().top - r.top : r.height;
-    const f = Math.min(1, Math.max(0, (mid - r.top) / Math.max(1, span)));
-    const m = toMin(s.dataset.time) + f * ((next ? toMin(next.dataset.time) : toMin(s.dataset.time) + 60) - toMin(s.dataset.time));
-    now.style.top = ((m - first) / (last - first) * 100) + "%";
-    now.querySelector("b").textContent = fmt(Math.min(m, last));
-    links.forEach((a, k) => a.classList.toggle("is-on", k === i));
-  }
-  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
-  addEventListener("resize", frame);
-  frame();
 
   // Views: the same tasks, seen eight ways
   const P = "assets/images/projects/nineflow/pres/";
