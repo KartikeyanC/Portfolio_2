@@ -4428,7 +4428,7 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfp .nfd__p img { display: block; width: 100%; height: auto; }
 
 /* NineFlow live page: Option 1 (Behance) boards placed inside the presentation chapters */
-.nff-boards { grid-column: 1 / -1; display: grid; gap: clamp(14px, 1.6vw, 22px); margin-top: clamp(8px, 1vw, 16px); }
+.nff-boards { display: grid; gap: clamp(14px, 1.6vw, 22px); margin-top: clamp(28px, 3.4vw, 48px); }
 .nff-boards .nfp-board, .nfp-boards .nfp-board { margin: 0; }
 .nfp-boards { display: grid; gap: clamp(14px, 1.6vw, 22px); margin-top: clamp(32px, 4vw, 56px); }
 .nfp-board--deck { box-shadow: 0 1px 0 var(--hair); }
