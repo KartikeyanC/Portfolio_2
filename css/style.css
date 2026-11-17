@@ -4425,6 +4425,20 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nff-why { margin-top: 2px; padding: 12px 14px; border-radius: 12px; background: rgba(255, 106, 19, .08); border: 1px solid rgba(255, 106, 19, .22); color: var(--on); font-size: 15px; line-height: 1.55; }
 .nff-why b { display: block; margin-bottom: 2px; font: 600 11px var(--nf); letter-spacing: .12em; text-transform: uppercase; color: #ffb48a; }
 
+/* group as a card grid: heading row on top, three short cards across */
+.nff-group--grid { grid-template-columns: 1fr; gap: clamp(18px, 2vw, 26px); }
+.nff-group--grid .nff-gh { position: static; grid-template-columns: auto 1fr; align-items: center; column-gap: 16px; }
+.nff-group--grid .nff-gh p { grid-column: 1 / -1; max-width: 560px; }
+.nff-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.nff-tile { display: grid; grid-template-rows: auto 1fr; border-radius: 24px; overflow: hidden; background: var(--night2); border: 1px solid var(--hair); }
+.nff-tile figure { margin: 0; aspect-ratio: 4 / 3; padding: clamp(14px, 1.8vw, 24px); background: var(--sand); overflow: hidden; }
+.nff-tile figure img { display: block; width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 14px 22px rgba(60, 20, 0, .22)); }
+.nff-tile__txt { display: grid; align-content: start; gap: 8px; padding: clamp(16px, 1.8vw, 22px) clamp(16px, 1.8vw, 24px) clamp(18px, 2vw, 26px); }
+.nff-tile__txt h4 { margin: 0; font: 800 clamp(19px, 1.6vw, 24px)/1.15 var(--nf); color: #fff; letter-spacing: -.02em; }
+.nff-tile__txt p { color: var(--mut); font-size: 15px; line-height: 1.55; }
+@media (max-width: 1000px) { .nff-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) { .nff-grid { grid-template-columns: 1fr; } }
+
 @media (max-width: 1100px) { .nff-group { grid-template-columns: 1fr; } .nff-gh { position: static; } .nff-gh p { max-width: 640px; } }
 @media (max-width: 760px) {
   .nff-card { grid-template-columns: 1fr; }
