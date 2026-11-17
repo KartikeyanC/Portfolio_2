@@ -52,3 +52,45 @@
   .kp__hint { display: none; } /* above the eyes it hit the Menu button; below it covered DESIGNER */
   .kp__eyes { font-size: 8.6vw; }
 }
+
+/* Home · curved work gallery (sample-gallery.js) */
+.wgal { position: relative; margin-inline: calc(50% - 50vw); }
+.wgal__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; perspective: 1900px; perspective-origin: 50% 42%; display: flex; flex-direction: column; justify-content: center; gap: clamp(26px, 5vh, 56px); }
+.wgal__track { align-self: flex-start; flex: none; display: flex; align-items: center; gap: clamp(16px, 1.8vw, 28px); padding-inline: 50vw; width: max-content; transform-style: preserve-3d; will-change: transform; }
+.wgal__p { --k: 0; position: relative; flex: none; display: block; height: min(40vh, 380px); aspect-ratio: var(--ar); border-radius: 14px; overflow: hidden; background: #111; cursor: zoom-in; transform-origin: 50% 50%; backface-visibility: hidden; box-shadow: 0 30px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08); }
+.wgal__p.is-first { margin-left: clamp(40px, 5vw, 90px); }
+.wgal__p img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+/* edge split: a thin red/blue fringe on screens that turn away (ozgur.design style) */
+.wgal__p::before, .wgal__p::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: var(--k); transition: opacity .2s; }
+.wgal__p::before { box-shadow: inset 3px 0 0 rgba(255, 40, 120, .65), inset -3px 0 0 rgba(40, 170, 255, .65); }
+.wgal__p::after { background: linear-gradient(90deg, rgba(0,0,0,.55), transparent 35%, transparent 65%, rgba(0,0,0,.55)); }
+.wgal__p:focus-visible { outline: 2px solid var(--acc); outline-offset: 4px; }
+
+.wgal__cap { align-self: center; text-align: center; padding: 0 var(--pad); display: grid; gap: 4px; justify-items: center; }
+.wgal__cap b { display: inline-flex; align-items: center; gap: 10px; font: 600 clamp(18px, 1.6vw, 22px)/1.2 var(--clash); color: var(--ink); }
+.wgal__cap b::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--c, var(--acc)); box-shadow: 0 0 0 4px color-mix(in srgb, var(--c, var(--acc)) 22%, transparent); }
+.wgal__cap span { font: 500 14px var(--body); color: var(--grey); }
+.wgal__cap em { font-style: normal; font: 500 13px var(--body); color: var(--ink); opacity: .8; }
+.wgal__cap small { margin-top: 6px; font: 500 12px ui-monospace, "JetBrains Mono", monospace; letter-spacing: .14em; color: var(--grey); }
+.wgal__cap.is-in > * { animation: wgalIn .45s cubic-bezier(.2,.7,.2,1) both; }
+.wgal__cap.is-in > :nth-child(2) { animation-delay: .04s; } .wgal__cap.is-in > :nth-child(3) { animation-delay: .08s; }
+@keyframes wgalIn { from { opacity: 0; transform: translateY(8px); } }
+
+.wgal__rail { position: absolute; right: clamp(12px, 2vw, 28px); top: 50%; translate: 0 -50%; display: grid; grid-template-columns: auto 2px; gap: 10px; align-items: stretch; z-index: 2; }
+.wgal__rail > b { grid-column: 1; align-self: start; font: 600 11px var(--clash); letter-spacing: .14em; text-transform: uppercase; color: var(--ink); background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 6px; padding: 4px 7px; }
+.wgal__ticks { grid-column: 1; list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; justify-items: end; }
+.wgal__ticks li span { font: 500 11px ui-monospace, monospace; color: var(--grey); transition: color .3s; }
+.wgal__ticks li.is-on span { color: var(--c); }
+.wgal__bar { grid-column: 2; grid-row: 1 / span 2; width: 2px; border-radius: 2px; background: rgba(255,255,255,.12); overflow: hidden; }
+.wgal__bar i { display: block; width: 100%; height: 100%; background: var(--acc); transform-origin: top; transform: scaleY(0); }
+
+/* Phones, touch, reduced motion: a plain swipe row */
+.wgal.is-flat { margin-inline: calc(var(--pad) * -1); }
+.wgal.is-flat .wgal__stage { position: relative; height: auto; perspective: none; display: block; padding-bottom: 8px; }
+.wgal.is-flat .wgal__track { width: auto; padding-inline: var(--pad); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; transform: none !important; padding-block: 8px 18px; }
+.wgal.is-flat .wgal__track::-webkit-scrollbar { display: none; }
+.wgal.is-flat .wgal__p { height: 56vw; max-height: 340px; scroll-snap-align: center; transform: none !important; cursor: pointer; }
+.wgal.is-flat .wgal__p.is-first { margin-left: 18px; }
+.wgal.is-flat .wgal__p::before, .wgal.is-flat .wgal__p::after { display: none; }
+.wgal.is-flat .wgal__cap { padding-top: 10px; padding-bottom: 0; }
+.wgal.is-flat .wgal__rail { display: none; }
