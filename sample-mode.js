@@ -4,13 +4,13 @@
 //
 // Every proposed change can be switched off, so samples/choose.html can preview any mix of them:
 //   sample-index.html?off=works,stickers   (the choice is remembered in localStorage for the other pages)
-//   years · works · clients · strip · stickers · herofix · call
+//   years · works · clients · strip · stickers · herofix · call · nineflow (off = keep the live 24-page deck)
 (function () {
   var KEY = "content-json";
   var PAGES = ["index", "about", "projects", "services", "contact", "case", "posters",
     "ifortigo", "myshoptill", "nexura", "respay", "vstar", "nineflow", "finroot"];
   var FEATURED = ["nineflow", "finroot", "nexura", "respay"]; // Home → Selected works, in this order
-  var FLAGS = ["years", "works", "clients", "strip", "stickers", "herofix", "call"];
+  var FLAGS = ["years", "works", "clients", "strip", "stickers", "herofix", "call", "nineflow"];
 
   // Which changes are switched off
   var off = [];
@@ -38,6 +38,7 @@
     // 3 · Case-study links point at the sample copies
     c.projects.forEach(function (p) {
       if (p.caseStudy && p.caseStudy.page && !/^sample-/.test(p.caseStudy.page)) p.caseStudy.page = "sample-" + p.caseStudy.page;
+      if (p.id === "nineflow" && isOff("nineflow") && p.caseStudy) p.caseStudy.page = "sample-nineflow-deck.html";
     });
     return c;
   }
@@ -54,9 +55,13 @@
   var re = new RegExp("^/?(" + PAGES.join("|") + ")\\.html(?=$|[?#])");
   function fix(a) {
     var h = a.getAttribute("href");
-    if (!h || h.indexOf("sample-") !== -1) return;
+    if (!h) return;
+    if (h.indexOf("sample-") !== -1) { if (isOff("nineflow") && /^sample-nineflow\.html(?=$|[?#])/.test(h)) a.setAttribute("href", h.replace("sample-nineflow.html", "sample-nineflow-deck.html")); return; }
     if (h === "/" || h === "./") { a.setAttribute("href", "sample-index.html"); return; }
     if (re.test(h)) a.setAttribute("href", h.replace(re, "sample-$1.html"));
+    // NineFlow skipped: its links open the live deck copy instead of the new presentation
+    h = a.getAttribute("href");
+    if (isOff("nineflow") && /^sample-nineflow\.html(?=$|[?#])/.test(h)) a.setAttribute("href", h.replace("sample-nineflow.html", "sample-nineflow-deck.html"));
   }
   function fixAll(root) { (root.querySelectorAll ? root : document).querySelectorAll("a[href]").forEach(fix); }
   document.addEventListener("DOMContentLoaded", function () {
