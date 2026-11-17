@@ -253,7 +253,7 @@ def page_doc(html: str) -> str:
     html = re.sub(r'\s*<link rel="expect"[^>]*>', "", html)
     # the NineFlow presentation pages carry 1200 / 1920 / 4K sizes for the live site; the single file keeps only
     # the 1920 src, or 24 pages × 3 sizes would add ~185 MB
-    html = re.sub(r'\s+srcset="[^"]*/deck/[^"]*"', "", html)
+    html = re.sub(r'\s+srcset="[^"]*/(?:deck|pres)/[^"]*"', "", html)
     # static image paths written in a page (e.g. respay.html) become data URIs so the single file works offline
     def _img(m):
         f = ROOT / "assets" / "images" / m.group(2)
