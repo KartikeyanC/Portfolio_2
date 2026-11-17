@@ -4260,6 +4260,8 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 
 /* Views as a scroll list: one screen + write-up per view, full width */
 .nfv__list { display: grid; gap: clamp(64px, 8vw, 120px); }
+.nfv__item--dash .nfp-board { margin: 0; }
+.nfv__item--dash .nfp-calls { margin-top: clamp(20px, 2.4vw, 32px); }
 /* each screen sits on a warm cream board, like the Dashboard board above */
 .nfv__stage { border-radius: 22px; padding: clamp(18px, 3.4vw, 52px) clamp(18px, 6vw, 96px) clamp(22px, 4vw, 60px);
   background: radial-gradient(120% 80% at 50% 0%, #fbf9f5 0%, #f4f0e8 60%, #efe9de 100%); }
