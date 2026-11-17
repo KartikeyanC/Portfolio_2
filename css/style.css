@@ -4260,6 +4260,13 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 
 /* Views as a scroll list: one screen + write-up per view, full width */
 .nfv__list { display: grid; gap: clamp(64px, 8vw, 120px); }
+/* each screen sits on a warm cream board, like the Dashboard board above */
+.nfv__stage { border-radius: 22px; padding: clamp(18px, 3.4vw, 52px) clamp(18px, 6vw, 96px) clamp(22px, 4vw, 60px);
+  background: radial-gradient(120% 80% at 50% 0%, #fbf9f5 0%, #f4f0e8 60%, #efe9de 100%); }
+.nfp-bz--light { background: #fbfaf7; box-shadow: 0 40px 70px -34px rgba(70, 50, 20, .35), 0 0 0 1px rgba(60, 45, 20, .08); }
+.nfp-bz--light .nfp-bz__bar { background: #f3efe8; }
+.nfp-bz--light .nfp-bz__bar i { width: 9px; height: 9px; }
+.nfp-bz--light .nfp-bz__bar em { background: #fff; color: #57524a; min-width: min(40%, 220px); text-align: center; }
 .nfv__txt { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(20px, 3vw, 48px); margin-top: clamp(20px, 2.4vw, 32px); }
 .nfv__no { display: block; font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--o); margin-bottom: 10px; }
 .nfv__txt h3 { font-weight: 800; font-size: clamp(24px, 2.4vw, 36px); line-height: 1.1; }
