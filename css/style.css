@@ -120,7 +120,7 @@ img { display: block; max-width: 100%; }
 .works { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 3.3vw, 48px) clamp(20px, 3.3vw, 48px); padding: 0 clamp(0px, 1.2vw, 17px) clamp(60px, 8vw, 120px); }
 /* Framed card with tags on the top edge and a name "notch" cut into the image corner
    (card pattern adapted from kargul.studio/work) */
-.work { --frame: var(--surface-2); position: relative; display: grid; gap: 14px; padding-top: 14px; }
+.work { --frame: var(--surface-2); position: relative; display: grid; align-content: start; gap: 14px; padding-top: 14px; } /* start: a shorter description no longer stretches the frame taller than its row neighbour */
 .work.is-hidden { display: none; }
 .work__tags { position: absolute; top: 0; left: 50%; translate: -50% 0; z-index: 2; display: flex; gap: 6px; white-space: nowrap; max-width: calc(100% - 16px); } /* never wider than the card (pushed 320px phones sideways) */
 .work__tags span { min-width: 0; overflow: hidden; text-overflow: ellipsis;background: var(--frame); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-family: var(--clash); font-weight: 500; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--grey); }
