@@ -4343,3 +4343,42 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfc.in .nfc__align line { opacity: 1; } .nfc.in .nfc__pts { opacity: 1; }
 @media (prefers-reduced-motion: reduce) { .nfc .nfc__lines line, .nfc .nfc__circles circle { stroke-dashoffset: 0; transition: none; } .nfc .nfc__align line, .nfc .nfc__pts { opacity: 1; transition: none; } }
 @media (max-width: 900px) { .nfc { grid-template-columns: 1fr; } .nfc__art { border-right: 0; border-bottom: 1px solid #e7e0d2; } }
+
+/* NineFlow presentation · features in three groups: a sticky group title, then one card per feature
+   (screen + what it does + how it works + why it matters) */
+.nff-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.nff-nums > div { border-radius: 20px; padding: 22px 24px; background: var(--night2); border: 1px solid var(--hair); display: grid; gap: 6px; align-content: end; min-height: 150px; }
+.nff-nums b { font: 900 clamp(48px, 5.4vw, 84px)/.9 var(--nf); letter-spacing: -.05em; color: #fff; font-variant-numeric: tabular-nums; }
+.nff-nums span { color: var(--mut); font-size: 15px; }
+.nff-nums .is-hot { background: linear-gradient(135deg, #c2410c 0%, #9a3412 100%); border: 0; } .nff-nums .is-hot span { color: #fff; }
+
+.nff-group { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 9fr); gap: clamp(20px, 3vw, 48px); align-items: start; margin-top: clamp(56px, 7vw, 100px); padding-top: clamp(24px, 3vw, 36px); border-top: 1px solid var(--hair); }
+.nff-gh { position: sticky; top: 110px; display: grid; gap: 12px; }
+.nff-gno { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #c2410c 0%, #9a3412 100%); color: #fff; font: 800 18px var(--nf); }
+.nff-gh h3 { font-weight: 800; font-size: clamp(26px, 2.6vw, 38px); }
+.nff-gh p { color: var(--mut); font-size: 16px; line-height: 1.6; max-width: 360px; }
+.nff-list { display: grid; gap: 16px; }
+
+.nff-card { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(18px, 2.4vw, 34px); align-items: center; padding: clamp(14px, 1.6vw, 20px); border-radius: 24px; background: var(--night2); border: 1px solid var(--hair); }
+.nff-card figure { margin: 0; border-radius: 16px; overflow: hidden; background: var(--sand); display: grid; place-items: center; align-self: stretch; padding: clamp(10px, 1.4vw, 18px); }
+.nff-card figure img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 18px 40px -22px rgba(60, 20, 0, .45); }
+.nff-card--phone figure { background: linear-gradient(135deg, #ff9f1c 0%, #ff6a13 45%, #f2420e 100%); }
+.nff-card--phone figure img { width: min(62%, 230px); border-radius: 22px; }
+.nff-txt { display: grid; gap: 12px; padding: 6px 6px 6px 0; }
+.nff-no { font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--o); }
+.nff-txt h4 { margin: 0; font: 800 clamp(21px, 1.9vw, 27px)/1.15 var(--nf); color: #fff; letter-spacing: -.025em; }
+.nff-lead { color: var(--on); font-size: 16px; line-height: 1.6; }
+.nff-how { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.nff-how li { position: relative; padding-left: 22px; color: var(--mut); font-size: 15px; line-height: 1.55; }
+.nff-how li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--o); }
+.nff-how b { color: var(--on); font-weight: 600; }
+.nff-how kbd { font: 500 12px var(--mono); padding: 1px 6px; border-radius: 5px; background: var(--night3); border: 1px solid var(--hair); color: var(--on); }
+.nff-why { margin-top: 2px; padding: 12px 14px; border-radius: 12px; background: rgba(255, 106, 19, .08); border: 1px solid rgba(255, 106, 19, .22); color: var(--on); font-size: 15px; line-height: 1.55; }
+.nff-why b { display: block; margin-bottom: 2px; font: 600 11px var(--nf); letter-spacing: .12em; text-transform: uppercase; color: #ffb48a; }
+
+@media (max-width: 1100px) { .nff-group { grid-template-columns: 1fr; } .nff-gh { position: static; } .nff-gh p { max-width: 640px; } }
+@media (max-width: 760px) {
+  .nff-card { grid-template-columns: 1fr; }
+  .nff-txt { padding: 4px 4px 6px; }
+  .nff-nums { grid-template-columns: 1fr; gap: 8px; } .nff-nums > div { grid-template-columns: auto 1fr; align-items: center; gap: 16px; min-height: 0; padding: 16px 18px; } .nff-nums b { font-size: 48px; }
+}
