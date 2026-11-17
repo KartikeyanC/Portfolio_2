@@ -4263,7 +4263,7 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfv__nav { position: sticky; top: 110px; }
 .nfv__nav ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; border-left: 1px solid var(--hair); }
 .nfv__nav a { display: flex; gap: 12px; align-items: baseline; padding: 8px 0 8px 16px; margin-left: -1px; border-left: 2px solid transparent; color: var(--mut); text-decoration: none; font: 500 15px var(--nf); transition: color .2s, border-color .2s; }
-.nfv__nav a span { font: 500 11px var(--mono); color: #6f6a62; }
+.nfv__nav a span { font: 500 11px var(--mono); color: var(--mut); }
 .nfv__nav a:hover { color: #fff; }
 .nfv__nav a.on { color: #fff; border-left-color: var(--o); } .nfv__nav a.on span { color: var(--o); }
 .nfv__nav a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
