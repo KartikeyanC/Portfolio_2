@@ -4453,7 +4453,8 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfi__pic { margin: 0; aspect-ratio: 4 / 3; background: var(--cream); display: grid; place-items: center; overflow: hidden; }
 .nfi__pic > img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .nfi__pic > svg { display: block; width: 100%; height: 100%; }
-.nfi__lbl text { font: 500 13px var(--mono); fill: #6b665c; }
+.nfi__pic--n { color: #6b665c; }
+.nfi__lbl text { font: 500 13px var(--mono); fill: currentColor; }
 .nfi__pic--sizes { display: flex; align-items: flex-end; justify-content: center; gap: clamp(14px, 2.4vw, 30px); padding-bottom: 16%; }
 .nfi__pic--sizes figure { margin: 0; display: grid; justify-items: center; gap: 10px; }
 .nfi__pic--sizes img { display: block; width: var(--s); height: auto; }
