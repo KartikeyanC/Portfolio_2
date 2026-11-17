@@ -4269,7 +4269,7 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfp-bz--light .nfp-bz__bar { background: #f3efe8; }
 .nfp-bz--light .nfp-bz__bar i { width: 9px; height: 9px; }
 .nfp-bz--light .nfp-bz__bar em { background: #fff; color: #57524a; min-width: min(40%, 220px); text-align: center; }
-.nfv__txt { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(20px, 3vw, 48px); margin-top: clamp(20px, 2.4vw, 32px); }
+.nfv__txt { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(20px, 3vw, 48px); margin-bottom: clamp(20px, 2.4vw, 32px); }
 .nfv__no { display: block; font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--o); margin-bottom: 10px; }
 .nfv__txt h3 { font-weight: 800; font-size: clamp(24px, 2.4vw, 36px); line-height: 1.1; }
 .nfv__txt p { color: var(--mut); font-size: clamp(15px, 1.1vw, 17px); line-height: 1.6; } .nfv__txt p b { color: #fff; font-weight: 600; }
