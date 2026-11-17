@@ -4,13 +4,14 @@
 //
 // Every proposed change can be switched off, so samples/choose.html can preview any mix of them:
 //   sample-index.html?off=works,stickers   (the choice is remembered in localStorage for the other pages)
-//   years · works · clients · strip · stickers · herofix · call · nineflow (off = keep the live 24-page deck)
+//   years · works · clients · strip · stickers · herofix · call
+// and which NineFlow page to show:  ?nf=pres (the HTML presentation) | deck (the live 24-page deck) | both
 (function () {
   var KEY = "content-json";
   var PAGES = ["index", "about", "projects", "services", "contact", "case", "posters",
     "ifortigo", "myshoptill", "nexura", "respay", "vstar", "nineflow", "finroot"];
   var FEATURED = ["nineflow", "finroot", "nexura", "respay"]; // Home → Selected works, in this order
-  var FLAGS = ["years", "works", "clients", "strip", "stickers", "herofix", "call", "nineflow"];
+  var FLAGS = ["years", "works", "clients", "strip", "stickers", "herofix", "call"];
 
   // Which changes are switched off
   var off = [];
@@ -20,6 +21,16 @@
     else off = (localStorage.getItem("sample-off") || "").split(",").filter(Boolean);
   } catch (e) {}
   var isOff = function (f) { return off.indexOf(f) !== -1; };
+  // NineFlow page: pres | deck | both
+  var NF = { pres: "sample-nineflow.html", deck: "sample-nineflow-deck.html", both: "sample-nineflow-both.html" };
+  var nf = "pres";
+  try {
+    var q2 = new URLSearchParams(location.search);
+    if (q2.has("nf") && NF[q2.get("nf")]) { nf = q2.get("nf"); localStorage.setItem("sample-nf", nf); }
+    else if (NF[localStorage.getItem("sample-nf")]) nf = localStorage.getItem("sample-nf");
+  } catch (e) {}
+  var toNF = function (h) { return h.replace(/^\/?sample-nineflow(-deck|-both)?\.html/, NF[nf]); };
+  var isNF = function (h) { return /^\/?sample-nineflow(-deck|-both)?\.html(?=$|[?#])/.test(h); };
   off.forEach(function (f) { document.documentElement.classList.add("off-" + f); });
 
   try { sessionStorage.removeItem(KEY); } catch (e) {}
@@ -38,7 +49,7 @@
     // 3 · Case-study links point at the sample copies
     c.projects.forEach(function (p) {
       if (p.caseStudy && p.caseStudy.page && !/^sample-/.test(p.caseStudy.page)) p.caseStudy.page = "sample-" + p.caseStudy.page;
-      if (p.id === "nineflow" && isOff("nineflow") && p.caseStudy) p.caseStudy.page = "sample-nineflow-deck.html";
+      if (p.id === "nineflow" && p.caseStudy) p.caseStudy.page = NF[nf];
     });
     return c;
   }
@@ -56,12 +67,12 @@
   function fix(a) {
     var h = a.getAttribute("href");
     if (!h) return;
-    if (h.indexOf("sample-") !== -1) { if (isOff("nineflow") && /^sample-nineflow\.html(?=$|[?#])/.test(h)) a.setAttribute("href", h.replace("sample-nineflow.html", "sample-nineflow-deck.html")); return; }
+    if (h.indexOf("sample-") !== -1) { if (isNF(h) && toNF(h) !== h) a.setAttribute("href", toNF(h)); return; }
     if (h === "/" || h === "./") { a.setAttribute("href", "sample-index.html"); return; }
     if (re.test(h)) a.setAttribute("href", h.replace(re, "sample-$1.html"));
-    // NineFlow skipped: its links open the live deck copy instead of the new presentation
+    // NineFlow links open the chosen NineFlow page
     h = a.getAttribute("href");
-    if (isOff("nineflow") && /^sample-nineflow\.html(?=$|[?#])/.test(h)) a.setAttribute("href", h.replace("sample-nineflow.html", "sample-nineflow-deck.html"));
+    if (isNF(h) && toNF(h) !== h) a.setAttribute("href", toNF(h));
   }
   function fixAll(root) { (root.querySelectorAll ? root : document).querySelectorAll("a[href]").forEach(fix); }
   document.addEventListener("DOMContentLoaded", function () {
