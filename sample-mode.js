@@ -12,7 +12,7 @@
 
   function patch(c) {
     // 1 · Experience: 3+ years everywhere
-    c = JSON.parse(JSON.stringify(c).split("14+ years").join("3+ years"));
+    c = JSON.parse(JSON.stringify(c).split("14+ years").join("3+ years").split('"years":"14+"').join('"years":"3+"'));
     var list = c.projects || [];
     // 2 · Selected works: own products first, then Nexura and RESPAY; nothing else featured
     list.forEach(function (p) { p.featured = FEATURED.indexOf(p.id) !== -1; });
