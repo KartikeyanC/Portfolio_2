@@ -455,6 +455,7 @@
 
     <!-- 15:00 PHONE -->
     <section class="nfp-sec nfp-phone" id="n-phone" data-time="15:00" data-label="On a phone">
+      <div class="nfp-hs" id="nfpHs"><div class="nfp-hs__pin">
       <div class="nfp-wrap"><header class="nfp-h nfp-r"><span>On a phone</span><h2>Made for <em>one hand.</em></h2>
         <p>The Android app is the same planner, laid out for a thumb: Home, Board, Week and Month in a bottom bar, everything else one tap away. Every screen comes in light and dark, shown here side by side.</p></header></div>
       <div class="nfp-phones" id="nfpPhones" tabindex="0" aria-label="Phone screens in light and dark mode, scroll sideways">
@@ -479,6 +480,8 @@
           <figcaption><b>Charts</b><span>Light · Dark</span></figcaption>
         </figure>
       </div>
+      <div class="nfp-hs__bar" aria-hidden="true"><i></i></div>
+      </div></div>
       <div class="nfp-wrap nfp-boards">
         <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p12-mobile-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p12-mobile-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p12-mobile-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p12-mobile-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="3120" alt="Made for one hand: the Android app's main screens" loading="lazy" decoding="async" /></figure>
         <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p13-mobile-detail-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p13-mobile-detail-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p13-mobile-detail-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p13-mobile-detail-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2421" alt="Everything from desktop, sized for a phone: month, focus, charts and matrix" loading="lazy" decoding="async" /></figure>
@@ -489,10 +492,6 @@
     <section class="nfp-wrap nfp-sec" id="n-dark" data-time="16:00" data-label="After dark">
       <header class="nfp-h nfp-r"><span>After dark</span><h2>Easy on the eyes <em>after dark.</em></h2>
         <p>Warm greys instead of pure black, and the same orange, so the brand looks the same day and night. Four more colour themes for people who want their own.</p></header>
-      <div class="nfp-dark nfp-r">
-        <figure class="nfp-bz nfp-bz--dark"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app</em></span><img src="assets/images/projects/nineflow/pres/desk-dark-dashboard@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-dark-dashboard@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-dark-dashboard.jpg 3840w" sizes="80vw" width="3840" height="2400" alt="The dashboard in dark mode" loading="lazy" /></figure>
-        <figure class="nfp-ph nfp-dark__ph"><img src="assets/images/projects/nineflow/pres/phone-dark-home.jpg" srcset="assets/images/projects/nineflow/pres/phone-dark-home@480.jpg 480w, assets/images/projects/nineflow/pres/phone-dark-home@786.jpg 786w, assets/images/projects/nineflow/pres/phone-dark-home.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone home in dark mode" loading="lazy" /></figure>
-      </div>
       <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p14-dark-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p14-dark-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p14-dark-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p14-dark-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2232" alt="Easy on the eyes after dark: the dashboard and phone in dark mode" loading="lazy" decoding="async" /></figure>
       <div class="nfp-themes">
         <figure class="nfp-r"><img src="assets/images/projects/nineflow/pres/theme-ocean@1440.jpg" width="1440" height="900" alt="Dashboard in the Ocean theme" loading="lazy" /><figcaption>Ocean</figcaption></figure>
@@ -607,6 +606,40 @@
 
 
   // Next project: main.js only fills [data-next-project] on a page named in content.json, so this draft adds the card itself.
+  // On a phone: the page pins here and scrolling moves the phones right to left.
+  // Phones, touch screens, short windows and reduced motion keep the normal sideways swipe.
+  const hs = $("#nfpHs");
+  if (hs && !reduce) {
+    const pin = $(".nfp-hs__pin", hs), row = $("#nfpPhones"), bar = $(".nfp-hs__bar i", hs);
+    const wide = matchMedia("(min-width: 901px) and (hover: hover) and (pointer: fine)");
+    let dist = 0, queued = false;
+    const paint = () => {
+      queued = false;
+      if (!dist) return;
+      const p = Math.min(1, Math.max(0, -hs.getBoundingClientRect().top / dist));
+      row.style.transform = "translate3d(" + (-p * dist) + "px, 0, 0)";
+      bar.style.transform = "scaleX(" + p + ")";
+    };
+    const queue = () => { if (!queued) { queued = true; requestAnimationFrame(paint); } };
+    const measure = () => {
+      dist = 0; hs.classList.remove("is-on"); hs.style.height = ""; row.style.transform = ""; row.tabIndex = 0;
+      if (!wide.matches) return;
+      hs.classList.add("is-on");
+      const need = [...pin.children].reduce((sum, el) => sum + el.getBoundingClientRect().height + parseFloat(getComputedStyle(el).marginTop), 0) + parseFloat(getComputedStyle(pin).paddingTop) + 24;
+      const move = row.offsetWidth - pin.clientWidth;
+      if (need > innerHeight || move <= 0) { hs.classList.remove("is-on"); return; }
+      dist = move; row.tabIndex = -1;
+      $$("img", row).forEach((im) => { im.loading = "eager"; });
+      hs.style.height = innerHeight + dist + "px";
+      paint();
+    };
+    measure();
+    addEventListener("scroll", queue, { passive: true });
+    addEventListener("resize", measure);
+    addEventListener("load", measure, { once: true });
+    wide.addEventListener("change", measure);
+  }
+
   const fillNext = () => {
     const box = $("#nfpNext");
     if (!box || box.children.length) return;
