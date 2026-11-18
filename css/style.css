@@ -4529,19 +4529,11 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 @media (max-width: 1000px) { .nfi__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px) { .nfi__steps { grid-template-columns: 1fr; } }
 
-/* NineFlow "On a phone": pinned on desktop while the page scroll moves the row right to left (script in nineflow.html) */
-.nfp-hs__bar { display: none; }
-.nfp-hs.is-on .nfp-hs__pin { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 72px; overflow: hidden; }
-.nfp-hs.is-on .nfp-h { margin-bottom: clamp(18px, 2.2vw, 30px); }
-.nfp-hs.is-on .nfp-h p { max-width: 860px; }
-.nfp-hs.is-on .nfp-phones { flex: none; align-self: flex-start; width: max-content; overflow: visible; scroll-snap-type: none; padding-bottom: 18px; will-change: transform; }
-.nfp-hs.is-on .nfp-pair.nfp-r { opacity: 1; transform: none; transition: none; }
-.nfp-hs.is-on .nfp-hs__bar { display: block; flex: none; height: 2px; margin: 0 var(--pad); border-radius: 2px; background: var(--hair); overflow: hidden; }
-.nfp-hs__bar i { display: block; height: 100%; background: var(--o); transform: scaleX(0); transform-origin: left; }
-/* Keep the pinned row whole on laptop-height screens: phones follow the window height, the heading tightens */
-.nfp-hs.is-on { --nfp-phone: min(calc(.26 * 7 / 12 * (100vw - 2 * var(--pad) - 2 * clamp(28px, 4vw, 64px) - clamp(20px, 3vw, 48px))), calc((100vh - 360px) / 2.1)); }
-@media (max-height: 820px) {
-  .nfp-hs.is-on .nfp-h { gap: 8px; margin-bottom: 14px; }
-  .nfp-hs.is-on .nfp-h h2 { font-size: clamp(32px, 3.4vw, 46px); }
-  .nfp-hs.is-on .nfp-h p { max-width: 980px; font-size: 15px; line-height: 1.45; }
-}
+/* NineFlow "On a phone": the phones slide right to left by themselves (copies and timing are set by the script in nineflow.html) */
+.nfp-phone { overflow-x: clip; }
+.nfp-phones.is-marq { width: max-content; overflow: visible; scroll-snap-type: none; padding-right: 0; animation: nfp-marq var(--marq-time, 50s) linear infinite; will-change: transform; }
+.nfp-phones.is-marq:hover, .nfp-phones.is-marq:focus, .nfp-phones.is-marq.is-away { animation-play-state: paused; }
+.nfp-phones.is-marq:focus { outline: none; }
+.nfp-phones.is-marq:focus-visible { outline: 2px solid var(--o); outline-offset: -2px; }
+.nfp-phones.is-marq .nfp-pair.nfp-r { opacity: 1; transform: none; transition: none; }
+@keyframes nfp-marq { to { transform: translate3d(var(--marq-x, -50%), 0, 0); } }
