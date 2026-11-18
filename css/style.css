@@ -3111,7 +3111,7 @@ body:has(.pvc) .nav:not(.is-pill) .nav__links a, body:has(.pvc) .nav:not(.is-pil
 .rx-hero { padding-top: clamp(110px, 13vw, 160px) !important; }
 .rx-app { display: grid; grid-template-columns: auto 1fr auto; gap: clamp(16px, 2.4vw, 32px); align-items: center; margin-top: clamp(22px, 3vw, 36px); }
 .rx-app__icon { width: clamp(88px, 10vw, 138px); height: auto; border-radius: 24%; box-shadow: 0 1px 0 rgba(255,255,255,.4) inset, 0 18px 40px -14px rgb(var(--navy-rgb) / .55); }
-.rx-app__name h1 { font: 700 clamp(44px, 6vw, 84px)/.95 var(--clash) !important; letter-spacing: -.03em; color: var(--ink) !important; }
+.rx-app__name h1, .rx-app__name h2 { font: 700 clamp(44px, 6vw, 84px)/.95 var(--clash) !important; letter-spacing: -.03em; color: var(--ink) !important; }
 .rx-app__name p { margin-top: 6px; font: 500 clamp(17px, 1.5vw, 21px) var(--pop); color: var(--grey); }
 .rx-app__name small { display: block; margin-top: 4px; font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--navy-2); }
 .rx-app__get { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
@@ -4538,3 +4538,19 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfp-phones.is-marq:focus-visible { outline: 2px solid var(--o); outline-offset: -2px; }
 .nfp-phones.is-marq .nfp-pair.nfp-r { opacity: 1; transform: none; transition: none; }
 @keyframes nfp-marq { to { transform: translate3d(var(--marq-x, -50%), 0, 0); } }
+
+/* ---------- One project header on every case study (Milton's structure): back link, title, outcome, tags, wide cover.
+   Set in full so each project's own type and spacing never change it. What was in the old hero follows under the cover (.cs-after). ---------- */
+:root .cs-head--page { width: 100%; box-sizing: border-box; text-align: left; }
+:root .cs-head--page .cs-title { margin: 0; max-width: 22ch; font: 600 clamp(38px, 5.4vw, 86px)/1 var(--clash); letter-spacing: -.01em; text-transform: none; color: var(--ink); }
+:root .cs-head--page .cs-meta span { font-family: var(--clash); }
+:root .cs-after { padding-top: clamp(36px, 5vw, 64px) !important; }
+:root .cs-after .nx-hero__grid, :root .cs-after .px-hero__grid { display: block; margin-top: 0; }
+:root .cs-after .nx-hero__side, :root .cs-after .px-hero__side { max-width: 860px; }
+.cs-shot + .mx-bar { margin-top: clamp(24px, 3vw, 40px); }
+.nfp-hero.cs-after .nfp-hero__btns { margin: 0 0 clamp(24px, 3vw, 36px); }
+.nfp-hero.cs-after .nfp-btn--ink { background: #ff6a13; color: #fff; }
+.nfp-hero.cs-after .nfp-btn--ghost { color: inherit; border-color: currentColor; background: none; }
+@media (max-width: 700px) { :root .cs-head--page + .cs-shot { aspect-ratio: 4 / 3; border-radius: 18px; } }
+/* NineFlow and VSTAR stay dark in the light theme, so their header keeps light text */
+.nfp .cs-head--page, #vs.mx-wrap .cs-head--page { --ink: #fff; --grey: rgba(255, 255, 255, .72); --line: rgba(255, 255, 255, .2); --cs-back-ink: rgba(255, 255, 255, .72); }

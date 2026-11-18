@@ -16,7 +16,7 @@
        labels and paragraphs are live text laid over them, sized with the board (cqw) so they stay where the design puts them. -->
   <style>
     .mx-body .nav.is-pill { top: calc(var(--nav-top, 0px) + 12px); }   /* the pill sits under the announcement bar until it scrolls away */
-    #vs.mx-wrap { padding-top: calc(var(--abar-h, 0px) + 92px); background: #000 !important; color: #fff; overflow: clip; }
+    #vs.mx-wrap { padding-top: 0; background: #000 !important; color: #fff; overflow: clip; }
     .mx-b { position: relative; container-type: inline-size; width: calc(100% - 2 * var(--pad)); max-width: 1680px; margin: 0 auto clamp(10px, 1.1vw, 16px); background: #000; border-radius: 26px; overflow: clip; }   /* the site's side gap on both sides; each board a rounded card with a small gap below */
     .mx-b::after { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); pointer-events: none; }   /* hairline edge, so the curve shows on the black boards */
     .mx-b__img { display: block; width: 100%; height: auto; }
@@ -171,29 +171,28 @@
     <!-- #vs: VSTAR tokens (fonts, colours) + the project brand colours from content.json -->
     <div class="vs vx mx-wrap" id="vs">
 
-    <!-- top row: back to all work, the case study name, the live site — above the cover -->
-    <a class="cs-back" href="projects.html">← All work</a>
+    <!-- Project header: the same structure as Milton (back link, title, outcome, tags, wide cover) -->
+    <section class="cs-head cs-head--page">
+      <a class="cs-back" href="projects.html">← All work</a>
+      <h1 class="cs-title">VSTAR: a logo and website for a door and shutter service company</h1>
+      <p class="cs-outcome"><b>Outcome</b> Shipped a logo and website, designed and built, that turns a broken shutter into a service request in two short steps.</p>
+      <div class="cs-meta"><span>Logo</span><span>Website</span><span>Design &amp; development</span></div>
+    </section>
+    <div class="cs-shot" data-slide style="view-transition-name:shot-vstar;view-transition-class:shot"><img src="assets/images/projects/vstar/hero.jpg" width="2560" height="2347" alt="The VSTAR logo above the VSTAR website on a desktop screen, with the mobile site on a phone beside it" fetchpriority="high" decoding="sync" /></div>
+
     <div class="mx-bar">
       <div class="mx-top">
         <div class="mx-top__l"><span>VSTAR — Logo &amp; website case study</span></div>
         <div class="mx-top__r"><span>Kartikeyan × VSTAR</span><a href="https://vstar.sg/" target="_blank" rel="noopener">vstar.sg <span aria-hidden="true">↗</span></a></div>
       </div>
-      <p class="cs-outcome"><b>Outcome</b> Shipped a logo and website, designed and built, that turns a broken shutter into a service request in two short steps.</p>
     </div>
-
-    <!-- 00 COVER: the same picture as the project card (assets/images/projects/vstar/cover.jpg), shown first;
-         the card's picture flies straight into it when the project opens. data-slide = the wide frame the picture
-         slides up inside as you scroll, the same as the other case-study covers (css [data-slide], main.js coverSlide) -->
-    <section class="mx-b" id="cover" aria-label="Cover" data-slide style="view-transition-name:shot-vstar;view-transition-class:shot">
-      <img class="mx-b__img" src="assets/images/projects/vstar/cover.jpg" width="3840" height="2880" alt="The VSTAR website on a desktop screen standing on a pedestal of navy cubes, with the mobile site on a phone beside it and labels reading Clear structure, Adaptive layout, Easy to enquire and WhatsApp in one tap" fetchpriority="high" decoding="sync" />
-    </section>
 
     <!-- 01 PROJECT OVERVIEW -->
     <section class="mx-b" id="overview" aria-label="Project overview">
       <img class="mx-b__img" src="assets/images/projects/vstar/pres/b01-overview.jpg" width="3840" height="3304" alt="A display on a dark desk showing the VSTAR website, with a small desktop computer beside it" decoding="async" />
       <img class="mx-scr" src="assets/images/projects/vstar/site-hero.jpg" alt="The VSTAR home page hero: 'Our Service That Keeps You Moving', four guarantees and a card for Grills" decoding="async" />
       <p class="mx-t mx-lbl" style="left:5.07%;top:85.1%" data-r>Project Overview</p>
-      <h1 class="mx-t mx-p mx-p--lg" style="left:40.4%;top:83.4%;width:52%" data-r><b>VSTAR is a logo and website for a Singapore door and shutter service company,</b> designed to turn a broken door into a service request in two short steps.</h1>
+      <h2 class="mx-t mx-p mx-p--lg" style="left:40.4%;top:83.4%;width:52%" data-r><b>VSTAR is a logo and website for a Singapore door and shutter service company,</b> designed to turn a broken door into a service request in two short steps.</h2>
     </section>
 
     <!-- 02 PAIN -->
