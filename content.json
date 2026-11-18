@@ -459,8 +459,13 @@
             "show": true
           },
           {
+            "id": "try",
+            "label": "09 Try it (prototypes)",
+            "show": true
+          },
+          {
             "id": "end",
-            "label": "09 Next project",
+            "label": "10 Next project",
             "show": true
           }
         ],

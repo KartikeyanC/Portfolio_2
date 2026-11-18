@@ -262,6 +262,8 @@ def page_doc(html: str) -> str:
     html = re.sub(r'\s*<link rel="apple-touch-icon"[^>]*>', "", html)
     html = re.sub(r'<link rel="icon" href="/?assets/favicon\.svg"', '<link rel="icon" href="<!--@ICON-->"', html)
     html = re.sub(r'\s*<link rel="expect"[^>]*>', "", html)
+    # the live prototypes are separate files, which this one offline file cannot open
+    html = re.sub(r'\s*<section[^>]*data-sec="try".*?</section>', "", html, flags=re.S)
     # the NineFlow presentation pages carry 1200 / 1920 / 4K sizes for the live site; the single file keeps only
     # the 1920 src, or 24 pages × 3 sizes would add ~185 MB
     html = re.sub(r'\s+srcset="[^"]*/(?:deck|pres)/[^"]*"', "", html)

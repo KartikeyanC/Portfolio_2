@@ -22,7 +22,7 @@ OUT = os.path.join(ROOT, "_site")
 PAGES = ["index", "about", "projects", "services", "contact", "404"]
 PROJECT_PAGES = ["case", "posters", "ifortigo", "myshoptill", "nexura", "respay", "vstar", "nineflow", "finroot"]
 FILES = ["content.json", "favicon.ico", "robots.txt", "sitemap.xml"]
-FOLDERS = ["assets", "gk"]
+FOLDERS = ["assets", "gk", "prototypes"]
 # Readable source -> minified file that goes online (the HTML is pointed at the minified one below)
 MINIFY = ["assets/css/style.css", "assets/js/main.js", "assets/js/fluid-cursor.js"]
 ESBUILD = "esbuild@0.25.10"
@@ -117,6 +117,19 @@ def main():
         paths = [clean + ".html", clean] + (["/"] if clean == "/index" else [])
         for path in paths:
             rules.append(f"{path}\n  Content-Security-Policy: {csp}\n")
+    # Standalone product prototypes and decks: each HTML file gets a policy for its own inline scripts.
+    for folder, _, names in os.walk(os.path.join(OUT, "prototypes")):
+        for name in names:
+            if not name.endswith(".html"):
+                continue
+            file = os.path.join(folder, name)
+            url = "/" + os.path.relpath(file, OUT).replace(os.sep, "/")
+            csp = "; ".join(SITE_CSP).format(hashes=" ".join(inline_hashes(open(file, encoding="utf-8", newline="").read())))
+            paths = [url, url[: -len(".html")]]
+            if name == "index.html":
+                paths = [url, url[: -len("index.html")], url[: -len("/index.html")]]
+            for path in paths:
+                rules.append(f"{path}\n  Content-Security-Policy: {csp}\n")
     for path in ["/gk", "/gk/*"]:
         rules.append(f"{path}\n  Content-Security-Policy: {'; '.join(GK_CSP)}\n")
 
