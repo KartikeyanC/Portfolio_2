@@ -556,7 +556,7 @@
   // view-transition name is added at the moment of that navigation, so e.g. Home → All projects simply fades.
   const hasCase = (p) => !!(p && p.caseStudy && p.caseStudy.show !== false);
   // a project can have its own hand-built case study page (caseStudy.page, e.g. respay.html); otherwise the shared template
-  const caseUrl = (p) => escUrl((p.caseStudy && p.caseStudy.page) || `case.html?p=${encodeURIComponent(p.id)}`);
+  const caseUrl = (p) => { const pg = p.caseStudy && p.caseStudy.page; return escUrl(pg ? (pg.startsWith("sample-") ? "/" + pg : "/projects/" + pg) : `/projects/case.html?p=${encodeURIComponent(p.id)}`); };
   // Brand colours (content.json → project "brand"): the case study CONTENT wears its own project's colours
   // (accent numbers, text, buttons and background) — the site's own parts (top banner, menu, "Start a project",
   // footer) keep the site colour. The "Next project" card wears the NEXT project's colours.
@@ -663,7 +663,7 @@
     grid.innerHTML = featured.map((p) => {
       const soon = p.status === "ongoing";
       const img = coverImg(p, vtShot(p) + ' loading="lazy"', `<div class="pgrid__soon">${esc(p.name)}</div>`); // below the hero: load as it nears
-      return `<a href="${hasCase(p) ? caseUrl(p) : "projects.html#" + esc(p.id)}"${soon ? ' data-status="soon"' : ""}><div class="pgrid__img">${img}${soon ? '<span class="pgrid__badge"><i></i>Ongoing</span>' : ""}</div><div class="pgrid__cap"><b>${esc(p.name)} <span>| ${esc(p.type)}</span></b><small>${esc(p.category)}</small></div></a>`;
+      return `<a href="${hasCase(p) ? caseUrl(p) : "/projects.html#" + esc(p.id)}"${soon ? ' data-status="soon"' : ""}><div class="pgrid__img">${img}${soon ? '<span class="pgrid__badge"><i></i>Ongoing</span>' : ""}</div><div class="pgrid__cap"><b>${esc(p.name)} <span>| ${esc(p.type)}</span></b><small>${esc(p.category)}</small></div></a>`;
     }).join(""); // no "your project could be next" tile here — it looked like a project
   }
 
@@ -687,7 +687,7 @@
     // 2nd row: any further projects + Video work as text links, and "See all projects"
     const MEGA_MAX = 7;
     const cards = realProjects.slice(0, MEGA_MAX), rest = realProjects.slice(MEGA_MAX);
-    const href = (p) => root + (hasCase(p) ? caseUrl(p) : `projects.html#${encodeURIComponent(p.id)}`);
+    const href = (p) => (hasCase(p) ? caseUrl(p) : `${root}projects.html#${encodeURIComponent(p.id)}`);
     const wrap = document.createElement("div");
     wrap.className = "mega-wrap";
     projLink.replaceWith(wrap);
@@ -713,7 +713,7 @@
     const withCase = C.projects.filter(hasCase);
     const p = withCase.find((x) => x.id === id);
     if (!p) {
-      caseBox.innerHTML = `<section class="cs-empty"><a class="cs-back" href="projects.html">← All work</a><h1>This case study isn't ready yet</h1><p style="color:var(--grey);margin-bottom:26px">It may still be in progress. Have a look at the other projects meanwhile.</p><a class="btn" href="projects.html">All projects ↗</a></section>`;
+      caseBox.innerHTML = `<section class="cs-empty"><a class="cs-back" href="/projects.html">← All work</a><h1>This case study isn't ready yet</h1><p style="color:var(--grey);margin-bottom:26px">It may still be in progress. Have a look at the other projects meanwhile.</p><a class="btn" href="/projects.html">All projects ↗</a></section>`;
       document.title = "Case study — Kartikeyan";
     } else if (p.caseStudy.page && /^https?:$/.test(location.protocol)) {
       location.replace(p.caseStudy.page); // old case.html?p=<id> links → the project's own page
@@ -739,7 +739,7 @@
       let sn = 0; const secNo = () => pad(++sn); // numbered section labels: (01) Overview, (02) Challenge …
       caseBox.innerHTML = `
         <section class="cs-head">
-          <a class="cs-back" href="projects.html">← All work</a>
+          <a class="cs-back" href="/projects.html">← All work</a>
           <h1 class="cs-title">${esc(cs.title || p.name)}</h1>
           ${cs.outcome ? `<p class="cs-outcome"><b>Outcome</b> ${esc(cs.outcome)}</p>` : ""}
           <div class="cs-meta">${[cs.year, ...(cs.tags || p.tags || [])].filter(Boolean).map((t) => `<span>${esc(t)}</span>`).join("")}</div>
@@ -821,7 +821,7 @@
     list.innerHTML = realProjects.map((p) => {
       const soon = p.status === "ongoing";
       const img = coverImg(p, vtShot(p), p.sample ? sampleArt(p) : '<div class="work__soon">Case study<br />coming soon</div>');
-      return `<a class="work reveal" id="${esc(p.id)}" data-cat="${esc((p.filters || []).join(" "))}"${soon ? ' data-status="soon"' : ""} href="${hasCase(p) ? caseUrl(p) : esc(p.link || "contact.html")}">
+      return `<a class="work reveal" id="${esc(p.id)}" data-cat="${esc((p.filters || []).join(" "))}"${soon ? ' data-status="soon"' : ""} href="${hasCase(p) ? caseUrl(p) : esc(p.link || "/contact.html")}">
           <div class="work__tags">${(p.tags || []).map((t) => `<span>${esc(t)}</span>`).join("")}</div>
           <div class="work__frame"><div class="work__img">${img}</div><span class="work__name">${esc(p.name)} <i aria-hidden="true">↗</i></span></div>
           ${p.description ? `<p class="work__desc">${esc(p.description)}</p>` : ""}
@@ -957,7 +957,7 @@
   if (vCards && vOn && (V.cards || []).length) {
     $("#videoFormats").hidden = false;
     const vis = { thumbnails: () => thumbArt(VT[0] || { sample: true }, 0), reels: () => reelArt(VR[0] || { sample: true, title: "" }, 0, true), podcasts: () => podArt(VP[0] || { sample: true, title: "" }, true) };
-    vCards.innerHTML = V.cards.map((c) => `<div class="vcard reveal">${framed(String(c.tools || "").split("·").map((t) => t.trim()), `<div class="vcard__vis">${vis[c.id] ? vis[c.id]() : ""}</div>`, c.title, { href: "projects.html#video" })}<p class="work__desc">${esc(c.text)}</p></div>`).join("");
+    vCards.innerHTML = V.cards.map((c) => `<div class="vcard reveal">${framed(String(c.tools || "").split("·").map((t) => t.trim()), `<div class="vcard__vis">${vis[c.id] ? vis[c.id]() : ""}</div>`, c.title, { href: "/projects.html#video" })}<p class="work__desc">${esc(c.text)}</p></div>`).join("");
     $$(".vcard", vCards).forEach((card) => { const r = $(".vreel", card); if (!r) return; card.addEventListener("mouseenter", () => playReel(r, true)); card.addEventListener("mouseleave", () => playReel(r, false)); });
   }
 
@@ -967,7 +967,7 @@
   if (wall) {
     const real = (x) => !x.sample || x.image; // placeholders (the gk "Sample" switch) stay off the home page
     const tiles = [
-      ...realProjects.map((p) => ({ href: p.caseStudy && p.caseStudy.show ? "/" + caseUrl(p) : "/projects.html", html: coverImg({ ...p, alt: "" }, ' loading="lazy"', "remove"), pic: true })),
+      ...realProjects.map((p) => ({ href: p.caseStudy && p.caseStudy.show ? caseUrl(p) : "/projects.html", html: coverImg({ ...p, alt: "" }, ' loading="lazy"', "remove"), pic: true })),
       ...(vOn ? VT.map((t, i) => (real(t) ? { href: "/projects.html#video", html: thumbArt(plain(t), i) } : null)).filter(Boolean) : []),
       ...(vOn ? VP.map((p, i) => (real(p) ? { href: "/projects.html#video", html: podArt(plain(p), true, i) } : null)).filter(Boolean) : []),
     ];
@@ -1024,17 +1024,17 @@
   const svcBox = $("#serviceStack");
   if (svcBox) {
     svcBox.innerHTML = mainSvcs.map((s) => `<article class="svc__card reveal"><header><h3>${esc(s.name)}</h3><span class="svc__ic" aria-hidden="true">${SVC_ICONS[s.id] ? `<svg viewBox="0 0 24 24">${SVC_ICONS[s.id]}</svg>` : esc(s.letter || s.name[0])}</span></header><p>${esc(s.detail || s.summary)}</p><ul>${(s.skills || []).map((k) => `<li>${esc(k)}</li>`).join("")}</ul></article>`).join("")
-      + alsoSvcs.map((s) => `<p class="svc__also reveal"><span>Also</span> <b>${esc(s.name)}</b> — ${esc(s.summary || "")} <a href="contact.html?service=${encodeURIComponent(s.name)}">Ask about it ↗</a></p>`).join("");
+      + alsoSvcs.map((s) => `<p class="svc__also reveal"><span>Also</span> <b>${esc(s.name)}</b> — ${esc(s.summary || "")} <a href="/contact.html?service=${encodeURIComponent(s.name)}">Ask about it ↗</a></p>`).join("");
   }
 
   // ---------- Ideas from kokiltamta.in (picked from samples/kokiltamta.html) ----------
   const svgIc = (id) => (SVC_ICONS[id] ? `<svg viewBox="0 0 24 24" aria-hidden="true">${SVC_ICONS[id]}</svg>` : "");
-  const projHref = (p) => (hasCase(p) ? caseUrl(p) : "projects.html#" + encodeURIComponent(p.id));
+  const projHref = (p) => (hasCase(p) ? caseUrl(p) : "/projects.html#" + encodeURIComponent(p.id));
   const videoSvc = C.services.find((s) => s.id === "video");
   // Featured projects + a Video item (when video work is shown) — used by the Home panels and the notebook
   const workItems = (list) => [
     ...list.map((p) => ({ p, label: p.name, eyebrow: `${p.category} · ${p.type}`, title: p.name, desc: p.description || "", tags: (p.tags || []).filter((t) => t !== "Sample"), href: projHref(p) })),
-    ...(vOn && videoSvc ? [{ label: "Video", eyebrow: "Video · Thumbnails, reels, podcasts", title: videoSvc.name, desc: videoSvc.summary || "", tags: ["Thumbnails", "Reels", "Podcasts"], href: "projects.html#video", art: "video" }] : []),
+    ...(vOn && videoSvc ? [{ label: "Video", eyebrow: "Video · Thumbnails, reels, podcasts", title: videoSvc.name, desc: videoSvc.summary || "", tags: ["Thumbnails", "Reels", "Podcasts"], href: "/projects.html#video", art: "video" }] : []),
   ];
   const itemPic = (it) => (it.art ? `<div class="acc__art">${svgIc(it.art)}</div>` : coverImg(it.p, vtShot(it.p), `<div class="acc__art"><b>${esc(it.title)}</b></div>`));
 
@@ -1073,7 +1073,7 @@
       const nav = `<div class="pg-nav"><span>${i ? `<button type="button" data-go="${i - 1}">← ${esc(pages[i - 1].tab)}</button>` : ""}</span><span>${i < pages.length - 1 ? `<button type="button" data-go="${i + 1}">${i ? esc(pages[i + 1].tab) : "Next page"} →</button>` : ""}</span></div>`;
       const body = !i
         ? `<h3>Index</h3><table><tr><th>Project</th><th>Page no.</th></tr>${pages.slice(1).map((q, j) => `<tr data-go="${j + 1}" tabindex="0"><td>${esc(q.tab)}</td><td>${pad(j + 1)}</td></tr>`).join("")}</table>`
-        : p.soon ? `<span class="pg-no">Page ${pad(i)}</span><h3 class="pg-h">Next up</h3><p>Posters, brochures and company decks are the next pages in this book. Check back in a bit…</p><a class="pg-open" href="contact.html">Have one in mind? ↗</a>`
+        : p.soon ? `<span class="pg-no">Page ${pad(i)}</span><h3 class="pg-h">Next up</h3><p>Posters, brochures and company decks are the next pages in this book. Check back in a bit…</p><a class="pg-open" href="/contact.html">Have one in mind? ↗</a>`
         : `<span class="pg-no">Page ${pad(i)} · ${esc(p.it.eyebrow)}</span><h3 class="pg-h">${esc(p.it.title)}</h3><div class="pg-pic">${itemPic(p.it)}</div><p>${esc(p.it.desc)}</p><a class="pg-open" href="${escUrl(p.it.href)}">Open ↗</a>`;
       $$("button", tabs).forEach((b, j) => { b.classList.toggle("is-on", j === i); b.setAttribute("aria-selected", j === i); });
       const swap = () => { page.innerHTML = body + nav; };
@@ -1175,14 +1175,14 @@
       poster: '<div class="xart xart--poster"><div class="sheet"><i></i><i></i></div></div>',
       brochure: '<div class="xart xart--brochure"><div class="fold"><i></i><i></i><i></i></div></div>',
     };
-    const toVideo = vOn ? { href: "#video", go: "See video work ↓" } : { href: "contact.html?service=Video%20editing", go: "Ask about this ↗" };
+    const toVideo = vOn ? { href: "#video", go: "See video work ↓" } : { href: "/contact.html?service=Video%20editing", go: "Ask about this ↗" };
     const items = [
-      ...realProjects.map((p) => ({ name: p.name, kind: `${p.category} · ${p.type}`, pic: coverImg(p, ' loading="lazy"'), text: p.description || "", href: hasCase(p) ? caseUrl(p) : p.link || "contact.html", go: hasCase(p) ? "Open case study ↗" : "Ask about this ↗" })),
+      ...realProjects.map((p) => ({ name: p.name, kind: `${p.category} · ${p.type}`, pic: coverImg(p, ' loading="lazy"'), text: p.description || "", href: hasCase(p) ? caseUrl(p) : p.link || "/contact.html", go: hasCase(p) ? "Open case study ↗" : "Ask about this ↗" })),
       { name: vcard("thumbnails").title || "Thumbnail design", kind: "Video · Thumbnails", art: "thumb", text: vcard("thumbnails").text, ...toVideo, sample: true },
       { name: vcard("reels").title || "Reels & shorts", kind: "Video · Reels", art: "reel", text: vcard("reels").text, ...toVideo, sample: true },
       { name: vcard("podcasts").title || "Podcast editing", kind: "Video · Podcast", art: "pod", text: vcard("podcasts").text, ...toVideo, sample: true },
-      { name: "Posters", kind: "Graphic · Print", art: "poster", text: "Poster work goes here once it's added.", href: "contact.html?service=Graphic%20design", go: "Ask about this ↗", sample: true },
-      { name: "Brochures & decks", kind: "Graphic · Print", art: "brochure", text: "Brochures and company decks go here once they're added.", href: "contact.html?service=Graphic%20design", go: "Ask about this ↗", sample: true },
+      { name: "Posters", kind: "Graphic · Print", art: "poster", text: "Poster work goes here once it's added.", href: "/contact.html?service=Graphic%20design", go: "Ask about this ↗", sample: true },
+      { name: "Brochures & decks", kind: "Graphic · Print", art: "brochure", text: "Brochures and company decks go here once they're added.", href: "/contact.html?service=Graphic%20design", go: "Ask about this ↗", sample: true },
     ];
     workTiles.innerHTML = items.map((it, i) => `<button class="xw__tile reveal" type="button" data-i="${i}" aria-haspopup="dialog" aria-label="${esc(it.name)}${it.sample ? " (sample)" : ""}">
       <div class="xw__vis">${it.pic || ART[it.art]}${it.sample ? '<span class="xw__flag">Sample</span>' : ""}<span class="xw__play" aria-hidden="true">${it.art ? "▶" : "↗"}</span></div>
@@ -1226,7 +1226,7 @@
   if (pvTiles) {
     const iconFor = (p) => svgIc(/ui/i.test(p.category) ? "uiux" : /brand|graphic/i.test(p.category) ? "logo" : "product");
     const rest = C.projects.filter((p) => !hasCase(p));
-    const tiles = rest.map((p) => `<a class="pvt__tile reveal" href="${p.sample ? "contact.html" : "projects.html#" + encodeURIComponent(p.id)}">${p.sample ? `<div class="pvt__art">${iconFor(p)}</div><span class="pvt__flag">Sample</span>` : coverImg(p, ' loading="lazy"', `<div class="pvt__art">${iconFor(p)}</div>`)}<span class="pvt__line">${esc(p.type)}</span><span class="pvt__veil"><span><b>${esc(p.name)}</b><span>${esc(p.category)} · ${esc(p.type)}</span></span></span></a>`);
+    const tiles = rest.map((p) => `<a class="pvt__tile reveal" href="${p.sample ? "/contact.html" : "/projects.html#" + encodeURIComponent(p.id)}">${p.sample ? `<div class="pvt__art">${iconFor(p)}</div><span class="pvt__flag">Sample</span>` : coverImg(p, ' loading="lazy"', `<div class="pvt__art">${iconFor(p)}</div>`)}<span class="pvt__line">${esc(p.type)}</span><span class="pvt__veil"><span><b>${esc(p.name)}</b><span>${esc(p.category)} · ${esc(p.type)}</span></span></span></a>`);
     if (vOn) tiles.push(`<a class="pvt__tile reveal" href="#video"><div class="pvt__art">${svgIc("video")}</div><span class="pvt__line">Thumbnails, reels and podcasts</span><span class="pvt__veil"><span><b>Video work</b><span>Video · Editing</span></span></span></a>`);
     pvTiles.innerHTML = tiles.join("");
   }
@@ -1245,7 +1245,7 @@
   }
   // P8 #pvSignoff: email (if shown) + social links under the one-line sign-off
   const pvSign = $("#pvSignoff");
-  if (pvSign) pvSign.innerHTML = [email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>` : `<a href="contact.html">Start a project</a>`, ...socials.map((x) => `<a href="${escUrl(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>`)].join("");
+  if (pvSign) pvSign.innerHTML = [email ? `<a href="mailto:${esc(email)}">${esc(email)}</a>` : `<a href="/contact.html">Start a project</a>`, ...socials.map((x) => `<a href="${escUrl(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>`)].join("");
 
   // Eyes (Home hero + Contact): pupils look at the pointer and blink now and then
   const eyeSets = $$("[data-eyes]");
@@ -1366,7 +1366,7 @@
       ${i === 0 ? `<div class="sbento__art" aria-hidden="true">${ic(s)}</div>` : ""}
       <p>${esc(i === 0 ? s.detail || s.summary : s.summary || s.detail)}</p>
       ${(s.deliverables || []).length ? `<div class="sbento__get"><h5>Deliverables</h5><ul>${s.deliverables.map((d) => `<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>${esc(d)}</li>`).join("")}</ul></div>` : ""}
-      <div class="sbento__foot"><a class="sbento__cta" href="contact.html?service=${encodeURIComponent(s.name)}">Enquire <span aria-hidden="true">↗</span></a>
+      <div class="sbento__foot"><a class="sbento__cta" href="/contact.html?service=${encodeURIComponent(s.name)}">Enquire <span aria-hidden="true">↗</span></a>
         <div class="sbento__tools">${toolsFor(s).map((t) => `<span title="${t}" style="background:${TOOL_BADGE[t][1]};color:${TOOL_BADGE[t][2]}">${TOOL_BADGE[t][0]}</span>`).join("")}</div></div></article>`).join("");
   }
 

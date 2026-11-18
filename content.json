@@ -226,7 +226,7 @@
       "description": "My own product: a daily planner, focus timer and work log in one app, for web, desktop and Android. Plan the day, track real working time and keep a record of every change.",
       "status": "live",
       "featured": false,
-      "link": "nineflow.html",
+      "link": "/projects/nineflow.html",
       "brand": {
         "accent": "#FF6A13",
         "inkLight": "#BA4500",
@@ -392,7 +392,7 @@
       "description": "My own product: one money plan the whole family can see. Each month is split across seven buckets, so everyday questions like \"can we afford it?\" answer themselves.",
       "status": "live",
       "featured": false,
-      "link": "finroot.html",
+      "link": "/projects/finroot.html",
       "brand": {
         "accent": "#0D7A5F",
         "inkLight": "#0A5E48",
@@ -638,7 +638,7 @@
         "websiteLabel": "Visit nexurainfotech.com"
       },
       "type": "Brand identity & website",
-      "link": "contact.html?service=UI%2FUX%20design",
+      "link": "/contact.html?service=UI%2FUX%20design",
       "id": "nexura",
       "image": "",
       "filters": [
@@ -679,7 +679,7 @@
       "status": "live",
       "image": "",
       "alt": "RESPAY money saving app: the RESPAY logo and 'Money saving app' title beside a phone showing the transactions screen",
-      "link": "contact.html?service=UI%2FUX%20design",
+      "link": "/contact.html?service=UI%2FUX%20design",
       "description": "A money saving app for young people and families: it spots unwanted spending, and brings budgets, goals, savings, investment and insurance together in one place.",
       "caseStudy": {
         "show": true,
@@ -983,7 +983,7 @@
         "outcome": "A self-initiated redesign: all 13 product categories one tap away, with prices and savings shown first."
       },
       "type": "E-commerce website",
-      "link": "contact.html?service=UI%2FUX%20design",
+      "link": "/contact.html?service=UI%2FUX%20design",
       "id": "milton",
       "image": "",
       "filters": [
@@ -1023,7 +1023,7 @@
       "status": "live",
       "image": "",
       "alt": "The VSTAR website on a desktop screen standing on a pedestal of navy cubes, with the mobile site on a phone beside it and labels reading Clear structure, Adaptive layout, Easy to enquire and WhatsApp in one tap",
-      "link": "contact.html?service=UI%2FUX%20design",
+      "link": "/contact.html?service=UI%2FUX%20design",
       "description": "A logo and website for a Singapore door and shutter service company, designed and built so anyone with a broken shutter can ask for help in a few taps.",
       "caseStudy": {
         "show": true,
@@ -1074,7 +1074,7 @@
       "status": "live",
       "image": "",
       "alt": "The iFortigo logo, large and white on a blue-to-purple background, behind a desktop display and a phone showing the iFortigo website",
-      "link": "contact.html?service=UI%2FUX%20design",
+      "link": "/contact.html?service=UI%2FUX%20design",
       "description": "A logo and a one-page website for a field sales app, designed and built so a sales manager can see what it does in one scroll and book a demo from anywhere on the page.",
       "brand": {
         "accent": "#0A409A",
@@ -1127,7 +1127,7 @@
       "status": "live",
       "image": "",
       "alt": "The iPOS website on a laptop between two phones showing its mobile pages, on a blue-to-cyan gradient",
-      "link": "contact.html?service=UI%2FUX%20design",
+      "link": "/contact.html?service=UI%2FUX%20design",
       "description": "A logo and a marketing website for a cloud POS and mini ERP used by supermarkets, restaurants, pharmacies and more, designed and built so each kind of shop finds its own counter in one scroll.",
       "brand": {
         "accent": "#1E64EF",
@@ -1180,7 +1180,7 @@
       "description": "Sixteen square social media posters: launch posts for a zero-client PC product, tech service posts, Tamil festival greetings and days that matter.",
       "status": "live",
       "featured": false,
-      "link": "contact.html?service=Graphic%20design",
+      "link": "/contact.html?service=Graphic%20design",
       "caseStudy": {
         "show": true,
         "page": "posters.html",
@@ -1212,7 +1212,7 @@
       "status": "live",
       "featured": false,
       "sample": true,
-      "link": "contact.html?service=Graphic%20design"
+      "link": "/contact.html?service=Graphic%20design"
     },
     {
       "id": "sample-deck",
@@ -1233,7 +1233,7 @@
       "status": "live",
       "featured": false,
       "sample": true,
-      "link": "contact.html?service=Graphic%20design"
+      "link": "/contact.html?service=Graphic%20design"
     },
     {
       "id": "sample-web",
@@ -1254,7 +1254,7 @@
       "status": "live",
       "featured": false,
       "sample": true,
-      "link": "contact.html?service=UI%2FUX%20design"
+      "link": "/contact.html?service=UI%2FUX%20design"
     }
   ],
   "video": {

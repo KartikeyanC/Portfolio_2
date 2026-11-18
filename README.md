@@ -4,7 +4,7 @@ A static portfolio site (Home, About, Projects, Services, Contact) with a conten
 
 - All content lives in **`content.json`**: projects, services, process steps, tools, hero words, page text, contact details, social links, the “Open to opportunities” card and the closing call to action.
 - The **gk** dashboard at `/gk` edits `content.json` with forms (Decap CMS). Uploaded images go to `assets/uploads/`.
-- Design and layout live in `css/style.css`, `js/main.js` and the HTML pages.
+- Main pages are in the root, case studies in `projects/`. Design and code live in `assets/css/style.css` and `assets/js/main.js`; `publish.py` puts minified copies online.
 - **Site colour** is chosen in `/gk` → *Site colour*: Electric blue (default), Acid lime, Signal orange, Soft violet, or a Custom colour. Button and text shades are worked out automatically so text stays readable.
 
 ## Run it on your computer

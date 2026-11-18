@@ -63,7 +63,7 @@
   };
 
   // Keep links inside the sample: about.html → sample-about.html (also /about.html, ?query and #hash)
-  var re = new RegExp("^/?(" + PAGES.join("|") + ")\\.html(?=$|[?#])");
+  var re = new RegExp("^/?(?:projects/)?(" + PAGES.join("|") + ")\\.html(?=$|[?#])");
   function fix(a) {
     var h = a.getAttribute("href");
     if (!h) return;

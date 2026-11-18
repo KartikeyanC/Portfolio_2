@@ -10,10 +10,10 @@
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
   <link rel="expect" href="#page-ready" blocking="render" />
 </head>
@@ -23,27 +23,27 @@
   <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="/contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
 
   <header class="nav">
-    <a class="nav__brand" href="index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
+    <a class="nav__brand" href="/index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/services.html">Services</a>
+      <a href="/contact.html">Contact</a>
     </nav>
     <div class="nav__right">
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
-      <a class="nav__cta" href="contact.html">Let's talk</a>
+      <a class="nav__cta" href="/contact.html">Let's talk</a>
       <button class="nav__menu" id="menuOpen" aria-expanded="false" aria-controls="panel">Menu</button>
     </div>
   </header>
 
   <div class="panel" id="panel" aria-hidden="true">
     <button class="panel__close" id="menuClose">Close</button>
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+    <a href="/index.html">Home</a><a href="/about.html">About</a><a href="/projects.html">Projects</a><a href="/services.html">Services</a><a href="/contact.html">Contact</a>
     <small data-bind="contact-line" hidden></small>
   </div>
 
@@ -55,17 +55,17 @@
 
 <!-- Project header: the same structure as Milton (back link, title, outcome, tags, wide cover) -->
     <section class="cs-head cs-head--page">
-      <a class="cs-back" href="projects.html">← All work</a>
+      <a class="cs-back" href="/projects.html">← All work</a>
       <h1 class="cs-title">RESPAY: a money saving app for young earners</h1>
       <p class="cs-outcome"><b>Outcome</b> 90+ screens and a prototype in 14 weeks, from research to high-fidelity UI.</p>
       <div class="cs-meta"><span>UX/UI design</span><span>Mobile app</span><span>Fintech</span></div>
     </section>
-    <div class="cs-shot" data-slide style="view-transition-name:shot-respay;view-transition-class:shot"><img src="assets/images/projects/respay/cover.jpg" alt="RESPAY: logo, 'Money saving app' and the transactions screen on a phone" /></div>
+    <div class="cs-shot" data-slide style="view-transition-name:shot-respay;view-transition-class:shot"><img src="/assets/images/projects/respay/cover.jpg" alt="RESPAY: logo, 'Money saving app' and the transactions screen on a phone" /></div>
 
     <!-- 00 HERO -->
 <header class="hero wrap rx-hero cs-after" id="s-top" data-label="Intro">
   <div class="rx-app">
-    <img class="rx-app__icon" src="assets/images/projects/respay/icon.png" alt="RESPAY app icon: a white R on navy" width="128" height="128" />
+    <img class="rx-app__icon" src="/assets/images/projects/respay/icon.png" alt="RESPAY app icon: a white R on navy" width="128" height="128" />
     <div class="rx-app__name"><p>Money saving app</p><small>Finance · UX/UI case study</small></div>
     <div class="rx-app__get"><a class="rx-get" href="#s-screens">See the screens</a><a class="rx-get rx-get--soft" href="https://www.behance.net/gallery/166668603/RESPAY-Money-Saving-App-UXUI-Case-Study" target="_blank" rel="noopener">Behance <span aria-hidden="true">↗</span></a></div>
   </div>
@@ -190,7 +190,7 @@
   <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>09</b></span><div><span class="kicker">Information architecture &amp; user flow</span><h2 class="h2">Five areas, <em>everything findable</em></h2></div></header>
   <p class="lead rp-r">Organising, structuring and labelling the features so users can find them and finish tasks quickly.</p>
   <div class="card ia rp-r" id="ia"></div>
-  <figure class="card board rp-r"><img src="assets/images/projects/respay/slides/13.jpg" alt="RESPAY user flow: open app, splash, onboarding, existing user check, login or sign up, then Transaction, Budget & goal, Pay, Profile and More" loading="lazy" /><figcaption><b>User flow.</b> From opening the app to a finished task, step by step.</figcaption></figure>
+  <figure class="card board rp-r"><img src="/assets/images/projects/respay/slides/13.jpg" alt="RESPAY user flow: open app, splash, onboarding, existing user check, login or sign up, then Transaction, Budget & goal, Pay, Profile and More" loading="lazy" /><figcaption><b>User flow.</b> From opening the app to a finished task, step by step.</figcaption></figure>
 </section>
 
 <!-- 10 DESIGN SYSTEM -->
@@ -201,8 +201,8 @@
       <div class="ts"><div><span>Head text</span><span>Medium 20 · SemiBold 22, 30</span></div><div><span>Card head</span><span>Regular 14–18 · Medium 18 · SemiBold 20</span></div><div><span>Button text</span><span>Regular 26 · SemiBold 18</span></div><div><span>Input field text</span><span>Regular 12–18 · Medium 16, 18</span></div><div><span>Sub text</span><span>Regular 10</span></div></div></div>
     <div class="card rp-r"><h4>Colours</h4><div class="sw-label" style="margin-top:0">Primary</div><div class="sws" id="swP"></div><div class="sw-label">Secondary</div><div class="sws" id="swS"></div></div>
   </div>
-  <figure class="card board rp-r"><img src="assets/images/projects/respay/slides/17.jpg" alt="Iconography and navigation bars" loading="lazy" /><figcaption><b>Iconography and navigation bars.</b></figcaption></figure>
-  <figure class="card board rp-r"><img src="assets/images/projects/respay/slides/18.jpg" alt="Logo and buttons" loading="lazy" /><figcaption><b>Logo and buttons.</b></figcaption></figure>
+  <figure class="card board rp-r"><img src="/assets/images/projects/respay/slides/17.jpg" alt="Iconography and navigation bars" loading="lazy" /><figcaption><b>Iconography and navigation bars.</b></figcaption></figure>
+  <figure class="card board rp-r"><img src="/assets/images/projects/respay/slides/18.jpg" alt="Logo and buttons" loading="lazy" /><figcaption><b>Logo and buttons.</b></figcaption></figure>
 </section>
 
 <!-- 11 WIREFRAMES -->
@@ -210,8 +210,8 @@
   <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>11</b></span><div><span class="kicker">Wireframes</span><h2 class="h2">Paper first, <em>then grey frames</em></h2></div></header>
   <div class="rx-fid rp-r">
     <div class="rx-seg" role="tablist" aria-label="Wireframe fidelity"><button type="button" role="tab" id="wf-t-low" aria-controls="wf-low" aria-selected="true">Low fidelity</button><button type="button" role="tab" id="wf-t-mid" aria-controls="wf-mid" aria-selected="false" tabindex="-1">Mid fidelity</button><i aria-hidden="true"></i></div>
-    <figure class="card board" role="tabpanel" id="wf-low" aria-labelledby="wf-t-low"><img src="assets/images/projects/respay/slides/19.jpg" alt="Low fidelity paper sketches of the app screens" loading="lazy" /><figcaption><b>Low fidelity.</b> Rough paper sketches of each screen, later turned into mid and high fidelity.</figcaption></figure>
-    <figure class="card board" role="tabpanel" id="wf-mid" aria-labelledby="wf-t-mid" hidden><img src="assets/images/projects/respay/slides/20.jpg" alt="Mid fidelity grey frames" loading="lazy" /><figcaption><b>Mid fidelity.</b> Thought-through screens in greyscale, ready to become high fidelity UI.</figcaption></figure>
+    <figure class="card board" role="tabpanel" id="wf-low" aria-labelledby="wf-t-low"><img src="/assets/images/projects/respay/slides/19.jpg" alt="Low fidelity paper sketches of the app screens" loading="lazy" /><figcaption><b>Low fidelity.</b> Rough paper sketches of each screen, later turned into mid and high fidelity.</figcaption></figure>
+    <figure class="card board" role="tabpanel" id="wf-mid" aria-labelledby="wf-t-mid" hidden><img src="/assets/images/projects/respay/slides/20.jpg" alt="Mid fidelity grey frames" loading="lazy" /><figcaption><b>Mid fidelity.</b> Thought-through screens in greyscale, ready to become high fidelity UI.</figcaption></figure>
   </div>
 </section>
 
@@ -225,9 +225,9 @@
   <div class="rx-preview rp-r">
     <div class="rx-preview__head"><b>Preview</b><span>Onboarding · Login · Account</span></div>
     <div class="rx-preview__track">
-      <figure class="card board"><img src="assets/images/projects/respay/slides/22.jpg" alt="Onboarding screens" loading="lazy" /><figcaption><b>Onboarding.</b> Three screens that introduce the app and its features.</figcaption></figure>
-      <figure class="card board"><img src="assets/images/projects/respay/slides/23.jpg" alt="Login, sign up and forgot password screens" loading="lazy" /><figcaption><b>Login, sign up &amp; forgot password.</b> A few safe, easy steps.</figcaption></figure>
-      <figure class="card board"><img src="assets/images/projects/respay/slides/29.jpg" alt="Add bank account flow" loading="lazy" /><figcaption><b>Account added.</b> Users securely enter and submit their bank account details.</figcaption></figure>
+      <figure class="card board"><img src="/assets/images/projects/respay/slides/22.jpg" alt="Onboarding screens" loading="lazy" /><figcaption><b>Onboarding.</b> Three screens that introduce the app and its features.</figcaption></figure>
+      <figure class="card board"><img src="/assets/images/projects/respay/slides/23.jpg" alt="Login, sign up and forgot password screens" loading="lazy" /><figcaption><b>Login, sign up &amp; forgot password.</b> A few safe, easy steps.</figcaption></figure>
+      <figure class="card board"><img src="/assets/images/projects/respay/slides/29.jpg" alt="Add bank account flow" loading="lazy" /><figcaption><b>Account added.</b> Users securely enter and submit their bank account details.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -235,7 +235,7 @@
 <!-- 13 SHOWCASE -->
 <section class="sec wrap" id="s-end" data-label="Showcase">
   <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>13</b></span><div><span class="kicker">Showcase</span><h2 class="h2">90+ screens, <em>one calm app</em></h2></div></header>
-  <a class="rx-store rp-r" href="https://www.behance.net/gallery/166668603/RESPAY-Money-Saving-App-UXUI-Case-Study" target="_blank" rel="noopener"><img src="assets/images/projects/respay/icon.png" alt="" width="64" height="64" /><span><b>RESPAY on Behance</b><small>The original case study slides</small></span><em>View</em></a>
+  <a class="rx-store rp-r" href="https://www.behance.net/gallery/166668603/RESPAY-Money-Saving-App-UXUI-Case-Study" target="_blank" rel="noopener"><img src="/assets/images/projects/respay/icon.png" alt="" width="64" height="64" /><span><b>RESPAY on Behance</b><small>The original case study slides</small></span><em>View</em></a>
   <div data-next-project></div>
 </section>
 
@@ -248,13 +248,13 @@
     <div class="ftray">
       <div class="fcard fcard--mail">
         <h4 data-ft="mail-title">Start a project</h4>
-        <a class="fmail" data-ft="mail" href="contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="fmail" data-ft="mail" href="/contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
         <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
           <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
       </div>
       <div class="fcard">
         <h4>Pages</h4>
-        <nav class="fnav" aria-label="Footer"><a href="index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+        <nav class="fnav" aria-label="Footer"><a href="/index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="/about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="/projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="/services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="/contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
       </div>
       <div class="fcard" data-ft="elsewhere" hidden>
         <h4>Elsewhere</h4>
@@ -274,13 +274,13 @@
       <li><b>Freelance:</b> UI/UX, logo &amp; motion projects</li>
       <li><b>Based in:</b> Chennai, India · open to remote</li>
     </ul>
-    <div class="otw__btns"><a class="btn btn--ghost" href="contact.html">Contact</a></div>
+    <div class="otw__btns"><a class="btn btn--ghost" href="/contact.html">Contact</a></div>
   </aside>
 
   <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" integrity="sha384-FKTX0CNJ8ngN1oGMBReVu7mvjTJyjFiD5etb1NKnYxc+8eFI2O0KWnksTN+oTFcu" crossorigin="anonymous" id="lenisLib" async></script>
-  <script src="js/main.js"></script>
-  <script src="js/fluid-cursor.js" defer></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/fluid-cursor.js" defer></script>
   <script>
 (() => {
   const $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
@@ -325,10 +325,10 @@
   $("#swS").innerHTML = sw([["9C27B0", "Barney"], ["60AA67", "Algae"], ["A1AD2B", "Citron"], ["FFC107", "ArtyClick Amber"], ["03A9F4", "Azure"], ["3F51B5", "Cerulean Blue"], ["795548", "Roman Coffee"], ["B6C332", "Android Green"], ["F27373", "Watermelon Pink"], ["673AB7", "Purple Heart"]]);
 
   // screens: the sticky phone swaps to the screen whose description is in the middle of the view
-  const S = [["assets/images/projects/respay/screen-home.jpg", "Home page", "Every transaction, your way", "After logging in, the user lands on Transactions, the main page of the product: income, expenses and total at the top, then each entry by date and amount, switchable between Daily, Weekly, Monthly, Total and Calendar."],
-    ["assets/images/projects/respay/screen-budget.jpg", "Budget & goal", "Save first, instead of paying EMIs", "The second main page. The user sets a budget to limit spending and a goal to save towards: an easy way to save rather than pay in instalments."],
-    ["assets/images/projects/respay/screen-profile.jpg", "Profile page", "Records at a glance", "Available cash, used margin and the last transactions, with quick ways to view records or add one, plus any linked bank account."],
-    ["assets/images/projects/respay/screen-status.jpg", "Status page", "See and compare your spending", "Statement data as daily and weekly charts, with balance and comparisons, so users can see what they spend and how it changes."]];
+  const S = [["/assets/images/projects/respay/screen-home.jpg", "Home page", "Every transaction, your way", "After logging in, the user lands on Transactions, the main page of the product: income, expenses and total at the top, then each entry by date and amount, switchable between Daily, Weekly, Monthly, Total and Calendar."],
+    ["/assets/images/projects/respay/screen-budget.jpg", "Budget & goal", "Save first, instead of paying EMIs", "The second main page. The user sets a budget to limit spending and a goal to save towards: an easy way to save rather than pay in instalments."],
+    ["/assets/images/projects/respay/screen-profile.jpg", "Profile page", "Records at a glance", "Available cash, used margin and the last transactions, with quick ways to view records or add one, plus any linked bank account."],
+    ["/assets/images/projects/respay/screen-status.jpg", "Status page", "See and compare your spending", "Statement data as daily and weekly charts, with balance and comparisons, so users can see what they spend and how it changes."]];
   $("#stack").innerHTML = S.map(([img, t], i) => `<img src="${img}" alt="${t}"${i ? "" : ' class="on"'} />`).join("");
   $("#steps").innerHTML = S.map(([img, k, t, d], i) => `<article class="card feat${i ? "" : " on"}" data-i="${i}"><small>${k}</small><h3>${t}</h3><p>${d}</p><img class="m" src="${img}" alt="${k}" loading="lazy" /></article>`).join("");
   const imgs = $$("#stack img"), fs = $$(".feat");

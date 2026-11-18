@@ -12,7 +12,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Sora:wght@300;400;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
@@ -54,7 +54,7 @@
     <!-- iFORTIGO case study (logo + website, design & development). Own look: "delivery route" — route slip, map-pin
          section numbers, drive-in reveal, a pinned route through the page structure, a swipe deck of decisions,
          a manifest for the build, and route bars that drive the two whole-page viewers. Styles: ".ifx" block at the end
-         of css/style.css (".vs" only supplies base tokens). -->
+         of assets/css/style.css (".vs" only supplies base tokens). -->
     <div class="vs ifx" id="vs">
 
     <!-- HERO -->
@@ -301,8 +301,8 @@
 
   <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" integrity="sha384-FKTX0CNJ8ngN1oGMBReVu7mvjTJyjFiD5etb1NKnYxc+8eFI2O0KWnksTN+oTFcu" crossorigin="anonymous" id="lenisLib" async></script>
-  <script src="js/main.js"></script>
-  <script src="js/fluid-cursor.js" defer></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/fluid-cursor.js" defer></script>
   <script>
 (() => {
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];

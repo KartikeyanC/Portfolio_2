@@ -10,10 +10,10 @@
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
   <link rel="expect" href="#page-ready" blocking="render" />
 </head>
@@ -23,27 +23,27 @@
   <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="/contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
 
   <header class="nav">
-    <a class="nav__brand" href="index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
+    <a class="nav__brand" href="/index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/services.html">Services</a>
+      <a href="/contact.html">Contact</a>
     </nav>
     <div class="nav__right">
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
-      <a class="nav__cta" href="contact.html">Let's talk</a>
+      <a class="nav__cta" href="/contact.html">Let's talk</a>
       <button class="nav__menu" id="menuOpen" aria-expanded="false" aria-controls="panel">Menu</button>
     </div>
   </header>
 
   <div class="panel" id="panel" aria-hidden="true">
     <button class="panel__close" id="menuClose">Close</button>
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+    <a href="/index.html">Home</a><a href="/about.html">About</a><a href="/projects.html">Projects</a><a href="/services.html">Services</a><a href="/contact.html">Contact</a>
     <small data-bind="contact-line" hidden></small>
   </div>
 
@@ -54,12 +54,12 @@
     <!-- HERO -->
     <!-- Project header: the same structure as Milton (back link, title, outcome, tags, wide cover) -->
     <section class="cs-head cs-head--page">
-      <a class="cs-back" href="projects.html">← All work</a>
+      <a class="cs-back" href="/projects.html">← All work</a>
       <h1 class="cs-title">NineFlow: a daily planner, focus timer and work log</h1>
       <p class="cs-outcome"><b>Outcome</b> A planner, a focus timer and a work log in one app, designed and built solo, shipped on web, Windows, Mac and Android from one React codebase that works offline.</p>
       <div class="cs-meta"><span>Own product</span><span>Productivity</span><span>Web · Desktop · Android</span></div>
     </section>
-    <div class="cs-shot" data-slide style="view-transition-name:shot-nineflow;view-transition-class:shot"><img src="assets/images/projects/nineflow/cover.jpg" width="3840" height="2400" alt="NineFlow: the week view on a desktop and the month view on a phone, under a large NineFlow wordmark on an orange background" fetchpriority="high" decoding="sync" /></div>
+    <div class="cs-shot" data-slide style="view-transition-name:shot-nineflow;view-transition-class:shot"><img src="/assets/images/projects/nineflow/cover.jpg" width="3840" height="2400" alt="NineFlow: the week view on a desktop and the month view on a phone, under a large NineFlow wordmark on an orange background" fetchpriority="high" decoding="sync" /></div>
 
     <section class="nfp-wrap nfp-hero cs-after" id="n-top" data-time="06:00" data-label="Intro">
       <div class="nfp-hero__btns"><a class="nfp-btn nfp-btn--ink" href="#n-views">See the product ↓</a><a class="nfp-btn nfp-btn--ghost" href="#n-phone">On a phone ↓</a></div>
@@ -110,7 +110,7 @@
       <header class="nfp-h nfp-r"><span>The mark</span><h2>One letter, <em>three ideas.</em></h2>
         <p>The NineFlow mark is the app's own initial, drawn so that each stroke of the N says something about what the app does: the day keeps moving, you press start, and you stay a step ahead.</p></header>
       <div class="nfp-mark">
-        <figure class="nfp-mark__art nfp-r"><img src="assets/images/projects/nineflow/pres/mark-night.jpg" width="2400" height="2400" alt="The NineFlow mark: an orange ribbon N with a dark play shape and an orange dot" loading="lazy" /></figure>
+        <figure class="nfp-mark__art nfp-r"><img src="/assets/images/projects/nineflow/pres/mark-night.jpg" width="2400" height="2400" alt="The NineFlow mark: an orange ribbon N with a dark play shape and an orange dot" loading="lazy" /></figure>
         <div class="nfp-mark__brief">
           <p class="nfp-mark__kick nfp-r">What the mark had to do</p>
           <ol class="nfp-mark__list">
@@ -141,23 +141,23 @@
             <div class="nfi__txt"><span class="nfi__no">01 · The letter</span><h4>Start from the N</h4><p>The mark is NineFlow's own initial. An N is three strokes, a stem, a diagonal and a second stem, and each stroke was given a job from the app instead of decoration.</p></div>
           </li>
           <li class="nfi__step nfp-r">
-            <figure class="nfi__pic"><img src="assets/images/projects/nineflow/pres/idea-ribbon.jpg" width="1200" height="900" alt="The NineFlow mark with only the orange ribbon in full colour; the other parts are faded" loading="lazy" decoding="async" /></figure>
+            <figure class="nfi__pic"><img src="/assets/images/projects/nineflow/pres/idea-ribbon.jpg" width="1200" height="900" alt="The NineFlow mark with only the orange ribbon in full colour; the other parts are faded" loading="lazy" decoding="async" /></figure>
             <div class="nfi__txt"><span class="nfi__no">02 · The diagonal</span><h4>The diagonal becomes the flow</h4><p>The diagonal turns into one unbroken ribbon, running from top left to bottom right, the way a day is read. It folds over at the top and the bottom instead of meeting the stems at sharp corners, so the line never stops. That's the tagline in one shape: plan better, flow forward.</p></div>
           </li>
           <li class="nfi__step nfp-r">
-            <figure class="nfi__pic"><img src="assets/images/projects/nineflow/pres/idea-play.jpg" width="1200" height="900" alt="The NineFlow mark with only the dark play shape in full colour; the other parts are faded" loading="lazy" decoding="async" /></figure>
+            <figure class="nfi__pic"><img src="/assets/images/projects/nineflow/pres/idea-play.jpg" width="1200" height="900" alt="The NineFlow mark with only the dark play shape in full colour; the other parts are faded" loading="lazy" decoding="async" /></figure>
             <div class="nfi__txt"><span class="nfi__no">03 · The first stem</span><h4>The first stem becomes start</h4><p>The left stem is cut to a point facing right, like a play button: press start and the focus timer runs. Its two edges meet at the tip at almost a right angle.</p></div>
           </li>
           <li class="nfi__step nfp-r">
-            <figure class="nfi__pic"><img src="assets/images/projects/nineflow/pres/idea-dot.jpg" width="1200" height="900" alt="The NineFlow mark with only the dark body and the orange dot in full colour; the other parts are faded" loading="lazy" decoding="async" /></figure>
+            <figure class="nfi__pic"><img src="/assets/images/projects/nineflow/pres/idea-dot.jpg" width="1200" height="900" alt="The NineFlow mark with only the dark body and the orange dot in full colour; the other parts are faded" loading="lazy" decoding="async" /></figure>
             <div class="nfi__txt"><span class="nfi__no">04 · The second stem</span><h4>The second stem holds the dot</h4><p>The right stem is a short dark body with a dot above it: you, standing on the flow and one step ahead of it. The dot is also the focus point the whole app is built around. Dot and body share one vertical axis, and a single tangent line sets the gap between them.</p></div>
           </li>
           <li class="nfi__step nfp-r">
-            <figure class="nfi__pic"><img src="assets/images/projects/nineflow/pres/idea-colour.jpg" width="1200" height="900" alt="The complete NineFlow mark in full colour: orange gradient ribbon and dot, dark charcoal stems" loading="lazy" decoding="async" /></figure>
+            <figure class="nfi__pic"><img src="/assets/images/projects/nineflow/pres/idea-colour.jpg" width="1200" height="900" alt="The complete NineFlow mark in full colour: orange gradient ribbon and dot, dark charcoal stems" loading="lazy" decoding="async" /></figure>
             <div class="nfi__txt"><span class="nfi__no">05 · Colour</span><h4>Warm on the moving parts</h4><p>The ribbon and the dot carry the Sunrise to Ember gradient, #FF9F1C to #F2420E. The two stems stay dark charcoal, so the flow stands out from the shapes that hold it. The logo never changes colour with the app's themes: it stays orange everywhere.</p></div>
           </li>
           <li class="nfi__step nfp-r">
-            <figure class="nfi__pic nfi__pic--sizes"><figure><img src="assets/images/projects/nineflow/pres/idea-mark-96.png" width="192" height="153" style="--s:96px" alt="" loading="lazy" /><figcaption>96 px</figcaption></figure><figure><img src="assets/images/projects/nineflow/pres/idea-mark-48.png" width="96" height="76" style="--s:48px" alt="" loading="lazy" /><figcaption>48 px</figcaption></figure><figure><img src="assets/images/projects/nineflow/pres/idea-mark-24.png" width="48" height="38" style="--s:24px" alt="" loading="lazy" /><figcaption>24 px</figcaption></figure><figure><img src="assets/images/projects/nineflow/pres/idea-mark-16.png" width="32" height="25" style="--s:16px" alt="" loading="lazy" /><figcaption>16 px</figcaption></figure></figure>
+            <figure class="nfi__pic nfi__pic--sizes"><figure><img src="/assets/images/projects/nineflow/pres/idea-mark-96.png" width="192" height="153" style="--s:96px" alt="" loading="lazy" /><figcaption>96 px</figcaption></figure><figure><img src="/assets/images/projects/nineflow/pres/idea-mark-48.png" width="96" height="76" style="--s:48px" alt="" loading="lazy" /><figcaption>48 px</figcaption></figure><figure><img src="/assets/images/projects/nineflow/pres/idea-mark-24.png" width="48" height="38" style="--s:24px" alt="" loading="lazy" /><figcaption>24 px</figcaption></figure><figure><img src="/assets/images/projects/nineflow/pres/idea-mark-16.png" width="32" height="25" style="--s:16px" alt="" loading="lazy" /><figcaption>16 px</figcaption></figure></figure>
             <div class="nfi__txt"><span class="nfi__no">06 · Small sizes</span><h4>Checked at 16 px</h4><p>An app logo spends most of its life small: on a home screen, in the taskbar, in a browser tab. At 16 px the mark still reads as an N. Around it, keep clear space at least as wide as the dot.</p></div>
           </li>
         </ol>
@@ -166,7 +166,7 @@
         <div class="nfc__art">
         <svg class="nfc__svg" viewBox="-26 -26 564 459" role="img" aria-labelledby="nfcTitle">
           <title id="nfcTitle">NineFlow mark construction: alignment lines, angle lines, and eight circles for its rounded parts</title>
-          <image href="assets/images/projects/nineflow/pres/mark-cream.jpg" x="0" y="0" width="512" height="407" preserveAspectRatio="none"/>
+          <image href="/assets/images/projects/nineflow/pres/mark-cream.jpg" x="0" y="0" width="512" height="407" preserveAspectRatio="none"/>
           <g class="nfc__align" fill="none" stroke="#8a847a" stroke-width=".6" stroke-dasharray="3 4">
             <line x1="-26" y1="3.3" x2="538" y2="3.3"/>
             <line x1="-26" y1="79.9" x2="538" y2="79.9"/>
@@ -223,22 +223,22 @@
         <div class="nfc__use">
           <div class="nfc__rule">
             <p class="nfc__kick">Clear space</p>
-            <div class="nfc__clear"><img src="assets/images/projects/nineflow/nineflow-tile.png" width="512" height="512" alt="NineFlow app icon inside a dashed clear-space box" loading="lazy" /></div>
+            <div class="nfc__clear"><img src="/assets/images/projects/nineflow/nineflow-tile.png" width="512" height="512" alt="NineFlow app icon inside a dashed clear-space box" loading="lazy" /></div>
             <p>Keep at least the dot's width clear around the mark.</p>
           </div>
           <div class="nfc__rule">
             <p class="nfc__kick">Smallest size</p>
             <div class="nfc__sizes">
-              <figure><img src="assets/images/projects/nineflow/nineflow-tile.png" width="48" height="48" alt="" loading="lazy" /><figcaption>48 px</figcaption></figure>
-              <figure><img src="assets/images/projects/nineflow/nineflow-tile.png" width="32" height="32" alt="" loading="lazy" /><figcaption>32 px</figcaption></figure>
-              <figure><img src="assets/images/projects/nineflow/nineflow-tile.png" width="24" height="24" alt="" loading="lazy" /><figcaption>24 px</figcaption></figure>
-              <figure><img src="assets/images/projects/nineflow/nineflow-tile.png" width="16" height="16" alt="" loading="lazy" /><figcaption>16 px</figcaption></figure>
+              <figure><img src="/assets/images/projects/nineflow/nineflow-tile.png" width="48" height="48" alt="" loading="lazy" /><figcaption>48 px</figcaption></figure>
+              <figure><img src="/assets/images/projects/nineflow/nineflow-tile.png" width="32" height="32" alt="" loading="lazy" /><figcaption>32 px</figcaption></figure>
+              <figure><img src="/assets/images/projects/nineflow/nineflow-tile.png" width="24" height="24" alt="" loading="lazy" /><figcaption>24 px</figcaption></figure>
+              <figure><img src="/assets/images/projects/nineflow/nineflow-tile.png" width="16" height="16" alt="" loading="lazy" /><figcaption>16 px</figcaption></figure>
             </div>
             <p>Still reads as an N at 16 px.</p>
           </div>
         </div>
       </figure>
-      <figure class="nfp-board nfp-r"><img src="assets/images/projects/nineflow/deck/p05-lockups-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p05-lockups-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p05-lockups-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p05-lockups-notitle.jpg 3840w" sizes="100vw" width="3840" height="2309" alt="Logo lockups: the mark and wordmark on cream, ink and orange" loading="lazy" /></figure>
+      <figure class="nfp-board nfp-r"><img src="/assets/images/projects/nineflow/deck/p05-lockups-notitle@1920.jpg" srcset="/assets/images/projects/nineflow/deck/p05-lockups-notitle@1200.jpg 1200w, /assets/images/projects/nineflow/deck/p05-lockups-notitle@1920.jpg 1920w, /assets/images/projects/nineflow/deck/p05-lockups-notitle.jpg 3840w" sizes="100vw" width="3840" height="2309" alt="Logo lockups: the mark and wordmark on cream, ink and orange" loading="lazy" /></figure>
     </section>
 
     <!-- 10:00 COLOUR & TYPE -->
@@ -261,7 +261,7 @@
         <div><b>Inter</b><p>One family for the wordmark and the whole app. Tabular figures keep timers and hours from jumping as they count.</p>
           <p class="nfp-type__demo"><span>Today's load</span> <strong>7h 05m</strong> <span>of 8h · finish ≈ 19:34</span></p></div>
       </div>
-      <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p07-icon-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p07-icon-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p07-icon-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p07-icon-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="1869" alt="App icon at every size, from 512 down to 48 pixels" loading="lazy" decoding="async" /></figure>
+      <figure class="nfp-board nfp-board--deck nfp-r"><img src="/assets/images/projects/nineflow/deck/p07-icon-notitle@1920.jpg" srcset="/assets/images/projects/nineflow/deck/p07-icon-notitle@1200.jpg 1200w, /assets/images/projects/nineflow/deck/p07-icon-notitle@1920.jpg 1920w, /assets/images/projects/nineflow/deck/p07-icon-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="1869" alt="App icon at every size, from 512 down to 48 pixels" loading="lazy" decoding="async" /></figure>
     </section>
 
     <!-- 11:00 PRINCIPLES -->
@@ -282,10 +282,10 @@
         <div class="nfv__list">
           <article class="nfv__item nfv__item--dash nfp-r" id="nfv-dashboard">
             <div class="nfv__txt"><div><span class="nfv__no">Dashboard</span><h3>Today, at a glance.</h3></div><div><p>The first screen answers three questions before anything else: what's left, how long it takes, and when you'll finish.</p></div></div>
-            <figure class="nfp-board nfp-board--deck"><img src="assets/images/projects/nineflow/pres/board-dashboard@1440.jpg" srcset="assets/images/projects/nineflow/pres/board-dashboard@1440.jpg 1440w, assets/images/projects/nineflow/pres/board-dashboard.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2384" alt="NineFlow dashboard on a cream background: today's load bar, carried-over tasks, task counts, today's schedule, task list and a productivity ring" loading="lazy" decoding="async" /></figure>
+            <figure class="nfp-board nfp-board--deck"><img src="/assets/images/projects/nineflow/pres/board-dashboard@1440.jpg" srcset="/assets/images/projects/nineflow/pres/board-dashboard@1440.jpg 1440w, /assets/images/projects/nineflow/pres/board-dashboard.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2384" alt="NineFlow dashboard on a cream background: today's load bar, carried-over tasks, task counts, today's schedule, task list and a productivity ring" loading="lazy" decoding="async" /></figure>
             <div class="nfp-calls">
-              <article class="nfp-r"><b>1</b><div><h3>Today's load</h3><p>Planned hours against your working hours. Over-full days turn orange and offer to move the lowest-priority task to tomorrow.</p><img src="assets/images/projects/nineflow/pres/crop-loadbar.jpg" width="2324" height="242" alt="Load bar: 7h 5m of 8h, 1h 4m over, finish around 19:34" loading="lazy" /></div></article>
-              <article class="nfp-r"><b>2</b><div><h3>Carried over</h3><p>Unfinished work from earlier days waits here. Give each one a day, or let it go, instead of silently piling up.</p><img src="assets/images/projects/nineflow/pres/crop-carried.jpg" width="2324" height="244" alt="Carried over: one task from Tuesday with Today, Tomorrow and Someday buttons" loading="lazy" /></div></article>
+              <article class="nfp-r"><b>1</b><div><h3>Today's load</h3><p>Planned hours against your working hours. Over-full days turn orange and offer to move the lowest-priority task to tomorrow.</p><img src="/assets/images/projects/nineflow/pres/crop-loadbar.jpg" width="2324" height="242" alt="Load bar: 7h 5m of 8h, 1h 4m over, finish around 19:34" loading="lazy" /></div></article>
+              <article class="nfp-r"><b>2</b><div><h3>Carried over</h3><p>Unfinished work from earlier days waits here. Give each one a day, or let it go, instead of silently piling up.</p><img src="/assets/images/projects/nineflow/pres/crop-carried.jpg" width="2324" height="244" alt="Carried over: one task from Tuesday with Today, Tomorrow and Someday buttons" loading="lazy" /></div></article>
               <article class="nfp-r"><b>3</b><div><h3>Schedule and counts</h3><p>A time-blocked schedule next to five counts: planned, completed, working, in review and to do.</p></div></article>
             </div>
           </article>
@@ -293,19 +293,19 @@
             <header class="nfv__gh nfp-r"><h3>See the plan</h3><p>By stage, by the hour, by the month, or as a plain list.</p></header>
             <div class="nfv__grid">
               <article class="nfv__card nfp-r" id="nfv-board">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/board</em></span><img src="assets/images/projects/nineflow/pres/desk-light-board@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-board@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-board.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Board view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/board</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-board@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-board@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-board.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Board view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Board</span><h4>Work moves left to right.</h4><p>Four columns follow a task from To do to Completed. Drag a card to Working and the focus timer logs the time.</p></div>
               </article>
               <article class="nfv__card nfp-r" id="nfv-week">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/week</em></span><img src="assets/images/projects/nineflow/pres/desk-light-week@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-week@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-week.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Week view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/week</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-week@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-week@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-week.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Week view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Week</span><h4>Your week, blocked out by the hour.</h4><p>Every timed task on the calendar, coloured by category, with a live now line.</p></div>
               </article>
               <article class="nfv__card nfp-r" id="nfv-month">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/month</em></span><img src="assets/images/projects/nineflow/pres/desk-light-month@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-month@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-month.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Month view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/month</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-month@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-month@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-month.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Month view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Month</span><h4>The month at a glance.</h4><p>Hours or tasks planned on each day, so busy weeks stand out before they arrive.</p></div>
               </article>
               <article class="nfv__card nfp-r" id="nfv-agenda">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/agenda</em></span><img src="assets/images/projects/nineflow/pres/desk-light-agenda@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-agenda@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-agenda.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Agenda view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/agenda</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-agenda@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-agenda@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-agenda.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Agenda view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Agenda</span><h4>Every open task, day by day.</h4><p>A plain list of what's coming, day by day, with overdue work first.</p></div>
               </article>
             </div>
@@ -314,19 +314,19 @@
             <header class="nfv__gh nfp-r"><h3>Shape the list</h3><p>Open one task, turn notes into many, edit in bulk, or sort by what matters.</p></header>
             <div class="nfv__grid">
               <article class="nfv__card nfp-r" id="nfv-task">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/task</em></span><img src="assets/images/projects/nineflow/pres/desk-light-task@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-task@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-task.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Task panel view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/task</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-task@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-task@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-task.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Task panel view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Task panel</span><h4>Everything about one task.</h4><p>Open any task to see its time, checklist, notes and history, without leaving the view.</p></div>
               </article>
               <article class="nfv__card nfp-r" id="nfv-prompt">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/prompt</em></span><img src="assets/images/projects/nineflow/pres/desk-light-prompt@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-prompt@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-prompt.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Prompt list view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/prompt</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-prompt@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-prompt@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-prompt.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Prompt list view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Prompt list</span><h4>Paste a mess, get a list.</h4><p>Paste messy notes and get a clean task list back, to check before anything is saved.</p></div>
               </article>
               <article class="nfv__card nfp-r" id="nfv-table">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/table</em></span><img src="assets/images/projects/nineflow/pres/desk-light-table@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-table@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-table.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Table view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/table</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-table@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-table@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-table.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Table view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Table</span><h4>Many tasks, edited at once.</h4><p>A spreadsheet view for clean-up days: sort, filter and edit many tasks at once.</p></div>
               </article>
               <article class="nfv__card nfp-r" id="nfv-matrix">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/matrix</em></span><img src="assets/images/projects/nineflow/pres/desk-light-matrix@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-matrix@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-matrix.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Matrix view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/matrix</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-matrix@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-matrix@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-matrix.jpg 3840w" sizes="(min-width: 1400px) 640px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Matrix view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Matrix</span><h4>Decide what matters first.</h4><p>Sort tasks by urgent and important, and do the top-left first.</p></div>
               </article>
             </div>
@@ -335,15 +335,15 @@
             <header class="nfv__gh nfp-r"><h3>Look back</h3><p>Where the time went, and what to do with work that hasn’t happened yet.</p></header>
             <div class="nfv__grid">
               <article class="nfv__card nfp-r" id="nfv-charts">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/charts</em></span><img src="assets/images/projects/nineflow/pres/desk-light-charts@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-charts@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-charts.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Charts view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/charts</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-charts@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-charts@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-charts.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Charts view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Charts</span><h4>Where the hours actually went.</h4><p>Hours worked and tasks done, split by category or client, over any date range.</p></div>
               </article>
               <article class="nfv__card nfp-r" id="nfv-someday">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/someday</em></span><img src="assets/images/projects/nineflow/pres/desk-light-someday@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-someday@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-someday.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Someday view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/someday</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-someday@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-someday@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-someday.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Someday view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Someday</span><h4>A home for ideas without a date.</h4><p>Ideas without a date wait here, out of the plan, until you pull one onto a day.</p></div>
               </article>
               <article class="nfv__card nfp-r" id="nfv-paused">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/paused</em></span><img src="assets/images/projects/nineflow/pres/desk-light-paused@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-paused@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-paused.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Paused view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/paused</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-paused@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-paused@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-paused.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Paused view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Paused</span><h4>Deal with tasks that stopped.</h4><p>Tasks that keep slipping get a next step: do it today, make it 15 minutes, break it up or drop it.</p></div>
               </article>
             </div>
@@ -352,15 +352,15 @@
             <header class="nfv__gh nfp-r"><h3>Learn &amp; set up</h3><p>Notes that come back as flashcards, and a planner set up your way.</p></header>
             <div class="nfv__grid">
               <article class="nfv__card nfp-r" id="nfv-notes">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/notes</em></span><img src="assets/images/projects/nineflow/pres/desk-light-notes@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-notes@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-notes.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Notes view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/notes</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-notes@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-notes@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-notes.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Notes view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Notes</span><h4>Notes that stay useful later.</h4><p>Notes with pictures and links, kept next to tasks. Lines written as questions become flashcards.</p></div>
               </article>
               <article class="nfv__card nfp-r" id="nfv-revise">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/revise</em></span><img src="assets/images/projects/nineflow/pres/desk-light-revise@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-revise@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-revise.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Revise view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/revise</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-revise@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-revise@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-revise.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Revise view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Revise</span><h4>Today's flashcards, one at a time.</h4><p>The flashcards that are due today, one at a time, with a daily streak.</p></div>
               </article>
               <article class="nfv__card nfp-r" id="nfv-settings">
-                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/settings</em></span><img src="assets/images/projects/nineflow/pres/desk-light-settings@1440.jpg" srcset="assets/images/projects/nineflow/pres/desk-light-settings@1440.jpg 1440w, assets/images/projects/nineflow/pres/desk-light-settings.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Settings view" loading="lazy" decoding="async" /></figure></div>
+                <div class="nfv__stage"><figure class="nfp-bz nfp-bz--light"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/settings</em></span><img src="/assets/images/projects/nineflow/pres/desk-light-settings@1440.jpg" srcset="/assets/images/projects/nineflow/pres/desk-light-settings@1440.jpg 1440w, /assets/images/projects/nineflow/pres/desk-light-settings.jpg 3840w" sizes="(min-width: 1400px) 430px, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="NineFlow Settings view" loading="lazy" decoding="async" /></figure></div>
                 <div class="nfv__ct"><span class="nfv__no">Settings</span><h4>Make the planner yours.</h4><p>Saved the moment you change it. Up to six planners under one login.</p></div>
               </article>
             </div>
@@ -385,15 +385,15 @@
         <header class="nff-gh nfp-r"><span class="nff-gno">A</span><h3>Add work fast</h3><p>Three ways in, and none of them is a form. Whatever you type or say is shown back, and only saved when you say so.</p></header>
         <div class="nff-grid">
           <article class="nff-tile nfp-r">
-            <figure><img src="assets/images/projects/nineflow/pres/crop-quickadd.jpg" width="1137" height="877" alt="Quick add: 'Edit trailer tomorrow 2pm 90m #work !high' shown back as High, Work, 1h 30m, 14:00 and Tomorrow chips" loading="lazy" /></figure>
+            <figure><img src="/assets/images/projects/nineflow/pres/crop-quickadd.jpg" width="1137" height="877" alt="Quick add: 'Edit trailer tomorrow 2pm 90m #work !high' shown back as High, Work, 1h 30m, 14:00 and Tomorrow chips" loading="lazy" /></figure>
             <div class="nff-tile__txt"><span class="nff-no">01 · Quick add</span><h4>Type it, in plain words</h4><p>Write it the way you’d say it. “Edit trailer tomorrow 2pm 90m #work !high” fills in the day, time, length, category and priority.</p></div>
           </article>
           <article class="nff-tile nff-tile--voice nfp-r">
-            <figure><picture><source media="(max-width: 760px)" srcset="assets/images/projects/nineflow/crop-voice-listening-phone.jpg" width="894" height="744" /><img src="assets/images/projects/nineflow/pres/crop-voice-listening.jpg" width="1254" height="750" alt="Speak tasks while listening: spoken tasks appear in the box, with a Stop listening button and a reminder to say next between tasks" loading="lazy" /></picture></figure>
+            <figure><picture><source media="(max-width: 760px)" srcset="/assets/images/projects/nineflow/crop-voice-listening-phone.jpg" width="894" height="744" /><img src="/assets/images/projects/nineflow/pres/crop-voice-listening.jpg" width="1254" height="750" alt="Speak tasks while listening: spoken tasks appear in the box, with a Stop listening button and a reminder to say next between tasks" loading="lazy" /></picture></figure>
             <div class="nff-tile__txt"><span class="nff-no">02 · Speak tasks</span><h4>Say it, many at once</h4><p>Say several tasks in one go, fix them by voice, and check the list before anything is added.</p></div>
           </article>
           <article class="nff-tile nfp-r">
-            <figure><img src="assets/images/projects/nineflow/pres/crop-palette.jpg" width="1137" height="1075" alt="Command palette open with Ctrl+K, showing create, actions and matching tasks" loading="lazy" /></figure>
+            <figure><img src="/assets/images/projects/nineflow/pres/crop-palette.jpg" width="1137" height="1075" alt="Command palette open with Ctrl+K, showing create, actions and matching tasks" loading="lazy" /></figure>
             <div class="nff-tile__txt"><span class="nff-no">03 · Command palette</span><h4>Ctrl + K for everything</h4><p>One box to add a task, run an action or jump to any task, without touching the mouse.</p></div>
           </article>
         </div>
@@ -404,23 +404,23 @@
         <header class="nff-gh nfp-r"><span class="nff-gno">B</span><h3>Plan &amp; focus</h3><p>From a goal weeks away, to tonight's hour of work, to the moment a task is really done.</p></header>
         <div class="nff-grid">
           <article class="nff-tile nfp-r">
-            <figure><img src="assets/images/projects/nineflow/pres/crop-goal-plan.jpg" width="1137" height="1197" alt="Plan a goal: a UPSC Prelims plan with one topic every evening at 18:00" loading="lazy" /></figure>
+            <figure><img src="/assets/images/projects/nineflow/pres/crop-goal-plan.jpg" width="1137" height="1197" alt="Plan a goal: a UPSC Prelims plan with one topic every evening at 18:00" loading="lazy" /></figure>
             <div class="nff-tile__txt"><span class="nff-no">04 · Plan a goal</span><h4>An exam in 24 days, every evening planned</h4><p>Name the goal, pick the date and list the topics. NineFlow spreads the work over your free evenings and shows the plan first.</p></div>
           </article>
           <article class="nff-tile nff-tile--phone nfp-r">
-            <figure><div class="nfp-ph"><img src="assets/images/projects/nineflow/pres/phone-feat-focus.jpg" srcset="assets/images/projects/nineflow/pres/phone-feat-focus@480.jpg 480w, assets/images/projects/nineflow/pres/phone-feat-focus@786.jpg 786w, assets/images/projects/nineflow/pres/phone-feat-focus.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Focus timer counting down on a phone for a gym session" loading="lazy" /></div></figure>
+            <figure><div class="nfp-ph"><img src="/assets/images/projects/nineflow/pres/phone-feat-focus.jpg" srcset="/assets/images/projects/nineflow/pres/phone-feat-focus@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-feat-focus@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-feat-focus.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Focus timer counting down on a phone for a gym session" loading="lazy" /></div></figure>
             <div class="nff-tile__txt"><span class="nff-no">05 · Focus timer</span><h4>Focus, and the time is logged</h4><p>A Pomodoro timer that runs on the task, so the minutes you work are logged next to the time you planned.</p></div>
           </article>
           <article class="nff-tile nfp-r">
-            <figure><img src="assets/images/projects/nineflow/pres/crop-finishgate.jpg" width="881" height="741" alt="Before you finish: a task with one of four checklist steps ticked, with Not yet and Finish anyway buttons" loading="lazy" /></figure>
+            <figure><img src="/assets/images/projects/nineflow/pres/crop-finishgate.jpg" width="881" height="741" alt="Before you finish: a task with one of four checklist steps ticked, with Not yet and Finish anyway buttons" loading="lazy" /></figure>
             <div class="nff-tile__txt"><span class="nff-no">06 · Checklist &amp; finish check</span><h4>Finish properly</h4><p>Break a task into steps. If you try to complete it with steps still open, NineFlow asks first.</p></div>
           </article>
         </div>
       </div>
       <div class="nff-boards">
-        <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p11a-day-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p11a-day-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p11a-day-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p11a-day-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="1992" alt="A plan that bends, not breaks: the load bar, carried-over tasks and interruptions" loading="lazy" decoding="async" /></figure>
-        <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p11b-goal-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p11b-goal-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p11b-goal-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p11b-goal-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2422" alt="Plan a goal: a UPSC Prelims exam in 24 days, planned into every evening" loading="lazy" decoding="async" /></figure>
-        <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p11d-finish-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p11d-finish-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p11d-finish-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p11d-finish-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2982" alt="Focus and finish: a focus timer on desktop and phone, and a checklist before a task is done" loading="lazy" decoding="async" /></figure>
+        <figure class="nfp-board nfp-board--deck nfp-r"><img src="/assets/images/projects/nineflow/deck/p11a-day-notitle@1920.jpg" srcset="/assets/images/projects/nineflow/deck/p11a-day-notitle@1200.jpg 1200w, /assets/images/projects/nineflow/deck/p11a-day-notitle@1920.jpg 1920w, /assets/images/projects/nineflow/deck/p11a-day-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="1992" alt="A plan that bends, not breaks: the load bar, carried-over tasks and interruptions" loading="lazy" decoding="async" /></figure>
+        <figure class="nfp-board nfp-board--deck nfp-r"><img src="/assets/images/projects/nineflow/deck/p11b-goal-notitle@1920.jpg" srcset="/assets/images/projects/nineflow/deck/p11b-goal-notitle@1200.jpg 1200w, /assets/images/projects/nineflow/deck/p11b-goal-notitle@1920.jpg 1920w, /assets/images/projects/nineflow/deck/p11b-goal-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2422" alt="Plan a goal: a UPSC Prelims exam in 24 days, planned into every evening" loading="lazy" decoding="async" /></figure>
+        <figure class="nfp-board nfp-board--deck nfp-r"><img src="/assets/images/projects/nineflow/deck/p11d-finish-notitle@1920.jpg" srcset="/assets/images/projects/nineflow/deck/p11d-finish-notitle@1200.jpg 1200w, /assets/images/projects/nineflow/deck/p11d-finish-notitle@1920.jpg 1920w, /assets/images/projects/nineflow/deck/p11d-finish-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2982" alt="Focus and finish: a focus timer on desktop and phone, and a checklist before a task is done" loading="lazy" decoding="async" /></figure>
       </div>
 
       <!-- Group C -->
@@ -428,22 +428,22 @@
         <header class="nff-gh nfp-r"><span class="nff-gno">C</span><h3>Keep &amp; reuse</h3><p>Nothing you write is wasted: hours become invoices, notes become flashcards, and every change can be undone.</p></header>
         <div class="nff-grid">
           <article class="nff-tile nfp-r">
-            <figure><img src="assets/images/projects/nineflow/pres/crop-invoice.jpg" width="1329" height="1349" alt="An invoice for one client listing tasks, hours, rate and amount" loading="lazy" /></figure>
+            <figure><img src="/assets/images/projects/nineflow/pres/crop-invoice.jpg" width="1329" height="1349" alt="An invoice for one client listing tasks, hours, rate and amount" loading="lazy" /></figure>
             <div class="nff-tile__txt"><span class="nff-no">07 · Billing</span><h4>From hours worked to an invoice</h4><p>Mark tasks as billable for a client, and the logged hours turn into a ready invoice.</p></div>
           </article>
           <article class="nff-tile nfp-r">
-            <figure><img src="assets/images/projects/nineflow/pres/feat-revise-answer@1440.jpg" srcset="assets/images/projects/nineflow/pres/feat-revise-answer@1440.jpg 1440w, assets/images/projects/nineflow/pres/feat-revise-answer.jpg 3840w" sizes="(min-width: 1000px) 30vw, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="Revise: a flashcard asking 'What is 15% of 240?' with Knew it and Forgot buttons" loading="lazy" /></figure>
+            <figure><img src="/assets/images/projects/nineflow/pres/feat-revise-answer@1440.jpg" srcset="/assets/images/projects/nineflow/pres/feat-revise-answer@1440.jpg 1440w, /assets/images/projects/nineflow/pres/feat-revise-answer.jpg 3840w" sizes="(min-width: 1000px) 30vw, (min-width: 760px) 46vw, 92vw" width="3840" height="2400" alt="Revise: a flashcard asking 'What is 15% of 240?' with Knew it and Forgot buttons" loading="lazy" /></figure>
             <div class="nff-tile__txt"><span class="nff-no">08 · Revise</span><h4>Notes that turn into flashcards</h4><p>Write “question :: answer” on any line of a note, and it becomes a flashcard in Revise.</p></div>
           </article>
           <article class="nff-tile nfp-r">
-            <figure><img src="assets/images/projects/nineflow/pres/crop-versions.jpg" width="1542" height="520" alt="Version history: copies of the planner with a restore option" loading="lazy" /></figure>
+            <figure><img src="/assets/images/projects/nineflow/pres/crop-versions.jpg" width="1542" height="520" alt="Version history: copies of the planner with a restore option" loading="lazy" /></figure>
             <div class="nff-tile__txt"><span class="nff-no">09 · Version history</span><h4>Nothing lost</h4><p>NineFlow keeps copies of your whole planner, so a mistake is never final.</p></div>
           </article>
         </div>
       </div>
       <div class="nff-boards">
-        <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p11e-money-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p11e-money-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p11e-money-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p11e-money-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2205" alt="From hours worked to an invoice: billable time by client and a ready invoice" loading="lazy" decoding="async" /></figure>
-        <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p11f-revise-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p11f-revise-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p11f-revise-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p11f-revise-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2213" alt="Notes that turn into flashcards: Revise brings each card back after 1, 3, 7, 21, 45 and 90 days" loading="lazy" decoding="async" /></figure>
+        <figure class="nfp-board nfp-board--deck nfp-r"><img src="/assets/images/projects/nineflow/deck/p11e-money-notitle@1920.jpg" srcset="/assets/images/projects/nineflow/deck/p11e-money-notitle@1200.jpg 1200w, /assets/images/projects/nineflow/deck/p11e-money-notitle@1920.jpg 1920w, /assets/images/projects/nineflow/deck/p11e-money-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2205" alt="From hours worked to an invoice: billable time by client and a ready invoice" loading="lazy" decoding="async" /></figure>
+        <figure class="nfp-board nfp-board--deck nfp-r"><img src="/assets/images/projects/nineflow/deck/p11f-revise-notitle@1920.jpg" srcset="/assets/images/projects/nineflow/deck/p11f-revise-notitle@1200.jpg 1200w, /assets/images/projects/nineflow/deck/p11f-revise-notitle@1920.jpg 1920w, /assets/images/projects/nineflow/deck/p11f-revise-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2213" alt="Notes that turn into flashcards: Revise brings each card back after 1, 3, 7, 21, 45 and 90 days" loading="lazy" decoding="async" /></figure>
       </div>
     </section>
 
@@ -453,29 +453,29 @@
         <p>The Android app is the same planner, laid out for a thumb: Home, Board, Week and Month in a bottom bar, everything else one tap away. Every screen comes in light and dark, shown here side by side.</p></header></div>
       <div class="nfp-phones" id="nfpPhones" tabindex="0" aria-label="Phone screens in light and dark mode, scroll sideways">
         <figure class="nfp-pair nfp-r">
-          <div class="nfp-pair__set"><div class="nfp-ph"><img src="assets/images/projects/nineflow/pres/phone-light-home.jpg" srcset="assets/images/projects/nineflow/pres/phone-light-home@480.jpg 480w, assets/images/projects/nineflow/pres/phone-light-home@786.jpg 786w, assets/images/projects/nineflow/pres/phone-light-home.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Home in light mode: today's load and schedule" loading="lazy" /></div><div class="nfp-ph nfp-ph--dark"><img src="assets/images/projects/nineflow/pres/phone-dark-home.jpg" srcset="assets/images/projects/nineflow/pres/phone-dark-home@480.jpg 480w, assets/images/projects/nineflow/pres/phone-dark-home@786.jpg 786w, assets/images/projects/nineflow/pres/phone-dark-home.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Home in dark mode: today's load and schedule" loading="lazy" /></div></div>
+          <div class="nfp-pair__set"><div class="nfp-ph"><img src="/assets/images/projects/nineflow/pres/phone-light-home.jpg" srcset="/assets/images/projects/nineflow/pres/phone-light-home@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-light-home@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-light-home.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Home in light mode: today's load and schedule" loading="lazy" /></div><div class="nfp-ph nfp-ph--dark"><img src="/assets/images/projects/nineflow/pres/phone-dark-home.jpg" srcset="/assets/images/projects/nineflow/pres/phone-dark-home@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-dark-home@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-dark-home.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Home in dark mode: today's load and schedule" loading="lazy" /></div></div>
           <figcaption><b>Home</b><span>Light · Dark</span></figcaption>
         </figure>
         <figure class="nfp-pair nfp-r">
-          <div class="nfp-pair__set"><div class="nfp-ph"><img src="assets/images/projects/nineflow/pres/phone-light-week.jpg" srcset="assets/images/projects/nineflow/pres/phone-light-week@480.jpg 480w, assets/images/projects/nineflow/pres/phone-light-week@786.jpg 786w, assets/images/projects/nineflow/pres/phone-light-week.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Week in light mode: the week timeline" loading="lazy" /></div><div class="nfp-ph nfp-ph--dark"><img src="assets/images/projects/nineflow/pres/phone-dark-week.jpg" srcset="assets/images/projects/nineflow/pres/phone-dark-week@480.jpg 480w, assets/images/projects/nineflow/pres/phone-dark-week@786.jpg 786w, assets/images/projects/nineflow/pres/phone-dark-week.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Week in dark mode: the week timeline" loading="lazy" /></div></div>
+          <div class="nfp-pair__set"><div class="nfp-ph"><img src="/assets/images/projects/nineflow/pres/phone-light-week.jpg" srcset="/assets/images/projects/nineflow/pres/phone-light-week@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-light-week@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-light-week.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Week in light mode: the week timeline" loading="lazy" /></div><div class="nfp-ph nfp-ph--dark"><img src="/assets/images/projects/nineflow/pres/phone-dark-week.jpg" srcset="/assets/images/projects/nineflow/pres/phone-dark-week@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-dark-week@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-dark-week.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Week in dark mode: the week timeline" loading="lazy" /></div></div>
           <figcaption><b>Week</b><span>Light · Dark</span></figcaption>
         </figure>
         <figure class="nfp-pair nfp-r">
-          <div class="nfp-pair__set"><div class="nfp-ph"><img src="assets/images/projects/nineflow/pres/phone-light-board.jpg" srcset="assets/images/projects/nineflow/pres/phone-light-board@480.jpg 480w, assets/images/projects/nineflow/pres/phone-light-board@786.jpg 786w, assets/images/projects/nineflow/pres/phone-light-board.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Board in light mode: To do, Working and In review tabs" loading="lazy" /></div><div class="nfp-ph nfp-ph--dark"><img src="assets/images/projects/nineflow/pres/phone-dark-board.jpg" srcset="assets/images/projects/nineflow/pres/phone-dark-board@480.jpg 480w, assets/images/projects/nineflow/pres/phone-dark-board@786.jpg 786w, assets/images/projects/nineflow/pres/phone-dark-board.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Board in dark mode: To do, Working and In review tabs" loading="lazy" /></div></div>
+          <div class="nfp-pair__set"><div class="nfp-ph"><img src="/assets/images/projects/nineflow/pres/phone-light-board.jpg" srcset="/assets/images/projects/nineflow/pres/phone-light-board@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-light-board@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-light-board.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Board in light mode: To do, Working and In review tabs" loading="lazy" /></div><div class="nfp-ph nfp-ph--dark"><img src="/assets/images/projects/nineflow/pres/phone-dark-board.jpg" srcset="/assets/images/projects/nineflow/pres/phone-dark-board@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-dark-board@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-dark-board.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Board in dark mode: To do, Working and In review tabs" loading="lazy" /></div></div>
           <figcaption><b>Board</b><span>Light · Dark</span></figcaption>
         </figure>
         <figure class="nfp-pair nfp-r">
-          <div class="nfp-pair__set"><div class="nfp-ph"><img src="assets/images/projects/nineflow/pres/phone-light-month.jpg" srcset="assets/images/projects/nineflow/pres/phone-light-month@480.jpg 480w, assets/images/projects/nineflow/pres/phone-light-month@786.jpg 786w, assets/images/projects/nineflow/pres/phone-light-month.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Month in light mode: hours per day across the month" loading="lazy" /></div><div class="nfp-ph nfp-ph--dark"><img src="assets/images/projects/nineflow/pres/phone-dark-month.jpg" srcset="assets/images/projects/nineflow/pres/phone-dark-month@480.jpg 480w, assets/images/projects/nineflow/pres/phone-dark-month@786.jpg 786w, assets/images/projects/nineflow/pres/phone-dark-month.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Month in dark mode: hours per day across the month" loading="lazy" /></div></div>
+          <div class="nfp-pair__set"><div class="nfp-ph"><img src="/assets/images/projects/nineflow/pres/phone-light-month.jpg" srcset="/assets/images/projects/nineflow/pres/phone-light-month@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-light-month@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-light-month.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Month in light mode: hours per day across the month" loading="lazy" /></div><div class="nfp-ph nfp-ph--dark"><img src="/assets/images/projects/nineflow/pres/phone-dark-month.jpg" srcset="/assets/images/projects/nineflow/pres/phone-dark-month@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-dark-month@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-dark-month.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Month in dark mode: hours per day across the month" loading="lazy" /></div></div>
           <figcaption><b>Month</b><span>Light · Dark</span></figcaption>
         </figure>
         <figure class="nfp-pair nfp-r">
-          <div class="nfp-pair__set"><div class="nfp-ph"><img src="assets/images/projects/nineflow/pres/phone-light-charts.jpg" srcset="assets/images/projects/nineflow/pres/phone-light-charts@480.jpg 480w, assets/images/projects/nineflow/pres/phone-light-charts@786.jpg 786w, assets/images/projects/nineflow/pres/phone-light-charts.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Charts in light mode: hours worked and tasks done" loading="lazy" /></div><div class="nfp-ph nfp-ph--dark"><img src="assets/images/projects/nineflow/pres/phone-dark-charts.jpg" srcset="assets/images/projects/nineflow/pres/phone-dark-charts@480.jpg 480w, assets/images/projects/nineflow/pres/phone-dark-charts@786.jpg 786w, assets/images/projects/nineflow/pres/phone-dark-charts.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Charts in dark mode: hours worked and tasks done" loading="lazy" /></div></div>
+          <div class="nfp-pair__set"><div class="nfp-ph"><img src="/assets/images/projects/nineflow/pres/phone-light-charts.jpg" srcset="/assets/images/projects/nineflow/pres/phone-light-charts@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-light-charts@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-light-charts.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Charts in light mode: hours worked and tasks done" loading="lazy" /></div><div class="nfp-ph nfp-ph--dark"><img src="/assets/images/projects/nineflow/pres/phone-dark-charts.jpg" srcset="/assets/images/projects/nineflow/pres/phone-dark-charts@480.jpg 480w, /assets/images/projects/nineflow/pres/phone-dark-charts@786.jpg 786w, /assets/images/projects/nineflow/pres/phone-dark-charts.jpg 1179w" sizes="(max-width: 1000px) 170px, 14vw" width="1179" height="2556" alt="Phone Charts in dark mode: hours worked and tasks done" loading="lazy" /></div></div>
           <figcaption><b>Charts</b><span>Light · Dark</span></figcaption>
         </figure>
       </div>
       <div class="nfp-wrap nfp-boards">
-        <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p12-mobile-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p12-mobile-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p12-mobile-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p12-mobile-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="3120" alt="Made for one hand: the Android app's main screens" loading="lazy" decoding="async" /></figure>
-        <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p13-mobile-detail-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p13-mobile-detail-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p13-mobile-detail-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p13-mobile-detail-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2421" alt="Everything from desktop, sized for a phone: month, focus, charts and matrix" loading="lazy" decoding="async" /></figure>
+        <figure class="nfp-board nfp-board--deck nfp-r"><img src="/assets/images/projects/nineflow/deck/p12-mobile-notitle@1920.jpg" srcset="/assets/images/projects/nineflow/deck/p12-mobile-notitle@1200.jpg 1200w, /assets/images/projects/nineflow/deck/p12-mobile-notitle@1920.jpg 1920w, /assets/images/projects/nineflow/deck/p12-mobile-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="3120" alt="Made for one hand: the Android app's main screens" loading="lazy" decoding="async" /></figure>
+        <figure class="nfp-board nfp-board--deck nfp-r"><img src="/assets/images/projects/nineflow/deck/p13-mobile-detail-notitle@1920.jpg" srcset="/assets/images/projects/nineflow/deck/p13-mobile-detail-notitle@1200.jpg 1200w, /assets/images/projects/nineflow/deck/p13-mobile-detail-notitle@1920.jpg 1920w, /assets/images/projects/nineflow/deck/p13-mobile-detail-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2421" alt="Everything from desktop, sized for a phone: month, focus, charts and matrix" loading="lazy" decoding="async" /></figure>
       </div>
     </section>
 
@@ -483,11 +483,11 @@
     <section class="nfp-wrap nfp-sec" id="n-dark" data-time="16:00" data-label="After dark">
       <header class="nfp-h nfp-r"><span>After dark</span><h2>Easy on the eyes <em>after dark.</em></h2>
         <p>Warm greys instead of pure black, and the same orange, so the brand looks the same day and night. Four more colour themes for people who want their own.</p></header>
-      <figure class="nfp-board nfp-board--deck nfp-r"><img src="assets/images/projects/nineflow/deck/p14-dark-notitle@1920.jpg" srcset="assets/images/projects/nineflow/deck/p14-dark-notitle@1200.jpg 1200w, assets/images/projects/nineflow/deck/p14-dark-notitle@1920.jpg 1920w, assets/images/projects/nineflow/deck/p14-dark-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2232" alt="Easy on the eyes after dark: the dashboard and phone in dark mode" loading="lazy" decoding="async" /></figure>
+      <figure class="nfp-board nfp-board--deck nfp-r"><img src="/assets/images/projects/nineflow/deck/p14-dark-notitle@1920.jpg" srcset="/assets/images/projects/nineflow/deck/p14-dark-notitle@1200.jpg 1200w, /assets/images/projects/nineflow/deck/p14-dark-notitle@1920.jpg 1920w, /assets/images/projects/nineflow/deck/p14-dark-notitle.jpg 3840w" sizes="(min-width: 1400px) 1300px, 94vw" width="3840" height="2232" alt="Easy on the eyes after dark: the dashboard and phone in dark mode" loading="lazy" decoding="async" /></figure>
       <div class="nfp-themes">
-        <figure class="nfp-r"><img src="assets/images/projects/nineflow/pres/theme-ocean@1440.jpg" width="1440" height="900" alt="Dashboard in the Ocean theme" loading="lazy" /><figcaption>Ocean</figcaption></figure>
-        <figure class="nfp-r"><img src="assets/images/projects/nineflow/pres/theme-forest@1440.jpg" width="1440" height="900" alt="Dashboard in the Forest theme" loading="lazy" /><figcaption>Forest</figcaption></figure>
-        <figure class="nfp-r"><img src="assets/images/projects/nineflow/pres/theme-berry@1440.jpg" width="1440" height="900" alt="Dashboard in the Berry theme" loading="lazy" /><figcaption>Berry</figcaption></figure>
+        <figure class="nfp-r"><img src="/assets/images/projects/nineflow/pres/theme-ocean@1440.jpg" width="1440" height="900" alt="Dashboard in the Ocean theme" loading="lazy" /><figcaption>Ocean</figcaption></figure>
+        <figure class="nfp-r"><img src="/assets/images/projects/nineflow/pres/theme-forest@1440.jpg" width="1440" height="900" alt="Dashboard in the Forest theme" loading="lazy" /><figcaption>Forest</figcaption></figure>
+        <figure class="nfp-r"><img src="/assets/images/projects/nineflow/pres/theme-berry@1440.jpg" width="1440" height="900" alt="Dashboard in the Berry theme" loading="lazy" /><figcaption>Berry</figcaption></figure>
       </div>
     </section>
 
@@ -525,12 +525,12 @@
       <div class="nfp-thanks nfp-r">
         <span class="nfp-thanks__word" aria-hidden="true">NINEFLOW</span>
         <div class="nfp-thanks__copy">
-          <img src="assets/images/projects/nineflow/nineflow-tile.png" alt="" width="64" height="64" />
+          <img src="/assets/images/projects/nineflow/nineflow-tile.png" alt="" width="64" height="64" />
           <h2>Thank you</h2>
           <p class="nfp-thanks__tag">Plan better, flow forward.</p>
           <p class="nfp-thanks__by">NineFlow · designed and built by Kartikeyan C · 2026 – now</p>
         </div>
-        <figure class="nfp-bz nfp-thanks__shot"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/dashboard</em></span><img src="assets/images/projects/nineflow/pres/theme-graphite@1440.jpg" srcset="assets/images/projects/nineflow/pres/theme-graphite@1440.jpg 1440w, assets/images/projects/nineflow/pres/theme-graphite.jpg 3840w" sizes="(min-width: 1000px) 70vw, 92vw" width="3840" height="2400" alt="The NineFlow dashboard in the Graphite theme: today's load, carried-over tasks, task counts, schedule and a productivity ring" loading="lazy" /><figcaption>The dashboard in the Graphite theme</figcaption></figure>
+        <figure class="nfp-bz nfp-thanks__shot"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/dashboard</em></span><img src="/assets/images/projects/nineflow/pres/theme-graphite@1440.jpg" srcset="/assets/images/projects/nineflow/pres/theme-graphite@1440.jpg 1440w, /assets/images/projects/nineflow/pres/theme-graphite.jpg 3840w" sizes="(min-width: 1000px) 70vw, 92vw" width="3840" height="2400" alt="The NineFlow dashboard in the Graphite theme: today's load, carried-over tasks, task counts, schedule and a productivity ring" loading="lazy" /><figcaption>The dashboard in the Graphite theme</figcaption></figure>
       </div>
       <div class="nfp-nextbox" id="nfpNext"></div>
     </section>
@@ -542,13 +542,13 @@
     <div class="ftray">
       <div class="fcard fcard--mail">
         <h4 data-ft="mail-title">Start a project</h4>
-        <a class="fmail" data-ft="mail" href="contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="fmail" data-ft="mail" href="/contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
         <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
           <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
       </div>
       <div class="fcard">
         <h4>Pages</h4>
-        <nav class="fnav" aria-label="Footer"><a href="index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+        <nav class="fnav" aria-label="Footer"><a href="/index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="/about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="/projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="/services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="/contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
       </div>
       <div class="fcard" data-ft="elsewhere" hidden>
         <h4>Elsewhere</h4>
@@ -568,13 +568,13 @@
       <li><b>Freelance:</b> UI/UX, logo &amp; motion projects</li>
       <li><b>Based in:</b> Chennai, India · open to remote</li>
     </ul>
-    <div class="otw__btns"><a class="btn btn--ghost" href="contact.html">Contact</a></div>
+    <div class="otw__btns"><a class="btn btn--ghost" href="/contact.html">Contact</a></div>
   </aside>
 
   <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" integrity="sha384-FKTX0CNJ8ngN1oGMBReVu7mvjTJyjFiD5etb1NKnYxc+8eFI2O0KWnksTN+oTFcu" crossorigin="anonymous" id="lenisLib" async></script>
-  <script src="js/main.js"></script>
-  <script src="js/fluid-cursor.js" defer></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/fluid-cursor.js" defer></script>
   <script>
 // NineFlow presentation: the reveal on scroll, the count-ups and the next-project card.
 (() => {
@@ -628,7 +628,7 @@
   const fillNext = () => {
     const box = $("#nfpNext");
     if (!box || box.children.length) return;
-    box.innerHTML = '<section class="cs-next"><a class="cs-next__card is-brand" href="finroot.html" style="--nx-bg:#04241B;--nx-ink:#FFFFFF;--nx-btn:#0E8466;--nx-btn-ink:#FFFFFF" aria-label="Next project: FinRoot case study"><div class="cs-next__txt"><small>Next project</small><b>FinRoot</b><span>Own product · Money app</span><em class="cs-next__go">Open case study →</em></div><img src="assets/images/projects/finroot/cover@960.jpg" alt="" loading="lazy" /></a></section>';
+    box.innerHTML = '<section class="cs-next"><a class="cs-next__card is-brand" href="/projects/finroot.html" style="--nx-bg:#04241B;--nx-ink:#FFFFFF;--nx-btn:#0E8466;--nx-btn-ink:#FFFFFF" aria-label="Next project: FinRoot case study"><div class="cs-next__txt"><small>Next project</small><b>FinRoot</b><span>Own product · Money app</span><em class="cs-next__go">Open case study →</em></div><img src="/assets/images/projects/finroot/cover@960.jpg" alt="" loading="lazy" /></a></section>';
   };
   if (window.__caseReady) fillNext(); else addEventListener("case-ready", fillNext, { once: true });
   setTimeout(fillNext, 2500);

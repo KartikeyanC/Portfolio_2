@@ -10,10 +10,10 @@
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=Poppins:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
   <link rel="expect" href="#page-ready" blocking="render" />
 </head>
@@ -23,27 +23,27 @@
   <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="/contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
 
   <header class="nav">
-    <a class="nav__brand" href="index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
+    <a class="nav__brand" href="/index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/services.html">Services</a>
+      <a href="/contact.html">Contact</a>
     </nav>
     <div class="nav__right">
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
-      <a class="nav__cta" href="contact.html">Let's talk</a>
+      <a class="nav__cta" href="/contact.html">Let's talk</a>
       <button class="nav__menu" id="menuOpen" aria-expanded="false" aria-controls="panel">Menu</button>
     </div>
   </header>
 
   <div class="panel" id="panel" aria-hidden="true">
     <button class="panel__close" id="menuClose">Close</button>
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+    <a href="/index.html">Home</a><a href="/about.html">About</a><a href="/projects.html">Projects</a><a href="/services.html">Services</a><a href="/contact.html">Contact</a>
     <small data-bind="contact-line" hidden></small>
   </div>
 
@@ -55,17 +55,17 @@
 
 <!-- Project header: the same structure as Milton (back link, title, outcome, tags, wide cover) -->
     <section class="cs-head cs-head--page">
-      <a class="cs-back" href="projects.html">← All work</a>
+      <a class="cs-back" href="/projects.html">← All work</a>
       <h1 class="cs-title">FinRoot: household money in seven buckets</h1>
       <p class="cs-outcome"><b>The idea</b> Split each month across seven buckets, so everyday money questions answer themselves.</p>
       <div class="cs-meta"><span>Own product</span><span>Personal finance</span><span>Web · Windows · Android</span></div>
     </section>
-    <div class="cs-shot" data-slide data-item="cover" style="view-transition-name:shot-finroot;view-transition-class:shot"><img src="assets/images/projects/finroot/cover.jpg" alt="FinRoot in dark mode: the Dashboard on a laptop and the Net Worth tracker on a phone, in front of a faint FINROOT wordmark on dark green" /></div>
+    <div class="cs-shot" data-slide data-item="cover" style="view-transition-name:shot-finroot;view-transition-class:shot"><img src="/assets/images/projects/finroot/cover.jpg" alt="FinRoot in dark mode: the Dashboard on a laptop and the Net Worth tracker on a phone, in front of a faint FINROOT wordmark on dark green" /></div>
 
     <!-- 00 HERO -->
 <header class="hero wrap rx-hero cs-after" id="s-top" data-label="Intro">
   <div class="rx-app">
-    <img class="rx-app__icon pd-lock" src="assets/images/projects/finroot/logo-lockup.png" alt="FinRoot logo: an R mark and the FINROOT wordmark, Finance rooted in you" height="64" />
+    <img class="rx-app__icon pd-lock" src="/assets/images/projects/finroot/logo-lockup.png" alt="FinRoot logo: an R mark and the FINROOT wordmark, Finance rooted in you" height="64" />
     <div class="rx-app__name"><span class="pd-own">Own product</span><p>Your household's money, clearly answered</p><small>Personal finance · web, Windows &amp; Android</small></div>
     <div class="rx-app__get"><a class="rx-get" href="#s-buckets">See the buckets</a></div>
   </div>
@@ -98,21 +98,21 @@
   <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>02</b></span><div><span class="kicker">The seven buckets</span><h2 class="h2">Every rupee <em>gets a place</em></h2></div></header>
   <p class="lead rp-r">Seven jars with your own percentages. The moment salary lands it's divided, and spending is matched to its jar.</p>
   <div class="pd-chips rp-r"><span>Needs</span><span>Financial Freedom</span><span>Education</span><span>Play</span><span>Long-Term Savings</span><span>Giving</span><span>Agri</span></div>
-  <figure class="card board rp-r" data-item="web-buckets"><img src="assets/images/projects/finroot/screen-buckets.jpg" alt="FinRoot bucket cards: Needs, Financial Freedom, Education, Play and Long-Term Savings with example monthly amounts" loading="lazy" /><figcaption><b>The buckets.</b> Example month: ₹1,20,000 of income, each bucket with its own amount.</figcaption></figure>
+  <figure class="card board rp-r" data-item="web-buckets"><img src="/assets/images/projects/finroot/screen-buckets.jpg" alt="FinRoot bucket cards: Needs, Financial Freedom, Education, Play and Long-Term Savings with example monthly amounts" loading="lazy" /><figcaption><b>The buckets.</b> Example month: ₹1,20,000 of income, each bucket with its own amount.</figcaption></figure>
 </section>
 
 <!-- 03 ASK -->
 <section class="sec wrap" id="s-ask" data-sec="ask" data-label="Ask">
   <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>03</b></span><div><span class="kicker">Ask your buckets</span><h2 class="h2">Plain questions, <em>plain answers</em></h2></div></header>
   <p class="lead rp-r">Pick a question and move the slider. The answer reads straight from the bucket it belongs to, without touching any other.</p>
-  <figure class="card board rp-r" data-item="web-ask"><img src="assets/images/projects/finroot/screen-ask.jpg" alt="FinRoot answer card: Can we afford a weekend trip? Yes, ₹1,400 stays in Play" loading="lazy" /><figcaption><b>Can we afford a weekend trip?</b> Yes — ₹1,400 stays in Play (example household).</figcaption></figure>
+  <figure class="card board rp-r" data-item="web-ask"><img src="/assets/images/projects/finroot/screen-ask.jpg" alt="FinRoot answer card: Can we afford a weekend trip? Yes, ₹1,400 stays in Play" loading="lazy" /><figcaption><b>Can we afford a weekend trip?</b> Yes — ₹1,400 stays in Play (example household).</figcaption></figure>
 </section>
 
 <!-- 04 FAMILY VIEW -->
 <section class="sec wrap" id="s-family" data-sec="family" data-label="Family view">
   <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>04</b></span><div><span class="kicker">For families</span><h2 class="h2">One plan <em>the whole family can see</em></h2></div></header>
   <p class="lead rp-r">Spending by bucket, budget health and one shared ledger, with roles so each member sees only what the owner chooses.</p>
-  <figure class="card board rp-r" data-item="web-dashboard"><img src="assets/images/projects/finroot/screen-dashboard.jpg" alt="FinRoot household overview: daily spending by jar, budget health and recent transactions" loading="lazy" /><figcaption><b>Household overview.</b> Daily spending by jar, budget health and the latest entries.</figcaption></figure>
+  <figure class="card board rp-r" data-item="web-dashboard"><img src="/assets/images/projects/finroot/screen-dashboard.jpg" alt="FinRoot household overview: daily spending by jar, budget health and recent transactions" loading="lazy" /><figcaption><b>Household overview.</b> Daily spending by jar, budget health and the latest entries.</figcaption></figure>
   <div class="pd-cards">
     <div class="card rp-r"><i>01</i><h3>Families &amp; couples</h3><p>One shared budget both partners trust, with roles that decide who can see and edit what.</p></div>
     <div class="card rp-r"><i>02</i><h3>Young professionals</h3><p>Split salary on payday and see what's left in each jar.</p></div>
@@ -125,7 +125,7 @@
 <section class="sec wrap" id="s-ledger" data-sec="ledger" data-label="One ledger">
   <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>05</b></span><div><span class="kicker">One ledger</span><h2 class="h2">Different sources, <em>one household picture</em></h2></div></header>
   <p class="lead rp-r">Type it, import it or snap it. Everything lands in the same private ledger: typed entries, bank statements and scanned bills.</p>
-  <figure class="card board rp-r" data-item="web-ledger"><img src="assets/images/projects/finroot/screen-ledger.jpg" alt="FinRoot one ledger diagram: typed entries, bank statements, bill scans, insurance, goals and family members around the FinRoot mark" loading="lazy" /><figcaption><b>One ledger.</b> Every source feeds the same household picture.</figcaption></figure>
+  <figure class="card board rp-r" data-item="web-ledger"><img src="/assets/images/projects/finroot/screen-ledger.jpg" alt="FinRoot one ledger diagram: typed entries, bank statements, bill scans, insurance, goals and family members around the FinRoot mark" loading="lazy" /><figcaption><b>One ledger.</b> Every source feeds the same household picture.</figcaption></figure>
 </section>
 
 <!-- 06 ON YOUR PHONE -->
@@ -133,8 +133,8 @@
   <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>06</b></span><div><span class="kicker">Android app</span><h2 class="h2">Log a rupee <em>in seconds</em></h2></div></header>
   <p class="lead rp-r">On the phone, logging has to be faster than forgetting: a floating quick-add card, a number-pad Quick Log and one sheet for expense, income and transfer.</p>
   <div class="show" data-items>
-    <div class="show__phone" aria-hidden="true"><div class="stack"><img src="assets/images/projects/finroot/phone-quickadd-1.jpg" alt="Start from anywhere" data-item="phone-quickadd-1" /><img src="assets/images/projects/finroot/phone-quickadd-2.jpg" alt="Quick expense" data-item="phone-quickadd-2" /><img src="assets/images/projects/finroot/phone-quickadd-3.jpg" alt="Two taps" data-item="phone-quickadd-3" /><img src="assets/images/projects/finroot/phone-quickadd-4.jpg" alt="Back to your day" data-item="phone-quickadd-4" /><img src="assets/images/projects/finroot/phone-quicklog.jpg" alt="A number pad for money" data-item="phone-quicklog" /><img src="assets/images/projects/finroot/phone-add-expense.jpg" alt="One sheet, three kinds" data-item="phone-add-expense" /><img src="assets/images/projects/finroot/phone-add-transfer.jpg" alt="Move money between accounts" data-item="phone-add-transfer" /></div></div>
-    <div class="show__steps"><article class="card feat" data-item="phone-quickadd-1"><small>Quick settings</small><h3>Start from anywhere</h3><p>A quick-settings tile opens FinRoot's floating card over any app.</p><img class="m" src="assets/images/projects/finroot/phone-quickadd-1.jpg" alt="Quick settings" loading="lazy" /></article><article class="card feat" data-item="phone-quickadd-2"><small>Floating card</small><h3>Quick expense</h3><p>Amount first, then a category, without leaving what you were doing.</p><img class="m" src="assets/images/projects/finroot/phone-quickadd-2.jpg" alt="Floating card" loading="lazy" /></article><article class="card feat" data-item="phone-quickadd-3"><small>Amount & category</small><h3>Two taps</h3><p>Type ₹15, tap Food, save.</p><img class="m" src="assets/images/projects/finroot/phone-quickadd-3.jpg" alt="Amount & category" loading="lazy" /></article><article class="card feat" data-item="phone-quickadd-4"><small>Saved</small><h3>Back to your day</h3><p>The entry is saved and you're back where you were.</p><img class="m" src="assets/images/projects/finroot/phone-quickadd-4.jpg" alt="Saved" loading="lazy" /></article><article class="card feat" data-item="phone-quicklog"><small>Quick Log</small><h3>A number pad for money</h3><p>Category tiles, optional subcategory and a big keypad for the amount.</p><img class="m" src="assets/images/projects/finroot/phone-quicklog.jpg" alt="Quick Log" loading="lazy" /></article><article class="card feat" data-item="phone-add-expense"><small>Add expense</small><h3>One sheet, three kinds</h3><p>Expense, income or transfer, with category, payment mode, account, date and a note.</p><img class="m" src="assets/images/projects/finroot/phone-add-expense.jpg" alt="Add expense" loading="lazy" /></article><article class="card feat" data-item="phone-add-transfer"><small>Add transfer</small><h3>Move money between accounts</h3><p>From and to, in the light theme.</p><img class="m" src="assets/images/projects/finroot/phone-add-transfer.jpg" alt="Add transfer" loading="lazy" /></article></div>
+    <div class="show__phone" aria-hidden="true"><div class="stack"><img src="/assets/images/projects/finroot/phone-quickadd-1.jpg" alt="Start from anywhere" data-item="phone-quickadd-1" /><img src="/assets/images/projects/finroot/phone-quickadd-2.jpg" alt="Quick expense" data-item="phone-quickadd-2" /><img src="/assets/images/projects/finroot/phone-quickadd-3.jpg" alt="Two taps" data-item="phone-quickadd-3" /><img src="/assets/images/projects/finroot/phone-quickadd-4.jpg" alt="Back to your day" data-item="phone-quickadd-4" /><img src="/assets/images/projects/finroot/phone-quicklog.jpg" alt="A number pad for money" data-item="phone-quicklog" /><img src="/assets/images/projects/finroot/phone-add-expense.jpg" alt="One sheet, three kinds" data-item="phone-add-expense" /><img src="/assets/images/projects/finroot/phone-add-transfer.jpg" alt="Move money between accounts" data-item="phone-add-transfer" /></div></div>
+    <div class="show__steps"><article class="card feat" data-item="phone-quickadd-1"><small>Quick settings</small><h3>Start from anywhere</h3><p>A quick-settings tile opens FinRoot's floating card over any app.</p><img class="m" src="/assets/images/projects/finroot/phone-quickadd-1.jpg" alt="Quick settings" loading="lazy" /></article><article class="card feat" data-item="phone-quickadd-2"><small>Floating card</small><h3>Quick expense</h3><p>Amount first, then a category, without leaving what you were doing.</p><img class="m" src="/assets/images/projects/finroot/phone-quickadd-2.jpg" alt="Floating card" loading="lazy" /></article><article class="card feat" data-item="phone-quickadd-3"><small>Amount & category</small><h3>Two taps</h3><p>Type ₹15, tap Food, save.</p><img class="m" src="/assets/images/projects/finroot/phone-quickadd-3.jpg" alt="Amount & category" loading="lazy" /></article><article class="card feat" data-item="phone-quickadd-4"><small>Saved</small><h3>Back to your day</h3><p>The entry is saved and you're back where you were.</p><img class="m" src="/assets/images/projects/finroot/phone-quickadd-4.jpg" alt="Saved" loading="lazy" /></article><article class="card feat" data-item="phone-quicklog"><small>Quick Log</small><h3>A number pad for money</h3><p>Category tiles, optional subcategory and a big keypad for the amount.</p><img class="m" src="/assets/images/projects/finroot/phone-quicklog.jpg" alt="Quick Log" loading="lazy" /></article><article class="card feat" data-item="phone-add-expense"><small>Add expense</small><h3>One sheet, three kinds</h3><p>Expense, income or transfer, with category, payment mode, account, date and a note.</p><img class="m" src="/assets/images/projects/finroot/phone-add-expense.jpg" alt="Add expense" loading="lazy" /></article><article class="card feat" data-item="phone-add-transfer"><small>Add transfer</small><h3>Move money between accounts</h3><p>From and to, in the light theme.</p><img class="m" src="/assets/images/projects/finroot/phone-add-transfer.jpg" alt="Add transfer" loading="lazy" /></article></div>
   </div>
 </section>
 
@@ -153,8 +153,8 @@
 <section class="sec wrap" id="s-brand" data-sec="brand" data-label="Brand">
   <header class="rx-head rp-r"><span class="rx-coin" aria-hidden="true"><b>08</b></span><div><span class="kicker">Brand</span><h2 class="h2">Finance <em>rooted in you</em></h2></div></header>
   <p class="lead rp-r">An R mark that grows from a root, the FINROOT wordmark and a calm green for money that should feel safe.</p>
-  <figure class="card board rp-r" data-item="brand-lockup"><div class="pd-brand" style="background:#0d7a5f"><img src="assets/images/projects/finroot/logo-lockup.png" alt="FinRoot logo: R mark, FINROOT wordmark and the line Finance rooted in you" loading="lazy" /></div><figcaption><b>Logo.</b> The R mark and the FINROOT lock-up.</figcaption></figure>
-  <figure class="card board rp-r" data-item="web-hero"><img src="assets/images/projects/finroot/screen-hero.jpg" alt="FinRoot website home: Your household's money, clearly answered, with a phone showing Priya's household" loading="lazy" /><figcaption><b>Website.</b> The home page, with an example household on the phone.</figcaption></figure>
+  <figure class="card board rp-r" data-item="brand-lockup"><div class="pd-brand" style="background:#0d7a5f"><img src="/assets/images/projects/finroot/logo-lockup.png" alt="FinRoot logo: R mark, FINROOT wordmark and the line Finance rooted in you" loading="lazy" /></div><figcaption><b>Logo.</b> The R mark and the FINROOT lock-up.</figcaption></figure>
+  <figure class="card board rp-r" data-item="web-hero"><img src="/assets/images/projects/finroot/screen-hero.jpg" alt="FinRoot website home: Your household's money, clearly answered, with a phone showing Priya's household" loading="lazy" /><figcaption><b>Website.</b> The home page, with an example household on the phone.</figcaption></figure>
 </section>
 
 <!-- 09 NEXT -->
@@ -172,13 +172,13 @@
     <div class="ftray">
       <div class="fcard fcard--mail">
         <h4 data-ft="mail-title">Start a project</h4>
-        <a class="fmail" data-ft="mail" href="contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="fmail" data-ft="mail" href="/contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
         <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
           <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
       </div>
       <div class="fcard">
         <h4>Pages</h4>
-        <nav class="fnav" aria-label="Footer"><a href="index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+        <nav class="fnav" aria-label="Footer"><a href="/index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="/about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="/projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="/services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="/contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
       </div>
       <div class="fcard" data-ft="elsewhere" hidden>
         <h4>Elsewhere</h4>
@@ -198,13 +198,13 @@
       <li><b>Freelance:</b> UI/UX, logo &amp; motion projects</li>
       <li><b>Based in:</b> Chennai, India · open to remote</li>
     </ul>
-    <div class="otw__btns"><a class="btn btn--ghost" href="contact.html">Contact</a></div>
+    <div class="otw__btns"><a class="btn btn--ghost" href="/contact.html">Contact</a></div>
   </aside>
 
   <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" integrity="sha384-FKTX0CNJ8ngN1oGMBReVu7mvjTJyjFiD5etb1NKnYxc+8eFI2O0KWnksTN+oTFcu" crossorigin="anonymous" id="lenisLib" async></script>
-  <script src="js/main.js"></script>
-  <script src="js/fluid-cursor.js" defer></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/fluid-cursor.js" defer></script>
   <script>
 (() => {
   const $ = (s) => document.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];

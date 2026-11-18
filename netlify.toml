@@ -25,3 +25,106 @@
   for = "/gk/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# Pictures can be cached by browsers for a week (Netlify already serves HTTPS and compressed files)
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# The Projects list stays at /projects.html; the folder /projects/ holds the case studies
+[[redirects]]
+  from = "/projects"
+  to = "/projects.html"
+  status = 200
+
+# Case studies moved into /projects/: old links keep working
+[[redirects]]
+  from = "/case.html"
+  to = "/projects/case.html"
+  status = 301
+
+[[redirects]]
+  from = "/case"
+  to = "/projects/case.html"
+  status = 301
+
+[[redirects]]
+  from = "/posters.html"
+  to = "/projects/posters.html"
+  status = 301
+
+[[redirects]]
+  from = "/posters"
+  to = "/projects/posters.html"
+  status = 301
+
+[[redirects]]
+  from = "/ifortigo.html"
+  to = "/projects/ifortigo.html"
+  status = 301
+
+[[redirects]]
+  from = "/ifortigo"
+  to = "/projects/ifortigo.html"
+  status = 301
+
+[[redirects]]
+  from = "/myshoptill.html"
+  to = "/projects/myshoptill.html"
+  status = 301
+
+[[redirects]]
+  from = "/myshoptill"
+  to = "/projects/myshoptill.html"
+  status = 301
+
+[[redirects]]
+  from = "/nexura.html"
+  to = "/projects/nexura.html"
+  status = 301
+
+[[redirects]]
+  from = "/nexura"
+  to = "/projects/nexura.html"
+  status = 301
+
+[[redirects]]
+  from = "/respay.html"
+  to = "/projects/respay.html"
+  status = 301
+
+[[redirects]]
+  from = "/respay"
+  to = "/projects/respay.html"
+  status = 301
+
+[[redirects]]
+  from = "/vstar.html"
+  to = "/projects/vstar.html"
+  status = 301
+
+[[redirects]]
+  from = "/vstar"
+  to = "/projects/vstar.html"
+  status = 301
+
+[[redirects]]
+  from = "/nineflow.html"
+  to = "/projects/nineflow.html"
+  status = 301
+
+[[redirects]]
+  from = "/nineflow"
+  to = "/projects/nineflow.html"
+  status = 301
+
+[[redirects]]
+  from = "/finroot.html"
+  to = "/projects/finroot.html"
+  status = 301
+
+[[redirects]]
+  from = "/finroot"
+  to = "/projects/finroot.html"
+  status = 301

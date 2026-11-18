@@ -18,6 +18,17 @@ ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "dist" / "kartikeyan-portfolio.html"
 PAGES = ["index.html", "about.html", "projects.html", "services.html", "contact.html", "case.html", "respay.html", "vstar.html", "nexura.html", "ifortigo.html", "myshoptill.html", "posters.html", "nineflow.html", "finroot.html", "404.html"]
 IMG = ROOT / "assets" / "images"
+PROJECT_PAGES = {"case.html", "respay.html", "vstar.html", "nexura.html", "ifortigo.html", "myshoptill.html", "posters.html", "nineflow.html", "finroot.html"}
+CSS_FILE = ROOT / "assets" / "css" / "style.css"
+JS_FILE = ROOT / "assets" / "js" / "main.js"
+FLUID_FILE = ROOT / "assets" / "js" / "fluid-cursor.js"
+
+
+def page_file(p):
+    """Where a page lives: case studies are in projects/, the rest in the site root."""
+    return ROOT / "projects" / p if p in PROJECT_PAGES else ROOT / p
+
+
 EXTS = [".jpg", ".png", ".webp", ".jpeg"]
 LENIS = "https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"
 _lenis = ""
@@ -243,10 +254,10 @@ def patch_js(js: str) -> str:
 
 def page_doc(html: str) -> str:
     """One page's HTML with its external files replaced by markers the shell fills in."""
-    html = re.sub(r'<link rel="stylesheet" href="/?css/style\.css" />', "<!--@CSS-->", html)
-    html = re.sub(r'<script src="/?js/main\.js"></script>', "<!--@JS-->", html)
+    html = re.sub(r'<link rel="stylesheet" href="/?assets/css/style\.css" />', "<!--@CSS-->", html)
+    html = re.sub(r'<script src="/?assets/js/main\.js"></script>', "<!--@JS-->", html)
     html = re.sub(r'<script src="https://cdn\.jsdelivr\.net/npm/lenis[^"]*"[^>]*></script>', "<!--@LENIS-->", html)
-    html = re.sub(r'<script src="/?js/fluid-cursor\.js"[^>]*></script>', "<!--@FLUID-->", html)
+    html = re.sub(r'<script src="/?assets/js/fluid-cursor\.js"[^>]*></script>', "<!--@FLUID-->", html)
     html = re.sub(r'\s*<link rel="icon" href="/?favicon\.ico"[^>]*>', "", html)
     html = re.sub(r'\s*<link rel="apple-touch-icon"[^>]*>', "", html)
     html = re.sub(r'<link rel="icon" href="/?assets/favicon\.svg"', '<link rel="icon" href="<!--@ICON-->"', html)
@@ -270,9 +281,9 @@ def main(lock=None):
     watermark_posters()
     card_covers()
     content = embed_content(json.loads((ROOT / "content.json").read_text(encoding="utf-8")))
-    css = (ROOT / "css" / "style.css").read_text(encoding="utf-8")
-    js = patch_js((ROOT / "js" / "main.js").read_text(encoding="utf-8"))
-    fluid = (ROOT / "js" / "fluid-cursor.js").read_text(encoding="utf-8")
+    css = CSS_FILE.read_text(encoding="utf-8")
+    js = patch_js(JS_FILE.read_text(encoding="utf-8"))
+    fluid = FLUID_FILE.read_text(encoding="utf-8")
     global _lenis
     if not _lenis:  # downloaded once per run (watch mode rebuilds reuse it)
         try:
@@ -281,7 +292,7 @@ def main(lock=None):
             print("  (smooth-scroll library not downloaded:", e, ")")
     lenis = _lenis
     icon = data_uri(ROOT / "assets" / "favicon.svg")
-    pages = {p: page_doc((ROOT / p).read_text(encoding="utf-8")) for p in PAGES}
+    pages = {p: page_doc(page_file(p).read_text(encoding="utf-8")) for p in PAGES}
     title = re.search(r"<title>(.*?)</title>", pages["index.html"]).group(1)
 
     bundle = {"content": json.dumps(content, ensure_ascii=False), "css": css, "js": js, "fluid": fluid, "lenis": lenis, "icon": icon, "pages": pages}
@@ -332,7 +343,7 @@ VIEWER = """const startSite = (B) => {
 
   // Which page an address points to: "about.html", "/case.html?p=milton", "projects.html#video", "/" …
   const parse = (href) => {
-    const m = String(href).match(/^(?:\\.?\\/)?([\\w-]*\\.html)?(\\?[^#]*)?(#.*)?$/);
+    const m = String(href).match(/^(?:\\.?\\/)?(?:projects\\/)?([\\w-]*\\.html)?(\\?[^#]*)?(#.*)?$/);
     if (!m) return null;
     const page = m[1] || "index.html";
     return { page: known.includes(page) ? page : "404.html", search: m[2] || "", hash: m[3] || "" };
@@ -596,7 +607,7 @@ __VIEWER__
 
 def sources():
     """Every file that ends up inside the single file."""
-    files = [ROOT / p for p in PAGES] + [ROOT / "css" / "style.css", ROOT / "js" / "main.js", ROOT / "js" / "fluid-cursor.js", ROOT / "content.json", ROOT / "assets" / "favicon.svg"]
+    files = [page_file(p) for p in PAGES] + [CSS_FILE, JS_FILE, FLUID_FILE, ROOT / "content.json", ROOT / "assets" / "favicon.svg"]
     files += [f for f in IMG.rglob("*") if f.is_file()] if IMG.exists() else []
     files += [f for f in POSTER_SRC.iterdir() if f.is_file()] if POSTER_SRC.exists() else []   # a new clean poster → watermark + rebuild
     return files

@@ -10,10 +10,10 @@
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Bebas+Neue&family=TASA+Orbiter:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <script>try{if(sessionStorage.getItem("abar-x"))document.documentElement.classList.add("no-abar");var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;var s=JSON.parse(localStorage.getItem("site-theme")||"null");if(s){if(s.accent)document.documentElement.dataset.accent=s.accent;for(var k in s.vars)document.documentElement.style.setProperty(k,s.vars[k]);}}catch(e){}</script>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <!-- Hold the first paint until main.js has built the page, so page transitions show the finished page -->
   <link rel="expect" href="#page-ready" blocking="render" />
 </head>
@@ -23,27 +23,27 @@
   <div class="abar" id="abar" data-render="announcement"><span class="abar__dot" aria-hidden="true"></span><span class="abar__text">Open to Product / UI/UX roles &amp; freelance projects</span><a class="abar__link" href="/contact.html">Let's talk ↗</a><button class="abar__x" id="abarX" type="button" aria-label="Dismiss announcement">✕</button></div>
 
   <header class="nav">
-    <a class="nav__brand" href="index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
+    <a class="nav__brand" href="/index.html" aria-label="Kartikeyan — home"><span class="mark"></span>KARTIKEYAN</a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/services.html">Services</a>
+      <a href="/contact.html">Contact</a>
     </nav>
     <div class="nav__right">
       <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
         <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
-      <a class="nav__cta" href="contact.html">Let's talk</a>
+      <a class="nav__cta" href="/contact.html">Let's talk</a>
       <button class="nav__menu" id="menuOpen" aria-expanded="false" aria-controls="panel">Menu</button>
     </div>
   </header>
 
   <div class="panel" id="panel" aria-hidden="true">
     <button class="panel__close" id="menuClose">Close</button>
-    <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="services.html">Services</a><a href="contact.html">Contact</a>
+    <a href="/index.html">Home</a><a href="/about.html">About</a><a href="/projects.html">Projects</a><a href="/services.html">Services</a><a href="/contact.html">Contact</a>
     <small data-bind="contact-line" hidden></small>
   </div>
 
@@ -54,12 +54,12 @@
     <!-- HERO -->
     <!-- Project header: the same structure as Milton (back link, title, outcome, tags, wide cover) -->
     <section class="cs-head cs-head--page">
-      <a class="cs-back" href="projects.html">← All work</a>
+      <a class="cs-back" href="/projects.html">← All work</a>
       <h1 class="cs-title">Nexura: a brand identity and website for an AI integration firm</h1>
       <p class="cs-outcome"><b>Outcome</b> Shipped the Nexura identity — a hexagon that hides all six letters — and a 25-page website I designed and built.</p>
       <div class="cs-meta"><span>Brand identity</span><span>Website</span><span>Design &amp; development</span></div>
     </section>
-    <div class="cs-shot" data-slide style="view-transition-name:shot-nexura;view-transition-class:shot"><img src="assets/images/projects/nexura/cover.jpg" alt="Nexura logo: a hexagonal mark above the NEXURA wordmark and the tagline 'Creating Intelligent Solutions', white on dark brown" fetchpriority="high" decoding="sync" /></div>
+    <div class="cs-shot" data-slide style="view-transition-name:shot-nexura;view-transition-class:shot"><img src="/assets/images/projects/nexura/cover.jpg" alt="Nexura logo: a hexagonal mark above the NEXURA wordmark and the tagline 'Creating Intelligent Solutions', white on dark brown" fetchpriority="high" decoding="sync" /></div>
 
     <header class="nx-hero vs-wrap cs-after">
       <div class="nx-hero__grid">
@@ -107,13 +107,13 @@
     <section class="nx-sec vs-wrap">
       <header class="nx-head vs-r"><p class="nx-eye">The mark</p><h2>Six letters, <em>one hexagon.</em></h2><b class="nx-head__no" aria-hidden="true">02</b></header>
       <div class="nx-body">
-        <figure class="nx-board nx-board--logo vs-r"><img src="assets/images/projects/nexura/board-logo.jpg" alt="The Nexura logo: a hexagon of folded green, orange, blue and red strips around a dark play-shaped triangle, above the NEXURA wordmark and the tagline 'Creating Intelligent Solutions'" loading="lazy" /></figure>
+        <figure class="nx-board nx-board--logo vs-r"><img src="/assets/images/projects/nexura/board-logo.jpg" alt="The Nexura logo: a hexagon of folded green, orange, blue and red strips around a dark play-shaped triangle, above the NEXURA wordmark and the tagline 'Creating Intelligent Solutions'" loading="lazy" /></figure>
         <ul class="nx-ideas vs-r">
           <li style="--k:#266eb4"><span><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2.5 20.5 7.25v9.5L12 21.5 3.5 16.75v-9.5z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg></span><b>A hexagon of folded strips</b><p>Solid and dependable as a shape, with movement in the folds. Engineering, not magic.</p></li>
           <li style="--k:#039a49"><span>N</span><b>Six letters, one mark</b><p>Each fold traces a letter: N, E, X, U, R and A can all be found inside the hexagon.</p></li>
           <li style="--k:#e52729"><span>▶</span><b>A spark at the centre</b><p>The dark triangle in the middle points forward: the "intelligent solution" moving out.</p></li>
         </ul>
-        <figure class="nx-board vs-r"><img src="assets/images/projects/nexura/board-letters.jpg" alt="Letter construction board: N, E, X, U, R and A each traced inside the hexagonal mark" loading="lazy" /></figure>
+        <figure class="nx-board vs-r"><img src="/assets/images/projects/nexura/board-letters.jpg" alt="Letter construction board: N, E, X, U, R and A each traced inside the hexagonal mark" loading="lazy" /></figure>
       </div>
     </section>
 
@@ -122,10 +122,10 @@
       <header class="nx-head vs-r"><p class="nx-eye">Colour, type &amp; pattern</p><h2>Four colours, <em>one system.</em></h2><b class="nx-head__no" aria-hidden="true">03</b></header>
       <div class="nx-body">
         <p class="vs-r">Four colours, blue, green, red and orange, make up the full-colour mark. Each also works as a solid background with the logo reversed in white. The logo lettering is Sora SemiBold for NEXURA and Satoshi Regular for the tagline: clean geometric sans-serifs that sit comfortably next to the mark.</p>
-        <figure class="nx-board vs-r"><img src="assets/images/projects/nexura/board-colours.jpg" alt="Colour variations: the logo reversed in white on solid blue, green, red and orange" loading="lazy" /></figure>
+        <figure class="nx-board vs-r"><img src="/assets/images/projects/nexura/board-colours.jpg" alt="Colour variations: the logo reversed in white on solid blue, green, red and orange" loading="lazy" /></figure>
         <div class="nx-boards">
-          <figure class="vs-r"><img src="assets/images/projects/nexura/board-mono.jpg" alt="Monochrome logo versions and a repeat pattern cut from the mark" loading="lazy" /><figcaption>Single colour, and a pattern cut from the mark</figcaption></figure>
-          <figure class="vs-r"><img src="assets/images/projects/nexura/board-type.jpg" alt="Typography board for the identity: Sora and Satoshi Variable" loading="lazy" /><figcaption>Logo lettering: Sora and Satoshi</figcaption></figure>
+          <figure class="vs-r"><img src="/assets/images/projects/nexura/board-mono.jpg" alt="Monochrome logo versions and a repeat pattern cut from the mark" loading="lazy" /><figcaption>Single colour, and a pattern cut from the mark</figcaption></figure>
+          <figure class="vs-r"><img src="/assets/images/projects/nexura/board-type.jpg" alt="Typography board for the identity: Sora and Satoshi Variable" loading="lazy" /><figcaption>Logo lettering: Sora and Satoshi</figcaption></figure>
         </div>
       </div>
     </section>
@@ -134,8 +134,8 @@
     <section class="nx-sec vs-wrap">
       <header class="nx-head vs-r"><p class="nx-eye">The brand in use</p><h2>From ID card <em>to exhibition stand.</em></h2><b class="nx-head__no" aria-hidden="true">04</b></header>
       <div class="nx-body">
-        <figure class="nx-board vs-r"><img src="assets/images/projects/nexura/board-mockups-1.jpg" alt="The brand in use: ID card, office glass door and a bottle" loading="lazy" /></figure>
-        <figure class="nx-board vs-r"><img src="assets/images/projects/nexura/board-mockups-2.jpg" alt="The brand in use: exhibition stand and business cards" loading="lazy" /></figure>
+        <figure class="nx-board vs-r"><img src="/assets/images/projects/nexura/board-mockups-1.jpg" alt="The brand in use: ID card, office glass door and a bottle" loading="lazy" /></figure>
+        <figure class="nx-board vs-r"><img src="/assets/images/projects/nexura/board-mockups-2.jpg" alt="The brand in use: exhibition stand and business cards" loading="lazy" /></figure>
         <ul class="nx-deliv vs-r" aria-label="Brand deliverables"><li>Logo: full colour, single colour, black &amp; white</li><li>Colour palette</li><li>Typography</li><li>Brand pattern</li><li>Mockups: ID card, office glass, bottle, exhibition stand, business cards</li></ul>
       </div>
     </section>
@@ -335,14 +335,14 @@
       <div class="nx-body">
         <p class="vs-r">The home page follows the questions a careful buyer asks, in the order they ask them.</p>
         <ol class="nx-story" aria-label="The home page, section by section">
-          <li class="nx-story__card vs-r"><figure><img src="assets/images/projects/nexura/web/site-hero.jpg" alt="The hero: headline, two buttons and the co-pilot card" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">01</span><q>What do you actually do?</q><b>Hero</b><small>AI integration and co-pilots, on your infrastructure</small></div></li>
-          <li class="nx-story__card vs-r"><figure><img src="assets/images/projects/nexura/web/site-kpi.jpg" alt="The navy number band: 10, 4, 90 days, 48 hours" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">02</span><q>Is any of it real?</q><b>Platforms + numbers</b><small>10 platforms · 4 AI apps · 90 days · 48 hours</small></div></li>
-          <li class="nx-story__card vs-r"><figure><img src="assets/images/projects/nexura/web/site-focus.jpg" alt="Two cards: Fintech in blue, Process-driven in amber" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">03</span><q>Do you know my industry?</q><b>Where we work</b><small>Fintech or Process-driven</small></div></li>
-          <li class="nx-story__card vs-r"><figure><img src="assets/images/projects/nexura/web/site-position.jpg" alt="The position: three ticked principles" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">04</span><q>What do you believe?</q><b>The position</b><small>Observable · Governable · Deployed</small></div></li>
-          <li class="nx-story__card vs-r"><figure><img src="assets/images/projects/nexura/web/site-fintech.jpg" alt="The Fintech panel of ten platform cards" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">05</span><q>What can I buy?</q><b>Solutions</b><small>Every platform, one line each</small></div></li>
-          <li class="nx-story__card vs-r"><figure><img src="assets/images/projects/nexura/web/site-commit.jpg" alt="Three numbered commitments on navy" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">06</span><q>Can I trust you?</q><b>Commitments</b><small>Three rules</small></div></li>
-          <li class="nx-story__card vs-r"><figure><img src="assets/images/projects/nexura/web/site-offer.jpg" alt="Three offering cards" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">07</span><q>How do we work together?</q><b>Offerings + engagement</b><small>Overlay · Engineering · Co-pilot · own, pair or guide</small></div></li>
-          <li class="nx-story__card is-goal vs-r"><figure><img src="assets/images/projects/nexura/web/site-end.jpg" alt="The closing invitation on navy with a Start a conversation button" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">08</span><q>OK, what's the first step?</q><b>Start with fifteen minutes</b><small>A named principal replies in 48 hours</small></div></li>
+          <li class="nx-story__card vs-r"><figure><img src="/assets/images/projects/nexura/web/site-hero.jpg" alt="The hero: headline, two buttons and the co-pilot card" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">01</span><q>What do you actually do?</q><b>Hero</b><small>AI integration and co-pilots, on your infrastructure</small></div></li>
+          <li class="nx-story__card vs-r"><figure><img src="/assets/images/projects/nexura/web/site-kpi.jpg" alt="The navy number band: 10, 4, 90 days, 48 hours" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">02</span><q>Is any of it real?</q><b>Platforms + numbers</b><small>10 platforms · 4 AI apps · 90 days · 48 hours</small></div></li>
+          <li class="nx-story__card vs-r"><figure><img src="/assets/images/projects/nexura/web/site-focus.jpg" alt="Two cards: Fintech in blue, Process-driven in amber" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">03</span><q>Do you know my industry?</q><b>Where we work</b><small>Fintech or Process-driven</small></div></li>
+          <li class="nx-story__card vs-r"><figure><img src="/assets/images/projects/nexura/web/site-position.jpg" alt="The position: three ticked principles" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">04</span><q>What do you believe?</q><b>The position</b><small>Observable · Governable · Deployed</small></div></li>
+          <li class="nx-story__card vs-r"><figure><img src="/assets/images/projects/nexura/web/site-fintech.jpg" alt="The Fintech panel of ten platform cards" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">05</span><q>What can I buy?</q><b>Solutions</b><small>Every platform, one line each</small></div></li>
+          <li class="nx-story__card vs-r"><figure><img src="/assets/images/projects/nexura/web/site-commit.jpg" alt="Three numbered commitments on navy" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">06</span><q>Can I trust you?</q><b>Commitments</b><small>Three rules</small></div></li>
+          <li class="nx-story__card vs-r"><figure><img src="/assets/images/projects/nexura/web/site-offer.jpg" alt="Three offering cards" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">07</span><q>How do we work together?</q><b>Offerings + engagement</b><small>Overlay · Engineering · Co-pilot · own, pair or guide</small></div></li>
+          <li class="nx-story__card is-goal vs-r"><figure><img src="/assets/images/projects/nexura/web/site-end.jpg" alt="The closing invitation on navy with a Start a conversation button" loading="lazy" /></figure><div class="nx-story__txt"><span class="nx-story__n">08</span><q>OK, what's the first step?</q><b>Start with fifteen minutes</b><small>A named principal replies in 48 hours</small></div></li>
         </ol>
         <ul class="nx-map vs-r" aria-label="All pages on the site">
           <li><b>1</b>Home</li><li><b>2</b>What we do · How we work</li><li><b>3</b>Solutions · Fintech · Process-driven</li><li><b>10</b>Solution pages</li><li><b>5</b>Blog + 4 articles</li><li><b>4</b>Careers · Contact · Privacy · Terms</li>
@@ -368,27 +368,27 @@
         </div>
         <div class="nx-tabs__panels">
             <div class="nx-tabs__panel" role="tabpanel" id="nx-dp-1" aria-labelledby="nx-dt-1">
-              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="assets/images/projects/nexura/web/site-hero.jpg" alt="The Nexura hero: 'AI Integration for Fintech &amp; Process-driven Enterprises', with a loan-narrative co-pilot card drafting a credit memo and an Approve button" loading="lazy" /></figure>
+              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="/assets/images/projects/nexura/web/site-hero.jpg" alt="The Nexura hero: 'AI Integration for Fintech &amp; Process-driven Enterprises', with a loan-narrative co-pilot card drafting a credit memo and an Approve button" loading="lazy" /></figure>
               <div class="nx-tabs__txt"><small>Hero</small><h3>Show the product working, not a robot</h3><p>Instead of an AI illustration, the hero shows a co-pilot doing a real job: drafting a credit memo. It ticks through its steps, cites every figure, and stops at a human "Approve" button. One picture explains the whole offer: AI does the work, people sign it off. The headline also rotates between "AI Integration" and "AI Co-pilots", the two things Nexura sells.</p></div>
             </div>
             <div class="nx-tabs__panel" role="tabpanel" id="nx-dp-2" aria-labelledby="nx-dt-2" hidden>
-              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="assets/images/projects/nexura/web/site-menu.jpg" alt="The Solutions mega menu: platforms grouped under Payments, Banking operations, Audit &amp; compliance, Data and Process-driven AI applications, each with a code and one-line description" loading="lazy" /></figure>
+              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="/assets/images/projects/nexura/web/site-menu.jpg" alt="The Solutions mega menu: platforms grouped under Payments, Banking operations, Audit &amp; compliance, Data and Process-driven AI applications, each with a code and one-line description" loading="lazy" /></figure>
               <div class="nx-tabs__txt"><small>Navigation</small><h3>A menu organised the way a bank buys</h3><p>Fourteen products would be a wall of names. The Solutions menu groups them by what a buyer is shopping for: Payments, Banking operations, Audit &amp; compliance and Data, with the process-driven AI apps in their own column. Each item carries its short code (IPS, BLOS, BRECON) and a one-line description, so it reads like a product catalogue, not a sitemap.</p></div>
             </div>
             <div class="nx-tabs__panel" role="tabpanel" id="nx-dp-3" aria-labelledby="nx-dt-3" hidden>
-              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="assets/images/projects/nexura/web/site-focus.jpg" alt="'We focus narrowly. By design.' with a blue Fintech card and an amber Process-driven Enterprises card" loading="lazy" /></figure>
+              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="/assets/images/projects/nexura/web/site-focus.jpg" alt="'We focus narrowly. By design.' with a blue Fintech card and an amber Process-driven Enterprises card" loading="lazy" /></figure>
               <div class="nx-tabs__txt"><small>Where we work</small><h3>Two doors, two colours</h3><p>The home page splits early into two cards: Fintech in blue, Process-driven in amber. Each says who it's for and why that industry is hard, then shows its icons and a count. From here on, the colour tells the visitor which side they're on.</p></div>
             </div>
             <div class="nx-tabs__panel" role="tabpanel" id="nx-dp-4" aria-labelledby="nx-dt-4" hidden>
-              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="assets/images/projects/nexura/web/site-fintech.jpg" alt="The Fintech solutions panel: ten platform cards, from Instant Payment System to Centralised Data Repository, each with an icon, one line and a View solution link" loading="lazy" /></figure>
+              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="/assets/images/projects/nexura/web/site-fintech.jpg" alt="The Fintech solutions panel: ten platform cards, from Instant Payment System to Centralised Data Repository, each with an icon, one line and a View solution link" loading="lazy" /></figure>
               <div class="nx-tabs__txt"><small>Solutions</small><h3>Ten platforms you can scan in seconds</h3><p>Every platform gets the same small card: an icon, a name and one plain line of what it does ("Account-to-account transfers that settle in seconds"). No jargon paragraphs. A buyer can scan all ten and spot the one they came for.</p></div>
             </div>
             <div class="nx-tabs__panel" role="tabpanel" id="nx-dp-5" aria-labelledby="nx-dt-5" hidden>
-              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="assets/images/projects/nexura/web/site-commit.jpg" alt="'Three rules we will not soften.' on deep navy: three numbered commitments in outlined rows" loading="lazy" /></figure>
+              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="/assets/images/projects/nexura/web/site-commit.jpg" alt="'Three rules we will not soften.' on deep navy: three numbered commitments in outlined rows" loading="lazy" /></figure>
               <div class="nx-tabs__txt"><small>Commitments</small><h3>The one dark moment</h3><p>Most of the site is light and open. The commitments are the exception: three numbered promises on deep navy, with the key words picked out in blue. The change of colour slows the reader down at the part Nexura most wants remembered.</p></div>
             </div>
             <div class="nx-tabs__panel" role="tabpanel" id="nx-dp-6" aria-labelledby="nx-dt-6" hidden>
-              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="assets/images/projects/nexura/web/site-engage.jpg" alt="'We do not impose one model on every client.' with three cards: We own, We pair, We guide, above a navy strip reading 'First production cut, within ninety days'" loading="lazy" /></figure>
+              <figure class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><img src="/assets/images/projects/nexura/web/site-engage.jpg" alt="'We do not impose one model on every client.' with three cards: We own, We pair, We guide, above a navy strip reading 'First production cut, within ninety days'" loading="lazy" /></figure>
               <div class="nx-tabs__txt"><small>Engagement</small><h3>Three ways to work, in three words</h3><p>"We own. We pair. We guide." Each model gets a two-word headline and a "best when" line, so a client can pick the one that fits their team. A navy strip underneath repeats the promise every model shares: a first production cut within ninety days.</p></div>
             </div>
         </div>
@@ -402,9 +402,9 @@
       <div class="nx-body">
       <p class="vs-r vs-narrow">Every inner page uses the same kit as the home page: a short promise, a small product card that shows the work, and a clear next step.</p>
       <div class="nx-pages">
-        <figure class="vs-r"><div class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i></span><img src="assets/images/projects/nexura/web/page-ips.jpg" alt="Solution page for the Instant Payment System: 'Money that moves in seconds, not days', with a how-it-works card ticking through Initiate, Validate, Route, Settle and Confirm" loading="lazy" /></div><figcaption><b>Solution page</b>One template for all ten platforms, with honest "choose when" and "avoid when" advice.</figcaption></figure>
-        <figure class="vs-r"><div class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i></span><img src="assets/images/projects/nexura/web/page-how.jpg" alt="How we work page: 'Three engagement models. One discovery framework.' with a 90-day timeline card from problem mapping to first production cut" loading="lazy" /></div><figcaption><b>How we work</b>The 90-day path drawn as a card, from problem mapping to the first production cut.</figcaption></figure>
-        <figure class="vs-r"><div class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i></span><img src="assets/images/projects/nexura/web/page-contact.jpg" alt="Contact page: 'Start with fifteen minutes.' with a short form and a card saying a named principal will reply within 48 hours" loading="lazy" /></div><figcaption><b>Contact</b>A short form, and a plain promise of who replies and when.</figcaption></figure>
+        <figure class="vs-r"><div class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i></span><img src="/assets/images/projects/nexura/web/page-ips.jpg" alt="Solution page for the Instant Payment System: 'Money that moves in seconds, not days', with a how-it-works card ticking through Initiate, Validate, Route, Settle and Confirm" loading="lazy" /></div><figcaption><b>Solution page</b>One template for all ten platforms, with honest "choose when" and "avoid when" advice.</figcaption></figure>
+        <figure class="vs-r"><div class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i></span><img src="/assets/images/projects/nexura/web/page-how.jpg" alt="How we work page: 'Three engagement models. One discovery framework.' with a 90-day timeline card from problem mapping to first production cut" loading="lazy" /></div><figcaption><b>How we work</b>The 90-day path drawn as a card, from problem mapping to the first production cut.</figcaption></figure>
+        <figure class="vs-r"><div class="nx-shot"><span class="nx-bar"><i></i><i></i><i></i></span><img src="/assets/images/projects/nexura/web/page-contact.jpg" alt="Contact page: 'Start with fifteen minutes.' with a short form and a card saying a named principal will reply within 48 hours" loading="lazy" /></div><figcaption><b>Contact</b>A short form, and a plain promise of who replies and when.</figcaption></figure>
       </div>
       </div>
     </section>
@@ -415,10 +415,10 @@
       <div class="nx-body">
         <p class="vs-r">The number band becomes a 2×2 grid, the platform grid becomes a single column, and the menu turns into a full-screen list with Solutions folding open and a "Start a conversation" button always at the bottom.</p>
         <div class="nx-mob vs-r">
-          <figure><div class="nx-mob__ph iph iph--fill"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/nexura/web/m-hero.jpg" alt="Mobile hero: 'AI Co-pilots for Fintech &amp; Process-driven Enterprises' with the Start a conversation button" loading="lazy" /></div></div><figcaption>Hero</figcaption></figure>
-          <figure><div class="nx-mob__ph iph iph--fill"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/nexura/web/m-kpi.jpg" alt="Mobile number band as a 2 by 2 grid, followed by 'We focus narrowly. By design.'" loading="lazy" /></div></div><figcaption>Numbers, 2×2</figcaption></figure>
-          <figure><div class="nx-mob__ph iph iph--fill"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/nexura/web/m-commit.jpg" alt="Mobile commitments on navy, one rule per card" loading="lazy" /></div></div><figcaption>Commitments</figcaption></figure>
-          <figure><div class="nx-mob__ph iph iph--fill"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="assets/images/projects/nexura/web/m-menu.jpg" alt="Mobile menu: a full-screen list with Solutions as a folding item and a Start a conversation button at the bottom" loading="lazy" /><img class="iph__foot" src="assets/images/projects/nexura/web/m-menu.jpg" alt="" aria-hidden="true" loading="lazy" /></div></div><figcaption>Menu</figcaption></figure>
+          <figure><div class="nx-mob__ph iph iph--fill"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="/assets/images/projects/nexura/web/m-hero.jpg" alt="Mobile hero: 'AI Co-pilots for Fintech &amp; Process-driven Enterprises' with the Start a conversation button" loading="lazy" /></div></div><figcaption>Hero</figcaption></figure>
+          <figure><div class="nx-mob__ph iph iph--fill"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="/assets/images/projects/nexura/web/m-kpi.jpg" alt="Mobile number band as a 2 by 2 grid, followed by 'We focus narrowly. By design.'" loading="lazy" /></div></div><figcaption>Numbers, 2×2</figcaption></figure>
+          <figure><div class="nx-mob__ph iph iph--fill"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="/assets/images/projects/nexura/web/m-commit.jpg" alt="Mobile commitments on navy, one rule per card" loading="lazy" /></div></div><figcaption>Commitments</figcaption></figure>
+          <figure><div class="nx-mob__ph iph iph--fill"><div class="iph__disp"><i class="iph__sb" aria-hidden="true"></i><img class="iph__view" src="/assets/images/projects/nexura/web/m-menu.jpg" alt="Mobile menu: a full-screen list with Solutions as a folding item and a Start a conversation button at the bottom" loading="lazy" /><img class="iph__foot" src="/assets/images/projects/nexura/web/m-menu.jpg" alt="" aria-hidden="true" loading="lazy" /></div></div><figcaption>Menu</figcaption></figure>
         </div>
       </div>
     </section>
@@ -430,9 +430,9 @@
         <p class="vs-r">Because I designed and built it, nothing was lost in a handoff. No page builder, no framework: just fast, plain web pages.</p>
         <div class="nx-build">
           <figure class="nx-code vs-r" aria-label="The site's files and the design tokens at the top of its stylesheet">
-            <span class="nx-code__bar"><i></i><i></i><i></i><b>assets/css/v4.css</b></span>
+            <span class="nx-code__bar"><i></i><i></i><i></i><b>/assets/css/v4.css</b></span>
             <div class="nx-code__in">
-              <ul class="nx-code__tree" aria-hidden="true"><li class="d">nexura/</li><li>index.html <em>+ 24 pages</em></li><li class="d">assets/css/</li><li class="on">v4.css</li><li class="d">assets/js/</li><li>nexura.js</li><li class="d">assets/fonts/</li><li>TASAOrbiter-latin.woff2</li><li>Inter.woff2</li><li class="d">assets/img/</li><li>nexura-logo.svg</li><li>sitemap.xml · robots.txt</li></ul>
+              <ul class="nx-code__tree" aria-hidden="true"><li class="d">nexura/</li><li>index.html <em>+ 24 pages</em></li><li class="d">/assets/css/</li><li class="on">v4.css</li><li class="d">/assets/js/</li><li>nexura.js</li><li class="d">/assets/fonts/</li><li>TASAOrbiter-latin.woff2</li><li>Inter.woff2</li><li class="d">/assets/img/</li><li>nexura-logo.svg</li><li>sitemap.xml · robots.txt</li></ul>
               <pre aria-hidden="true"><span class="s">:root</span> {
   <span class="p">--primary</span>: <span class="v">#1D4FF5</span>;
   <span class="p">--pd</span>: <span class="v">#F8B21A</span>;
@@ -458,7 +458,7 @@
       <p class="vs-r vs-narrow">Scroll inside the window to read the full home page, or click the map on the left to jump.</p>
       <div class="nx-full vs-r">
         <div class="nx-full__map" aria-hidden="true"><span class="nx-full__lens"></span></div>
-        <figure class="nx-full__win"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><div class="nx-full__in" tabindex="0" aria-label="The full Nexura home page, scrollable"><img src="assets/images/projects/nexura/web/site-full-1.jpg" alt="The full Nexura home page, part 1 of 5: hero, platform ticker, numbers and where we work" loading="lazy" /><img src="assets/images/projects/nexura/web/site-full-2.jpg" alt="Part 2 of 5: the position and the start of the solutions" loading="lazy" /><img src="assets/images/projects/nexura/web/site-full-3.jpg" alt="Part 3 of 5: fintech platforms and process-driven applications" loading="lazy" /><img src="assets/images/projects/nexura/web/site-full-4.jpg" alt="Part 4 of 5: commitments, offerings and engagement models" loading="lazy" /><img src="assets/images/projects/nexura/web/site-full-5.jpg" alt="Part 5 of 5: the closing invitation and the footer with the large NEXURA wordmark" loading="lazy" /></div></figure>
+        <figure class="nx-full__win"><span class="nx-bar"><i></i><i></i><i></i><b>nexurainfotech.com</b></span><div class="nx-full__in" tabindex="0" aria-label="The full Nexura home page, scrollable"><img src="/assets/images/projects/nexura/web/site-full-1.jpg" alt="The full Nexura home page, part 1 of 5: hero, platform ticker, numbers and where we work" loading="lazy" /><img src="/assets/images/projects/nexura/web/site-full-2.jpg" alt="Part 2 of 5: the position and the start of the solutions" loading="lazy" /><img src="/assets/images/projects/nexura/web/site-full-3.jpg" alt="Part 3 of 5: fintech platforms and process-driven applications" loading="lazy" /><img src="/assets/images/projects/nexura/web/site-full-4.jpg" alt="Part 4 of 5: commitments, offerings and engagement models" loading="lazy" /><img src="/assets/images/projects/nexura/web/site-full-5.jpg" alt="Part 5 of 5: the closing invitation and the footer with the large NEXURA wordmark" loading="lazy" /></div></figure>
       </div>
       </div>
     </section>
@@ -473,9 +473,9 @@
           <div class="iph__disp">
             <i class="iph__sb" aria-hidden="true"></i>
             <div class="nx-pv__scr iph__view">
-              <div class="nx-pv__in" data-pv-in tabindex="0" aria-label="The full Nexura mobile home page, scrollable"><img src="assets/images/projects/nexura/web/mfull-1.jpg" width="2145" height="8800" alt="The full Nexura mobile home page, part 1 of 10: the hero with the co-pilot card, the platform ticker and the number band" loading="lazy" decoding="async" /><img src="assets/images/projects/nexura/web/mfull-2.jpg" width="2145" height="8800" alt="Part 2 of 10: the numbers as a 2 by 2 grid and 'We focus narrowly. By design.' with the Fintech and Process-driven cards" loading="lazy" decoding="async" /><img src="assets/images/projects/nexura/web/mfull-3.jpg" width="2145" height="8800" alt="Part 3 of 10: the position, three commitments and the start of the solutions" loading="lazy" decoding="async" /><img src="assets/images/projects/nexura/web/mfull-4.jpg" width="2145" height="8800" alt="Part 4 of 10: fintech platforms, one card each" loading="lazy" decoding="async" /><img src="assets/images/projects/nexura/web/mfull-5.jpg" width="2145" height="8800" alt="Part 5 of 10: more fintech platforms" loading="lazy" decoding="async" /><img src="assets/images/projects/nexura/web/mfull-6.jpg" width="2145" height="8800" alt="Part 6 of 10: process-driven applications and the start of the commitments on navy" loading="lazy" decoding="async" /><img src="assets/images/projects/nexura/web/mfull-7.jpg" width="2145" height="8800" alt="Part 7 of 10: the commitments and the three offerings" loading="lazy" decoding="async" /><img src="assets/images/projects/nexura/web/mfull-8.jpg" width="2145" height="8800" alt="Part 8 of 10: the engagement models" loading="lazy" decoding="async" /><img src="assets/images/projects/nexura/web/mfull-9.jpg" width="2145" height="8800" alt="Part 9 of 10: 'Start with fifteen minutes' and the start of the footer" loading="lazy" decoding="async" /><img src="assets/images/projects/nexura/web/mfull-10.jpg" width="2145" height="2519" alt="Part 10 of 10: the end of the footer" loading="lazy" decoding="async" /></div>
-              <div class="nx-pv__hdr" data-pv-hdr aria-hidden="true"><img src="assets/images/projects/nexura/web/mfull-hdr-top.png" alt="" /><img src="assets/images/projects/nexura/web/mfull-hdr-scrolled.png" alt="" /></div>
-              <img class="nx-pv__menu" data-pv-menu src="assets/images/projects/nexura/web/mfull-menu.png" alt="The open mobile menu: How we work, What we do, Solutions (folds open), Careers and Blog, with a Start a conversation button at the bottom" loading="lazy" hidden />
+              <div class="nx-pv__in" data-pv-in tabindex="0" aria-label="The full Nexura mobile home page, scrollable"><img src="/assets/images/projects/nexura/web/mfull-1.jpg" width="2145" height="8800" alt="The full Nexura mobile home page, part 1 of 10: the hero with the co-pilot card, the platform ticker and the number band" loading="lazy" decoding="async" /><img src="/assets/images/projects/nexura/web/mfull-2.jpg" width="2145" height="8800" alt="Part 2 of 10: the numbers as a 2 by 2 grid and 'We focus narrowly. By design.' with the Fintech and Process-driven cards" loading="lazy" decoding="async" /><img src="/assets/images/projects/nexura/web/mfull-3.jpg" width="2145" height="8800" alt="Part 3 of 10: the position, three commitments and the start of the solutions" loading="lazy" decoding="async" /><img src="/assets/images/projects/nexura/web/mfull-4.jpg" width="2145" height="8800" alt="Part 4 of 10: fintech platforms, one card each" loading="lazy" decoding="async" /><img src="/assets/images/projects/nexura/web/mfull-5.jpg" width="2145" height="8800" alt="Part 5 of 10: more fintech platforms" loading="lazy" decoding="async" /><img src="/assets/images/projects/nexura/web/mfull-6.jpg" width="2145" height="8800" alt="Part 6 of 10: process-driven applications and the start of the commitments on navy" loading="lazy" decoding="async" /><img src="/assets/images/projects/nexura/web/mfull-7.jpg" width="2145" height="8800" alt="Part 7 of 10: the commitments and the three offerings" loading="lazy" decoding="async" /><img src="/assets/images/projects/nexura/web/mfull-8.jpg" width="2145" height="8800" alt="Part 8 of 10: the engagement models" loading="lazy" decoding="async" /><img src="/assets/images/projects/nexura/web/mfull-9.jpg" width="2145" height="8800" alt="Part 9 of 10: 'Start with fifteen minutes' and the start of the footer" loading="lazy" decoding="async" /><img src="/assets/images/projects/nexura/web/mfull-10.jpg" width="2145" height="2519" alt="Part 10 of 10: the end of the footer" loading="lazy" decoding="async" /></div>
+              <div class="nx-pv__hdr" data-pv-hdr aria-hidden="true"><img src="/assets/images/projects/nexura/web/mfull-hdr-top.png" alt="" /><img src="/assets/images/projects/nexura/web/mfull-hdr-scrolled.png" alt="" /></div>
+              <img class="nx-pv__menu" data-pv-menu src="/assets/images/projects/nexura/web/mfull-menu.png" alt="The open mobile menu: How we work, What we do, Solutions (folds open), Careers and Blog, with a Start a conversation button at the bottom" loading="lazy" hidden />
               <button type="button" class="nx-pv__btn" data-pv-btn aria-label="Open the site's menu" aria-expanded="false"></button>
             </div>
           </div>
@@ -519,13 +519,13 @@
     <div class="ftray">
       <div class="fcard fcard--mail">
         <h4 data-ft="mail-title">Start a project</h4>
-        <a class="fmail" data-ft="mail" href="contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="fmail" data-ft="mail" href="/contact.html">Tell me about it <span class="arrow" aria-hidden="true">↗</span></a>
         <div class="fcard__row"><button class="fcopy" type="button" data-ft="copy" hidden>Copy email</button>
           <span class="fstatus"><span class="fdot" aria-hidden="true"></span><span><span data-ft="city">Chennai</span> · <span class="fclock" data-ft="clock"></span></span></span></div>
       </div>
       <div class="fcard">
         <h4>Pages</h4>
-        <nav class="fnav" aria-label="Footer"><a href="index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
+        <nav class="fnav" aria-label="Footer"><a href="/index.html">Home<span class="arrow" aria-hidden="true">↗</span></a><a href="/about.html">About<span class="arrow" aria-hidden="true">↗</span></a><a href="/projects.html">Projects<span class="arrow" aria-hidden="true">↗</span></a><a href="/services.html">Services<span class="arrow" aria-hidden="true">↗</span></a><a href="/contact.html">Contact<span class="arrow" aria-hidden="true">↗</span></a></nav>
       </div>
       <div class="fcard" data-ft="elsewhere" hidden>
         <h4>Elsewhere</h4>
@@ -545,13 +545,13 @@
       <li><b>Freelance:</b> UI/UX, logo &amp; motion projects</li>
       <li><b>Based in:</b> Chennai, India · open to remote</li>
     </ul>
-    <div class="otw__btns"><a class="btn btn--ghost" href="contact.html">Contact</a></div>
+    <div class="otw__btns"><a class="btn btn--ghost" href="/contact.html">Contact</a></div>
   </aside>
 
   <!-- Smooth scrolling (Lenis — the same library kraftbase.com / Framer sites use); set up in main.js -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" integrity="sha384-FKTX0CNJ8ngN1oGMBReVu7mvjTJyjFiD5etb1NKnYxc+8eFI2O0KWnksTN+oTFcu" crossorigin="anonymous" id="lenisLib" async></script>
-  <script src="js/main.js"></script>
-  <script src="js/fluid-cursor.js" defer></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/fluid-cursor.js" defer></script>
   <script>
 (() => {
   const $$ = (s) => [...document.querySelectorAll(s)];
