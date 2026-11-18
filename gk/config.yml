@@ -187,7 +187,7 @@ collections:
               - { label: Category, name: category, widget: string, hint: "Small label on the Home card, e.g. UI/UX" }
               - { label: Tags, name: tags, widget: list, hint: "Comma separated, e.g. E-commerce, UI/UX" }
               - { label: Filters, name: filters, widget: list, hint: "Filter IDs from the Filters list, comma separated: uiux, product, brand, graphic" }
-              - { label: Image, name: image, widget: image, required: false, hint: "Optional. Leave empty to use the picture in assets/images/projects/<ID>/cover.jpg (just drop the file into that folder)" }
+              - { label: Image, name: image, widget: image, required: false, hint: "Optional. Leave empty to use the picture in assets/images/projects/<ID>/cover.webp (just drop the file into that folder)" }
               - { label: Image description (alt text), name: alt, widget: string, required: false }
               - { label: Description, name: description, widget: text }
               - label: Status

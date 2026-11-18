@@ -68,9 +68,11 @@ INLINE = re.compile(r"<script(?![^>]*\bsrc=)[^>]*>(.*?)</script>", re.S | re.I)
 
 
 def inline_hashes(html):
+    # Browsers turn CRLF into LF before checking a script against its hash.
     hashes = []
     for m in INLINE.finditer(html):
-        h = "'sha256-" + base64.b64encode(hashlib.sha256(m.group(1).encode("utf-8")).digest()).decode() + "'"
+        script = m.group(1).replace("\r\n", "\n").replace("\r", "\n")
+        h = "'sha256-" + base64.b64encode(hashlib.sha256(script.encode("utf-8")).digest()).decode() + "'"
         if h not in hashes:
             hashes.append(h)
     return hashes

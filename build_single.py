@@ -29,7 +29,11 @@ def page_file(p):
     return ROOT / "projects" / p if p in PROJECT_PAGES else ROOT / p
 
 
-EXTS = [".jpg", ".png", ".webp", ".jpeg"]
+EXTS = [".webp", ".jpg", ".png", ".jpeg"]
+mimetypes.add_type("image/webp", ".webp")
+MASTERS = ROOT / "_originals" / "site-images"   # JPG / PNG masters: on this computer only (.gitignore)
+WEBP_QUALITY = 90
+WEBP_MAX = 16383   # the largest side a WebP file can have
 LENIS = "https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"
 _lenis = ""
 
@@ -51,11 +55,45 @@ def find(base: pathlib.Path, exts=EXTS):
 CARD_WIDTHS = [640, 960, 1400, 2000]  # same list as COVER_W in js/main.js
 
 
+def convert_new_images():
+    """A JPG or PNG dropped into assets/images becomes WebP (quality 90; PNG stays lossless with its transparency).
+    The file it came from moves to _originals/site-images/, so the site only ever serves WebP."""
+    try:
+        from PIL import Image, ImageOps
+    except ImportError:
+        return
+    Image.MAX_IMAGE_PIXELS = None
+    for src in sorted(f for f in IMG.rglob("*") if f.suffix.lower() in (".jpg", ".jpeg", ".png")):
+        out, tmp = src.with_suffix(".webp"), src.with_suffix(".webp.tmp")
+        try:
+            png = src.suffix.lower() == ".png"
+            with Image.open(src) as opened:
+                im = ImageOps.exif_transpose(opened).convert("RGBA" if png else "RGB")
+            if max(im.size) > WEBP_MAX:
+                im.thumbnail((WEBP_MAX, WEBP_MAX), Image.LANCZOS)
+            im.save(tmp, "WEBP", lossless=png, quality=100 if png else WEBP_QUALITY, method=6)
+            tmp.replace(out)
+            master = MASTERS / src.relative_to(IMG)
+            master.parent.mkdir(parents=True, exist_ok=True)
+            src.replace(master)
+            print(f"  converted: {out.relative_to(ROOT)}", flush=True)
+        except Exception as e:
+            tmp.unlink(missing_ok=True)
+            print(f"  not converted: {src.relative_to(ROOT)} ({e})", flush=True)
+
+
+def _read_json(path):
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+
 def card_covers():
     """Project covers are exported big (3000-4000 px) for the case-study hero. Shrunk 5-8x by the browser into a
     ~450 px project card they go soft, so every cover gets sharp pre-shrunk copies next to it
-    (cover@640.jpg ... cover@2000.jpg: Lanczos, light sharpening, full-colour JPEG) that the cards load through srcset.
-    A copy is remade whenever cover.* changes (the cover's md5 is kept in the copy's JPEG comment).
+    (cover@640.webp ... cover@2000.webp: Lanczos, light sharpening) that the cards load through srcset.
+    The copies are remade whenever cover.* changes (its md5 is kept in cover-info.json, which is not published).
     Needs Pillow (pip install pillow); without it nothing is made and the cards just load cover.*"""
     try:
         from PIL import Image, ImageFilter, ImageOps
@@ -66,21 +104,18 @@ def card_covers():
         src = find(d / "cover")
         if not src:
             continue
-        tag, im = hashlib.md5(src.read_bytes()).hexdigest().encode(), None
+        info = d / "cover-info.json"
+        tag, im = hashlib.md5(src.read_bytes()).hexdigest(), None
+        same = _read_json(info).get("source") == tag
         with Image.open(src) as head:
             full_w = head.width
         for w in CARD_WIDTHS:
-            out = d / f"cover@{w}.jpg"
+            out = d / f"cover@{w}.webp"
             if w >= full_w:  # cover smaller than this size: no copy (the browser falls back to cover.*)
                 out.unlink(missing_ok=True)
                 continue
-            if out.exists():
-                try:
-                    with Image.open(out) as o:
-                        if o.info.get("comment") == tag:
-                            continue
-                except Exception:
-                    pass
+            if out.exists() and same:
+                continue
             if im is None:
                 im = ImageOps.exif_transpose(Image.open(src))
                 if im.mode in ("RGBA", "LA", "P"):
@@ -89,13 +124,15 @@ def card_covers():
                 im = im.convert("RGB")
             small = im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
             small = small.filter(ImageFilter.UnsharpMask(radius=0.6, percent=60, threshold=1))
-            small.save(out, "JPEG", quality=88, optimize=True, progressive=True, subsampling=0, comment=tag)
+            small.save(out, "WEBP", quality=WEBP_QUALITY, method=6)
             print(f"  card copy: {out.relative_to(ROOT)}", flush=True)
+        if not same:
+            info.write_text(json.dumps({"source": tag}), encoding="utf-8")
 
 
 POSTER_SRC = ROOT / "_originals" / "posters"   # clean posters: on this computer only (.gitignore), never published
 POSTER_OUT = IMG / "projects" / "posters"
-POSTER_SMALL = 1200   # NN-name@1200.jpg for the poster wall; NN-name.jpg (full size) for the viewer
+POSTER_SMALL = 1200   # NN-name@1200.webp for the poster wall; NN-name.webp (full size) for the viewer
 # Watermark strength (opacity of the K mark) as (on dark posters: white mark, on light posters: dark mark).
 # Posters were made lighter on 16 Nov (user: "little light"); the cover stays lighter still. Change a number
 # here and every poster is re-stamped on the next build (the numbers are part of each copy's tag).
@@ -133,11 +170,11 @@ def _k_mark(size: int, ink, opacity: float):
 def watermark_posters():
     """W6 watermark (chosen 16 Nov): the K mark, large and faint, in the middle of every poster.
     Drop a clean poster into _originals/posters/ (NN-name.jpg); the build writes the watermarked
-    NN-name.jpg + NN-name@1200.jpg into assets/images/projects/posters/, which is what the site shows.
+    NN-name.webp + NN-name@1200.webp into assets/images/projects/posters/, which is what the site shows.
     The mark is white on dark posters and near-black on light ones (judged from the middle of the poster).
-    The Posters cover (_originals/posters/cover.jpg → cover.jpg; card_covers() then makes its cover@… sizes) gets
+    The Posters cover (_originals/posters/cover.jpg -> cover.webp; card_covers() then makes its cover@... sizes) gets
     the same mark, lighter than on the posters (user, 16 Nov).
-    A copy is remade only when its original or the strength changes (both are in the copy's JPEG comment)."""
+    A copy is remade only when its original or the strength changes (both are kept in watermark-info.json)."""
     try:
         from PIL import Image, ImageOps, ImageStat, ImageFilter
     except ImportError:
@@ -145,16 +182,16 @@ def watermark_posters():
     import hashlib
     if not POSTER_SRC.exists():
         return
+    info = POSTER_OUT / "watermark-info.json"
+    marks = _read_json(info)
+    before = dict(marks)
     for src in sorted(f for f in POSTER_SRC.iterdir() if f.suffix.lower() in EXTS and "@" not in f.stem):
         cover = src.stem == "cover"
         alpha = WM_COVER if cover else WM_POSTER
-        tag = (hashlib.md5(src.read_bytes()).hexdigest() + f" wm{alpha[0]}/{alpha[1]}").encode()
-        full, small = POSTER_OUT / (src.stem + ".jpg"), POSTER_OUT / f"{src.stem}@{POSTER_SMALL}.jpg"
-        try:
-            if all(Image.open(o).info.get("comment") == tag for o in ((full,) if cover else (full, small))):
-                continue
-        except Exception:
-            pass
+        tag = hashlib.md5(src.read_bytes()).hexdigest() + f" wm{alpha[0]}/{alpha[1]}"
+        full, small = POSTER_OUT / (src.stem + ".webp"), POSTER_OUT / f"{src.stem}@{POSTER_SMALL}.webp"
+        if marks.get(src.stem) == tag and full.exists() and (cover or small.exists()):
+            continue
         im = ImageOps.exif_transpose(Image.open(src))
         if im.mode != "RGB":
             rgba = im.convert("RGBA"); im = Image.new("RGB", im.size, "white"); im.paste(rgba, mask=rgba.getchannel("A"))
@@ -165,13 +202,16 @@ def watermark_posters():
         mark = _k_mark(size, (17, 17, 17) if light else (255, 255, 255), alpha[1] if light else alpha[0])
         out = im.convert("RGBA"); out.alpha_composite(mark, (x, y)); out = out.convert("RGB")
         POSTER_OUT.mkdir(parents=True, exist_ok=True)
-        out.save(full, "JPEG", quality=90, optimize=True, progressive=True, comment=tag)
+        out.save(full, "WEBP", quality=WEBP_QUALITY, method=6)
+        marks[src.stem] = tag
         if cover:
             print(f"  watermarked: {full.relative_to(ROOT)} (cover, lighter {'dark' if light else 'white'} mark)", flush=True)
             continue
         sm = out.resize((POSTER_SMALL, round(h * POSTER_SMALL / w)), Image.LANCZOS).filter(ImageFilter.UnsharpMask(radius=0.6, percent=50, threshold=1))
-        sm.save(small, "JPEG", quality=86, optimize=True, progressive=True, comment=tag)
+        sm.save(small, "WEBP", quality=WEBP_QUALITY, method=6)
         print(f"  watermarked: {full.relative_to(ROOT)} ({'dark' if light else 'white'} mark)", flush=True)
+    if marks != before:
+        info.write_text(json.dumps(marks, indent=0, sort_keys=True), encoding="utf-8")
 
 
 def local(src: str):
@@ -188,7 +228,7 @@ def embed_content(c: dict) -> dict:
     for p in c.get("projects", []):
         pic = local(p.get("image", "")) or find(IMG / "projects" / p["id"] / "cover")
         if pic and not local(p.get("image", "")):  # the folder's cover.* → its card-size copies too (main.js: coverSet)
-            copies = [(f, w) for w in CARD_WIDTHS if (f := IMG / "projects" / p["id"] / f"cover@{w}.jpg").exists()]
+            copies = [(f, w) for w in CARD_WIDTHS if (f := IMG / "projects" / p["id"] / f"cover@{w}.webp").exists()]
             if copies:
                 p["imageSet"] = ", ".join(f"{data_uri(f)} {w}w" for f, w in copies)
         if pic:
@@ -280,6 +320,7 @@ def page_doc(html: str) -> str:
 
 
 def main(lock=None):
+    convert_new_images()
     watermark_posters()
     card_covers()
     content = embed_content(json.loads((ROOT / "content.json").read_text(encoding="utf-8")))

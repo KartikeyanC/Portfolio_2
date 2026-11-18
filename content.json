@@ -600,35 +600,35 @@
         "process": [
           {
             "title": "The mark",
-            "image": "/assets/images/projects/nexura/board-logo.jpg",
+            "image": "/assets/images/projects/nexura/board-logo.webp",
             "text": "A hexagon made of folded strips: solid and dependable, with a sense of movement in the folds. The NEXURA wordmark and the tagline sit underneath as one lock-up."
           },
           {
             "title": "Six letters, one shape",
-            "image": "/assets/images/projects/nexura/board-letters.jpg",
+            "image": "/assets/images/projects/nexura/board-letters.webp",
             "text": "Each fold traces a letter. N, E, X, U, R and A can all be found inside the one hexagon, so the mark literally spells the name."
           },
           {
             "title": "Colour",
-            "image": "/assets/images/projects/nexura/board-colours.jpg",
+            "image": "/assets/images/projects/nexura/board-colours.webp",
             "text": "Four colours, blue, green, red and orange, make up the full-colour mark. Each one also works as a solid background with the logo reversed in white."
           },
           {
             "title": "Monochrome and pattern",
-            "image": "/assets/images/projects/nexura/board-mono.jpg",
+            "image": "/assets/images/projects/nexura/board-mono.webp",
             "text": "A black-and-white version for single-colour printing, and a repeat pattern cut from the mark for backgrounds and merchandise."
           },
           {
             "title": "Typography",
-            "image": "/assets/images/projects/nexura/board-type.jpg",
+            "image": "/assets/images/projects/nexura/board-type.webp",
             "text": "Sora and Satoshi Variable as the brand typefaces, both clean geometric sans-serifs that sit comfortably next to the mark."
           }
         ],
         "features": [],
         "screens": [],
         "gallery": [
-          "/assets/images/projects/nexura/board-mockups-1.jpg",
-          "/assets/images/projects/nexura/board-mockups-2.jpg"
+          "/assets/images/projects/nexura/board-mockups-1.webp",
+          "/assets/images/projects/nexura/board-mockups-2.webp"
         ],
         "galleryTitle": "The brand in use",
         "deliverables": [
@@ -734,42 +734,42 @@
         "process": [
           {
             "title": "User research",
-            "image": "/assets/images/projects/respay/process-research.jpg",
+            "image": "/assets/images/projects/respay/process-research.webp",
             "text": "I interviewed potential users with a set of questions about saving, retirement and festival spending, keeping their identity anonymous, and studied behaviour through observation, task analysis and Play Store reviews. The users were 20 to 25, living in Dubai and Chennai, working as junior engineers and developers."
           },
           {
             "title": "Competitor analysis",
-            "image": "/assets/images/projects/respay/process-competitors.jpg",
+            "image": "/assets/images/projects/respay/process-competitors.webp",
             "text": "I compared Wizely, Monefy, Wallet and Mvelopes on mobile app, customer support, offers, price, investment options and ease of use. Only one offered investment, and only one was rated user friendly: the gap RESPAY aims at."
           },
           {
             "title": "Persona: Vishnu",
-            "image": "/assets/images/projects/respay/process-persona.jpg",
+            "image": "/assets/images/projects/respay/process-persona.webp",
             "text": "Vishnu, 23, an electrical service engineer working in Dubai, wants to cut unwanted spending, save 25% of his salary and start a retirement plan. His frustrations: no savings, festival-time costs and high bike maintenance."
           },
           {
             "title": "Empathy map and user journey",
-            "image": "/assets/images/projects/respay/process-journey.jpg",
+            "image": "/assets/images/projects/respay/process-journey.webp",
             "text": "An empathy map (says, thinks, does, feels) and a user journey map showed where saving breaks down and which moments the app should support."
           },
           {
             "title": "Ideation workshop",
-            "image": "/assets/images/projects/respay/process-ideation.jpg",
+            "image": "/assets/images/projects/respay/process-ideation.webp",
             "text": "In a workshop with fellow designers I turned the users' goals and frustrations into user stories, then compared two designers' solutions for each need: retirement saving, saving part of the salary, festival spending and downloadable expense reports."
           },
           {
             "title": "Information architecture and user flow",
-            "image": "/assets/images/projects/respay/process-flow.jpg",
+            "image": "/assets/images/projects/respay/process-flow.webp",
             "text": "Five main areas: Transactions, Budget & goal, Payment, Profile and More. The user flow runs from splash and onboarding through login to each area."
           },
           {
             "title": "Design system",
-            "image": "/assets/images/projects/respay/process-colours.jpg",
+            "image": "/assets/images/projects/respay/process-colours.webp",
             "text": "Poppins for all type, a deep blue brand colour with a set of category colours, plus documented iconography, navigation bars and buttons."
           },
           {
             "title": "Wireframes",
-            "image": "/assets/images/projects/respay/process-wireframes.jpg",
+            "image": "/assets/images/projects/respay/process-wireframes.webp",
             "text": "Paper low-fidelity sketches first, then mid-fidelity frames in grey to settle the layout before the 90+ high-fidelity screens."
           }
         ],
@@ -777,38 +777,38 @@
           {
             "label": "Home",
             "title": "Every transaction, sliced your way",
-            "image": "/assets/images/projects/respay/screen-home.jpg",
+            "image": "/assets/images/projects/respay/screen-home.webp",
             "text": "After login you land on Transactions: income, expenses and total at the top, then every entry by date and amount, switchable between Daily, Weekly, Monthly, Total and Calendar views. Pay sits in the middle of the tab bar."
           },
           {
             "label": "Budget & goal",
             "title": "Save first, instead of paying EMIs",
-            "image": "/assets/images/projects/respay/screen-budget.jpg",
+            "image": "/assets/images/projects/respay/screen-budget.webp",
             "text": "The second main page: create a budget to set spending limits, and a goal to save towards with an overview of progress. A simple way to save rather than pay in instalments."
           },
           {
             "label": "Status",
             "title": "See your spending, compared",
-            "image": "/assets/images/projects/respay/screen-status.jpg",
+            "image": "/assets/images/projects/respay/screen-status.webp",
             "text": "Statement data as charts: monthly balance, and spending compared month by month, so users can see their spend and how it changes."
           },
           {
             "label": "Accounts",
             "title": "Your records at a glance",
-            "image": "/assets/images/projects/respay/screen-profile.jpg",
+            "image": "/assets/images/projects/respay/screen-profile.webp",
             "text": "Available cash and used margin, plus an overview of the last records, with quick buttons to view records or add a new one."
           },
           {
             "label": "Bank account",
             "title": "Add an account safely",
-            "image": "/assets/images/projects/respay/screen-account.jpg",
+            "image": "/assets/images/projects/respay/screen-account.webp",
             "text": "A step-by-step flow to securely enter and submit bank account details."
           }
         ],
         "screens": [],
         "gallery": [
-          "/assets/images/projects/respay/ui-overview.jpg",
-          "/assets/images/projects/respay/mockups.jpg"
+          "/assets/images/projects/respay/ui-overview.webp",
+          "/assets/images/projects/respay/mockups.webp"
         ],
         "galleryTitle": "Final screens",
         "deliverables": [
@@ -823,35 +823,35 @@
         ],
         "outcome": "90+ screens and a prototype in 14 weeks, from research to high-fidelity UI.",
         "slides": [
-          "/assets/images/projects/respay/slides/02.jpg",
-          "/assets/images/projects/respay/slides/03.jpg",
-          "/assets/images/projects/respay/slides/04.jpg",
-          "/assets/images/projects/respay/slides/05.jpg",
-          "/assets/images/projects/respay/slides/06.jpg",
-          "/assets/images/projects/respay/slides/07.jpg",
-          "/assets/images/projects/respay/slides/08.jpg",
-          "/assets/images/projects/respay/slides/09.jpg",
-          "/assets/images/projects/respay/slides/10.jpg",
-          "/assets/images/projects/respay/slides/11.jpg",
-          "/assets/images/projects/respay/slides/12.jpg",
-          "/assets/images/projects/respay/slides/13.jpg",
-          "/assets/images/projects/respay/slides/14.jpg",
-          "/assets/images/projects/respay/slides/15.jpg",
-          "/assets/images/projects/respay/slides/16.jpg",
-          "/assets/images/projects/respay/slides/17.jpg",
-          "/assets/images/projects/respay/slides/18.jpg",
-          "/assets/images/projects/respay/slides/19.jpg",
-          "/assets/images/projects/respay/slides/20.jpg",
-          "/assets/images/projects/respay/slides/21.jpg",
-          "/assets/images/projects/respay/slides/22.jpg",
-          "/assets/images/projects/respay/slides/23.jpg",
-          "/assets/images/projects/respay/slides/24.jpg",
-          "/assets/images/projects/respay/slides/25.jpg",
-          "/assets/images/projects/respay/slides/26.jpg",
-          "/assets/images/projects/respay/slides/27.jpg",
-          "/assets/images/projects/respay/slides/28.jpg",
-          "/assets/images/projects/respay/slides/29.jpg",
-          "/assets/images/projects/respay/slides/30.jpg"
+          "/assets/images/projects/respay/slides/02.webp",
+          "/assets/images/projects/respay/slides/03.webp",
+          "/assets/images/projects/respay/slides/04.webp",
+          "/assets/images/projects/respay/slides/05.webp",
+          "/assets/images/projects/respay/slides/06.webp",
+          "/assets/images/projects/respay/slides/07.webp",
+          "/assets/images/projects/respay/slides/08.webp",
+          "/assets/images/projects/respay/slides/09.webp",
+          "/assets/images/projects/respay/slides/10.webp",
+          "/assets/images/projects/respay/slides/11.webp",
+          "/assets/images/projects/respay/slides/12.webp",
+          "/assets/images/projects/respay/slides/13.webp",
+          "/assets/images/projects/respay/slides/14.webp",
+          "/assets/images/projects/respay/slides/15.webp",
+          "/assets/images/projects/respay/slides/16.webp",
+          "/assets/images/projects/respay/slides/17.webp",
+          "/assets/images/projects/respay/slides/18.webp",
+          "/assets/images/projects/respay/slides/19.webp",
+          "/assets/images/projects/respay/slides/20.webp",
+          "/assets/images/projects/respay/slides/21.webp",
+          "/assets/images/projects/respay/slides/22.webp",
+          "/assets/images/projects/respay/slides/23.webp",
+          "/assets/images/projects/respay/slides/24.webp",
+          "/assets/images/projects/respay/slides/25.webp",
+          "/assets/images/projects/respay/slides/26.webp",
+          "/assets/images/projects/respay/slides/27.webp",
+          "/assets/images/projects/respay/slides/28.webp",
+          "/assets/images/projects/respay/slides/29.webp",
+          "/assets/images/projects/respay/slides/30.webp"
         ],
         "slidesTitle": "The case study"
       },
@@ -915,17 +915,17 @@
         "process": [
           {
             "title": "Low-fidelity wireframe",
-            "image": "/assets/images/projects/milton/process-wireframe.jpg",
+            "image": "/assets/images/projects/milton/process-wireframe.webp",
             "text": "I blocked out the home page first: search and account links on top, a row of category tiles, then the campaign hero next to a featured product. The angled section dividers that run through the final design were already part of this stage."
           },
           {
             "title": "Layout grid",
-            "image": "/assets/images/projects/milton/process-grid.jpg",
+            "image": "/assets/images/projects/milton/process-grid.webp",
             "text": "Every section sits on one column grid, so category tiles, product cards and banners line up from the header down to the footer."
           },
           {
             "title": "High-fidelity UI",
-            "image": "/assets/images/projects/milton/process-ui.jpg",
+            "image": "/assets/images/projects/milton/process-ui.webp",
             "text": "Real products, prices and Milton's red turned the wireframe into a long, shoppable home page: campaign, new launches, deals and category shelves, then reviews and a full footer."
           }
         ],
@@ -933,48 +933,48 @@
           {
             "label": "Navigation",
             "title": "Every category, one tap away",
-            "image": "/assets/images/projects/milton/decision-nav.jpg",
+            "image": "/assets/images/projects/milton/decision-nav.webp",
             "text": "A row of 13 line-icon category tiles, from Hot & Cold Bottles and Office Lunch Boxes to Cleaning Products, plus All Products, right under the search bar. Login, Cart and Wishlist stay in the top corner."
           },
           {
             "label": "Campaign hero",
             "title": "The story and the offer, side by side",
-            "image": "/assets/images/projects/milton/decision-hero.jpg",
+            "image": "/assets/images/projects/milton/decision-hero.webp",
             "text": "“Keep It Hot: keep your drink hot or cold for hours” sits next to a featured product, the Fame Thermosteel Bottle at ₹1,082 with the ₹1,280 MRP struck through, so the hero sells as well as it tells."
           },
           {
             "label": "Product cards",
             "title": "Price and saving first",
-            "image": "/assets/images/projects/milton/decision-cards.jpg",
+            "image": "/assets/images/projects/milton/decision-cards.webp",
             "text": "Each card leads with the selling price in red, the MRP struck through and a yellow “% off” badge, plus the size and a “New Launch” tag where it helps."
           },
           {
             "label": "Shelves",
             "title": "A long catalogue in small groups",
-            "image": "/assets/images/projects/milton/decision-shelves.jpg",
+            "image": "/assets/images/projects/milton/decision-shelves.webp",
             "text": "Top Deals, Trending Bottles, Top Selling Lunchboxes, Cookware and Electrical shelves, broken up by bold category banners, so the page reads as small, scannable groups instead of one endless grid."
           },
           {
             "label": "Product page",
             "title": "Answers before checkout",
-            "image": "/assets/images/projects/milton/decision-product.jpg",
+            "image": "/assets/images/projects/milton/decision-product.webp",
             "text": "Colour swatches, size chips from 350 ml to 1000 ml, quantity, Add to Cart and Shop Now, plus a PIN-code check that shows the expected delivery day."
           },
           {
             "label": "Trust",
             "title": "Reasons to buy",
-            "image": "/assets/images/projects/milton/decision-reviews.jpg",
+            "image": "/assets/images/projects/milton/decision-reviews.webp",
             "text": "A short “Why choose us” list and reviews from verified buyers, with star ratings, close the page before the footer."
           }
         ],
         "screens": [
           {
             "label": "Home page",
-            "image": "/assets/images/projects/milton/screen-home.jpg"
+            "image": "/assets/images/projects/milton/screen-home.webp"
           },
           {
             "label": "Product page",
-            "image": "/assets/images/projects/milton/screen-product.jpg"
+            "image": "/assets/images/projects/milton/screen-product.webp"
           }
         ],
         "gallery": [],
@@ -1495,7 +1495,7 @@
       "name": "Stitch",
       "logo": {
         "style": "image",
-        "image": "/assets/images/tools/stitch.png"
+        "image": "/assets/images/tools/stitch.webp"
       },
       "use": "First-draft UI screens from a prompt",
       "group": "ai"
@@ -1522,7 +1522,7 @@
       "name": "UX Pilot",
       "logo": {
         "style": "image",
-        "image": "/assets/images/tools/uxpilot.png"
+        "image": "/assets/images/tools/uxpilot.webp"
       },
       "use": "Wireframes, user flows and quick UX reviews",
       "group": "ai"
@@ -1549,7 +1549,7 @@
       "name": "Higgsfield AI",
       "logo": {
         "style": "image",
-        "image": "/assets/images/tools/higgsfield.png"
+        "image": "/assets/images/tools/higgsfield.webp"
       },
       "use": "AI video and motion for social content",
       "group": "ai"

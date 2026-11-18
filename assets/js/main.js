@@ -29,9 +29,9 @@
   };
 
   // Pictures picked up by file name from assets/images/ (see assets/images/README.txt). A picture is tried as
-  // .jpg, then .png, .webp, .jpeg; if none exists the element is swapped for its fallback (data-fb) or removed.
+  // .webp, then .jpg, .png, .jpeg; if none exists the element is swapped for its fallback (data-fb) or removed.
   const IMG = "/assets/images";
-  const autoImg = (base, alt, extra = "", fb = "") => `<img src="${esc(base)}.jpg" alt="${esc(alt)}" data-exts="png,webp,jpeg" data-fb="${esc(fb)}"${extra} />`;
+  const autoImg = (base, alt, extra = "", fb = "") => `<img src="${esc(base)}.webp" alt="${esc(alt)}" data-exts="jpg,png,jpeg" data-fb="${esc(fb)}"${extra} />`;
   document.addEventListener("error", (e) => {
     const im = e.target;
     if (!im || im.tagName !== "IMG" || im.dataset.exts === undefined) return;
@@ -42,13 +42,13 @@
     if (fb === "remove") (im.closest("[data-pic]") || im).remove();
     else im.outerHTML = fb || "";
   }, true);
-  // A project's cover: the picture set in /gk if there is one, otherwise assets/images/projects/<id>/cover.jpg
+  // A project's cover: the picture set in /gk if there is one, otherwise assets/images/projects/<id>/cover.webp
   // Covers are exported big (3000–4000 px) for the case-study hero; squeezed 5–8× by the browser into a card they went
-  // soft. So cards also list sharp pre-shrunk copies (cover@640.jpg … cover@2000.jpg, made by build_single.py, which
+  // soft. So cards also list sharp pre-shrunk copies (cover@640.webp … cover@2000.webp, made by build_single.py, which
   // serve.py runs) and the browser loads the one that fits. `sizes` = how wide the picture shows; "" = full cover only.
   const COVER_W = [640, 960, 1400, 2000]; // same list as CARD_WIDTHS in build_single.py
   const CARD = "(max-width: 860px) 100vw, 50vw";
-  const coverSet = (p) => p.imageSet || (p.image ? "" : COVER_W.map((w) => `${IMG}/projects/${p.id}/cover@${w}.jpg ${w}w`).join(", "));
+  const coverSet = (p) => p.imageSet || (p.image ? "" : COVER_W.map((w) => `${IMG}/projects/${p.id}/cover@${w}.webp ${w}w`).join(", "));
   const coverImg = (p, extra = "", fb = "", sizes = CARD) => {
     const set = sizes && coverSet(p), ss = set ? ` srcset="${esc(set)}" sizes="${sizes}"` : "";
     return p.image ? `<img src="${esc(p.image)}"${ss} alt="${esc(p.alt || "")}"${extra} />` : autoImg(`${IMG}/projects/${p.id}/cover`, p.alt || p.name, ss + extra, fb);
@@ -763,7 +763,7 @@
       // finishing by the time the frame has mostly scrolled away. Skipped for reduced motion.
       coverSlide($(".cs-shot", caseBox));
 
-      // No gallery set in /gk → pick up assets/images/projects/<id>/gallery/1.jpg, 2.jpg … (stops at the first missing one).
+      // No gallery set in /gk → pick up assets/images/projects/<id>/gallery/1.webp, 2.webp … (stops at the first missing one).
       // Not lazy: the section stays hidden (display: none) until a picture loads, and lazy pictures never load while hidden.
       const galBox = $("#csGallery");
       if (galBox && !gal.length) {
@@ -845,7 +845,7 @@
     if (t.image) return `<div class="vth"><img src="${esc(t.image)}" alt="${esc(t.title)}" loading="lazy" />${vBadge(t)}</div>`;
     const [g1, g2, a, h1, h2] = THUMB_LOOK[i % THUMB_LOOK.length];
     const drawn = `<div class="vth__t" aria-hidden="true"><b>${h1}</b><b>${h2}</b></div><div class="vth__p">${person("#0b0b0b", a)}</div>`;
-    // no picture in /gk → assets/images/video/thumbnails/<n>.jpg, else the drawn placeholder
+    // no picture in /gk → assets/images/video/thumbnails/<n>.webp, else the drawn placeholder
     return `<div class="vth" style="--g1:${g1};--g2:${g2};--a:${a}">${autoImg(`${IMG}/video/thumbnails/${i + 1}`, t.title || "", ' loading="lazy"', drawn)}${vBadge(t)}</div>`;
   };
   const reelArt = (r, i, mini) => {
