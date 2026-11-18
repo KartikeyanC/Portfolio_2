@@ -4456,6 +4456,18 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfp-pair figcaption span { font: 500 12px var(--mono); color: var(--mut); }
 @media (max-width: 640px) { .nfp-phones .nfp-pair { flex-basis: 84vw; } }
 
+/* One phone size for the whole NineFlow page: the hero phone's width (26% of the hero's device area) */
+.nfp { --nfp-phone: calc(.26 * 7 / 12 * (100vw - 2 * var(--pad) - 2 * clamp(28px, 4vw, 64px) - clamp(20px, 3vw, 48px))); }
+.nfp-hero__phone, .nfp-dark__ph { width: var(--nfp-phone); }
+.nfp-phones .nfp-pair { flex: 0 0 auto; }
+.nfp-pair__set { grid-template-columns: repeat(2, var(--nfp-phone)); }
+.nff-tile--phone figure { display: grid; justify-items: center; align-items: start; padding-bottom: 0; }
+.nff-tile--phone figure img { box-sizing: border-box; width: var(--nfp-phone); height: auto; padding: clamp(5px, .6vw, 9px); border-radius: clamp(26px, 3vw, 44px); background: #0b0a09; }
+@media (max-width: 1000px) {
+  .nfp { --nfp-phone: clamp(140px, 20vw, 170px); }
+  .nfp-hero__phone, .nfp-dark__ph { width: 26%; }
+}
+
 /* NineFlow presentation · closing "Thank you" card with the Graphite-theme dashboard rising out of it */
 .nfp-thanks { position: relative; overflow: hidden; border-radius: clamp(20px, 2.4vw, 36px); background: linear-gradient(175deg, #a83208 0%, #c2410c 52%, #ff6a13 84%, #ff9f1c 100%); color: #fff; padding: clamp(40px, 7vw, 110px) clamp(20px, 5vw, 80px) clamp(28px, 5vw, 80px); display: grid; justify-items: center; text-align: center; }
 .nfp-thanks__word { position: absolute; left: 50%; top: 38%; translate: -50% -50%; font: 900 clamp(110px, 21vw, 380px)/.8 var(--nf); letter-spacing: -.06em; color: rgba(255, 255, 255, .08); white-space: nowrap; pointer-events: none; user-select: none; }
