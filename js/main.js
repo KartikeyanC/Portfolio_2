@@ -73,18 +73,26 @@
     intro.className = "cin"; intro.setAttribute("aria-hidden", "true");
     // name + roles letters: the first half slides in from the left, the second half from the right, meeting in the centre.
     // Letters nearest the centre lead, so none cross on the way in; `spread` is how long the whole stagger takes.
-    // Spaces stay plain text so the roles line can still wrap between words on a phone.
-    const splitIn = (text, start, spread) => {
+    // Letters are inline-blocks, so a line could break inside a word: on a phone each role is kept whole
+    // (`keepWith` = the separator that ends a group), and lines wrap only between roles.
+    const splitIn = (text, start, spread, keepWith) => {
       const chars = [...text], half = Math.ceil(chars.length / 2), step = spread / Math.max(1, half - 1);
-      return chars.map((ch, i) => {
+      const letters = chars.map((ch, i) => {
         if (ch === " ") return " ";
         const left = i < half, n = left ? half - 1 - i : i - half;
         return `<i class="${left ? "is-l" : "is-r"}" style="--d:${(start + n * step).toFixed(3)}s">${esc(ch)}</i>`;
-      }).join("");
+      });
+      if (!keepWith) return letters.join("");
+      let html = "", group = "";
+      letters.forEach((l, i) => {
+        if (l === " " && chars[i - 1] === keepWith) { html += `<span class="cin__g">${group}</span> `; group = ""; }
+        else group += l;
+      });
+      return `${html}<span class="cin__g">${group}</span>`;
     };
     const rolesText = roles.map((r) => r.replace(/\b\w/g, (m) => m.toUpperCase())).join(" | ");
     intro.innerHTML = `<div class="cin__dim"></div><div class="cin__h cin__h--top"><p class="cin__name"><span>${splitIn("KARTIKEYAN", 0.05, 0.36)}<sup>™</sup></span></p></div>`
-      + `<div class="cin__h cin__h--bot"><p class="cin__roles">${splitIn(rolesText, 0.15, 0.33)}</p></div>`;
+      + `<div class="cin__h cin__h--bot"><p class="cin__roles">${splitIn(rolesText, 0.15, 0.33, "|")}</p></div>`;
     document.body.appendChild(intro);
     document.documentElement.classList.add("is-intro");
     // about 30% slower than the first version (user, 16 Nov): letters land, a crack opens, then the halves split
