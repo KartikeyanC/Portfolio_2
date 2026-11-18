@@ -532,7 +532,7 @@
         </div>
         <figure class="nfp-bz nfp-thanks__shot"><span class="nfp-bz__bar"><i></i><i></i><i></i><em>nineflow.app/dashboard</em></span><img src="/assets/images/projects/nineflow/pres/theme-graphite@1440.webp" srcset="/assets/images/projects/nineflow/pres/theme-graphite@1440.webp 1440w, /assets/images/projects/nineflow/pres/theme-graphite.webp 3840w" sizes="(min-width: 1000px) 70vw, 92vw" width="3840" height="2400" alt="The NineFlow dashboard in the Graphite theme: today's load, carried-over tasks, task counts, schedule and a productivity ring" loading="lazy" /><figcaption>The dashboard in the Graphite theme</figcaption></figure>
       </div>
-      <div class="nfp-nextbox" id="nfpNext"></div>
+      <div class="nfp-nextbox"><div data-next-project></div></div>
     </section>
   </main>
 
@@ -576,7 +576,7 @@
   <script src="/assets/js/main.js"></script>
   <script src="/assets/js/fluid-cursor.js" defer></script>
   <script>
-// NineFlow presentation: the reveal on scroll, the count-ups and the next-project card.
+// NineFlow presentation: the reveal on scroll and the count-ups.
 (() => {
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -596,7 +596,6 @@
   $$("[data-count]").forEach((el) => cio.observe(el));
 
 
-  // Next project: main.js only fills [data-next-project] on a page named in content.json, so this draft adds the card itself.
   // On a phone: the phones slide right to left on their own, in a seamless loop.
   // Hovering, tapping or keyboard focus pauses it; reduced motion keeps the normal sideways swipe.
   const phoneRow = $("#nfpPhones");
@@ -625,13 +624,6 @@
     }, { rootMargin: "600px 0px" }).observe(phoneRow);
   }
 
-  const fillNext = () => {
-    const box = $("#nfpNext");
-    if (!box || box.children.length) return;
-    box.innerHTML = '<section class="cs-next"><a class="cs-next__card is-brand" href="/projects/finroot.html" style="--nx-bg:#04241B;--nx-ink:#FFFFFF;--nx-btn:#0E8466;--nx-btn-ink:#FFFFFF" aria-label="Next project: FinRoot case study"><div class="cs-next__txt"><small>Next project</small><b>FinRoot</b><span>Own product · Money app</span><em class="cs-next__go">Open case study →</em></div><img src="/assets/images/projects/finroot/cover@960.webp" alt="" loading="lazy" /></a></section>';
-  };
-  if (window.__caseReady) fillNext(); else addEventListener("case-ready", fillNext, { once: true });
-  setTimeout(fillNext, 2500);
 })();
   </script>
   <span id="page-ready" hidden></span>
