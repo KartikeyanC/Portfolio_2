@@ -4344,6 +4344,7 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfp-stack dt { font: 500 12px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--o); padding-top: 3px; }
 .nfp-stack dd { margin: 0; color: var(--on); font-size: 16px; }
 .nfp-nextbox { margin-top: var(--gap); }
+.nfp-nextbox .cs-next { padding-inline: 0; }   /* .nfp-wrap already gives the side spacing, so the card lines up with the other project pages */
 
 @media (max-width: 1000px) {
   .nfp-hero__card { grid-template-columns: 1fr; min-height: 0; }
