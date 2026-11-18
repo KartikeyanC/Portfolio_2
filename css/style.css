@@ -4554,3 +4554,5 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 @media (max-width: 700px) { :root .cs-head--page + .cs-shot { aspect-ratio: 4 / 3; border-radius: 18px; } }
 /* NineFlow and VSTAR stay dark in the light theme, so their header keeps light text */
 .nfp .cs-head--page, #vs.mx-wrap .cs-head--page { --ink: #fff; --grey: rgba(255, 255, 255, .72); --line: rgba(255, 255, 255, .2); --cs-back-ink: rgba(255, 255, 255, .72); }
+/* NineFlow stays dark in the light theme, so the menu is a solid white pill there, from the top of the page (nineflow.html keeps .is-pill on) */
+:root[data-theme="light"] body:has(main.nfp) .nav.is-pill { top: calc(var(--nav-top, 0px) + 12px); background: rgba(255, 255, 255, .94); border-color: rgba(255, 255, 255, .9); }

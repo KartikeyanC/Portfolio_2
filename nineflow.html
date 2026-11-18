@@ -635,5 +635,19 @@
 })();
   </script>
   <span id="page-ready" hidden></span>
+  <script>
+(() => {
+  // light theme: this page stays dark, so the see-through top menu would be dark on dark. Keep the white pill on; main.js only sets it from the scroll position
+  const nav = document.querySelector(".nav"), root = document.documentElement;
+  if (!nav) return;
+  const sync = () => {
+    const want = root.dataset.theme === "light" || scrollY > 60;
+    if (nav.classList.contains("is-pill") !== want) nav.classList.toggle("is-pill", want);
+  };
+  new MutationObserver(sync).observe(nav, { attributes: true, attributeFilter: ["class"] });
+  new MutationObserver(sync).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  sync();
+})();
+  </script>
 </body>
 </html>
