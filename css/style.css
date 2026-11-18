@@ -4151,8 +4151,11 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfp-bz__bar em { margin: 0 auto; translate: -27px 0; font: 500 12px var(--nf); color: #57524a; background: #f6f2ea; padding: 3px 14px; border-radius: 6px; }
 .nfp-bz img { display: block; width: 100%; height: auto; }
 .nfp-bz--dark { background: #161513; } .nfp-bz--dark .nfp-bz__bar { background: #23211e; } .nfp-bz--dark .nfp-bz__bar em { background: #2c2a26; color: #c9c2b6; }
-.nfp-ph { margin: 0; border-radius: clamp(26px, 3vw, 44px); padding: clamp(5px, .6vw, 9px); background: #0b0a09; box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .12); }
-.nfp-ph img { display: block; width: 100%; height: auto; border-radius: clamp(21px, 2.5vw, 36px); }
+/* A true-to-size iPhone (393 x 852 screen): every ratio is a percentage, so it holds at any width */
+.nfp-ph { position: relative; display: flow-root; margin: 0; padding: 0; border-radius: 16.3% / 7.79%; background: #050505; box-shadow: 0 0 0 1px #000, 0 0 0 2.5px #8f8a82, 0 0 0 3px #4d4a45, inset 0 0 0 1px #1f1e1c, 0 40px 70px -30px rgba(0, 0, 0, .8); }
+.nfp-ph img { display: block; width: 93.6%; height: auto; margin: 3.2%; border-radius: 14% / 6.46%; }
+.nfp-ph::before { content: ""; position: absolute; left: -5px; top: 17%; width: 2px; height: 25%; border-radius: 1.5px 0 0 1.5px; background: linear-gradient(180deg, #7d7870 0 12%, transparent 12% 26%, #7d7870 26% 58%, transparent 58% 67%, #7d7870 67% 100%); }
+.nfp-ph::after { content: ""; position: absolute; right: -5px; top: 27%; width: 2px; height: 13%; border-radius: 0 1.5px 1.5px 0; background: #7d7870; }
 
 /* hero */
 .nfp-hero { padding-top: clamp(96px, 10vw, 130px); }
@@ -4412,7 +4415,8 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nff-card figure { margin: 0; border-radius: 16px; overflow: hidden; background: var(--sand); display: grid; place-items: center; align-self: stretch; padding: clamp(10px, 1.4vw, 18px); }
 .nff-card figure img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 18px 40px -22px rgba(60, 20, 0, .45); }
 .nff-card--phone figure { background: linear-gradient(135deg, #ff9f1c 0%, #ff6a13 45%, #f2420e 100%); }
-.nff-card--phone figure img { width: min(62%, 230px); border-radius: 22px; }
+.nff-card--phone figure .nfp-ph { width: min(62%, 230px); }
+.nff-card--phone figure .nfp-ph img { width: 93.6%; margin: 3.2%; border-radius: 14% / 6.46%; box-shadow: none; }
 .nff-txt { display: grid; gap: 12px; padding: 6px 6px 6px 0; }
 .nff-no { font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--o); }
 .nff-txt h4 { margin: 0; font: 800 clamp(21px, 1.9vw, 27px)/1.15 var(--nf); color: #fff; letter-spacing: -.025em; }
@@ -4450,7 +4454,7 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 /* NineFlow presentation · phone screens as light / dark pairs */
 .nfp-phones .nfp-pair { flex: 0 0 clamp(400px, 33vw, 600px); margin: 0; scroll-snap-align: start; }
 .nfp-pair__set { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(10px, 1.2vw, 18px); align-items: start; padding: clamp(14px, 1.6vw, 22px); border-radius: 28px; background: #24221f; }
-.nfp-pair__set .nfp-ph--dark { margin-top: 28px; box-shadow: 0 40px 70px -30px rgba(0, 0, 0, .9), 0 0 0 1px rgba(255, 255, 255, .16); }
+.nfp-pair__set .nfp-ph--dark { margin-top: 28px; }
 .nfp-pair figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-top: 14px; padding: 0 6px; }
 .nfp-pair figcaption b { font: 700 18px var(--nf); color: #fff; letter-spacing: -.02em; }
 .nfp-pair figcaption span { font: 500 12px var(--mono); color: var(--mut); }
@@ -4462,7 +4466,8 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfp-phones .nfp-pair { flex: 0 0 auto; }
 .nfp-pair__set { grid-template-columns: repeat(2, var(--nfp-phone)); }
 .nff-tile--phone figure { display: grid; justify-items: center; align-items: start; padding-bottom: 0; }
-.nff-tile--phone figure img { box-sizing: border-box; width: var(--nfp-phone); height: auto; padding: clamp(5px, .6vw, 9px); border-radius: clamp(26px, 3vw, 44px); background: #0b0a09; }
+.nff-tile--phone figure .nfp-ph { width: var(--nfp-phone); }
+.nff-tile--phone figure .nfp-ph img { width: 93.6%; height: auto; margin: 3.2%; border-radius: 14% / 6.46%; object-fit: fill; filter: none; }
 @media (max-width: 1000px) {
   .nfp { --nfp-phone: clamp(140px, 20vw, 170px); }
   .nfp-hero__phone, .nfp-dark__ph { width: 26%; }
