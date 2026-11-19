@@ -4595,7 +4595,5 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .kp__now[hidden] { display: none; }
 .kp__now b { display: flex; align-items: center; gap: 7px; font-weight: 700; font-size: 1.15em; }
 .kp__base .kp__now b { color: var(--ink); }
-.kp__now b i { width: 8px; height: 8px; border-radius: 50%; background: #34c759; box-shadow: 0 0 0 0 rgba(52, 199, 89, .55); animation: kpDot 2.2s ease-out infinite; }
-@keyframes kpDot { 70% { box-shadow: 0 0 0 7px rgba(52, 199, 89, 0); } 100% { box-shadow: 0 0 0 0 rgba(52, 199, 89, 0); } }
-@media (prefers-reduced-motion: reduce) { .kp__now b i { animation: none; } }
+.kp__now b i { width: 8px; height: 8px; border-radius: 50%; background: #34c759; } /* a still dot: "open to work" is a status, not live data */
 @media (max-width: 600px) { .kp__now { position: static; display: flex; align-items: center; gap: 6px; margin-bottom: 12px; } } /* phones: one line above the greeting */
