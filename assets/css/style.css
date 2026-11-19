@@ -446,7 +446,7 @@ body, .nav, .panel, .work__frame, .fact, .otw { transition: background-color .35
 .pgrid__more { text-align: center; padding: clamp(36px, 4vw, 56px) 0 clamp(20px, 3vw, 40px); }
 .has-pcur .pgrid a, .has-pcur .work { cursor: none; }
 /* Follow-cursor over cards: a dark glass pill with a blue outline, icon + label (OPEN / VIEW / SAY HI);
-   ongoing work gets a light grey glass pill (IN PROGRESS) */
+   ongoing work (IN PROGRESS) and locked own products (LOCKED: NineFlow, FinRoot) get the light grey glass pill */
 .pcur { position: fixed; left: 0; top: 0; z-index: 80; pointer-events: none;
   display: flex; align-items: center; gap: 10px; padding: 12px 22px 12px 18px; border-radius: 999px; white-space: nowrap;
   font-family: var(--clash); font-weight: 700; font-size: 17px; line-height: 1; text-transform: uppercase; letter-spacing: .02em;
@@ -4561,3 +4561,40 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .nfp .cs-head--page, #vs.mx-wrap .cs-head--page { --ink: #fff; --grey: rgba(255, 255, 255, .72); --line: rgba(255, 255, 255, .2); --cs-back-ink: rgba(255, 255, 255, .72); }
 /* NineFlow stays dark in the light theme, so the menu is a solid white pill there, from the top of the page (nineflow.html keeps .is-pill on) */
 :root[data-theme="light"] body:has(main.nfp) .nav.is-pill { top: calc(var(--nav-top, 0px) + 12px); background: rgba(255, 255, 255, .94); border-color: rgba(255, 255, 255, .9); }
+
+/* ---------- Home hero: drifting light + "Currently" label (from the owner's reference recording, 19 Nov) ----------
+   Soft grainy blue beams sweep slowly behind the paint hero (.kp__light sits under both hero layers, so the
+   faint base layer is now see-through). Paused off-screen (main.js) and for reduced motion. */
+.kp { background: var(--bg); }
+.kp__base { background: transparent; }
+.kp__light { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.kp__light > i { position: absolute; left: 50%; top: 50%; width: 150vmax; height: var(--h); margin: calc(var(--h) / -2) 0 0 -75vmax; border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgb(var(--c) / var(--a)) 0%, rgb(var(--c) / calc(var(--a) * .45)) 42%, transparent 70%);
+  filter: blur(var(--b, clamp(28px, 4vw, 60px))); will-change: transform; animation: var(--k) var(--t) ease-in-out infinite alternate; }
+/* 1: the main beam rising from the bottom-right, 2: a softer one from the top-left, 3: deep blue pool, 4: a thin bright streak */
+.kp__light > i:nth-child(1) { --c: var(--acc-rgb); --a: .55; --h: 44vmax; --k: kpb1; --t: 17s; }
+.kp__light > i:nth-child(2) { --c: var(--acc-rgb); --a: .3; --h: 36vmax; --k: kpb2; --t: 21s; animation-delay: -6s; }
+.kp__light > i:nth-child(3) { --c: 11 95 179; --a: .55; --h: 60vmax; --k: kpb3; --t: 25s; animation-delay: -11s; }
+.kp__light > i:nth-child(4) { --c: 124 196 255; --a: .32; --h: 9vmax; --b: clamp(16px, 2vw, 30px); --k: kpb4; --t: 14s; animation-delay: -3s; }
+@keyframes kpb1 { 0% { transform: translate(34vw, 42vh) rotate(-38deg); } 50% { transform: translate(18vw, 30vh) rotate(-22deg) scale(1.1, 1.25); } 100% { transform: translate(40vw, 18vh) rotate(-52deg); } }
+@keyframes kpb2 { 0% { transform: translate(-36vw, -46vh) rotate(24deg); } 100% { transform: translate(-14vw, -38vh) rotate(42deg) scale(1.15); } }
+@keyframes kpb3 { 0% { transform: translate(-30vw, 46vh) rotate(-8deg); } 100% { transform: translate(6vw, 52vh) rotate(10deg) scale(1.2, .85); } }
+@keyframes kpb4 { 0% { transform: translate(22vw, -6vh) rotate(-48deg); opacity: .2; } 50% { opacity: 1; } 100% { transform: translate(44vw, 10vh) rotate(-30deg); opacity: .3; } }
+/* film grain over the light, like the reference */
+.kp__light::after { content: ""; position: absolute; inset: 0; opacity: .32; mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.kp__light.is-paused > i { animation-play-state: paused; }
+:root[data-theme="light"] .kp__light > i { --a: .2; }
+:root[data-theme="light"] .kp__light > i:nth-child(4) { --a: .25; }
+@media (prefers-reduced-motion: reduce) { .kp__light > i { animation: none; transform: translate(30vw, 36vh) rotate(-34deg); } .kp__light > i:nth-child(2) { transform: translate(-30vw, -44vh) rotate(30deg); } .kp__light > i:nth-child(3) { transform: translate(-24vw, 48vh); } .kp__light > i:nth-child(4) { display: none; } }
+
+/* "Currently at / Company" (or "Currently / Open to work"): small two-line label at the top right of the hero,
+   in both hero layers so the paint reveals it too. Filled by main.js from content.json site.currently */
+.kp__now { position: absolute; top: clamp(110px, 13vh, 150px); right: var(--pad); display: grid; gap: 4px; font-size: clamp(12px, .95vw, 14px); line-height: 1.2; }
+.kp__now[hidden] { display: none; }
+.kp__now b { display: flex; align-items: center; gap: 7px; font-weight: 700; font-size: 1.15em; }
+.kp__base .kp__now b { color: var(--ink); }
+.kp__now b i { width: 8px; height: 8px; border-radius: 50%; background: #34c759; box-shadow: 0 0 0 0 rgba(52, 199, 89, .55); animation: kpDot 2.2s ease-out infinite; }
+@keyframes kpDot { 70% { box-shadow: 0 0 0 7px rgba(52, 199, 89, 0); } 100% { box-shadow: 0 0 0 0 rgba(52, 199, 89, 0); } }
+@media (prefers-reduced-motion: reduce) { .kp__now b i { animation: none; } }
+@media (max-width: 520px) { .kp__now { top: 64px; } }

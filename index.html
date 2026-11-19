@@ -52,8 +52,10 @@
          that reveal it in white; the eyes follow the cursor. Plays one stroke by itself so touch visitors see it.
          Two copies of the same content: .kp__base (faint, underneath) and .kp__ink (blue, clipped to the paint). -->
     <section class="kp" id="kp">
+      <!-- Drifting light behind the hero (idea from a reference recording): soft grainy blue beams that sweep slowly -->
+      <div class="kp__light" id="kpLight" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="kp__layer kp__base" aria-hidden="true">
-        <div><p class="kp__hello">Hi, I'm Kartikeyan — a</p>
+        <div class="kp__head"><p class="kp__now" data-render="currently"><span>Currently</span><b><i aria-hidden="true"></i>Open to work</b></p><p class="kp__hello">Hi, I'm Kartikeyan — a</p>
           <p class="kp__title"><span>Product <i class="kp__spot"></i></span><span>Designer</span></p>
           <p class="kp__tag">Good products start with understanding people first.</p></div>
         <div><div class="kp__bottom"><p class="kp__desc">I turn complex ideas into simple, useful experiences — interfaces, brand identities, motion and video.</p>
@@ -61,7 +63,7 @@
           <div class="kp__strip"><span>Portfolio ’26</span><span>UI/UX · Graphic · Motion · Video</span><span data-bind="site.location">Chennai, India</span></div></div>
       </div>
       <div class="kp__layer kp__ink" id="kpInk">
-        <div><p class="kp__hello">Hi, I'm Kartikeyan — a</p>
+        <div class="kp__head"><p class="kp__now" data-render="currently"><span>Currently</span><b><i aria-hidden="true"></i>Open to work</b></p><p class="kp__hello">Hi, I'm Kartikeyan — a</p>
           <h1 class="kp__title"><span>Product <i class="kp__spot" aria-hidden="true"></i></span><span>Designer</span></h1>
           <p class="kp__tag">Good products start with understanding people first.</p></div>
         <div><div class="kp__bottom"><p class="kp__desc">I turn complex ideas into simple, useful experiences — interfaces, brand identities, motion and video.</p>

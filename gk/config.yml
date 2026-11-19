@@ -87,6 +87,17 @@ collections:
                   - { label: Button text, name: buttonLabel, widget: string, required: false }
                   - { label: Button link, name: buttonUrl, widget: string, required: false, hint: "Leave empty to hide the button" }
 
+              - label: Home hero "Currently" label
+                name: currently
+                widget: object
+                collapsed: true
+                hint: "The small two-line label on the right of the Home hero, e.g. Currently at / Company (bold)."
+                fields:
+                  - { label: Show the label, name: show, widget: boolean, default: true }
+                  - { label: What to show, name: mode, widget: select, options: [{ label: "Open to work", value: open }, { label: "Current company", value: company }], default: open, hint: "Current company needs the Company name below; if it is empty the label shows Open to work." }
+                  - { label: Company name, name: company, widget: string, required: false, hint: "Shown in bold under \"Currently at\", e.g. Acme Labs" }
+                  - { label: Open to work text, name: openLabel, widget: string, required: false, default: "Open to work", hint: "Shown in bold under \"Currently\" with a green dot" }
+
           # ---------------- Announcement bar ----------------
           - label: Announcement bar
             name: announcement
@@ -197,6 +208,15 @@ collections:
                 options:
                   - { label: "Live — shows the OPEN cursor", value: live }
                   - { label: "Ongoing — shows the IN PROGRESS cursor and an Ongoing badge", value: ongoing }
+              - label: Hover label
+                name: cursor
+                widget: select
+                required: false
+                hint: "The pill that follows the mouse over this project's card. Empty = OPEN when there is a case study, otherwise VIEW. (Ongoing projects always show IN PROGRESS.)"
+                options:
+                  - { label: "LOCKED (lock icon, grey pill)", value: locked }
+                  - { label: "OPEN (case study)", value: open }
+                  - { label: "VIEW (project)", value: view }
               - { label: Show on the site, name: show, widget: boolean, default: true, required: false, hint: "Off = this project is hidden from every visitor (Home, Projects, menu, counters). Its own page still opens by direct link." }
               - { label: Show on Home page, name: featured, widget: boolean, default: true }
               - { label: Sample (placeholder), name: sample, widget: boolean, default: false, required: false, hint: "On = a placeholder: gets a drawn cover when there is no image, never shown on Home, in the menu or in the counters. Turn off (or delete) when you add the real project." }

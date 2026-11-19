@@ -170,6 +170,8 @@
   // Home hero: the moving blue light only animates while the hero is on screen (saves battery / GPU)
   const heroLight = $(".glow--live");
   if (heroLight && "IntersectionObserver" in window) new IntersectionObserver(([e]) => heroLight.classList.toggle("is-paused", !e.isIntersecting)).observe(heroLight);
+  const kpLight = $("#kpLight"); // Home paint hero: the drifting light behind it also stops while off screen
+  if (kpLight && "IntersectionObserver" in window) new IntersectionObserver(([e]) => kpLight.classList.toggle("is-paused", !e.isIntersecting)).observe(kpLight);
 
   // Mobile menu panel
   const panel = $("#panel"), open = $("#menuOpen"), close = $("#menuClose");
@@ -382,6 +384,13 @@
   }
   $$("[data-bind^='site.'], [data-bind^='pages.']").forEach((el) => { const v = get(el.dataset.bind); if (v != null) el.textContent = v; });
   $$("[data-md]").forEach((el) => { const v = get(el.dataset.md); if (v != null) el.innerHTML = md(v); });
+  // Home hero "Currently" label (content.json site.currently): Open to work, or "Currently at" + the company in bold
+  $$('[data-render="currently"]').forEach((el) => {
+    const cur = S.currently || {};
+    if (cur.show === false) { el.hidden = true; return; }
+    const co = cur.mode === "company" && String(cur.company || "").trim();
+    el.innerHTML = co ? `<span>Currently at</span><b>${esc(co)}</b>` : `<span>Currently</span><b><i aria-hidden="true"></i>${esc(cur.openLabel || "Open to work")}</b>`;
+  });
 
   // Text marked data-fill lights up word by word as it scrolls up the screen (home About)
   $$("[data-fill]").forEach((el) => {
@@ -555,6 +564,8 @@
   // into the case study header (and back again when you return). Cards just carry data-shot; the
   // view-transition name is added at the moment of that navigation, so e.g. Home → All projects simply fades.
   const hasCase = (p) => !!(p && p.caseStudy && p.caseStudy.show !== false);
+  // hover pill label per project (content.json "cursor"): locked / open / view; default: OPEN with a case study, else VIEW
+  const curAttr = (p) => { const k = ["locked", "open", "view"].includes(p.cursor) ? p.cursor : hasCase(p) ? "open" : "view"; return ` data-cur="${k}"`; };
   // a project can have its own hand-built case study page (caseStudy.page, e.g. respay.html); otherwise the shared template
   const caseUrl = (p) => { const pg = p.caseStudy && p.caseStudy.page; return escUrl(pg ? (pg.startsWith("sample-") ? "/" + pg : "/projects/" + pg) : `/projects/case.html?p=${encodeURIComponent(p.id)}`); };
   // Brand colours (content.json → project "brand"): the case study CONTENT wears its own project's colours
@@ -663,7 +674,7 @@
     grid.innerHTML = featured.map((p) => {
       const soon = p.status === "ongoing";
       const img = coverImg(p, vtShot(p) + ' loading="lazy"', `<div class="pgrid__soon">${esc(p.name)}</div>`); // below the hero: load as it nears
-      return `<a href="${hasCase(p) ? caseUrl(p) : "/projects.html#" + esc(p.id)}"${soon ? ' data-status="soon"' : ""}><div class="pgrid__img">${img}${soon ? '<span class="pgrid__badge"><i></i>Ongoing</span>' : ""}</div><div class="pgrid__cap"><b>${esc(p.name)} <span>| ${esc(p.type)}</span></b><small>${esc(p.category)}</small></div></a>`;
+      return `<a href="${hasCase(p) ? caseUrl(p) : "/projects.html#" + esc(p.id)}"${soon ? ' data-status="soon"' : ""}${curAttr(p)}><div class="pgrid__img">${img}${soon ? '<span class="pgrid__badge"><i></i>Ongoing</span>' : ""}</div><div class="pgrid__cap"><b>${esc(p.name)} <span>| ${esc(p.type)}</span></b><small>${esc(p.category)}</small></div></a>`;
     }).join(""); // no "your project could be next" tile here — it looked like a project
   }
 
@@ -821,7 +832,7 @@
     list.innerHTML = realProjects.map((p) => {
       const soon = p.status === "ongoing";
       const img = coverImg(p, vtShot(p), p.sample ? sampleArt(p) : '<div class="work__soon">Case study<br />coming soon</div>');
-      return `<a class="work reveal" id="${esc(p.id)}" data-cat="${esc((p.filters || []).join(" "))}"${soon ? ' data-status="soon"' : ""} href="${hasCase(p) ? caseUrl(p) : esc(p.link || "/contact.html")}">
+      return `<a class="work reveal" id="${esc(p.id)}" data-cat="${esc((p.filters || []).join(" "))}"${soon ? ' data-status="soon"' : ""}${curAttr(p)} href="${hasCase(p) ? caseUrl(p) : esc(p.link || "/contact.html")}">
           <div class="work__tags">${(p.tags || []).map((t) => `<span>${esc(t)}</span>`).join("")}</div>
           <div class="work__frame"><div class="work__img">${img}</div><span class="work__name">${esc(p.name)} <i aria-hidden="true">↗</i></span></div>
           ${p.description ? `<p class="work__desc">${esc(p.description)}</p>` : ""}
@@ -1552,6 +1563,7 @@
     view: '<svg viewBox="0 0 24 24"><path d="M6.5 4h2.2l1 4.2A4.4 4.4 0 0 1 12 8a4.4 4.4 0 0 1 2.3.2l1-4.2h2.2l3.1 8.4A5 5 0 1 1 12.6 15h-1.2a5 5 0 1 1-8-2.6Zm-.6 8.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm12.2 0a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z" fill-rule="evenodd"/></svg>',
     soon: '<svg viewBox="0 0 24 24"><path d="M8.5 2h7v2h-1v5.2l5.6 9.4A2.2 2.2 0 0 1 18.2 22H5.8a2.2 2.2 0 0 1-1.9-3.4l5.6-9.4V4h-1Zm3 2v5.8L9.8 12.7h4.4L12.5 9.8V4Z" fill-rule="evenodd"/></svg>',
     hi: '<svg viewBox="0 0 24 24"><path d="M12 3c5 0 9 3.4 9 7.6s-4 7.6-9 7.6c-1 0-2-.1-2.9-.4L4 20l1.3-4A7.2 7.2 0 0 1 3 10.6C3 6.4 7 3 12 3Z"/></svg>',
+    locked: '<svg viewBox="0 0 24 24"><path d="M7 10V7.5a5 5 0 0 1 10 0V10h.5A2.5 2.5 0 0 1 20 12.5v7a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 19.5v-7A2.5 2.5 0 0 1 6.5 10Zm2.5 0h5V7.5a2.5 2.5 0 0 0-5 0Zm2.5 4a1.6 1.6 0 0 0-.8 3v1.5h1.6V17a1.6 1.6 0 0 0-.8-3Z" fill-rule="evenodd"/></svg>',
   };
   const cards = $$(".pgrid a, .work");
   const vKind = (c) => ($(".vth", c) ? "thumbnail" : $(".vreel", c) ? "reel" : $(".vpod", c) ? "podcast" : "");
@@ -1570,10 +1582,10 @@
     };
     cards.forEach((c) => {
       c.addEventListener("pointerenter", (e) => {
-        const s = c.dataset.status, v = vKind(c);
-        const k = v ? "view" : s === "soon" ? "soon" : s === "contact" ? "hi" : "open";
-        cur.innerHTML = CUR_ICON[k] + { view: "View", soon: "In progress", hi: "Say hi", open: "Open" }[k];
-        cur.classList.toggle("is-soon", k === "soon");
+        const s = c.dataset.status, v = vKind(c), pc = c.dataset.cur;
+        const k = v ? "view" : s === "soon" ? "soon" : s === "contact" ? "hi" : pc === "locked" || pc === "view" ? pc : "open";
+        cur.innerHTML = CUR_ICON[k] + { view: "View", soon: "In progress", hi: "Say hi", open: "Open", locked: "Locked" }[k];
+        cur.classList.toggle("is-soon", k === "soon" || k === "locked"); // locked uses the light grey glass pill too
         hw = cur.offsetWidth / 2; hh = cur.offsetHeight / 2;
         x = cx = e.clientX; y = cy = e.clientY;
         cur.classList.add("is-on");
