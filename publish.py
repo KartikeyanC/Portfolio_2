@@ -20,7 +20,7 @@ OUT = os.path.join(ROOT, "_site")
 
 # The public pages (without .html). Test pages such as home-new / projects-v3 stay off the live site.
 PAGES = ["index", "about", "projects", "services", "contact", "404"]
-PROJECT_PAGES = ["case", "posters", "ifortigo", "myshoptill", "nexura", "respay", "vstar", "nineflow", "finroot"]
+PROJECT_PAGES = ["case", "posters", "ifortigo", "myshoptill", "nexura", "respay", "vstar", "nineflow", "finroot", "myshopza"]
 FILES = ["content.json", "favicon.ico", "robots.txt", "sitemap.xml"]
 FOLDERS = ["assets", "gk", "prototypes"]
 # Readable source -> minified file that goes online (the HTML is pointed at the minified one below)

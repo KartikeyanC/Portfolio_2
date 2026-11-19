@@ -129,7 +129,7 @@
 
   // Current page in nav / panel / footer
   const page = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  const navPage = page === "case.html" || page === "respay.html" || page === "vstar.html" || page === "nexura.html" || page === "ifortigo.html" || page === "myshoptill.html" || page === "posters.html" || page === "nineflow.html" || page === "finroot.html" ? "projects.html" : page; // case studies belong to Projects
+  const navPage = page === "case.html" || page === "respay.html" || page === "vstar.html" || page === "nexura.html" || page === "ifortigo.html" || page === "myshoptill.html" || page === "posters.html" || page === "nineflow.html" || page === "finroot.html" || page === "myshopza.html" ? "projects.html" : page; // case studies belong to Projects
   $$(".nav__links a, .panel a, .footer__col a").forEach((a) => {
     const target = (a.getAttribute("href") || "").split("#")[0].split("/").pop().toLowerCase();
     if (target && target === navPage) a.setAttribute("aria-current", "page");

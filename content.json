@@ -1176,6 +1176,54 @@
       }
     },
     {
+      "id": "myshopza",
+      "name": "Myshopza",
+      "type": "Logo & brand identity",
+      "category": "Branding",
+      "tags": [
+        "Logo",
+        "Brand identity",
+        "E-commerce"
+      ],
+      "filters": [
+        "brand",
+        "graphic"
+      ],
+      "image": "",
+      "alt": "The Myshopza logo, white on navy, above its splash screen, app icon, shopping bag and business card",
+      "description": "A logo for Myshopza, smart e-commerce for every business: a shopping bag that is also the letter M, with a seven-colour palette, app icons and dark versions.",
+      "status": "live",
+      "featured": false,
+      "link": "/contact.html?service=Graphic%20design",
+      "brand": {
+        "accent": "#2058A8",
+        "inkLight": "#2058A8",
+        "inkDark": "#8DB8F0",
+        "onAccent": "#FFFFFF",
+        "bgLight": "#F5F7FB",
+        "bgDark": "#060B1A",
+        "card": "#22428D",
+        "cardInk": "#FFFFFF",
+        "cardBtn": "#FDB714",
+        "cardBtnInk": "#101A33"
+      },
+      "caseStudy": {
+        "show": true,
+        "page": "myshopza.html",
+        "title": "Myshopza: a logo for a smart e-commerce platform",
+        "role": "Logo and brand identity",
+        "tools": [
+          "Adobe Illustrator"
+        ],
+        "tags": [
+          "Logo",
+          "Brand identity",
+          "E-commerce"
+        ],
+        "outcome": "Designed the Myshopza logo: a shopping bag that is also an M, ready for web and mobile with app icons, a splash screen and dark versions."
+      }
+    },
+    {
       "id": "posters",
       "name": "Posters",
       "type": "Social media posters",

@@ -16,9 +16,9 @@ import base64, json, mimetypes, pathlib, re, urllib.request
 
 ROOT = pathlib.Path(__file__).parent
 OUT = ROOT / "dist" / "kartikeyan-portfolio.html"
-PAGES = ["index.html", "about.html", "projects.html", "services.html", "contact.html", "case.html", "respay.html", "vstar.html", "nexura.html", "ifortigo.html", "myshoptill.html", "posters.html", "nineflow.html", "finroot.html", "404.html"]
+PAGES = ["index.html", "about.html", "projects.html", "services.html", "contact.html", "case.html", "respay.html", "vstar.html", "nexura.html", "ifortigo.html", "myshoptill.html", "posters.html", "nineflow.html", "finroot.html", "myshopza.html", "404.html"]
 IMG = ROOT / "assets" / "images"
-PROJECT_PAGES = {"case.html", "respay.html", "vstar.html", "nexura.html", "ifortigo.html", "myshoptill.html", "posters.html", "nineflow.html", "finroot.html"}
+PROJECT_PAGES = {"case.html", "respay.html", "vstar.html", "nexura.html", "ifortigo.html", "myshoptill.html", "posters.html", "nineflow.html", "finroot.html", "myshopza.html"}
 CSS_FILE = ROOT / "assets" / "css" / "style.css"
 JS_FILE = ROOT / "assets" / "js" / "main.js"
 FLUID_FILE = ROOT / "assets" / "js" / "fluid-cursor.js"
