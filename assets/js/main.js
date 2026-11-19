@@ -1385,11 +1385,13 @@
   const select = $("#serviceSelect");
   if (select) {
     // "CV request": the CV is sent by email to people who ask (it carries a phone number, so it is never a public file)
-    select.innerHTML = [...C.services.map((s) => [s.name, s.id]), ["CV request", "cv"], ["Something else", "other"]].map(([n, id]) => `<option data-ic="${esc(id)}">${esc(n)}</option>`).join("");
-    const pre = new URLSearchParams(location.search).get("service");
+    // "Project access": from the "Private project" note on a locked project (…?service=Project%20access&project=NineFlow)
+    select.innerHTML = [...C.services.map((s) => [s.name, s.id]), ["CV request", "cv"], ["Project access", "lock"], ["Something else", "other"]].map(([n, id]) => `<option data-ic="${esc(id)}">${esc(n)}</option>`).join("");
+    const qs = new URLSearchParams(location.search), pre = qs.get("service"), proj = qs.get("project");
     if (pre) select.value = pre;
     const msg = form && form.elements.message, hint = msg ? msg.placeholder : "";
-    const cvHint = () => { if (msg) msg.placeholder = select.value === "CV request" ? "Which role is it for? Company, role and location help me reply with the right CV." : hint; };
+    const cvHint = () => { if (msg) msg.placeholder = select.value === "CV request" ? "Which role is it for? Company, role and location help me reply with the right CV."
+      : select.value === "Project access" ? `Which project${proj ? ` (${proj})` : ""}, and a little about you: company, role, and why you'd like to see it.` : hint; };
     select.addEventListener("change", cvHint); cvHint();
   }
 
@@ -1594,6 +1596,38 @@
       c.addEventListener("pointermove", (e) => { x = e.clientX; y = e.clientY; });
       c.addEventListener("pointerleave", () => { cur.classList.remove("is-on"); run = false; });
     });
+  }
+
+  // Locked projects (content.json "cursor": "locked", e.g. NineFlow, FinRoot): any link to them (cards, menu,
+  // next-project card) doesn't open the page; a "Private project" note pops up with a link to ask for access.
+  // Listens on window in the capture phase so it runs before the single-file viewer's own link handler.
+  const lockedProjects = allProjects.filter((p) => p.cursor === "locked");
+  if (lockedProjects.length) {
+    const lockedOf = (a) => {
+      if (a.dataset.cur === "locked") return allProjects.find((p) => p.id === a.id || (p.caseStudy && p.caseStudy.page && (a.getAttribute("href") || "").endsWith(p.caseStudy.page)));
+      const h = (a.getAttribute("href") || "").split(/[?#]/)[0];
+      return lockedProjects.find((p) => p.caseStudy && p.caseStudy.page && h.endsWith(p.caseStudy.page));
+    };
+    let note, noteT;
+    const showNote = (p) => {
+      if (!note) {
+        note = document.createElement("div");
+        note.className = "lnote"; note.setAttribute("role", "status"); note.setAttribute("aria-live", "polite");
+        document.body.appendChild(note);
+      }
+      note.innerHTML = `${CUR_ICON.locked}<span><b>Private project</b><small>${esc(p.name)} isn't public yet. Ask me and I'll walk you through it.</small></span><a href="/contact.html?service=Project%20access&amp;project=${encodeURIComponent(p.name)}">Request access</a><button type="button" aria-label="Close">×</button>`;
+      $("button", note).addEventListener("click", () => note.classList.remove("is-on"));
+      requestAnimationFrame(() => note.classList.add("is-on"));
+      clearTimeout(noteT); noteT = setTimeout(() => note.classList.remove("is-on"), 6000);
+    };
+    window.addEventListener("click", (e) => {
+      const a = e.target.closest && e.target.closest("a[href]");
+      if (!a || (note && note.contains(a))) return;
+      const p = lockedOf(a);
+      if (!p) return;
+      e.preventDefault(); e.stopPropagation();
+      showNote(p);
+    }, true);
   }
 
   // Social links (Contact rows + footer): the platform logo (brand colour tile) follows the cursor.

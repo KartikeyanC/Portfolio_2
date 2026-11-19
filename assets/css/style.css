@@ -457,6 +457,23 @@ body, .nav, .panel, .work__frame, .fact, .otw { transition: background-color .35
   transform: scale(0); transition: transform .35s cubic-bezier(.2,.7,.2,1); } /* main.js centres it on the cursor at whole pixels (keeps the label sharp) */
 .pcur svg { width: 22px; height: 22px; flex: none; fill: currentColor; }
 .pcur.is-on { transform: none; }
+/* "Private project" note when a locked project (NineFlow, FinRoot) is clicked: same light grey glass as the LOCKED pill */
+.lnote { position: fixed; left: 50%; bottom: max(20px, env(safe-area-inset-bottom)); z-index: 90; width: min(560px, calc(100vw - 32px));
+  display: flex; align-items: center; gap: 14px; padding: 14px 14px 14px 18px; border-radius: 20px; color: #111;
+  background: rgba(225,229,225,.86); border: 1px solid rgba(255,255,255,.6); box-shadow: 0 12px 32px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.6);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+  transform: translate(-50%, calc(100% + 40px)); opacity: 0; transition: transform .4s cubic-bezier(.2,.7,.2,1), opacity .3s; }
+.lnote.is-on { transform: translate(-50%, 0); opacity: 1; }
+.lnote > svg { width: 24px; height: 24px; flex: none; fill: currentColor; }
+.lnote > span { display: grid; gap: 3px; flex: 1; min-width: 0; font-size: 14px; line-height: 1.35; }
+.lnote b { font-family: var(--clash); font-size: 16px; text-transform: uppercase; letter-spacing: .02em; }
+.lnote small { font-size: 13.5px; color: #333; }
+.lnote a { flex: none; padding: 10px 16px; border-radius: 999px; background: #111; color: #fff; font-weight: 600; font-size: 14px; text-decoration: none; }
+.lnote a:hover { background: var(--acc); }
+.lnote button { flex: none; width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: #111; font-size: 22px; line-height: 1; cursor: pointer; }
+.lnote button:hover { background: rgba(0,0,0,.08); }
+@media (max-width: 520px) { .lnote { flex-wrap: wrap; } .lnote > span { flex-basis: calc(100% - 80px); } .lnote a { margin-left: 38px; } }
+@media (prefers-reduced-motion: reduce) { .lnote { transition: opacity .2s; } }
 .pcur.is-soon { color: #111; background: rgba(215,220,215,.62); border-color: rgba(255,255,255,.55); box-shadow: 0 8px 24px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.6); }
 
 /* ---------- Expertise: expanding panels (E4) ---------- */
