@@ -4572,10 +4572,10 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
   background: radial-gradient(50% 50% at 50% 50%, rgb(var(--c) / var(--a)) 0%, rgb(var(--c) / calc(var(--a) * .45)) 42%, transparent 70%);
   filter: blur(var(--b, clamp(28px, 4vw, 60px))); will-change: transform; animation: var(--k) var(--t) ease-in-out infinite alternate; }
 /* 1: the main beam rising from the bottom-right, 2: a softer one from the top-left, 3: deep blue pool, 4: a thin bright streak */
-.kp__light > i:nth-child(1) { --c: var(--acc-rgb); --a: .55; --h: 44vmax; --k: kpb1; --t: 17s; }
-.kp__light > i:nth-child(2) { --c: var(--acc-rgb); --a: .3; --h: 36vmax; --k: kpb2; --t: 21s; animation-delay: -6s; }
-.kp__light > i:nth-child(3) { --c: 11 95 179; --a: .55; --h: 60vmax; --k: kpb3; --t: 25s; animation-delay: -11s; }
-.kp__light > i:nth-child(4) { --c: 124 196 255; --a: .32; --h: 9vmax; --b: clamp(16px, 2vw, 30px); --k: kpb4; --t: 14s; animation-delay: -3s; }
+.kp__light > i:nth-child(1) { --c: var(--acc-rgb); --a: .85; --h: 44vmax; --b: clamp(18px, 2.4vw, 36px); --k: kpb1; --t: 17s; }
+.kp__light > i:nth-child(2) { --c: var(--acc-rgb); --a: .42; --h: 36vmax; --k: kpb2; --t: 21s; animation-delay: -6s; }
+.kp__light > i:nth-child(3) { --c: 11 95 179; --a: .7; --h: 60vmax; --k: kpb3; --t: 25s; animation-delay: -11s; }
+.kp__light > i:nth-child(4) { --c: 124 196 255; --a: .4; --h: 9vmax; --b: clamp(16px, 2vw, 30px); --k: kpb4; --t: 14s; animation-delay: -3s; }
 @keyframes kpb1 { 0% { transform: translate(34vw, 42vh) rotate(-38deg); } 50% { transform: translate(18vw, 30vh) rotate(-22deg) scale(1.1, 1.25); } 100% { transform: translate(40vw, 18vh) rotate(-52deg); } }
 @keyframes kpb2 { 0% { transform: translate(-36vw, -46vh) rotate(24deg); } 100% { transform: translate(-14vw, -38vh) rotate(42deg) scale(1.15); } }
 @keyframes kpb3 { 0% { transform: translate(-30vw, 46vh) rotate(-8deg); } 100% { transform: translate(6vw, 52vh) rotate(10deg) scale(1.2, .85); } }
@@ -4590,11 +4590,12 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 
 /* "Currently at / Company" (or "Currently / Open to work"): small two-line label at the top right of the hero,
    in both hero layers so the paint reveals it too. Filled by main.js from content.json site.currently */
-.kp__now { position: absolute; top: clamp(110px, 13vh, 150px); right: var(--pad); display: grid; gap: 4px; font-size: clamp(12px, .95vw, 14px); line-height: 1.2; }
+.kp__head { position: relative; }
+.kp__now { position: absolute; top: 0; right: 0; display: grid; gap: 4px; font-size: clamp(12px, .95vw, 14px); line-height: 1.2; } /* level with "Hi, I'm Kartikeyan", lined up with the title's right edge */
 .kp__now[hidden] { display: none; }
 .kp__now b { display: flex; align-items: center; gap: 7px; font-weight: 700; font-size: 1.15em; }
 .kp__base .kp__now b { color: var(--ink); }
 .kp__now b i { width: 8px; height: 8px; border-radius: 50%; background: #34c759; box-shadow: 0 0 0 0 rgba(52, 199, 89, .55); animation: kpDot 2.2s ease-out infinite; }
 @keyframes kpDot { 70% { box-shadow: 0 0 0 7px rgba(52, 199, 89, 0); } 100% { box-shadow: 0 0 0 0 rgba(52, 199, 89, 0); } }
 @media (prefers-reduced-motion: reduce) { .kp__now b i { animation: none; } }
-@media (max-width: 520px) { .kp__now { top: 64px; } }
+@media (max-width: 600px) { .kp__now { position: static; display: flex; align-items: center; gap: 6px; margin-bottom: 12px; } } /* phones: one line above the greeting */
