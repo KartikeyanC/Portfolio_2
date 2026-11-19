@@ -662,10 +662,9 @@ body, .nav, .panel, .work__frame, .fact, .otw { transition: background-color .35
 :root[data-accent="coral"] .seal circle { fill: #1F252E; stroke: #F54748; }
 :root[data-accent="coral"] .seal text { fill: #FBE9E7; }
 :root[data-accent="coral"] .seal__k text { fill: #F54748; }
-/* moving hero glow: the three helper blobs are fixed blues, so give them coral-family tones */
-:root[data-accent="coral"] .glow--live > i:nth-child(2) { background: radial-gradient(circle, rgba(255, 154, 139, .8) 0%, rgba(255, 154, 139, .35) 40%, transparent 68%); }
-:root[data-accent="coral"] .glow--live > i:nth-child(3) { background: radial-gradient(circle, rgba(184, 41, 42, .95) 0%, rgba(184, 41, 42, .4) 45%, transparent 70%); }
-:root[data-accent="coral"] .glow--live > i:nth-child(4) { background: radial-gradient(circle, rgba(255, 180, 168, .7) 0%, transparent 70%); }
+/* moving hero light: two of the beams are fixed blues, so give them coral-family tones */
+:root[data-accent="coral"] :is(.kp__light, .glow--live) > i:nth-child(3) { --c: 184 41 42; }
+:root[data-accent="coral"] :is(.kp__light, .glow--live) > i:nth-child(4) { --c: 255 180 168; }
 /* Light mode: bright accents get a darker shade wherever they are used as text */
 :root[data-theme="light"]:not([data-accent]), :root[data-theme="light"][data-accent="blue"] { --acc-text: var(--acc); } /* blue TEXT on light: same #1E9BFF as the buttons */
 :root[data-theme="light"][data-accent="lime"] { --acc-text: #5f7a00; }
@@ -1180,19 +1179,7 @@ html.lenis, html.lenis body { height: auto; }
    pattern never visibly repeats). Paused while the hero is off screen (main.js) and for reduced motion. */
 /* the still corner glow is dropped here so all of the blue you see is moving light */
 html .hero .glow.glow--live { background: var(--bg); }
-.glow--live > i { position: absolute; border-radius: 50%; filter: blur(clamp(36px, 5vw, 70px)); will-change: transform; pointer-events: none; }
-.glow--live > i:nth-child(1) { width: 60vw; height: 60vw; right: -16vw; bottom: -30vw; background: radial-gradient(circle, var(--acc) 0%, var(--acc) 22%, rgb(var(--acc-rgb) / .6) 45%, transparent 70%); animation: gl1 11s ease-in-out infinite alternate; }
-.glow--live > i:nth-child(2) { width: 44vw; height: 44vw; right: 8vw; top: -18vw; background: radial-gradient(circle, rgba(124, 196, 255, .8) 0%, rgba(124, 196, 255, .35) 40%, transparent 68%); animation: gl2 13s ease-in-out infinite alternate; }
-.glow--live > i:nth-child(3) { width: 40vw; height: 40vw; left: 10vw; bottom: -24vw; background: radial-gradient(circle, rgba(11, 95, 179, .95) 0%, rgba(11, 95, 179, .4) 45%, transparent 70%); animation: gl3 15s ease-in-out infinite alternate; }
-.glow--live > i:nth-child(4) { width: 28vw; height: 28vw; right: 26vw; bottom: 6vh; background: radial-gradient(circle, rgba(0, 194, 255, .75) 0%, transparent 70%); animation: gl4 9s ease-in-out infinite alternate; }
-@keyframes gl1 { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-26vw, -14vh) scale(1.2); } 100% { transform: translate(-8vw, -30vh) scale(.9); } }
-@keyframes gl2 { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-34vw, 18vh) scale(1.25); } 100% { transform: translate(6vw, 34vh) scale(.85); } }
-@keyframes gl3 { 0% { transform: translate(0, 0) scale(.9); } 50% { transform: translate(30vw, -20vh) scale(1.15); } 100% { transform: translate(56vw, -6vh) scale(1); } }
-@keyframes gl4 { 0% { transform: translate(0, 0) scale(1); opacity: .6; } 50% { transform: translate(22vw, -30vh) scale(1.4); opacity: 1; } 100% { transform: translate(-18vw, -12vh) scale(.8); opacity: .5; } }
-.glow--live.is-paused > i { animation-play-state: paused; }
-:root[data-theme="light"] .glow--live > i { opacity: .55; }
-:root[data-theme="light"] .glow--live > i:nth-child(1) { opacity: .8; }
-@media (prefers-reduced-motion: reduce) { .glow--live > i { animation: none; } }
+/* the light itself (4 drifting beams) is shared with the Home hero: see ".kp__light" near the end of this file */
 
 /* ---------- Contact "Start a project" brief (kraftbase-style: recessed tray > card, info | boxed form) ---------- */
 .brief { padding: 10px; border-radius: 18px; background: #0c0c0c; box-shadow: inset 0 0 8px rgba(255,255,255,.06), inset 0 0 0 1px var(--line); margin: clamp(30px, 4vw, 50px) 0 clamp(60px, 8vw, 120px); }
@@ -4579,20 +4566,20 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 /* NineFlow stays dark in the light theme, so the menu is a solid white pill there, from the top of the page (nineflow.html keeps .is-pill on) */
 :root[data-theme="light"] body:has(main.nfp) .nav.is-pill { top: calc(var(--nav-top, 0px) + 12px); background: rgba(255, 255, 255, .94); border-color: rgba(255, 255, 255, .9); }
 
-/* ---------- Home hero: drifting light + "Currently" label (from the owner's reference recording, 19 Nov) ----------
+/* ---------- Hero drifting light (Home .kp__light + the other pages' .glow--live) + "Currently" label (from the owner's reference recording, 19 Nov) ----------
    Soft grainy blue beams sweep slowly behind the paint hero (.kp__light sits under both hero layers, so the
    faint base layer is now see-through). Paused off-screen (main.js) and for reduced motion. */
 .kp { background: var(--bg); }
 .kp__base { background: transparent; }
 .kp__light { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-.kp__light > i { position: absolute; left: 50%; top: 50%; width: 150vmax; height: var(--h); margin: calc(var(--h) / -2) 0 0 -75vmax; border-radius: 50%;
+:is(.kp__light, .glow--live) > i { position: absolute; left: 50%; top: 50%; width: 150vmax; height: var(--h); margin: calc(var(--h) / -2) 0 0 -75vmax; border-radius: 50%;
   background: radial-gradient(50% 50% at 50% 50%, rgb(var(--c) / var(--a)) 0%, rgb(var(--c) / var(--a)) 26%, rgb(var(--c) / calc(var(--a) * .55)) 48%, transparent 70%); /* solid core = the bright, saturated beam of the reference */
   filter: blur(var(--b, clamp(28px, 4vw, 60px))); will-change: transform; animation: var(--k) var(--t) ease-in-out infinite alternate; }
 /* 1: the main beam rising from the bottom-right, 2: a softer one from the top-left, 3: deep blue pool, 4: a thin bright streak */
-.kp__light > i:nth-child(1) { --c: var(--acc-rgb); --a: 1; --h: 48vmax; --b: clamp(14px, 1.8vw, 28px); --k: kpb1; --t: 16s; }
-.kp__light > i:nth-child(2) { --c: var(--acc-rgb); --a: .75; --h: 38vmax; --b: clamp(20px, 2.6vw, 40px); --k: kpb2; --t: 20s; animation-delay: -6s; }
-.kp__light > i:nth-child(3) { --c: 11 95 179; --a: .95; --h: 62vmax; --k: kpb3; --t: 24s; animation-delay: -11s; }
-.kp__light > i:nth-child(4) { --c: 124 196 255; --a: .75; --h: 9vmax; --b: clamp(16px, 2vw, 30px); --k: kpb4; --t: 14s; animation-delay: -3s; }
+:is(.kp__light, .glow--live) > i:nth-child(1) { --c: var(--acc-rgb); --a: 1; --h: 48vmax; --b: clamp(14px, 1.8vw, 28px); --k: kpb1; --t: 16s; }
+:is(.kp__light, .glow--live) > i:nth-child(2) { --c: var(--acc-rgb); --a: .75; --h: 38vmax; --b: clamp(20px, 2.6vw, 40px); --k: kpb2; --t: 20s; animation-delay: -6s; }
+:is(.kp__light, .glow--live) > i:nth-child(3) { --c: 11 95 179; --a: .95; --h: 62vmax; --k: kpb3; --t: 24s; animation-delay: -11s; }
+:is(.kp__light, .glow--live) > i:nth-child(4) { --c: 124 196 255; --a: .75; --h: 9vmax; --b: clamp(16px, 2vw, 30px); --k: kpb4; --t: 14s; animation-delay: -3s; }
 @keyframes kpb1 { 0% { transform: translate(36vw, 46vh) rotate(-38deg); } 50% { transform: translate(12vw, 30vh) rotate(-20deg) scale(1.1, 1.3); } 100% { transform: translate(42vw, 14vh) rotate(-56deg); } }
 @keyframes kpb2 { 0% { transform: translate(-38vw, -50vh) rotate(24deg); } 100% { transform: translate(-8vw, -40vh) rotate(44deg) scale(1.2); } }
 @keyframes kpb3 { 0% { transform: translate(-30vw, 46vh) rotate(-8deg); } 100% { transform: translate(6vw, 52vh) rotate(10deg) scale(1.2, .85); } }
@@ -4600,13 +4587,17 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 /* film grain over the light, like the reference */
 .kp__light::after { content: ""; position: absolute; inset: 0; opacity: .32; mix-blend-mode: soft-light;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"); }
-.kp__light.is-paused > i { animation-play-state: paused; }
+:is(.kp__light, .glow--live).is-paused > i { animation-play-state: paused; }
 /* dark theme: the bright beams pass behind the faint (unpainted) text, so lift its grey a little and give it a soft dark halo */
 :root:not([data-theme="light"]) .kp__base { --dim: #a8a8a8; text-shadow: 0 0 18px rgba(0, 0, 0, .55); }
 :root:not([data-theme="light"]) .kp__base .btn { background: rgba(0, 0, 0, .3); border-color: rgba(255, 255, 255, .22); }
-:root[data-theme="light"] .kp__light > i { --a: .32; }
-:root[data-theme="light"] .kp__light > i:nth-child(4) { --a: .35; }
-@media (prefers-reduced-motion: reduce) { .kp__light > i { animation: none; transform: translate(30vw, 36vh) rotate(-34deg); } .kp__light > i:nth-child(2) { transform: translate(-30vw, -44vh) rotate(30deg); } .kp__light > i:nth-child(3) { transform: translate(-24vw, 48vh); } .kp__light > i:nth-child(4) { display: none; } }
+/* other pages' heroes, dark theme: the blue first letter, the blue mark and the grey intro text sit over the same bright beams */
+:root:not([data-theme="light"]) .hero:has(> .glow--live) { --grey: #c4c4c4; text-shadow: 0 0 22px rgba(0, 0, 0, .6); }
+:root:not([data-theme="light"]) .hero:has(> .glow--live) .mark { filter: drop-shadow(0 0 14px rgba(0, 0, 0, .65)); }
+:root:not([data-theme="light"]) .hero:has(> .glow--live) .btn { text-shadow: none; }
+:root[data-theme="light"] :is(.kp__light, .glow--live) > i { --a: .32; }
+:root[data-theme="light"] :is(.kp__light, .glow--live) > i:nth-child(4) { --a: .35; }
+@media (prefers-reduced-motion: reduce) { :is(.kp__light, .glow--live) > i { animation: none; transform: translate(30vw, 36vh) rotate(-34deg); } :is(.kp__light, .glow--live) > i:nth-child(2) { transform: translate(-30vw, -44vh) rotate(30deg); } :is(.kp__light, .glow--live) > i:nth-child(3) { transform: translate(-24vw, 48vh); } :is(.kp__light, .glow--live) > i:nth-child(4) { display: none; } }
 
 /* "Currently at / Company" (or "Currently / Open to work"): small two-line label at the top right of the hero,
    in both hero layers so the paint reveals it too. Filled by main.js from content.json site.currently */
