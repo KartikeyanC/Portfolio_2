@@ -4586,23 +4586,26 @@ img.iph__view { object-fit: cover; object-position: var(--fy, 50% 0); }
 .kp__base { background: transparent; }
 .kp__light { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
 .kp__light > i { position: absolute; left: 50%; top: 50%; width: 150vmax; height: var(--h); margin: calc(var(--h) / -2) 0 0 -75vmax; border-radius: 50%;
-  background: radial-gradient(50% 50% at 50% 50%, rgb(var(--c) / var(--a)) 0%, rgb(var(--c) / calc(var(--a) * .45)) 42%, transparent 70%);
+  background: radial-gradient(50% 50% at 50% 50%, rgb(var(--c) / var(--a)) 0%, rgb(var(--c) / var(--a)) 26%, rgb(var(--c) / calc(var(--a) * .55)) 48%, transparent 70%); /* solid core = the bright, saturated beam of the reference */
   filter: blur(var(--b, clamp(28px, 4vw, 60px))); will-change: transform; animation: var(--k) var(--t) ease-in-out infinite alternate; }
 /* 1: the main beam rising from the bottom-right, 2: a softer one from the top-left, 3: deep blue pool, 4: a thin bright streak */
-.kp__light > i:nth-child(1) { --c: var(--acc-rgb); --a: .85; --h: 44vmax; --b: clamp(18px, 2.4vw, 36px); --k: kpb1; --t: 17s; }
-.kp__light > i:nth-child(2) { --c: var(--acc-rgb); --a: .42; --h: 36vmax; --k: kpb2; --t: 21s; animation-delay: -6s; }
-.kp__light > i:nth-child(3) { --c: 11 95 179; --a: .7; --h: 60vmax; --k: kpb3; --t: 25s; animation-delay: -11s; }
-.kp__light > i:nth-child(4) { --c: 124 196 255; --a: .4; --h: 9vmax; --b: clamp(16px, 2vw, 30px); --k: kpb4; --t: 14s; animation-delay: -3s; }
-@keyframes kpb1 { 0% { transform: translate(34vw, 42vh) rotate(-38deg); } 50% { transform: translate(18vw, 30vh) rotate(-22deg) scale(1.1, 1.25); } 100% { transform: translate(40vw, 18vh) rotate(-52deg); } }
-@keyframes kpb2 { 0% { transform: translate(-36vw, -46vh) rotate(24deg); } 100% { transform: translate(-14vw, -38vh) rotate(42deg) scale(1.15); } }
+.kp__light > i:nth-child(1) { --c: var(--acc-rgb); --a: 1; --h: 48vmax; --b: clamp(14px, 1.8vw, 28px); --k: kpb1; --t: 16s; }
+.kp__light > i:nth-child(2) { --c: var(--acc-rgb); --a: .75; --h: 38vmax; --b: clamp(20px, 2.6vw, 40px); --k: kpb2; --t: 20s; animation-delay: -6s; }
+.kp__light > i:nth-child(3) { --c: 11 95 179; --a: .95; --h: 62vmax; --k: kpb3; --t: 24s; animation-delay: -11s; }
+.kp__light > i:nth-child(4) { --c: 124 196 255; --a: .75; --h: 9vmax; --b: clamp(16px, 2vw, 30px); --k: kpb4; --t: 14s; animation-delay: -3s; }
+@keyframes kpb1 { 0% { transform: translate(36vw, 46vh) rotate(-38deg); } 50% { transform: translate(12vw, 30vh) rotate(-20deg) scale(1.1, 1.3); } 100% { transform: translate(42vw, 14vh) rotate(-56deg); } }
+@keyframes kpb2 { 0% { transform: translate(-38vw, -50vh) rotate(24deg); } 100% { transform: translate(-8vw, -40vh) rotate(44deg) scale(1.2); } }
 @keyframes kpb3 { 0% { transform: translate(-30vw, 46vh) rotate(-8deg); } 100% { transform: translate(6vw, 52vh) rotate(10deg) scale(1.2, .85); } }
 @keyframes kpb4 { 0% { transform: translate(22vw, -6vh) rotate(-48deg); opacity: .2; } 50% { opacity: 1; } 100% { transform: translate(44vw, 10vh) rotate(-30deg); opacity: .3; } }
 /* film grain over the light, like the reference */
 .kp__light::after { content: ""; position: absolute; inset: 0; opacity: .32; mix-blend-mode: soft-light;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"); }
 .kp__light.is-paused > i { animation-play-state: paused; }
-:root[data-theme="light"] .kp__light > i { --a: .2; }
-:root[data-theme="light"] .kp__light > i:nth-child(4) { --a: .25; }
+/* dark theme: the bright beams pass behind the faint (unpainted) text, so lift its grey a little and give it a soft dark halo */
+:root:not([data-theme="light"]) .kp__base { --dim: #a8a8a8; text-shadow: 0 0 18px rgba(0, 0, 0, .55); }
+:root:not([data-theme="light"]) .kp__base .btn { background: rgba(0, 0, 0, .3); border-color: rgba(255, 255, 255, .22); }
+:root[data-theme="light"] .kp__light > i { --a: .32; }
+:root[data-theme="light"] .kp__light > i:nth-child(4) { --a: .35; }
 @media (prefers-reduced-motion: reduce) { .kp__light > i { animation: none; transform: translate(30vw, 36vh) rotate(-34deg); } .kp__light > i:nth-child(2) { transform: translate(-30vw, -44vh) rotate(30deg); } .kp__light > i:nth-child(3) { transform: translate(-24vw, 48vh); } .kp__light > i:nth-child(4) { display: none; } }
 
 /* "Currently at / Company" (or "Currently / Open to work"): small two-line label at the top right of the hero,
