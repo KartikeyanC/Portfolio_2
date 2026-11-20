@@ -40,6 +40,16 @@ npx decap-server
    Copy the Client ID and create a Client Secret, then in Netlify: *Site configuration → Access & security → OAuth → Install provider → GitHub* and paste them.
 5. Open `https://kartikeyan.netlify.app/gk` → **Login with GitHub**. Only GitHub accounts with write access to the repository can log in.
 
+## Password for private projects (NineFlow, FinRoot)
+
+`netlify/edge-functions/private-projects.js` puts a password page in front of `/projects/nineflow.html` and `/projects/finroot.html` (and every image in their folders except the card covers). It works on Netlify's free plan. The password is never stored in the code:
+
+1. Netlify → your site → *Site configuration → Environment variables → Add a variable → Add a single variable*
+2. Key `PROJECTS_PASSWORD`, value = your password, scope includes **Functions** → *Create variable*
+3. *Deploys → Trigger deploy → Deploy site*
+
+Visitors type it once; the browser remembers it for 30 days. To change it, edit the variable and redeploy (everyone is signed out). Delete the variable to open the pages again.
+
 ## Connect your domain
 
 Netlify → *Domain management → Add a domain* → follow the DNS steps shown (change the nameservers at your registrar, or add the A/CNAME records). HTTPS is added automatically. Then update `site_url` and `display_url` in `gk/config.yml`.
