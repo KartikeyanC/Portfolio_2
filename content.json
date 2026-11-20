@@ -1178,19 +1178,20 @@
     {
       "id": "myshopza",
       "name": "Myshopza",
-      "type": "Logo & brand identity",
+      "type": "Logo, brand identity & UX",
       "category": "Branding",
       "tags": [
         "Logo",
         "Brand identity",
-        "E-commerce software"
+        "UX/UI design"
       ],
       "filters": [
         "brand",
-        "graphic"
+        "graphic",
+        "uiux"
       ],
       "image": "",
-      "alt": "The Myshopza logo on the wall of a bright office reception, above a light-wood desk",
+      "alt": "The Myshopza shopping-bag symbol rendered in 3D on navy, above the white Myshopza logo",
       "description": "A logo for Myshopza, e-commerce software for every business: a shopping bag that also reads as the letter M, with a full icon set for iOS, Android and the web.",
       "status": "live",
       "featured": false,
@@ -1211,14 +1212,14 @@
         "show": true,
         "page": "myshopza.html",
         "title": "Myshopza: a logo for an e-commerce software product",
-        "role": "Logo and brand identity",
+        "role": "Logo, brand identity and UX/UI design",
         "tools": [
           "Adobe Illustrator"
         ],
         "tags": [
           "Logo",
           "Brand identity",
-          "E-commerce software"
+          "UX/UI design"
         ],
         "outcome": "A logo for Myshopza's e-commerce software: a shopping bag that also reads as an M, delivered with light and dark lockups, app icons and favicons."
       }
